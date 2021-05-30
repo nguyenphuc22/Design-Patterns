@@ -10,7 +10,7 @@ Adapter Pattern giữ vài cho làm câu nối giữa hai lớp, giúp chuyển 
 
 Ví dụ thực tế: Ta có một ổ cấm âm tường với đầu vào là hai chấu âm dương tới nay hoạt động tốt với các thiết bị trong nhà.
 
-![]()
+![](images/problem.jpg)
 
 Đến một ngày đẹp trời, ta mua thêm một máy hàn thiết với phích cắm 3 chân, theo tiêu chuẩn của Trung Quốc.
 
