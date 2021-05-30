@@ -10,11 +10,11 @@ Adapter Pattern giữ vài cho làm câu nối giữa hai lớp, giúp chuyển 
 
 Ví dụ thực tế: Ta có một ổ cấm âm tường với đầu vào là hai chấu âm dương tới nay hoạt động tốt với các thiết bị trong nhà.
 
-// Chèn Hình
+![]()
 
 Đến một ngày đẹp trời, ta mua thêm một máy hàn thiết với phích cắm 3 chân, theo tiêu chuẩn của Trung Quốc.
 
-// Chèn Hình
+![](images/pin3.jpg)
 
 ## Giải pháp
 
@@ -26,7 +26,7 @@ Bạn cũng không thể sữa lại phích của máy hàn. Vì nó quá phức
 
 Giải pháp tốt nhất hiện tại là sử dụng adapter chuyên chân 3 chấu thành hai chấu, vừa giữa nguyên phích ba chấu của nhà sản xuất, vừa giữa nguyên ổ hai chấu âm tường của nhà. Ít tốn kém và giữa được sự tương thích với các ổ cấm cũ.
 
-// Chèn Hình
+!["Solution"](images/Solution.jpg)
 
 ## Cấu Trúc
 
@@ -134,4 +134,4 @@ public class Led {
 
 Kết quả:
 
-// Chèn Hình
+![](images/Result.PNG)
