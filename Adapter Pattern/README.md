@@ -48,7 +48,7 @@ Một người muốn sử dụng đèn led, với hiệu điện thế 3v. Tuy 
 
 Như vậy ta cần một adapter chuyển từ 220v sáng 3v. Mô hình thể hiện như sau:
 
-// Chèn hình	
+![](src/Adapter%20Pattern%20Diagram.png)
 
 LedInterFace.java
 
