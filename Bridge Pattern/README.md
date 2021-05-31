@@ -31,3 +31,123 @@ Mẫu Bridge Pattern sẽ giải quyết vấn đề này bằng cách tách chi
 
 ## Ví dụ áp dụng Bridge Pattern
 
+/// Chèn Hình
+
+
+
+Account.java
+
+```java
+public interface Account {
+    void openAccount();
+}
+```
+
+CheckingAccount.java
+
+```java
+public class CheckingAccount implements Account{
+    @Override
+    public void openAccount() {
+        System.out.println("Checking Account!");
+    }
+}
+```
+
+TutorialAccount.java
+
+```java
+public class TutorialAccount implements Account{
+    @Override
+    public void openAccount() {
+        System.out.println("Xin vui lòng chọn ngôn ngữ");
+        System.out.println("Please select your language");
+    }
+}
+```
+
+Bank.java
+
+```java
+public abstract class Bank {
+    protected Account account;
+
+    public Bank(Account account) {
+        this.account = account;
+    }
+
+    public abstract void openAccount();
+}
+```
+
+MMBank.java
+
+```java
+public class MMBank extends Bank {
+
+    public MMBank(Account account) {
+        super(account);
+    }
+
+    @Override
+    public void openAccount() {
+        System.out.println("Chào mừng đến với MBBank");
+        System.out.println("Welcome to MMBank");
+        account.openAccount();
+    }
+}
+```
+
+TPBank.java
+
+```java
+public class TPBank extends Bank {
+
+    public TPBank(Account account) {
+        super(account);
+    }
+
+    @Override
+    public void openAccount() {
+        System.out.println("Chào mừng đến với TPBank");
+        System.out.println("Welcome to TPBank");
+        this.account.openAccount();
+    }
+}
+```
+
+demo.java
+
+```java
+public class demo {
+    public static void main(String[] args) {
+        Bank bank = new TPBank(new TutorialAccount());
+        bank.openAccount();
+        System.out.println();
+        bank = new TPBank(new CheckingAccount());
+        bank.openAccount();
+        System.out.println();
+        bank = new MMBank(new TutorialAccount());
+        bank.openAccount();
+    }
+}
+```
+
+Kết quả:
+
+```
+Chào mừng đến với TPBank
+Welcome to TPBank
+Xin vui lòng chọn ngôn ngữ
+Please select your language
+
+Chào mừng đến với TPBank
+Welcome to TPBank
+Checking Account!
+
+Chào mừng đến với MBBank
+Welcome to MMBank
+Xin vui lòng chọn ngôn ngữ
+Please select your language
+```
+
