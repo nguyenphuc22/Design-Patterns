@@ -20,7 +20,7 @@ Tập hợp các Pattern dùng để thiết lập, định nghĩa quạn hệ g
 - [Bridge](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Bridge%20Pattern)
 - [Composite](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Composite%20Pattern)
 - [Decorator](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Decorator%20Pattern)
-- Facede
+- [Facede](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Facade%20Pattern)
 - Proxy
 - Flyweight
 
