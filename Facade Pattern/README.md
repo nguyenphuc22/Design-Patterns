@@ -16,7 +16,7 @@ Facade Pattern sẽ giúp bạn trọng việc này, pattern này sẽ giúp b�
 
 ## Cấu Trúc
 
-![](Images\Struct%20Diagram.png)
+![](Images/Struct%20Diagram.png)
 
 - Facede: Phân phối yêu của Client đến các Subsystems đảm nhận công việc.
 - Subsystems: cài đặt các phương thức của mình và implement Facede.
@@ -24,7 +24,7 @@ Facade Pattern sẽ giúp bạn trọng việc này, pattern này sẽ giúp b�
 
 ## Ví dụ áp dụng Facede
 
-![](Images\Vidu%20Diagram.png)
+![](Images/Vidu%20Diagram.png)
 
 LoginService.java
 
