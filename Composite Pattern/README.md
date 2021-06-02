@@ -10,23 +10,21 @@ Khi sử Composite Pattern bạn phải chắc chắn rằng mô hình ứng d�
 
 Ví dụ như sau: Trong việc lưu trữ trong máy tính có hai dạng chính: `Folder` và `File`. Một `Folder` thì có thể chứa nhiều `Folder` và `File`. Có thể một trong `Folder` chỉ chứa `File` và trong `File` thì chứa nội dụng.
 
-// Chèn Ảnh
-
 Giờ giả sử ta cần tìm tất cả File trong một Folder. Thử cách tiếp cận thông thường là ta sẽ mở từng Folder con ra và đếm xem co bao nhiêu File vào Folder tiếp theo đếm tiếp. Nhưng trong lập trình nó không hề đơn giản như việc bạn chỉ cần chạy một dòng for. Bạn phải biết trước loại  File và Folder mà sẽ duyệt và mực đồ lòng vào nhau. Tất cả điều đó làm cho cách tiếp cận này trở nên khó khăn hơn.
 
 ## Giải pháp
 
 Chúng ta sẽ sử chung Composite Pattern để thực hiện công việc với Folder và File bằng cách tạo một interrface chung với một phương thức count(Đếm)
 
-Cái này hoạt động như sau. Đối với File thì chỉ trả về cộng một, Đối với Folder thì nó sẽ duyệt từng item trong Folder đó, bắt từng item đếm sau cùng tới lượt nó tổng hợp lại và trả về tổng số của Folder. Nếu một các item là Folder thì sao? Thì nó sẽ bắt Folder con đó đi đếm các thành item nằm trong Folder con và trả về tổng số.
+![](D:\Design Pattern\Design-Patterns\Composite Pattern\Images\problem.png)
 
-// Chèn Hình
+Cái này hoạt động như sau. Đối với File thì chỉ trả về cộng một, Đối với Folder thì nó sẽ duyệt từng item trong Folder đó, bắt từng item đếm sau cùng tới lượt nó tổng hợp lại và trả về tổng số của Folder. Nếu một các item là Folder thì sao? Thì nó sẽ bắt Folder con đó đi đếm các thành item nằm trong Folder con và trả về tổng số.
 
 Nói đến đây các bạn sẽ nói, ô đây là "Rùa Em" (Đệ Quy). Nhưng với Composite nó sẽ có hiệu quả gì ? Nó sẽ giúp bạn làm việc với các thành phần một cách dể dàng, chỉ cần thông qua interface mà không phải xử lý rác rối sâu đến bên trong. Nhưng lời kêu gọi của bạn sẽ được xử lý chạy dần xuống theo cấu trúc cây.
 
 ## Cấu Trúc
 
-// Chèn Hình
+![](D:\Design Pattern\Design-Patterns\Composite Pattern\Images\struct.png)
 
 - **Component**: interface chung, mô ta các phương thức chung của thành phần trong cây.
 - **Leaf**:  Đây là thành phần cơ bản của cây, nó không có các node con.
@@ -34,7 +32,7 @@ Nói đến đây các bạn sẽ nói, ô đây là "Rùa Em" (Đệ Quy). Như
 
 ## Ví dụ áp dụng Composite Pattern
 
-// Chèn Hình
+![](D:\Design Pattern\Design-Patterns\Composite Pattern\Images\vidu.png)
 
 Chúng ta làm ví dụ ở trên nhưng thay đối một ít là ta sẽ xem tổng folder có size bao nhiêu
 
