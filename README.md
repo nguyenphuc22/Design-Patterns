@@ -18,8 +18,8 @@ Tập hợp các Pattern dùng để thiết lập, định nghĩa quạn hệ g
 
 - [Adapter](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Adapter%20Pattern#readme)
 - [Bridge](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Bridge%20Pattern)
-- Composite
-- Decorator
+- [Composite](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Composite%20Pattern)
+- [Decorator](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Decorator%20Pattern)
 - Facede
 - Proxy
 - Flyweight
