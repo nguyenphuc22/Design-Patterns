@@ -10,11 +10,11 @@ Giả sự bạn có một lớp Notifer có chức năng là gửi thông báo 
 
 Bạn quyết định tạo thêm ba lớp và kế thừa từ lớp Notifier và bạn nghỉ mọi chuyện đã yên.
 
-// Chèn hình
+![](Images/Problem.png)
 
 Sau một thời gian người dùng muốn có thêm các chức kết hợp dư. Ví dụ tui bị cháy nhà, tui muốn thông báo qua cả SMS,Facebook,Slack hoặc là nhiều sự kết hợp giữa 3 cái trên. Nếu như làm theo cách thì ứng dụng của bạn sẽ phình to ra như sau.
 
-// Chèn hình
+![](Images/Problem2.png)
 
 Nếu cứ tiếp tục theo cách này. Sớm hay muộn ứng dụng của bạn cũng sẽ đạt một dãy Guinness. :smile:
 
@@ -22,11 +22,10 @@ Nếu cứ tiếp tục theo cách này. Sớm hay muộn ứng dụng của b�
 
 Sử dụng Decorator sẽ giải quyết vấn đề này. Vấn đề chung ở chỗ là việc kế thừa, nó gây quá nhiều lớp tĩnh không tương thích được với nhau, vì vậy để làm mềm đi sự cứng ngắt này ta nên thêm Aggregation hoặc Composition
 
-// Chèn Hình
+![](Images/Solution.png)
 
 ## Cấu Trúc
-
-// Chèn hình
+![](Images/struct.png)
 
 - **Component**: là interface quy định các phương thức chung cần phải có cho các thành phần trong mẫu.
 - **ConcreteComponent**: Triển khai (implements) các phương thức Component
@@ -37,7 +36,7 @@ Sử dụng Decorator sẽ giải quyết vấn đề này. Vấn đề chung �
 
 Ta sẽ lấy ví dụ ở trên nên mình không giải thích nữa.
 
-// Chèn Hình
+![](Images/Vidu.png)
 
 Notifier.kt
 
