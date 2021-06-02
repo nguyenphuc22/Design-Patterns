@@ -16,7 +16,7 @@ Giờ giả sử ta cần tìm tất cả File trong một Folder. Thử cách t
 
 Chúng ta sẽ sử chung Composite Pattern để thực hiện công việc với Folder và File bằng cách tạo một interrface chung với một phương thức count(Đếm)
 
-![](D:\Design Pattern\Design-Patterns\Composite Pattern\Images\problem.png)
+![](\Images\problem.png)
 
 Cái này hoạt động như sau. Đối với File thì chỉ trả về cộng một, Đối với Folder thì nó sẽ duyệt từng item trong Folder đó, bắt từng item đếm sau cùng tới lượt nó tổng hợp lại và trả về tổng số của Folder. Nếu một các item là Folder thì sao? Thì nó sẽ bắt Folder con đó đi đếm các thành item nằm trong Folder con và trả về tổng số.
 
@@ -24,7 +24,7 @@ Nói đến đây các bạn sẽ nói, ô đây là "Rùa Em" (Đệ Quy). Như
 
 ## Cấu Trúc
 
-![](D:\Design Pattern\Design-Patterns\Composite Pattern\Images\struct.png)
+![](\Images\struct.png)
 
 - **Component**: interface chung, mô ta các phương thức chung của thành phần trong cây.
 - **Leaf**:  Đây là thành phần cơ bản của cây, nó không có các node con.
@@ -32,7 +32,7 @@ Nói đến đây các bạn sẽ nói, ô đây là "Rùa Em" (Đệ Quy). Như
 
 ## Ví dụ áp dụng Composite Pattern
 
-![](D:\Design Pattern\Design-Patterns\Composite Pattern\Images\vidu.png)
+![](\Images\vidu.png)
 
 Chúng ta làm ví dụ ở trên nhưng thay đối một ít là ta sẽ xem tổng folder có size bao nhiêu
 
