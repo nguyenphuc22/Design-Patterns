@@ -1,0 +1,3 @@
+interface Video {
+    fun showVideo()
+}
