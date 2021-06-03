@@ -21,7 +21,7 @@ Tập hợp các Pattern dùng để thiết lập, định nghĩa quạn hệ g
 - [Composite](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Composite%20Pattern)
 - [Decorator](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Decorator%20Pattern)
 - [Facede](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Facade%20Pattern)
-- Proxy
+- [Proxy](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Proxy%20Pattern)
 - Flyweight
 
 ## Behavioral patterns
