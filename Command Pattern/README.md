@@ -10,7 +10,7 @@ Giả sử bạn đang làm trên một ứng dụng soạn thảo văn bản m�
 
 Các nút button có vẻ rất giống nhau, nhưng sự kiện của từng nút thì lại khác nhau. Làm sao để gắn sự kiện cho từng nút button ? Cách đơn giản nhất là tạo các lớp riêng cho từng sự kiện và kế thừa lại lớp cơ sở `Button`
 
-// Chèn hình
+![](Images/problem.png)
 
 Sau một thời gian, bạn nhận ra rằng cách tiếp cận này rất thiêu sót. Đầu tiên, bạn có rất nhiều lớp con, và điều này vẫn ổn nếu như không phá mã trong các lớp khi lớp cơ sỡ `Button` thay đổi.
 
@@ -22,17 +22,17 @@ Sau một thời gian, bạn nhận ra rằng cách tiếp cận này rất thi�
 
 Nói đến đây các bạn sẽ nghỉ chỉ cần tách ra một lớp logic bắt và xử lý các logic các sử kiện nút `Button` thì đã xong.
 
-// Chèn Hình
+![](Images/solution.png)
 
 Nhưng với Command Pattern đề nghị bạn đừng nên dùng GUI gọi yêu cầu trực tiếp. Bạn nên trích các thông tin, yêu cầu , tên phương được gọi......vào một lớp đặc biệt cùng với một phương thức để kích hoạt yêu cầu.
 
-//  Chèn Hình
+![](Images/solution2.png)
 
 Như vậy ta sẽ giảm được sử ghép nối giữa GUI và Logic, giúp bạn có thể Linh hoạt hơn trong sử dụng
 
 ## Cấu Trúc
 
-// Chèn Hình
+![](Images/struct.png)
 
 - **Command**: là interface hoặc abstract class, chứa một phương thức duy nhất để executing lệnh.
 - **Concrete Command**: Thực hiện các yêu cầu khác nhau. Một Concrete Command không phải tự mình thực hiện công việc, thường sẽ chuyển đến lớp logic chuyên nghiệp.
@@ -42,7 +42,7 @@ Như vậy ta sẽ giảm được sử ghép nối giữa GUI và Logic, giúp 
 
 ## Ví dụ áp dụng Command Pattern
 
-// Chèn Hình
+![](Images/vidu.png)
 
 Account.kt
 
