@@ -8,7 +8,7 @@
 
 Bây giờ hãy tưởng tượng, bạn là một dev đang làm một hệ thống đặt hàng online. Bạn muốn hạn chế quyền truy cập vào hệ thống, chỉ những người đã xác thực mới có thể tạo đơn hàng. Đối với admin thì có toàn quền truy cập đơn của mọi người.
 
-// Chèn hình
+![](Images/problem.png)
 
 Sau một thời gian lên ý tưởng, bạn nhận các thao tác xác thực phải thực hiện tuần tự. Hệ thống sẽ xác thực người dùng khi người dùng đăng nhập, Tuy nhiên, nếu thông tin xác thực đó không thành công, thì không có lí do gì để thưc hiện các bước tiếp theo.
 
@@ -17,7 +17,7 @@ Vài tháng sau, chức năng xác thực cần thêm vài case kiểm tra tuầ
 - Có một anh đông nghiệp dể thương nào đấy nói với bạn rằng: "Em ơi, em chuyển dữ liệu thổ thẳng database hơi nguy hiểm nha em". Thế là bạn tiến một bước kiểm tra và lộc lại dữ liệu.
 - Vài tháng yên ắn sau đó, Có anh hacker mũ trắng nào đó bảo hệ thống của bạn quá yếu dể dàng bẻ khóa mật khẩu bằng brute force. Bạn nhận ra đó là sự thật, bạn vội thệm một lớp kiểm tra, lộc các yêu cầu lặp đi lặp lại không thành công nhưng có IP giống nhau và chặn nó.
 
-// Chèn hình
+![](Images/problem2.png)
 
 Theo thời gian, cái lớp xác thực của bạn càng ngày càng bự, nó trở thành mớ hỗn độn khó kiểm soát và mở rộng. Đặc biệt hơn, nếu ở những thành phần khác của hệ thống muốn dùng lại lớp xác thực, đây là điều không thể. Vì nhiều khi ở các thành phần khác chỉ cần sử một vài hàm nhỏ trong cái lớp xác thực bự đó.
 
@@ -25,17 +25,21 @@ Theo thời gian, cái lớp xác thực của bạn càng ngày càng bự, nó
 
 Chain of Responsibility dựa vào việc chuyển đổi các hành vi cụ thể thành các đối tượng hoạt động lập gọi là handlers. Trong vấn đề trên, với hoạt động kiểm thử bạn nên đổi chúng thành một lớp đối tượng cụ thể với một phương thức duy nhất là kiểm tra.
 
+![](Images/solution.png)
+
 Mô hình gợi ý bạn liên kết các handlers lại thành một chuỗi. Như vậy, mỗi handlers phải lưu trữ tham chiếu đến handler tiếp theo, ngoài việc xử lý yêu cầu handlers còn có nhiệm vụ chuyện đến các handers tiếp theo. Yêu cầu sẽ chuyển theo hết chuỗi hoặc có thể kết thúc bật kì handlers nào.
 
 ## Cấu Trúc
 
-// Chèn hình
+![](Images/struct.png)
 
 - Handler: Định nghĩa 1 interface để xử lý các yêu cầu.
 - ConcreteHandler: Implement phương thức từ handler. 
 - Client: Tạo ra các yêu cầu và yêu cầu đó sẽ được gửi đến các đối tượng tiếp nhận.
 
 ## Ví dụ áp dụng Chain of Responsibility
+
+![](Images/vidu.png)
 
 Test.java
 
