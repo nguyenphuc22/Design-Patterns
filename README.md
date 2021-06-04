@@ -28,8 +28,8 @@ Tập hợp các Pattern dùng để thiết lập, định nghĩa quạn hệ g
 
 Pattern này liên quan đến thuật toán và sự phân công công việc giữa các nhóm đối tượng
 
-- Chain of Responsibility
-- Command
+- [Chain of Responsibility](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Chain%20of%20Responsibility)
+- [Command](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Command%20Pattern)
 - Iterator
 - Mediator
 - Memento
