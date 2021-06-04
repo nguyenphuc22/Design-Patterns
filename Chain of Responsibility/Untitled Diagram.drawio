@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-06-04T04:20:37.771Z" agent="5.0 (Windows)" etag="x4B0ppUg7DWDBMoIqzbl" version="14.7.4" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2021-06-04T04:21:11.612Z" agent="5.0 (Windows)" etag="PKd21npXVF-D8gy7i_ZP" version="14.7.4" type="github" pages="3">
   <diagram id="wn40NA7GhEC_BnvhtzGV" name="Page-1">
     <mxGraphModel dx="865" dy="433" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -48,6 +48,12 @@
         <mxCell id="jnmwdIBIAUSC75S_MWXo-6" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="470" y="70" width="20" height="20" as="geometry" />
         </mxCell>
+        <mxCell id="dHneamxZO26Pj_R3AHOR-1" value="Fail" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#b85450;fillColor=#f8cecc;" vertex="1" parent="1">
+          <mxGeometry x="480" y="200" width="30" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="txCn9qtYeUhyNfa5RI1d-1" value="Success" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="1">
+          <mxGeometry x="550" y="60" width="60" height="20" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
@@ -67,6 +73,11 @@
         </mxCell>
         <mxCell id="LuORxG9vtJnnJ0c-uHuf-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="OvInv0y3VVBVd1RLIJcA-1" source="LuORxG9vtJnnJ0c-uHuf-4" target="LuORxG9vtJnnJ0c-uHuf-2">
           <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="EROCIf_JhtIH_7P6-zjI-1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="OvInv0y3VVBVd1RLIJcA-1" source="LuORxG9vtJnnJ0c-uHuf-4">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="480" y="320" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
         <mxCell id="LuORxG9vtJnnJ0c-uHuf-4" value="&lt;div align=&quot;center&quot;&gt;Authentication + Authorization&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;align=center;verticalAlign=top;" vertex="1" parent="OvInv0y3VVBVd1RLIJcA-1">
           <mxGeometry x="362.5" y="-10" width="235" height="220" as="geometry" />
@@ -109,6 +120,12 @@
         </mxCell>
         <mxCell id="LuORxG9vtJnnJ0c-uHuf-13" value="" style="rhombus;whiteSpace=wrap;html=1;" vertex="1" parent="OvInv0y3VVBVd1RLIJcA-1">
           <mxGeometry x="410" y="120" width="15" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MLRKnyQWNhOySgdCiTmR-0" value="Success" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#82b366;fillColor=#d5e8d4;" vertex="1" parent="OvInv0y3VVBVd1RLIJcA-1">
+          <mxGeometry x="620" y="55" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lJfYRSYwcyZY8JMy-G-C-0" value="Fail" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#b85450;fillColor=#f8cecc;" vertex="1" parent="OvInv0y3VVBVd1RLIJcA-1">
+          <mxGeometry x="510" y="240" width="30" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
