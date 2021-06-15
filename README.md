@@ -30,7 +30,7 @@ Pattern này liên quan đến thuật toán và sự phân công công việc g
 
 - [Chain of Responsibility](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Chain%20of%20Responsibility)
 - [Command](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Command%20Pattern)
-- Iterator
+- [Iterator](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Iterator%20Pattern)
 - Mediator
 - Memento
 - Observer
