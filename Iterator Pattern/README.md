@@ -18,25 +18,142 @@ Nghe thì có vẻ dể nếu `collection` đang dùng là dạng list. Việt d
 
 Ý tưởng chính của `Iterator` pattern là lấy hành vi duyệt phần tự của `collection` tách no ra thành một object riêng gọi là một iterator.
 
-// Chèn hình
+![](Images/solution.PNG)
 
 Ngoài việc implementing thuật toán, một đối tượng `iterator` có thể đống gói toàn  bộ những chi tiết về quá trình duyệt như: vị trí hiện tại và còn bao nhiêu phần tử nữa thì kết thúc.
 
 ## Cấu Trúc
 
-// Chèn hình
+![](Images/struct.PNG)
 
 - **Iterator** : là một interface hoặc abstract class khai báo các hoạt động cần thiết để duyệt qua các phần tử.
 - **Concrete Iterators** : cài đặt các phương thức của Iterator, giữ index khi duyệt qua các phần tử.
-- **Iterator Collection** : là một interface tạo ra một hoặc nhiều phương thức cho để lấy `interators` tương thích với `Collection`.
-- **Concrete Collections** : cài đặt các phương thức Iterator Collection, nó cái đặt interface tạo Iterator trả về một Concrete Iterators thích hợp.
+- **Iterable Collection** : là một interface tạo ra một hoặc nhiều phương thức cho để lấy `interators` tương thích với `Collection`.
+- **Concrete Collections** : cài đặt các phương thức Iterable Collection, nó cái đặt interface tạo Iterator trả về một Concrete Iterators thích hợp.
 - **Client** : Đối tượng sử dụng Iterator Pattern.
 
 ## Ví dụ áp dụng Iterator Collection
 
+![](Images/Vidu.PNG)
 
+Item.java
+
+```java
+public class Item {
+    private String name;
+    private int age;
+
+    public Item(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
+    }
+}
+```
+
+ItemIterator.java
+
+```java
+public interface ItemIterator<T> {
+
+    boolean hasNext();
+
+    T next();
+
+}
+```
+
+IterableCollection.java
+
+```java
+public interface IterableCollection<T> {
+
+    void addItem(T temp);
+
+    ItemIterator<T> iterator();
+
+}
+```
+
+MenuCollection.java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class MenuCollection<T> implements IterableCollection {
+
+    private List<T> menuItem = new ArrayList<>();
+
+    public MenuCollection(List<T> menuItem) {
+        this.menuItem = menuItem;
+    }
+
+    @Override
+    public void addItem(Object temp) {
+        menuItem.add((T) temp);
+    }
+
+    @Override
+    public ItemIterator iterator() {
+        return new MenuItemIterator();
+    }
+
+    class MenuItemIterator implements ItemIterator<T> {
+        private int currentIndex = 0;
+
+        @Override
+        public boolean hasNext() {
+            return currentIndex < menuItem.size();
+        }
+
+        @Override
+        public T next() {
+            return menuItem.get(currentIndex++);
+        }
+    }
+}
+```
+
+demo.java
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class demo {
+    public static void main(String[] args) {
+
+        List<Item> list = new ArrayList<>();
+        list.add(new Item("Phuc",18));
+        list.add(new Item("An",19));
+        list.add(new Item("Nam",20));
+        list.add(new Item("Bang",21));
+
+
+        IterableCollection collection = new MenuCollection(list);
+        collection.addItem(new Item("Nick",10));
+        collection.addItem(new Item("Tick", 20));
+
+        ItemIterator itemIterator = collection.iterator();
+
+        while (itemIterator.hasNext()) {
+            Item item = (Item) itemIterator.next();
+            System.out.println(item.toString());
+        }
+    }
+}
+```
 
 ## Khi nào nên sử dụng
 
+Sử dụng khi `collection` của bạn có cấu trúc phức tạp và bạn không muốn ẩn nó đi, không muốn cho clients của mình biết đến.
 
-
+Sử dụng để giảm thiểu các mã trung lập khi duyệt phần tử.
