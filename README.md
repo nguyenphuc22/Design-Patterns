@@ -28,7 +28,7 @@ Structual Design Patterns là một loại design pattern trong lập trình hư
 
 Structual Design Patterns có thể giúp bạn tạo ra các hệ thống một cách linh hoạt hơn bằng cách chia sẻ trách nhiệm giữa các lớp và đối tượng trong hệ thống, giúp bạn dễ dàng thay đổi các hệ thống mà không cần thay đổi các lớp ban dầu, và giúp bạn tối ưu hóa việc sử dụng bộ nhớ trong hệ thống của bạn.
 
-## Behavioral patterns
+## Behavioral Design Patterns
 
 Behavioral Design Patterns là một loại design pattern trong lập trình hướng đối tượng, nó xác định cách thay đổi cách mà các lớp và đối tượng trao đổi với nhau để thực hiện các hành vi trong hệ thống. Mục đích của behavioral design patterns là giúp bạn tạo ra các hệ thống một cách linh hoạt hơn bằng cách điều chỉnh cách mà các lớp và đối tượng trao đổi với nhau
 
