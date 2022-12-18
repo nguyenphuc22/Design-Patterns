@@ -6,7 +6,7 @@ Design Pattern là tổng hợp các giải pháp đã được kiểm chứng c
 
 Creational Design Patterns là một loại design pattern trong lập trình hướng đối tượng, nó xác định cách tạo các đối tượng có thể được sử dụng trong hệ thống. Mục đích của creational design patterns là giúp bạn tạo các đối tượng một cách hiệu quả và linh hoạt hơn bằng cách chia sẻ trách nhiệm tạo đối tượng giữa các lớp trong hệ thống.
 
-- Singleton
+- [Singleton](https://github.com/nguyenphuc22/Design-Patterns/tree/main/Singleton)
 - Abstract Factory
 - Builder
 - Prototype
