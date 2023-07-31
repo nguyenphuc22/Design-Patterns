@@ -1,3 +1,42 @@
+# Open Book - Design Pattern
+
+Đây là một dự án xây dựng quyển sách mở về Design Pattern, nhằm cung cấp tài liệu chất lượng cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình. Nếu bạn có kiến thức về Design Pattern, hãy cùng chúng tôi đóng góp và làm cho quyển sách này hoàn thiện hơn.
+
+## Ngôn ngữ
+
+- Tiếng Việt
+
+## Ngôn ngữ lập trình được hỗ trợ chính
+
+- Java (Nếu bạn biết ngôn ngữ khác, hãy đóng góp để làm cho dự án trở nên phong phú hơn)
+
+## Đóng góp
+
+Chúng tôi rất hoan nghênh mọi đóng góp và sự hỗ trợ từ cộng đồng. Bất kỳ ai, ở bất kỳ level nào trong ngành lập trình, chỉ cần bạn có kiến thức về Design Pattern, bạn đều có thể tham gia và đóng góp cho quyển sách này để làm cho nó hoàn thiện hơn.
+
+Nếu bạn muốn đóng góp vào dự án, hãy làm theo các bước sau:
+
+1. **Fork repository này** (nút "Fork" trên góc trên bên phải trang) để tạo một bản sao của repository trên tài khoản GitHub của bạn.
+
+2. **Tạo một branch mới** để làm việc (ví dụ: `git checkout -b ten_branch`) và thực hiện các thay đổi cần thiết.
+
+3. **Commit các thay đổi của bạn** (ví dụ: `git commit -m "Mô tả commit"`) và **push branch của bạn** lên repository của bạn (ví dụ: `git push origin ten_branch`).
+
+4. **Tạo Pull Request** từ branch của bạn vào branch "main" trong repository này. Chúng tôi sẽ xem xét và review các thay đổi của bạn trước khi merge vào dự án.
+
+**Lưu ý**: Để giúp việc review và hợp nhất Pull Request diễn ra một cách thuận lợi, vui lòng tuân thủ các quy tắc lập trình, bao gồm việc viết code sạch, rõ ràng và chú thích code đầy đủ.
+
+Cảm ơn bạn đã đóng góp cho dự án và hỗ trợ chúng tôi trong việc cung cấp tài liệu chất lượng về Design Pattern cho cộng đồng lập trình ở Việt Nam!
+
+## Mục tiêu
+
+Mục tiêu của dự án là tạo ra một quyển sách chất lượng về Design Pattern, giúp cộng đồng lập trình ở Việt Nam nâng cao kiến thức và kỹ năng trong lĩnh vực này. Chúng ta hãy cùng nhau xây dựng nó!
+
+## Cảm ơn
+
+Chúng tôi xin chân thành cảm ơn mọi đóng góp và sự hỗ trợ của bạn. Cùng nhau, chúng ta có thể làm cho quyển sách này trở nên tuyệt vời hơn.
+
+---
 # Design Pattern
 
 Design Pattern là tổng hợp các giải pháp đã được kiểm chứng cho các vấn đề thiết kế phổ biến trong lập trình hướng đối tượng. Nó đưa ra một cách tiếp cận có sẵn để giải quyết một vấn đề cụ thể trong một hệ thống phần mềm. Mục đích của design pattern là giúp các lập trình viên có thể dễ dàng hơn trong việc thiết kế hệ thống phần mền, bằng cách cung cấp một tập hợp các kỹ thuật và giải pháp đã được kiểm chứng cho các vấn đề thiết kế phổ biến.
