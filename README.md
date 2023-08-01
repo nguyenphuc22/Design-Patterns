@@ -12,11 +12,6 @@
 
 ## Đóng góp
 
-
-## Mục tiêu
-
-Mục tiêu của dự án là tạo ra một quyển sách chất lượng về Design Pattern, giúp cộng đồng lập trình ở Việt Nam nâng cao kiến thức và kỹ năng trong lĩnh vực này. Chúng ta hãy cùng nhau xây dựng nó!
-
 ## Cảm ơn
 
 Chúng tôi xin chân thành cảm ơn mọi đóng góp và sự hỗ trợ của bạn. Cùng nhau, chúng ta có thể làm cho quyển sách này trở nên tuyệt vời hơn.
