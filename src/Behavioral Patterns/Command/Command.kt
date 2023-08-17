@@ -1,0 +1,3 @@
+interface Command {
+    fun execute()
+}
