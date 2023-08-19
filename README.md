@@ -1,4 +1,4 @@
-# Open Book - Design Pattern
+# Open Book - Mẫu Thiết Kế Trong Lập Trình
 
 Đây là một dự án xây dựng quyển sách mở về Design Pattern, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình. Nếu bạn có kiến thức về Design Pattern, hãy cùng chúng tôi đóng góp và làm cho quyển sách này hoàn thiện hơn.
 
