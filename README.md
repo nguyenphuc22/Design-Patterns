@@ -2,7 +2,7 @@
 
 Đây là một dự án xây dựng quyển sách mở về Design Pattern, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình. Nếu bạn có kiến thức về Design Pattern, hãy cùng chúng tôi đóng góp và làm cho quyển sách này hoàn thiện hơn.
 
-<div style="text-align:center"><img src="https://github.com/nguyenphuc22/Design-Patterns/blob/main/docs/images/OpenBook.png" /></div>
+<div style="text-align:center"><img src="/docs/images/OpenBook.png" /></div>
 
 ## Ngôn ngữ!
 
