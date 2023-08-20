@@ -1,1 +1,0 @@
-Ví dụ về ứng dụng design pattern trong các hệ thống phần mềm thực tế
