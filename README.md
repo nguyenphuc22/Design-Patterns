@@ -13,11 +13,12 @@
 
 ## Nội dung sách
 
-- Giới thiệu Design Pattern
-- Creational Patterns
-- Structural Patterns
-- Behavioral Patterns
-- Ứng dụng thực tế
+- [Chương 1: Giới thiệu Design Pattern](docs/Book/1.%20Intro.md)
+- [Chương 2: Nhóm Creational Patterns](docs/2.creational.md)
+- [Chương 3: Nhóm Structural Patterns](docs/3.structural.md)
+- [Chương 4: Nhóm Behavioral Patterns](docs/4.behavioral.md)
+- [Chương 5: Ứng dụng thực tế](docs/5.real-world.md)
+- [Kết luận](docs/conclusion.md)
 
 Xem chi tiết [ở đây](SUMMARY.md).
 
