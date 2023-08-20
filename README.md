@@ -1,23 +1,32 @@
 # Open Book - Mẫu Thiết Kế Trong Lập Trình
 
-Đây là một dự án xây dựng quyển sách mở về Design Pattern, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình. Nếu bạn có kiến thức về Design Pattern, hãy cùng chúng tôi đóng góp và làm cho quyển sách này hoàn thiện hơn.
+Đây là một dự án xây dựng quyển sách mở về Design Pattern, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình.
 
-<div style="text-align:center"><img src="/docs/images/OpenBookImage.png" /></div>
+<div align="center">
+  <img src="docs/images/OpenBookImage.png"/>
+</div>
 
-## Ngôn ngữ!
+## Ngôn ngữ được hỗ trợ
 
 - Tiếng Việt
+- Java, Python, C#, JavaScript
 
-## Ngôn ngữ lập trình được hỗ trợ chính
+## Nội dung sách
 
-- Java (Nếu bạn biết ngôn ngữ khác, hãy đóng góp để làm cho dự án trở nên phong phú hơn)
+- Giới thiệu Design Pattern
+- Creational Patterns
+- Structural Patterns
+- Behavioral Patterns
+- Ứng dụng thực tế
+
+Xem chi tiết [ở đây](SUMMARY.md).
 
 ## Đóng góp
 
-Chúng tôi rất hoan nghênh sự đóng góp của bạn để làm cho quyển sách này trở nên phong phú và chất lượng hơn.
+Chúng tôi rất hoan nghênh sự đóng góp của bạn. Xin vui lòng đọc [Hướng dẫn đóng góp](CONTRIBUTING.md) trước khi tham gia.
 
-Trước khi bạn bắt đầu đóng góp, vui lòng xem hướng dẫn trong file [CONTRIBUTING.md](https://github.com/nguyenphuc22/Design-Patterns/blob/main/CONTRIBUTING.md) để biết các quy tắc và quy định đóng góp trong dự án này.
+[![Build Status](https://travis-ci.org/nguyenphuc22/Design-Patterns.svg?branch=main)](https://travis-ci.org/nguyenphuc22/Design-Patterns) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 
 ## Cảm ơn
 
-Chúng tôi xin chân thành cảm ơn mọi đóng góp và sự hỗ trợ của bạn. Cùng nhau, chúng ta có thể làm cho quyển sách này trở nên tuyệt vời hơn.
+Cảm ơn bạn đã quan tâm và đồng hành cùng dự án!
