@@ -9,7 +9,7 @@
 ## Ngôn ngữ được hỗ trợ
 
 - Tiếng Việt
-- Java, Python, C#, JavaScript
+- Java
 
 ## Nội dung sách
 
