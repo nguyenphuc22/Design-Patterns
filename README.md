@@ -14,11 +14,11 @@
 ## Nội dung sách
 
 - [Chương 1: Giới thiệu Design Pattern](docs/Book/1.%20Intro.md)
-- [Chương 2: Nhóm Creational Patterns](docs/2.creational.md)
-- [Chương 3: Nhóm Structural Patterns](docs/3.structural.md)
-- [Chương 4: Nhóm Behavioral Patterns](docs/4.behavioral.md)
-- [Chương 5: Ứng dụng thực tế](docs/5.real-world.md)
-- [Kết luận](docs/conclusion.md)
+- [Chương 2: Nhóm Creational Patterns](docs/Book/2.%20Creational%20Patterns.md)
+- [Chương 3: Nhóm Structural Patterns](docs/Book/3.%20Structural%20Patterns.md)
+- [Chương 4: Nhóm Behavioral Patterns](docs/Book/4.%20Behavioral%20Patterns.md)
+- [Chương 5: Ứng dụng thực tế](docs/Book/5.%20Read%20World.md)
+- [Kết luận](docs/Book/6.%20Conclusion.md)
 
 Xem chi tiết [ở đây](SUMMARY.md).
 
@@ -26,7 +26,8 @@ Xem chi tiết [ở đây](SUMMARY.md).
 
 Chúng tôi rất hoan nghênh sự đóng góp của bạn. Xin vui lòng đọc [Hướng dẫn đóng góp](CONTRIBUTING.md) trước khi tham gia.
 
-[![Build Status](https://travis-ci.org/nguyenphuc22/Design-Patterns.svg?branch=main)](https://travis-ci.org/nguyenphuc22/Design-Patterns) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+[![Build Status](https://travis-ci.org/nguyenphuc22/Design-Patterns.svg?branch=main)](https://travis-ci.org/nguyenphuc22/Design-Patterns)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 
 ## Cảm ơn
 
