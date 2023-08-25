@@ -2,8 +2,8 @@
 
 - [Chương 1: Giới thiệu Design Pattern](docs/Book/1.%20Intro.md)
     - Khái niệm Design Pattern
-    - Lợi ích của Design Pattern
-    - Các nhóm Design Pattern thông dụng
+    - Lịch sử ra đời và phát triển
+    - Ý nghĩa và lợi ích của Design Pattern
 
 - [Chương 2: Nhóm Creational Patterns](docs/2.creational.md)
     - [Chương 2.1: Factory Method](docs/2.1.factory-method.md)
