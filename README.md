@@ -1,6 +1,13 @@
-# Open Book - Mẫu Thiết Kế Trong Lập Trình
+# Sách - Design Pattern Tiếng Việt
 
-Đây là một dự án xây dựng quyển sách mở về Design Pattern, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình.
+Đây là một dự án xây dựng quyển sách mở về Design Pattern tiếng Việt, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình.
+
+Sau khi đọc cuốn sách "Design Pattern Tiếng Việt", bạn sẽ:
+
+- Hiểu rõ hơn về các Design Pattern phổ biến như Singleton, Observer, Strategy, etc.
+- Biết cách vận dụng các Design Pattern để giải quyết các vấn đề trong lập trình.
+- Có thể viết code sạch hơn, dễ bảo trì và mở rộng hơn.
+- Rèn luyện được kỹ năng phân tích, tư duy trừu tượng và giải quyết vấn đề.
 
 <div align="center">
   <img src="docs/images/OpenBookImage.png"/>

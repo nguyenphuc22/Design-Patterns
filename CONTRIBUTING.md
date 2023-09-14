@@ -1,6 +1,6 @@
 # Hướng dẫn đóng góp
 
-Chào mừng bạn đến với dự án "Open Book - Design Pattern"! Chúng tôi rất cảm kích sự quan tâm của bạn đến việc đóng góp vào quyển sách này. Để đảm bảo quy trình đóng góp diễn ra một cách thuận lợi và hiệu quả, hãy làm theo hướng dẫn dưới đây:
+Chào mừng bạn đến với dự án "Open Book - Design Pattern Tiếng Việt"! Chúng tôi rất cảm kích sự quan tâm của bạn đến việc đóng góp vào quyển sách này. Để đảm bảo quy trình đóng góp diễn ra một cách thuận lợi và hiệu quả, hãy làm theo hướng dẫn dưới đây:
 
 ## 1. Đề xuất thay đổi
 
