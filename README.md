@@ -37,7 +37,7 @@ Chúng tôi rất hoan nghênh sự đóng góp của bạn. Xin vui lòng đọ
 [![Build Status](https://travis-ci.org/nguyenphuc22/Design-Patterns.svg?branch=main)](https://travis-ci.org/nguyenphuc22/Design-Patterns)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
 
-##Câu hỏi và Thảo luận
+## Câu hỏi và Thảo luận
 
 Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về nội dung sách, các mẫu thiết kế, hoặc áp dụng chúng vào trong thực tế lập trình, đừng ngần ngại tạo một issue trong phần "Issues" của dự án trên GitHub. Tôi và cộng đồng sẽ cố gắng trả lời và thảo luận để giải đáp mọi thắc mắc của bạn.
 
