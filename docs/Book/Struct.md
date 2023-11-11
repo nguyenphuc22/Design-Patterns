@@ -28,8 +28,8 @@
 
 ### Ví dụ (2-3 đoạn, ví dụ code, sơ đồ)
 - **Phép ẩn dụ Thực tế**: So sánh với tình huống thực tế để dễ hiểu hơn.
-- **Ví dụ Code**: Một ví dụ từng bước hiển thị pattern được áp dụng trong thực tế.
 - **Hình Ảnh**: Các sơ đồ giúp hình dung ví dụ.
+- **Ví dụ Code**: Một ví dụ từng bước hiển thị pattern được áp dụng trong thực tế.
 
 ### So sánh (2-3 đoạn)
 - **So sánh với Các Pattern Khác**: Điểm nổi bật các khác biệt và điểm tương đồng với các design pattern khác.
