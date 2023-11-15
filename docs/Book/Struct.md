@@ -17,9 +17,10 @@
 - **Sự đánh đổi**: Bất kỳ sự thỏa hiệp hoặc chi phí nào liên quan trong việc thực hiện pattern.
 
 ### Cấu trúc (1-2 đoạn, 1 sơ đồ)
+
 - **Sơ đồ**: Sơ đồ lớp hoặc sơ đồ tuần tự thể hiện cấu trúc của pattern một cách trực quan.
-- **Các thành phần**: Liệt kê và mô tả các bộ phận của pattern.
-- **Tổ chức và Tương tác**: Cách các thành phần được tổ chức và tương tác với nhau.
+    - **Các thành phần**: Liệt kê và mô tả các bộ phận của pattern.
+    - **Tổ chức và Tương tác**: Cách các thành phần được tổ chức và tương tác với nhau.
 
 ### Triển khai (3-5 đoạn, đoạn code)
 - **Các Chiến lược Triển khai**: Bàn luận về các cách triển khai pattern khác nhau.
