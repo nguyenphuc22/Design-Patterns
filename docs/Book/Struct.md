@@ -27,10 +27,10 @@
 - **Đoạn Code**: Cung cấp ví dụ code cụ thể trong một hoặc nhiều ngôn ngữ lập trình.
 - **Cân nhắc**: Đề cập đến các điều cần xem xét khi triển khai.
 
-### Ví dụ (2-3 đoạn, ví dụ code, sơ đồ)
-- **Phép ẩn dụ Thực tế**: So sánh với tình huống thực tế để dễ hiểu hơn.
-- **Hình Ảnh**: Các sơ đồ giúp hình dung ví dụ.
-- **Ví dụ Code**: Một ví dụ từng bước hiển thị pattern được áp dụng trong thực tế.
+### Ví dụ (2-3 đoạn, giải thích, sở đồ, ví dụ code)
+- **Giải thích**: Giới thiệu về ví dụ của pattern, giải thích rõ ràng ví dụ
+- **Sơ đồ**: Cho một sơ đồ được vẻ bằng mermaid, thể hiện ví dụ.
+- **Ví dụ Code**: Một ví dụ từng bước hiển thị pattern được áp dụng theo lời giải thích.
 
 ### So sánh (2-3 đoạn)
 - **So sánh với Các Pattern Khác**: Điểm nổi bật các khác biệt và điểm tương đồng với các design pattern khác.
