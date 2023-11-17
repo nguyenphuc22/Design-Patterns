@@ -33,7 +33,7 @@
 - **Ví dụ Code**: Một ví dụ từng bước hiển thị pattern được áp dụng theo lời giải thích.
 
 ### So sánh (2-3 đoạn)
-- **So sánh với Các Pattern Khác**: Điểm nổi bật các khác biệt và điểm tương đồng với các design pattern khác.
+- **So sánh với Các Pattern Khác**: Điểm nổi bật, các khác biệt và điểm tương đồng của pattern đang viết với các design pattern khác.
 - **Khi nào Sử dụng**: Các tình huống mà pattern này được ưa chuộng hơn các pattern khác.
 
 ### Chú ý (1-2 đoạn)
