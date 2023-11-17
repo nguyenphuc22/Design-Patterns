@@ -13,6 +13,10 @@ Sau khi đọc cuốn sách "Design Pattern Tiếng Việt", bạn sẽ:
   <img src="docs/images/OpenBookImage.png"/>
 </div>
 
+## Donation
+// Viết kêu gọi đóng góp
+// Trang donation https://www.buymeacoffee.com/phucvr
+
 ## Ngôn ngữ được hỗ trợ
 
 - Tiếng Việt
@@ -32,10 +36,26 @@ Xem chi tiết [ở đây](SUMMARY.md).
 
 ## Đóng góp
 
-Chúng tôi rất hoan nghênh sự đóng góp của bạn. Xin vui lòng đọc [Hướng dẫn đóng góp](CONTRIBUTING.md) trước khi tham gia.
+**Tham Gia Xây Dựng Cùng Chúng Tôi**
 
-[![Build Status](https://travis-ci.org/nguyenphuc22/Design-Patterns.svg?branch=main)](https://travis-ci.org/nguyenphuc22/Design-Patterns)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE.md)
+Cuốn sách "Design Pattern Tiếng Việt" không chỉ là một dự án cá nhân mà là kết quả của sự cộng tác và đam mê chung của cả cộng đồng. Mỗi trang, mỗi chương, từng dòng code mà bạn đọc đều là minh chứng cho tinh thần hợp tác và chia sẻ kiến thức.
+
+Dự án này, từ ngày đầu tiên, đã cam kết là nguồn tài nguyên miễn phí, chất lượng cao cho tất cả mọi người, từ sinh viên đến các chuyên gia lập trình. Để duy trì và phát triển dự án này, chúng tôi kêu gọi sự hỗ trợ từ cộng đồng - không chỉ dưới hình thức đóng góp [nội dung](/README.md), mà còn qua sự hỗ trợ tài chính.
+
+Nếu bạn cảm thấy cuốn sách này mang lại giá trị cho bản thân và cộng đồng, xin hãy xem xét việc đóng góp tài chính qua trang [Buy Me a Coffee](https://www.buymeacoffee.com/phucvr). Mỗi đóng góp, dù nhỏ, đều là nguồn động viên lớn lao giúp chúng tôi tiếp tục công việc này.
+
+<div align="center">
+  <img src="docs/images/bmc_qr.png"/>
+</div>
+
+**Đóng góp của bạn sẽ được sử dụng để:**
+
+- Duy trì và nâng cấp dự án.
+- Hỗ trợ tác giả và người đóng góp.
+
+Tôi biết rằng, không phải ai cũng có khả năng đóng góp tài chính, và sự hỗ trợ về mặt tinh thần cũng rất quan trọng. Do đó, Star và chia sẻ dự án này với bạn bè, đồng nghiệp, và trên các mạng xã hội cũng là một hình thức đóng góp vô cùng quý giá.
+
+Dù là sự hỗ trợ nào, chúng tôi đều trân trọng và biết ơn. Cảm ơn bạn đã là một phần của hành trình này!
 
 ## Câu hỏi và Thảo luận
 
