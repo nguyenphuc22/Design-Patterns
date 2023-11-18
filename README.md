@@ -1,8 +1,10 @@
 # Sách - Design Pattern Tiếng Việt
 
-Đây là một dự án xây dựng quyển sách mở về Design Pattern tiếng Việt, nhằm cung cấp tài liệu chất lượng hoàn toàn miễn phí cho ngành lập trình ở Việt Nam. Dự án này chào đón mọi đóng góp từ bất kỳ ai, ở bất kỳ level nào trong ngành lập trình.
+Xin chào và cảm ơn bạn đã ghé thăm repository của tôi - nơi chia sẻ kiến thức toàn diện về Design Pattern bằng Tiếng Việt. Dự án "Sách - Design Pattern Tiếng Việt" không chỉ là một cuốn sách, mà còn là một hành trình học hỏi, trao đổi và phát triển kỹ năng lập trình một cách chuyên nghiệp.
 
-Sau khi đọc cuốn sách "Design Pattern Tiếng Việt", bạn sẽ:
+Repository này được tạo ra với mục đích chia sẻ miễn phí kiến thức về các mẫu thiết kế phần mềm (Design Patterns) - một lĩnh vực thiết yếu và thách thức trong ngành lập trình. Tôi mong muốn mang đến cho cộng đồng lập trình Việt Nam một nguồn tài liệu tham khảo đáng giá, giúp cải thiện kỹ năng phân tích và thiết kế phần mềm.
+
+Trong repository "Sách - Design Pattern Tiếng Việt", bạn sẽ tìm thấy:
 
 - Hiểu rõ hơn về các Design Pattern phổ biến như Singleton, Observer, Strategy, etc.
 - Biết cách vận dụng các Design Pattern để giải quyết các vấn đề trong lập trình.
@@ -12,10 +14,6 @@ Sau khi đọc cuốn sách "Design Pattern Tiếng Việt", bạn sẽ:
 <div align="center">
   <img src="docs/images/OpenBookImage.png"/>
 </div>
-
-## Donation
-// Viết kêu gọi đóng góp
-// Trang donation https://www.buymeacoffee.com/phucvr
 
 ## Ngôn ngữ được hỗ trợ
 
@@ -59,12 +57,9 @@ Dù là sự hỗ trợ nào, chúng tôi đều trân trọng và biết ơn. C
 
 ## Câu hỏi và Thảo luận
 
-Nếu bạn có bất kỳ câu hỏi hoặc thắc mắc nào về nội dung sách, các mẫu thiết kế, hoặc áp dụng chúng vào trong thực tế lập trình, đừng ngần ngại tạo một issue trong phần "Issues" của dự án trên GitHub. Tôi và cộng đồng sẽ cố gắng trả lời và thảo luận để giải đáp mọi thắc mắc của bạn.
+Bạn có thắc mắc, ý kiến, hoặc cần hỗ trợ về các nội dung trong sách, các mẫu thiết kế phần mềm, hoặc cách áp dụng chúng trong thực tiễn lập trình? Hãy mạnh dạn chia sẻ và đặt câu hỏi của bạn trong phần "Issues" trên trang GitHub của dự án. Cùng nhau, tôi và cộng đồng của chúng ta sẽ nỗ lực giải đáp và thảo luận, nhằm mang lại lời giải rõ ràng và hữu ích cho mỗi vấn đề.
 
-Ngoài ra, nếu câu hỏi của bạn thu hút sự quan tâm và nhận được nhiều lượt vote, tôi sẽ cân nhắc việc bổ sung thông tin chi tiết và phản hồi đó vào trong các phiên bản cập nhật sau của sách. Mục tiêu của chúng tôi không chỉ là chia sẻ kiến thức mà còn tạo điều kiện cho mọi người cùng tham gia, học hỏi lẫn nhau và cùng nhau phát triển.
-
-Vì vậy, hãy chần chừ gì nữa, hãy đặt câu hỏi của bạn, chia sẻ quan điểm, và cùng nhau tạo nên một nguồn tài nguyên vững chắc và thú vị cho cộng đồng lập trình Việt Nam!
-
+Thêm vào đó, những câu hỏi nhận được sự quan tâm rộng rãi và nhiều lượt tương tác sẽ được xem xét để tích hợp trong các bản cập nhật tương lai của sách. Mục tiêu của chúng tôi không chỉ dừng lại ở việc chia sẻ kiến thức; chúng tôi còn muốn khuyến khích sự tương tác, học hỏi lẫn nhau, và cùng nhau đóng góp vào sự phát triển của cộng đồng lập trình Việt Nam.
 
 ## Cảm ơn
 
