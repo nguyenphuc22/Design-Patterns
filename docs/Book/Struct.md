@@ -7,9 +7,9 @@
 - **Mục đích**: Mục tiêu chính và vấn đề mà nó giải quyết.
 - **Ý tưởng Cốt lõi**: Giải thích về khái niệm cơ bản hoặc chiến lược mà pattern sử dụng.
 
-### Vấn đề (1-2 đoạn)
-- **Bối cảnh**: Mô tả tình huống tiêu biểu mà pattern này có thể áp dụng.
-- **Thách thức**: Nêu cụ thể những khó khăn hoặc hạn chế trong bối cảnh đó mà pattern hướng đến giải quyết.
+### Đặt vấn đề (1-2 đoạn)
+- **Bối cảnh**: Mô tả tình huống tiêu biểu, khó khăn mà khi không sử dụng pattern này.
+- **Sơ đồ mình hoạ**: Cho sơ đồng minh hoạ đươc vẻ bằng mermaid.
 
 ### Giải pháp (2-3 đoạn)
 - **Cách tiếp cận**: Pattern giải quyết những vấn đề đã nêu trong phần "Vấn đề" như thế nào.
