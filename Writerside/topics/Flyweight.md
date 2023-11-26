@@ -213,7 +213,7 @@ class TreeType {
     }
 
     public void draw(String canvas, int x, int y) {
-        System.out.printf("Drawing %s tree at (%d, %d) on %s%n", name, x, y, canvas);
+        System.out.println("Drawing " + name + " tree at (" + x + ", " + y + ") on " + canvas);
     }
 }
 
