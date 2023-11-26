@@ -4,8 +4,7 @@
 
 <instance-profile id="hi"
                  name="Help Instance"
-                 start-page="1.Intro.md">
+                 start-page="Intro.md">
 
-    <toc-element topic="1.Intro.md"/>
-    <toc-element topic="2.CreationalPatterns.md"/>
+    <toc-element topic="Intro.md"/>
 </instance-profile>

@@ -5,35 +5,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Writerside/topics/Intro.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Writerside/hi.tree" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/hi.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/1. Intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/1.Intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2. Creational Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/2.CreationalPatterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.1 Singleton.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/2.1Singleton.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.2 Builder.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/2.2Builder.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.3 Factory Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/2.3Factory Method.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.4 Abstract Factory.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/2.4Abstract Factory.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.5 Prototype.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/2.5Prototype.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3. Structural Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.Structural Patterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.1 Adapter.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.1Adapter.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.2 Bridge.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.2Bridge.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.3 Composite.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.3Composite.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.4 Decorator.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.4Decorator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.5 Facade.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.5Facade.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.6 Flyweight.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.6Flyweight.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.7 Proxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/3.7Proxy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4. Behavioral Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.BehavioralPatterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.1 Chain of Responsibility.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.1ChainOfResponsibility.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.10 Visitor.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.10Visitor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.2 Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.2Command.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.3 Iterator.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.3Iterator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.4 Mediator.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.4Mediator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.5 Memento.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.5Memento.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.6 Observer.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.6Observer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.7 State.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.7State.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.8 Strategy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.8Strategy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.9 Template Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/4.9TemplateMethod.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/5. Read World.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/5.ReadWorld.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/6. Conclusion.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/6.Conclusion.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/1.Intro.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.1Singleton.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.2Builder.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.3Factory Method.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.4Abstract Factory.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.5Prototype.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.CreationalPatterns.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.1Adapter.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.2Bridge.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.3Composite.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.4Decorator.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.5Facade.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.6Flyweight.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.7Proxy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.Structural Patterns.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.10Visitor.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.1ChainOfResponsibility.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.2Command.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.3Iterator.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.4Mediator.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.5Memento.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.6Observer.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.7State.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.8Strategy.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.9TemplateMethod.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.BehavioralPatterns.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/5.ReadWorld.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/6.Conclusion.md" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
