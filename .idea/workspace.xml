@@ -5,36 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/hi.tree" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/hi.tree" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/1.Intro.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.1Singleton.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.2Builder.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.3Factory Method.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.4Abstract Factory.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.5Prototype.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/2.CreationalPatterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.1Adapter.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.2Bridge.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.3Composite.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.4Decorator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.5Facade.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.6Flyweight.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.7Proxy.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/3.Structural Patterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.10Visitor.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.1ChainOfResponsibility.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.2Command.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.3Iterator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.4Mediator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.5Memento.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.6Observer.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.7State.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.8Strategy.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.9TemplateMethod.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/4.BehavioralPatterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/5.ReadWorld.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/6.Conclusion.md" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Writerside/redirection-rules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Intro.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,6 +16,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Writerside/topics/Intro.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
   <component name="InstanceColorv3">
     <option name="map">
@@ -77,18 +53,27 @@
       </map>
     </option>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Yh71vdXYDHSFhtZd21gVgix10M" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md&quot;
+    ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Writerside/topics" />

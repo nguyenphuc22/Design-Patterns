@@ -1,4 +1,4 @@
-# 1. Giới thiệu Design Pattern
+# Giới thiệu Design Pattern
 
 ## Định nghĩa Design Pattern
 
