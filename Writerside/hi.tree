@@ -9,4 +9,14 @@
     <toc-element topic="Intro.md"/>
     <toc-element topic="Singleton.md"/>
     <toc-element topic="Builder.md"/>
+    <toc-element topic="Factory-Method.md"/>
+    <toc-element topic="Abstract-Factory.md"/>
+    <toc-element topic="Prototype.md"/>
+    <toc-element topic="Adapter.md"/>
+    <toc-element topic="Bridge.md"/>
+    <toc-element topic="Composite.md"/>
+    <toc-element topic="Decorator.md"/>
+    <toc-element topic="Facade.md"/>
+    <toc-element topic="Flyweight.md"/>
+    <toc-element topic="Proxy.md"/>
 </instance-profile>
