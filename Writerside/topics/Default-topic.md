@@ -1,80 +1,24 @@
-# Welcome to Writerside!
+# 1. Giới thiệu Design Pattern
 
-<!--Writerside adds this topic when you create a new documentation project.
-You can use it as a sandbox to play with Writerside features, and remove it from the TOC when you don't need it anymore.
-If you want to re-add it for your experiments, click + to create a new topic, choose Topic from Template, and select the 
-"Starter" template.-->
+## Định nghĩa Design Pattern
 
-## Add new topics
-You can create empty topics, or choose a template for different types of content that contains some boilerplate structure to help you get started:
+Design Pattern là một mô hình thiết kế được sử dụng để giải quyết một vấn đề cụ thể trong lập trình. Nó cung cấp một giải pháp đã được kiểm nghiệm và tối ưu hóa, giúp các lập trình viên tiết kiệm thời gian và công sức khi phát triển phần mềm
 
-![Create new topic options](new_topic_options.png){ width=290 }{border-effect=line}
+## Lịch sử ra đời và phát triển
 
-## Write content
-%product% supports two types of markup: Markdown and XML.
-When you create a new help article, you can choose between two topic types, but this doesn't mean you have to stick to a single format.
-You can author content in Markdown and extend it with semantic attributes or inject entire XML elements.
+Design Pattern được khai sinh vào những năm 1970 với sự phát triển của lập trình hướng đối tượng (OOP). Kể từ đó, nó đã trở thành một phần quan trọng trong quá trình phát triển phần mềm.
 
-## Inject XML
-For example, this is how you inject a procedure:
+Năm 1994, ba lập trình viên Erich Gamma, Richard Helm, Ralph Johnson và John Vlissides đã xuất bản cuốn sách "Design Patterns: Elements Of Resuable Object - Oriented Software". Cuốn sách này đã trở thành một trong những tài liệu tham khảo quan trọng nhất về Design Pattern.
 
-<procedure title="Inject a procedure" id="inject-a-procedure">
-    <step>
-        <p>Start typing and select a procedure type from the completion suggestions:</p>
-        <img src="completion_procedure.png" alt="completion suggestions for procedure" border-effect="line"/>
-    </step>
-    <step>
-        <p>Press <shortcut>Tab</shortcut> or <shortcut>Enter</shortcut> to insert the markup.</p>
-    </step>
-</procedure>
+Trong những năm gần đây, Design Pattern tiếp tục được phát triển và mở rộng. Ngày càng có nhiều Design Pattern mới được giới thiệu, phù hợp với các yêu cầu mới của lâp trình.
 
-## Add interactive elements
+## Ý nghĩa và lợi ích của Design Pattern
 
-### Tabs
-To add switchable content, you can make use of tabs (inject them by starting to type `tab` on a new line):
+Design Pattern mang lại nhiều ý nghĩa và lợi ích cho lập trình, bao gồm:
 
-<tabs>
-    <tab title="Markdown">
-        <code-block lang="plain text">![Alt Text](new_topic_options.png){ width=450 }</code-block>
-    </tab>
-    <tab title="Semantic markup">
-        <code-block lang="xml">
-            <![CDATA[<img src="new_topic_options.png" alt="Alt text" width="450px"/>]]></code-block>
-    </tab>
-</tabs>
+- **Giúp giải quyết vấn đề một cách hiệu quả và tối ưu:** Design Pattern cung cấp các giải pháp đã được kiểm nghiệm và tối ưu hóa, giúp các lập trình viên giải quyết các vấn đề một cách nhanh chóng và hiêu quả.
+- **Tăng tính tái sử dụng của code:** Design Pattern giúp các lập trình viên tái sử dụng code đã có, từ đó giảm thiểu thời gian và công ức phát triển phần mềm.
+- **Tăng tính bảo trì và bảo dưỡng của phần mềm:** Design Pattern giúp phần mềm dễ dàng bảo trì và bảo dưỡng hơn.
+- **Tăng tính dể hiểu và dễ đọc của code:** Design Pattern giúp code dễ hiểu và dễ đọc hơn, giúp việc công tác giữa các lập trình viên trở nên dễ dàng hơn.
 
-### Collapsible blocks
-Apart from injecting entire XML elements, you can use attributes to configure the behavior of certain elements.
-For example, you can collapse a chapter that contains non-essential information:
-
-#### Supplementary info {collapsible="true"}
-Content under such header will be collapsed by default, but you can modify the behavior by adding the following attribute:
-`default-state="expanded"`
-
-### Convert selection to XML
-If you need to extend an element with more functions, you can convert selected content from Markdown to semantic markup.
-For example, if you want to merge cells in a table, it's much easier to convert it to XML than do this in Markdown.
-Position the caret anywhere in the table and press <shortcut>Alt+Enter</shortcut>:
-
-<img src="convert_table_to_xml.png" alt="Convert table to XML" width="706" border-effect="line"/>
-
-## Feedback and support
-Please report any issues, usability improvements, or feature requests to our 
-<a href="https://youtrack.jetbrains.com/newIssue?project=WRS">YouTrack project</a>
-(you will need to register).
-
-You are welcome to join our
-<a href="https://join.slack.com/t/writerside/shared_invite/zt-1hnvxnl0z-Nc6RWXTppRI2Oc566vumYw">public Slack workspace</a>.
-Before you do, please read our [Code of conduct](https://plugins.jetbrains.com/plugin/20158-writerside/docs/writerside-code-of-conduct.html).
-We assume that you’ve read and acknowledged it before joining.
-
-You can also always send an email to [writerside@jetbrains.com](mailto:writerside@jetbrains.com).
-
-<seealso>
-    <category ref="wrs">
-        <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/markup-reference.html">Markup reference</a>
-        <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/manage-table-of-contents.html">Reorder topics in the TOC</a>
-        <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/local-build.html">Build and publish</a>
-        <a href="https://plugins.jetbrains.com/plugin/20158-writerside/docs/configure-search.html">Configure Search</a>
-    </category>
-</seealso>
+Design Pattern là một kỹ thuật nâng cao của OOP, nó cực kì quan trọng trong lập trình. Nó mang lại nhiều ý nghĩa và lợi ích cho lập trình, giúp các lập trình viên phát triển phần mềm hiệu quả hơn.
