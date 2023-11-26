@@ -6,6 +6,7 @@
                  name="Help Instance"
                  start-page="Intro.md">
 
+    <toc-element topic="Starter.md"/>
     <toc-element topic="Intro.md"/>
     <toc-element topic="Singleton.md"/>
 </instance-profile>
