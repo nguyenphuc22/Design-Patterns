@@ -23,6 +23,7 @@
         <toc-element topic="Flyweight.md"/>
         <toc-element topic="Proxy.md"/>
     </toc-element>
-    <toc-element topic="Behavioral-Patterns.md"/>
-    <toc-element topic="Chain-Of-Responsibility.md"/>
+    <toc-element topic="Behavioral-Patterns.md">
+        <toc-element topic="Chain-Of-Responsibility.md"/>
+    </toc-element>
 </instance-profile>
