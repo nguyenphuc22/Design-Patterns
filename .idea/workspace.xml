@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Creational-Patterns.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Structural-Patterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/hi.tree" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/hi.tree" afterDir="false" />
-    </list>
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,6 +63,19 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Behavioral-Patterns.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Bridge.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Composite.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Decorator.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Singleton.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Structural-Patterns.md"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
