@@ -1,6 +1,6 @@
 # Sách - Design Pattern Tiếng Việt
 
-Xin chào và cảm ơn bạn đã ghé thăm repository của tôi - nơi chia sẻ kiến thức toàn diện về Design Pattern bằng Tiếng Việt. Dự án "Sách - Design Pattern Tiếng Việt" không chỉ là một cuốn sách, mà còn là một hành trình học hỏi, trao đổi và phát triển kỹ năng lập trình một cách chuyên nghiệp.
+Xin chào và cảm ơn bạn đã ghé thăm repository của tôi - nơi chia sẻ kiến thức về Design Pattern. Dự án "Sách - Design Pattern Tiếng Việt" không chỉ là một cuốn sách, mà còn là một hành trình học hỏi, trao đổi và phát triển kỹ năng lập trình một cách chuyên nghiệp.
 
 Repository này được tạo ra với mục đích chia sẻ miễn phí kiến thức về các mẫu thiết kế phần mềm (Design Patterns) - một lĩnh vực thiết yếu và thách thức trong ngành lập trình. Tôi mong muốn mang đến cho cộng đồng lập trình Việt Nam một nguồn tài liệu tham khảo đáng giá, giúp cải thiện kỹ năng phân tích và thiết kế phần mềm.
 
