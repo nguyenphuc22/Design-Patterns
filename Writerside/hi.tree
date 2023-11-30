@@ -24,6 +24,8 @@
         <toc-element topic="Proxy.md"/>
     </toc-element>
     <toc-element topic="Behavioral-Patterns.md">
-        <toc-element topic="Chain-Of-Responsibility.md"/>
+        <toc-element topic="Chain-Of-Responsibility.md">
+        </toc-element>
+        <toc-element topic="Command.md"/>
     </toc-element>
 </instance-profile>
