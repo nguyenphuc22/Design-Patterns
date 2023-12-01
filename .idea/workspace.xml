@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Writerside/topics/Chain-Of-Responsibility.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/hi.tree" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/hi.tree" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,27 +59,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics&quot;
   },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Behavioral-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Bridge.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Chain-Of-Responsibility.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Composite.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Decorator.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Structural-Patterns.md"
+  &quot;keyToStringList&quot;: {
+    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Behavioral-Patterns.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Chain-Of-Responsibility.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Composite.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Decorator.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md&quot;,
+      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Structural-Patterns.md&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Writerside/topics" />

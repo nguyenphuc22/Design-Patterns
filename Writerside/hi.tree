@@ -27,5 +27,6 @@
         <toc-element topic="Chain-Of-Responsibility.md">
         </toc-element>
         <toc-element topic="Command.md"/>
+        <toc-element topic="Iterator.md"/>
     </toc-element>
 </instance-profile>
