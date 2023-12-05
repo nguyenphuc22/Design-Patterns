@@ -29,5 +29,6 @@
         <toc-element topic="Command.md"/>
         <toc-element topic="Iterator.md"/>
         <toc-element topic="Mediator.md"/>
+        <toc-element topic="Memento.md"/>
     </toc-element>
 </instance-profile>

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="" />
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Writerside/topics/Mediator.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/hi.tree" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/hi.tree" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +77,7 @@
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Decorator.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Iterator.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Mediator.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Structural-Patterns.md"
     ]
   }
