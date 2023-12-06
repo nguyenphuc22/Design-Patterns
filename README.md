@@ -22,10 +22,10 @@ Trong repository "Sách - Design Pattern Tiếng Việt", bạn sẽ tìm thấy
 
 ## Nội dung sách
 
-- [Chương 1: Giới thiệu Design Pattern](docs/Book/1.%20Intro.md)
-- [Chương 2: Nhóm Creational Patterns](docs/Book/2.%20Creational%20Patterns.md)
-- [Chương 3: Nhóm Structural Patterns](docs/Book/3.%20Structural%20Patterns.md)
-- [Chương 4: Nhóm Behavioral Patterns](docs/Book/4.%20Behavioral%20Patterns.md)
+- [Chương 1: Giới thiệu Design Pattern](Writerside/topics/Intro.md)
+- [Chương 2: Nhóm Creational Patterns](Writerside/topics/Creational-Patterns.md)
+- [Chương 3: Nhóm Structural Patterns](Writerside/topics/Structural-Patterns.md)
+- [Chương 4: Nhóm Behavioral Patterns](Writerside/topics/Behavioral-Patterns.md)
 - [Chương 5: Ứng dụng thực tế](docs/Book/5.%20Read%20World.md)
 - [Kết luận](docs/Book/6.%20Conclusion.md)
 
