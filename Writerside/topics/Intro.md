@@ -44,7 +44,19 @@ Sử dụng Creational Patterns giúp tạo ra các đối tượng một cách 
 
 Structural Patterns liên quan tới cấu trúc và mối quan hệ giữa các lớp, đối tượng. Nhóm này giúp xây dựng cấu trúc phần mềm dễ thay đổi và bảo trì. Một số pattern:
 
-[//]: # (- [Adapter]&#40;3.1%20Adapter.md&#41;, [Bridge]&#40;3.2%20Bridge.md&#41;, [Composite]&#40;3.4%20Composite.md&#41;, [Decorator]&#40;3.5%20Decorator.md&#41;, [Facade]&#40;3.6%20Facade.md&#41;, [Flyweight]&#40;3.7%20Flyweight.md&#41;, [Proxy]&#40;3.8%20Proxy.md&#41;)
+[Adapter](Adapter.md)
+
+[Bridge](Bridge.md)
+
+[Composite](Composite.md)
+
+[Decorator](Decorator.md)
+
+[Facade](Facade.md)
+
+[Flyweight](Flyweight.md)
+
+[Proxy](Proxy.md)
 
 Sử dụng Structural Patterns giúp xây dựng hệ thống linh hoạt, dễ mở rộng và tối ưu hóa bộ nhớ.
 
@@ -52,7 +64,25 @@ Sử dụng Structural Patterns giúp xây dựng hệ thống linh hoạt, dễ
 
 Behavioral Patterns liên quan tới hành vi giao tiếp giữa các đối tượng. Nhóm này giúp định nghĩa rõ ràng mối quan hệ giữa các object. Một số pattern:
 
-[//]: # (- [Chain of Responsibility]&#40;4.1%20Chain%20of%20Responsibility.md&#41;, [Command]&#40;4.2%20Command.md&#41;, [Iterator]&#40;4.3%20Iterator.md&#41;, [Mediator]&#40;4.4%20Mediator.md&#41;, [Memento]&#40;4.5%20Memento.md&#41;, [Observer]&#40;4.6%20Observer.md&#41;, [State]&#40;4.7%20State.md&#41;, [Strategy]&#40;4.8%20Strategy.md&#41;, [Template Method]&#40;4.9%20Template%20Method.md&#41;, [Visitor]&#40;4.10%20Visitor.md&#41;)
+[Chain of Responsibility](Chain-Of-Responsibility.md)
+
+[Command](Command.md)
+
+[Iterator](Iterator.md)
+
+[Mediator](Mediator.md)
+
+[Memento](Memento.md)
+
+[Observer](Observer.md)
+
+[State](State.md)
+
+[Strategy](Strategy.md)
+
+[Template Method](Template-Method.md)
+
+[Visitor](Visitor.md)
 
 Sử dụng Behavioral Patterns giúp tạo hệ thống linh hoạt, dễ thay đổi và tối ưu hóa hiệu suất.
 
