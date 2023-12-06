@@ -31,5 +31,9 @@
         <toc-element topic="Mediator.md"/>
         <toc-element topic="Memento.md"/>
         <toc-element topic="Observer.md"/>
+        <toc-element topic="State.md"/>
+        <toc-element topic="Strategy.md"/>
+        <toc-element topic="Template-Method.md"/>
+        <toc-element topic="Visitor.md"/>
     </toc-element>
 </instance-profile>
