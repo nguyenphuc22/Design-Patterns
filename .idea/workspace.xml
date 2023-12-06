@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="" />
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Intro.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -63,19 +65,6 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Behavioral-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Chain-Of-Responsibility.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Flyweight.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Strategy.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Structural-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Template-Method.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Visitor.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
