@@ -30,7 +30,14 @@ Design Pattern là một kỹ thuật nâng cao của OOP, nó cực kì quan tr
 Creational Design Patterns liên quan tới việc khởi tạo đối tượng. Nhóm pattern này cung cấp các cơ chế tạo đối tượng một cách linh hoạt và phù hợp với bối cảnh sử dụng. Một số pattern phổ biến:
 
 [Singleton](Singleton.md)
+
 [Factory Method](Factory-Method.md)
+
+[Abstract Factory](Abstract-Factory.md)
+
+[Builder](Builder.md)
+
+[Prototype](Prototype.md)
 
 Sử dụng Creational Patterns giúp tạo ra các đối tượng một cách linh hoạt, dễ dàng thay đổi và tối ưu hóa bộ nhớ.
 ## Structural Design Patterns
