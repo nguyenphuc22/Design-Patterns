@@ -4,31 +4,31 @@ Structural Patterns liên quan đến cấu trúc và mối quan hệ giữa cá
 
 Các Pattern thuộc nhóm này gồm:
 
-## [Adapter]
+## [Adapter](Adapter.md)
 
 Cho phép giao tiếp giữa các interface không tương thích
 
-## [Bridge]
+## [Bridge](Bridge.md)
 
 Tách rời một lớp phức tạp thành hai phần riêng biệt: trừu tượng và triển khai.
 
-## [Composite]
+## [Composite](Composite.md)
 
 Tạo ra cấu trúc cây để biểu diễn mối quan hệ whole-part giữa các đối tượng.
 
-## [Decorator]
+## [Decorator](Decorator.md)
 
 Dynamically thêm chức năng mới cho đối tượng mà không ảnh hưởng đến các đối tượng khác.
 
-## [Facade]
+## [Facade](Facade.md)
 
 Cung cấp một giao diện đơn giản cho một nhóm các lớp phức tạp.
 
-## [Flyweight]
+## [Flyweight](Flyweight.md)
 
 Sử dụng chia sẻ để hỗ trợ tao hàng loạt các đối tượng hiệu quả hơn.
 
-## [Proxy]
+## [Proxy](Proxy.md)
 
 Đại diện cho một đối tượng khác để kiểm soát truy cập vào đối tượng đó.
 
