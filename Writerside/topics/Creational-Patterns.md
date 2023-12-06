@@ -2,7 +2,7 @@
 
 Creational Patterns cung cấp các giải pháp khởi tao đối tượng một cách linh hoạt và phù hợp với bối cảnh sử dụng. Các Pattern thuộc nhóm này gồm:
 
-## [Singleton]
+## [Singleton](Singleton.md)
 
 Đảm bảo chỉ có duy nhất một instance của một class trong toàn bộ chương trình.
 
