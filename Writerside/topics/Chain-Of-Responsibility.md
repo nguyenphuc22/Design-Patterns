@@ -6,16 +6,16 @@
 
 ## Đặt vấn đề
 
-Bây giờ hãy tưởng tượng, bạn là một dev đang làm một hệ thống đặt hàng online. Bạn muốn hạn chế quyền truy cập vào hệ thống, chỉ những người đã xác thực mới có thể tạo đơn hàng. Đối với admin thì có toàn quền truy cập đơn của mọi người.
+Bây giờ, hãy tưởng tượng bạn là một lập trình viên đang phát triển một hệ thống đặt hàng trực tuyến. Mục tiêu của bạn là hạn chế quyền truy cập vào hệ thống, chỉ cho phép những người đã xác thực mới có thể tạo đơn hàng. Đối với admin, họ có quyền truy cập toàn diện đến mọi đơn hàng.
 
-Sau một thời gian lên ý tưởng, bạn nhận các thao tác xác thực phải thực hiện tuần tự. Hệ thống sẽ xác thực người dùng khi người dùng đăng nhập, Tuy nhiên, nếu thông tin xác thực đó không thành công, thì không có lí do gì để thưc hiện các bước tiếp theo.
+Sau một thời gian, bạn nhận ra rằng các thao tác xác thực cần được thực hiện theo một trình tự nhất định. Hệ thống sẽ xác thực thông tin người dùng khi họ đăng nhập, nhưng nếu quá trình này thất bại, không cần thiết phải tiến hành các bước tiếp theo.
 
-Vài tháng sau, chức năng xác thực cần thêm vài case kiểm tra tuần tự nữa.
+Một vài tháng sau, bạn cần phải thêm vào một số bước kiểm tra xác thực mới:
 
-- Có một anh đông nghiệp dể thương nào đấy nói với bạn rằng: "Em ơi, em chuyển dữ liệu thổ thẳng database hơi nguy hiểm nha em". Thế là bạn tiến một bước kiểm tra và lộc lại dữ liệu.
-- Vài tháng yên ắn sau đó, Có anh hacker mũ trắng nào đó bảo hệ thống của bạn quá yếu dể dàng bẻ khóa mật khẩu bằng brute force. Bạn nhận ra đó là sự thật, bạn vội thệm một lớp kiểm tra, lộc các yêu cầu lặp đi lặp lại không thành công nhưng có IP giống nhau và chặn nó.
+- Một đồng nghiệp gợi ý: "Em ơi, việc truyền dữ liệu trực tiếp vào cơ sở dữ liệu có thể rất nguy hiểm." Dựa trên lời khuyên này, bạn thêm một bước kiểm tra và lọc dữ liệu.
+- Sau đó, một hacker mũ trắng chỉ ra rằng hệ thống của bạn dễ dàng bị tấn công bằng brute force. Nhận ra điều này, bạn nhanh chóng thêm một lớp kiểm tra để chặn các yêu cầu đăng nhập liên tiếp không thành công từ cùng một IP.
 
-Theo thời gian, cái lớp xác thực của bạn càng ngày càng bự, nó trở thành mớ hỗn độn khó kiểm soát và mở rộng. Đặc biệt hơn, nếu ở những thành phần khác của hệ thống muốn dùng lại lớp xác thực, đây là điều không thể. Vì nhiều khi ở các thành phần khác chỉ cần sử một vài hàm nhỏ trong cái lớp xác thực bự đó.
+Tuy nhiên, theo thời gian, lớp xác thực của bạn trở nên phức tạp và khó quản lý. Điều này đặc biệt rắc rối khi các phần khác của hệ thống cần sử dụng một số chức năng cụ thể trong lớp xác thực lớn này.
 
 ## Giải pháp
 
