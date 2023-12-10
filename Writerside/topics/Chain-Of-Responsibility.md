@@ -25,6 +25,27 @@ Mô hình gợi ý bạn liên kết các handlers lại thành một chuỗi. N
 
 ## Cấu Trúc
 
+```mermaid
+classDiagram
+      class Handler {
+          <<interface>>
+          +handleRequest()
+      }
+      class ConcreteHandler1 {
+          +handleRequest()
+      }
+      class ConcreteHandler2 {
+          +handleRequest()
+      }
+      class Client {
+          -handler : Handler
+      }
+
+      Handler <|.. ConcreteHandler1
+      Handler <|.. ConcreteHandler2
+      Client --> Handler : uses
+```
+
 - Handler: Định nghĩa 1 interface để xử lý các yêu cầu.
 - ConcreteHandler: Implement phương thức từ handler.
 - Client: Tạo ra các yêu cầu và yêu cầu đó sẽ được gửi đến các đối tượng tiếp nhận.
