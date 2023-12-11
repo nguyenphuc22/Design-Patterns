@@ -117,26 +117,28 @@ classDiagram
       +checkNext(String email, String password) Boolean
     }
     class RawDataTest {
-      +check(String email, String password) Boolean
+        +check(String email, String password) Boolean
     }
     class UserExistsTest {
-      -server Server
-      +check(String email, String password) Boolean
+        -server Server
+        +check(String email, String password) Boolean
     }
     class RoleTest {
-      +check(String email, String password) Boolean
+        +check(String email, String password) Boolean
     }
     class Server {
-      -users Map~String, String~
-      -test Test
-      +setTest(Test test)
-      +hasEmail(String email) Boolean
-      +register(String email, String password)
-      +logIn(String email, String password) Boolean
+        -users Map<String, String>
+        -test Test
+        +setTest(Test test)
+        +hasEmail(String email) Boolean
+        +register(String email, String password)
+        +logIn(String email, String password) Boolean
     }
+
     class Demo {
-      +main(String[] args)
+        +main(String[] args)
     }
+
 
     Test <|-- RawDataTest
     Test <|-- UserExistsTest
