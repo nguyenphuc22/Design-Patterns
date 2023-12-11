@@ -1,6 +1,6 @@
 # Chain of Responsibility
 
-## Khái niệm
+## Tổng quan
 
 **Chain of Responsibility** là Pattern thuộc nhóm hành vi (behavioral). Nó cho phép bản chuyển các yêu câu dọc theo chuỗi xử lý. Khi nhận được yêu cầu, mỗi trình xử lý sẽ quyết định xử lý yêu cầu hoặc chuyển cho trình xử lý khác.
 
@@ -15,11 +15,66 @@ Một vài tháng sau, bạn cần phải thêm vào một số bước kiểm t
 - Một đồng nghiệp gợi ý: "Em ơi, việc truyền dữ liệu trực tiếp vào cơ sở dữ liệu có thể rất nguy hiểm." Dựa trên lời khuyên này, bạn thêm một bước kiểm tra và lọc dữ liệu.
 - Sau đó, một hacker mũ trắng chỉ ra rằng hệ thống của bạn dễ dàng bị tấn công bằng brute force. Nhận ra điều này, bạn nhanh chóng thêm một lớp kiểm tra để chặn các yêu cầu đăng nhập liên tiếp không thành công từ cùng một IP.
 
+```mermaid
+graph TD
+    A[Người Dùng Đăng Nhập] -->|Xác thực| B(Xác Thực Thông Tin Người Dùng)
+    B --> C{Kiểm Tra Thành Công?}
+    C -->|Có| D[Tạo Đơn Hàng]
+    C -->|Không| E[Chặn Truy Cập]
+
+    B -->|Mở rộng| F(Kiểm Tra và Lọc Dữ Liệu)
+    F --> G{Lọc Thành Công?}
+    G -->|Có| D
+    G -->|Không| E
+
+    F -->|Mở rộng| H(Kiểm Tra Brute Force)
+    H --> I{Kiểm Tra Thành Công?}
+    I -->|Có| D
+    I -->|Không| E
+```
+
 Tuy nhiên, theo thời gian, lớp xác thực của bạn trở nên phức tạp và khó quản lý. Điều này đặc biệt rắc rối khi các phần khác của hệ thống cần sử dụng một số chức năng cụ thể trong lớp xác thực lớn này.
 
 ## Giải pháp
 
 Chain of Responsibility dựa vào việc chuyển đổi các hành vi cụ thể thành các đối tượng hoạt động lập gọi là handlers. Trong vấn đề trên, với hoạt động kiểm thử bạn nên đổi chúng thành một lớp đối tượng cụ thể với một phương thức duy nhất là kiểm tra.
+
+```mermaid
+classDiagram
+    class Handler {
+        -nextHandler Handler
+        +setNext(Handler nextHandler)
+        +handle(Request request)
+    }
+
+    class AuthenticationHandler {
+        +handle(Request request)
+    }
+
+    class DataValidationHandler {
+        +handle(Request request)
+    }
+
+    class BruteForceCheckHandler {
+        +handle(Request request)
+    }
+
+    Handler <|-- AuthenticationHandler
+    Handler <|-- DataValidationHandler
+    Handler <|-- BruteForceCheckHandler
+
+    class Client {
+        -handler Handler
+        +Client(Handler handler)
+        +handleRequest(Request request)
+    }
+
+    Client --> Handler: uses
+
+    class Request {
+        -data String
+    }
+```
 
 Mô hình gợi ý bạn liên kết các handlers lại thành một chuỗi. Như vậy, mỗi handlers phải lưu trữ tham chiếu đến handler tiếp theo, ngoài việc xử lý yêu cầu handlers còn có nhiệm vụ chuyện đến các handers tiếp theo. Yêu cầu sẽ chuyển theo hết chuỗi hoặc có thể kết thúc bật kì handlers nào.
 
