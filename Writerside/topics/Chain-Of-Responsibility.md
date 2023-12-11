@@ -107,6 +107,59 @@ classDiagram
 
 ## Ví dụ áp dụng Chain of Responsibility
 
+```mermaid
+classDiagram
+    class Test {
+      <<abstract>>
+      -next Test
+      +linkWith(Test next) Test
+      +check(String email, String password) Boolean
+      +checkNext(String email, String password) Boolean
+    }
+    class RawDataTest {
+      +check(String email, String password) Boolean
+    }
+    class UserExistsTest {
+      -server Server
+      +check(String email, String password) Boolean
+    }
+    class RoleTest {
+      +check(String email, String password) Boolean
+    }
+    class Server {
+      -users Map~String, String~
+      -test Test
+      +setTest(Test test)
+      +hasEmail(String email) Boolean
+      +register(String email, String password)
+      +logIn(String email, String password) Boolean
+    }
+    class Demo {
+      +main(String[] args)
+    }
+
+    Test <|-- RawDataTest
+    Test <|-- UserExistsTest
+    Test <|-- RoleTest
+    UserExistsTest --> Server : uses
+
+    Demo --> Server : sets up and uses
+    Server --> Test : uses
+```
+
+Trong ví dụ này, mô hình Chain of Responsibility được áp dụng để xử lý quá trình xác thực và kiểm tra trong một hệ thống giả lập. Cụ thể, chúng ta có một số lớp con của `Test`, mỗi lớp thực hiện một kiểm tra cụ thể trong chuỗi xác thực:
+
+1. **RawDataTest**: Kiểm tra dữ liệu thô, ví dụ kiểm tra định dạng email.
+2. **UserExistsTest**: Kiểm tra xem người dùng có tồn tại trong hệ thống không.
+3. **RoleTest**: Kiểm tra quyền của người dùng, ví dụ nhận diện admin.
+
+Mỗi lớp này kế thừa từ `Test` và định nghĩa phương thức `check`, thực hiện kiểm tra riêng của mình và chuyển đến kiểm tra tiếp theo nếu cần.
+
+Cách thức hoạt động:
+
+- **Server**: Lưu trữ thông tin người dùng và quản lý chuỗi xác thực.
+- **Demo**: Tạo và liên kết các kiểm tra, sau đó yêu cầu `Server` thực hiện quá trình đăng nhập, qua đó sử dụng chuỗi xác thực.
+
 Test.java
 
 ```java
