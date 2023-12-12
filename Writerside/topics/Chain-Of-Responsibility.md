@@ -1,8 +1,15 @@
 # Chain of Responsibility
 
-## Tổng quan
+## Khái Niệm
 
-**Chain of Responsibility** là Pattern thuộc nhóm hành vi (behavioral). Nó cho phép bản chuyển các yêu câu dọc theo chuỗi xử lý. Khi nhận được yêu cầu, mỗi trình xử lý sẽ quyết định xử lý yêu cầu hoặc chuyển cho trình xử lý khác.
+Trong phát triển phần mềm, việc quản lý không hiệu quả các yêu cầu đa dạng và phức tạp có thể dẫn đến mã lập trình rối rắm, khó bảo trì. Nếu một đối tượng hoặc lớp đảm nhiệm quá nhiều nhiệm vụ, điều này tạo ra sự phụ thuộc lẫn nhau cao và làm giảm khả năng mở rộng của hệ thống, cũng như làm tăng độ phức tạp trong quản lý. Chain of Responsibility giải quyết vấn đề này bằng cách phân tán trách nhiệm xử lý yêu cầu qua một chuỗi các đối tượng, giúp giảm sự phụ thuộc và tăng tính linh hoạt.
+### Tổng quan
+
+- **Định Nghĩa của Pattern:** Chain of Responsibility Pattern cho phép một yêu cầu được chuyển qua một chuỗi các bộ xử lý. Mỗi bộ xử lý quyết định xử lý yêu cầu hoặc chuyển nó đến bộ xử lý tiếp theo trong chuỗi.
+
+- **Mục Đích:** Mẫu thiết kế này giúp loại bỏ sự cứng nhắc trong việc chỉ định chính xác đối tượng xử lý một yêu cầu cụ thể. Nó giúp phân tán trách nhiệm xử lý và giảm sự phụ thuộc lẫn nhau giữa các đối tượng.
+
+- **Ý Tưởng Cốt Lõi:** Trong Chain of Responsibility, không có đối tượng cụ thể nào được chỉ định trước để xử lý một yêu cầu. Thay vào đó, mỗi đối tượng trong chuỗi có thể xử lý yêu cầu hoặc chuyển nó đến đối tượng tiếp theo. Điều này tạo ra một hệ thống linh hoạt, nơi xử lý yêu cầu không phụ thuộc vào một đối tượng cố định.
 
 ## Đặt vấn đề
 
