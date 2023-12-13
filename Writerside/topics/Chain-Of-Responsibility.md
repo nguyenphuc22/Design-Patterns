@@ -112,9 +112,99 @@ classDiagram
 - ConcreteHandler: Implement phương thức từ handler.
 - Client: Tạo ra các yêu cầu và yêu cầu đó sẽ được gửi đến các đối tượng tiếp nhận.
 
+## Cách triển khai
+
+### Bước 1: Tạo Interface Handler
+
+```java
+interface Handler {
+    void handleRequest(String request);
+    void setNext(Handler nextHandler);
+}
+```
+
+### Bước 2: Tạo Concrete Handlers
+
+Mỗi `ConcreteHandler` sẽ triển khai `Handler` và quyết định liệu nó có thể xử lý yêu cầu hay chuyển nó đến handler tiếp theo.
+
+```java
+class ConcreteHandler1 implements Handler {
+    private Handler next;
+
+    @Override
+    public void handleRequest(String request) {
+        if (request.equals("Handler1")) {
+            System.out.println("ConcreteHandler1 đã xử lý yêu cầu.");
+        } else if (next != null) {
+            next.handleRequest(request);
+        }
+    }
+
+    @Override
+    public void setNext(Handler nextHandler) {
+        this.next = nextHandler;
+    }
+}
+
+class ConcreteHandler2 implements Handler {
+    private Handler next;
+
+    @Override
+    public void handleRequest(String request) {
+        if (request.equals("Handler2")) {
+            System.out.println("ConcreteHandler2 đã xử lý yêu cầu.");
+        } else if (next != null) {
+            next.handleRequest(request);
+        }
+    }
+
+    @Override
+    public void setNext(Handler nextHandler) {
+        this.next = nextHandler;
+    }
+}
+```
+
+### Bước 3: Tạo Client Class
+
+Client sẽ tạo yêu cầu và gửi chúng qua chuỗi các handler.
+
+```java
+class Client {
+    private Handler handler;
+
+    public Client(Handler handler) {
+        this.handler = handler;
+    }
+
+    public void makeRequest(String request) {
+        handler.handleRequest(request);
+    }
+}
+```
+
+### Bước 4: Thiết lập và Sử dụng Chain of Responsibility
+
+Ở đây, chúng ta tạo các handler, thiết lập chuỗi trách nhiệm và sau đó là thực thi yêu cầu thông qua client.
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Handler handler1 = new ConcreteHandler1();
+        Handler handler2 = new ConcreteHandler2();
+
+        handler1.setNext(handler2);
+
+        Client client = new Client(handler1);
+        client.makeRequest("Handler1");
+        client.makeRequest("Handler2");
+        client.makeRequest("Unknown"); // Sẽ không được xử lý bởi bất kỳ handler nào
+    }
+}
+```
+
+
 ## Ví dụ áp dụng Chain of Responsibility
-
-
 
 Trong ví dụ này, mô hình Chain of Responsibility được áp dụng để xử lý quá trình xác thực và kiểm tra trong một hệ thống giả lập. Cụ thể, chúng ta có một số lớp con của `Test`, mỗi lớp thực hiện một kiểm tra cụ thể trong chuỗi xác thực:
 
