@@ -399,10 +399,18 @@ public class Demo {
 }
 ```
 
-## Khi nào áp dụng
+## Khi nào áp dụng Chain-Of-Responsibility Pattern
 
-Sử dụng khi chương trình của bạn cần sử nhiều loại yêu cầu khác nhau, nhưng bạn chưa chưa xác định được loại yêu cầu và cách sắp xếp tuần tự của nó.
+Mẫu thiết kế Chain-Of-Responsibility nên được áp dụng trong các tình huống sau:
 
-Áp dụng khi một tác vụ nào đó cần sử lý tuần tự.
+1. **Xử lý Nhiều Loại Yêu Cầu Khác Nhau**: Khi chương trình của bạn cần xử lý nhiều loại yêu cầu khác nhau và bạn không thể hoặc không muốn xác định trước loại yêu cầu cụ thể cũng như thứ tự xử lý của chúng, mẫu này sẽ rất hữu ích. Nó cho phép bạn tổ chức một chuỗi các đối tượng xử lý, mỗi đối tượng sẽ xử lý một loại yêu cầu cụ thể hoặc chuyển nó đến đối tượng tiếp theo trong chuỗi.
+
+2. **Xử lý Tuần Tự**: Mẫu này cũng thích hợp khi một tác vụ cần được xử lý một cách tuần tự. Trong trường hợp này, mỗi đối tượng trong chuỗi sẽ thực hiện một phần của tác vụ hoặc quyết định xem liệu có nên chuyển tác vụ đó đến đối tượng tiếp theo trong chuỗi hay không.
+
+3. **Phân Cấp Trách Nhiệm**: Khi bạn muốn phân cấp trách nhiệm xử lý yêu cầu, mẫu này cũng rất hữu ích. Nó cho phép từng đối tượng trong chuỗi tập trung vào một phần nhỏ của tác vụ, làm cho việc xử lý trở nên quản lý và bảo trì dễ dàng hơn.
+
+4. **Linh Hoạt trong Xử lý Yêu Cầu**: Cuối cùng, mẫu Chain-Of-Responsibility tạo điều kiện cho sự linh hoạt trong việc xử lý yêu cầu. Bạn có thể dễ dàng thay đổi hoặc mở rộng chuỗi xử lý mà không cần thay đổi mã nguồn của các đối tượng xử lý hiện có.
+
+Kết hợp những điểm trên, Chain-Of-Responsibility là một lựa chọn tuyệt vời cho các ứng dụng cần một cách tiếp cận linh hoạt và mở rộng trong việc xử lý một loạt yêu cầu khác nhau, đồng thời giữ cho mã nguồn trở nên gọn gàng và dễ quản lý.
 
 
