@@ -14,13 +14,46 @@
 
 ## Đặt vấn đề
 
-Giả sử bạn đang làm trên một ứng dụng soạn thảo văn bản mới. Công việc của bạn hiện tại là tạo một thanh toolbar với vài nút button để chỉnh sữa. Giờ bạn tạo một lớp cơ sở `Button` để sử dụng cho các nút button trên toolbar.
+Giả sử bạn đang làm việc trên một ứng dụng soạn thảo văn bản mới. Công việc hiện tại của bạn là tạo một thanh công cụ (toolbar) với vài nút (button) để chỉnh sửa. Bạn bắt đầu bằng cách tạo một lớp cơ sở `Button` để sử dụng cho các nút trên toolbar.
 
-Các nút button có vẻ rất giống nhau, nhưng sự kiện của từng nút thì lại khác nhau. Làm sao để gắn sự kiện cho từng nút button ? Cách đơn giản nhất là tạo các lớp riêng cho từng sự kiện và kế thừa lại lớp cơ sở `Button`
+Các nút này có vẻ rất giống nhau, nhưng sự kiện xử lý của mỗi nút lại khác biệt. Làm sao để gán sự kiện cho mỗi nút button? Cách đơn giản nhất là tạo các lớp riêng biệt cho từng sự kiện và kế thừa lớp cơ sở `Button`.
 
-Sau một thời gian, bạn nhận ra rằng cách tiếp cận này rất thiêu sót. Đầu tiên, bạn có rất nhiều lớp con, và điều này vẫn ổn nếu như không phá mã trong các lớp khi lớp cơ sỡ `Button` thay đổi.
+Sau một thời gian, bạn nhận ra rằng phương pháp này có nhiều hạn chế. Đầu tiên, sự gia tăng của lớp con khiến kiến trúc trở nên phức tạp. Hơn nữa, mỗi khi lớp cơ sở `Button` thay đổi, việc bảo trì mã nguồn trở nên khó khăn.
 
-Vấn đề tới nhất sẽ đến, khi ứng dụng của bạn phát triên cao hơn, người dùng không chỉ muốn nhấn vào các nút để thực hiện chức năng, mà còn  thực hiện thông qua phím tắt hoặc vài thao tác kéo thả. Như vậy bạn phải một lớp khác bắt sự kiến phím tắt, sau đó lại copy toàn bộ chức năng ở nút `button` đã implement. Điều khá tốt những khi có việc cần thay đổi chức năng bạn phải cập nhật ở nhiều nơi.
+```mermaid
+classDiagram
+class Toolbar {
++addButton(button)
+}
+class Button {
++onClick()
+}
+class TextEditButton {
++onClick()
+}
+class FontSizeButton {
++onClick()
+}
+class ShortcutHandler {
++handleShortcut()
+}
+
+Toolbar o-- Button : contains
+Button <|-- TextEditButton : extends
+Button <|-- FontSizeButton : extends
+Toolbar o-- ShortcutHandler : uses
+
+class TextEditButton {
++executeTextEdit()
+}
+class FontSizeButton {
++executeFontSizeChange()
+}
+ShortcutHandler ..> TextEditButton : calls
+ShortcutHandler ..> FontSizeButton : calls
+```
+
+Vấn đề trở nên nghiêm trọng hơn khi ứng dụng phát triển: người dùng không chỉ muốn thao tác thông qua các nút mà còn muốn sử dụng phím tắt hoặc các thao tác kéo thả. Điều này đòi hỏi bạn phải tạo thêm lớp để xử lý sự kiện từ phím tắt, và sau đó, phải sao chép toàn bộ chức năng đã được triển khai trong các nút button. Điều này không những tốn công mà còn gây khó khăn khi cần cập nhật chức năng, vì bạn phải thực hiện thay đổi ở nhiều nơi.
 
 ## Giải pháp
 
