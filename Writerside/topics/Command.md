@@ -57,14 +57,38 @@ Vấn đề trở nên nghiêm trọng hơn khi ứng dụng phát triển: ngư
 
 ## Giải pháp
 
-Để giải quyết vấn đề trên, ta sẽ tách phần giao diện và phần logic ra hai lớp khác nhau. Lớp GUI (Giao Diện) sẽ đảm nhiệm vài trò thể hiện các giao diện đẹp ra cho người dùng sử dung, đồng thời sẽ lắng nghe và bắt các sự khi người dùng sử dụng. Tuy nhiên, khi cần đến những việc tính toán, lưu trữ dữ liệu, hoặc truy vấn dữ liệu thì phần GUI nên giao lại cho phần logic đảm nhiệm.
+```mermaid
+classDiagram
+    class GUI {
+        +Hiển thị giao diện
+        +Lắng nghe tương tác người dùng
+        +Chuyển giao tác vụ
+    }
+    class Logic {
+        +Xử lý tính toán
+        +Lưu trữ dữ liệu
+        +Truy vấn dữ liệu
+    }
+    class Command {
+        +Thông tin yêu cầu
+        +Tên phương thức
+        +Kích hoạt yêu cầu
+    }
 
-Nói đến đây các bạn sẽ nghỉ chỉ cần tách ra một lớp logic bắt và xử lý các logic các sử kiện nút `Button` thì đã xong.
+    GUI "1" --o "1" Command : Triggers
+    Command "1" --o "1" Logic : Executes
+
+    GUI : -Gửi yêu cầu thông qua Command
+    Logic : -Thực hiện các tác vụ nặng
+    Command : -Giảm liên kết GUI-Logic
+```
 
 
-Nhưng với Command Pattern đề nghị bạn đừng nên dùng GUI gọi yêu cầu trực tiếp. Bạn nên trích các thông tin, yêu cầu , tên phương được gọi......vào một lớp đặc biệt cùng với một phương thức để kích hoạt yêu cầu.
+Để giải quyết vấn đề này, chúng ta cần phân tách giao diện người dùng và logic nền tảng thành hai lớp riêng biệt. Lớp GUI (Giao Diện Người Dùng) chịu trách nhiệm hiển thị giao diện trực quan và thân thiện cho người dùng, đồng thời lắng nghe và phản ứng với các tương tác từ phía người dùng. Tuy nhiên, khi đến phần xử lý tính toán, lưu trữ, và truy vấn dữ liệu, thì lớp GUI nên chuyển giao nhiệm vụ này cho lớp logic.
 
-Như vậy ta sẽ giảm được sử ghép nối giữa GUI và Logic, giúp bạn có thể Linh hoạt hơn trong sử dụng
+Có thể bạn sẽ nghĩ chỉ cần tạo ra một lớp logic để nhận và xử lý các sự kiện từ nút `Button` là đủ. Tuy nhiên, theo Command Pattern, tôi khuyến nghị không nên để GUI gọi trực tiếp các yêu cầu. Thay vào đó, bạn nên tạo một lớp đặc biệt, trong đó chứa thông tin và yêu cầu cần thiết, cùng với tên phương thức sẽ được gọi và một phương thức để kích hoạt yêu cầu đó.
+
+Nhờ cách làm này, sự liên kết chặt chẽ giữa GUI và Logic sẽ được giảm bớt, giúp bạn có thêm sự linh hoạt trong quá trình sử dụng và phát triển phần mềm.
 
 ## Cấu Trúc
 
