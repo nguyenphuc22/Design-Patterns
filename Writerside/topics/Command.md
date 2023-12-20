@@ -92,11 +92,56 @@ Nhờ cách làm này, sự liên kết chặt chẽ giữa GUI và Logic sẽ �
 
 ## Cấu Trúc
 
-- **Command**: là interface hoặc abstract class, chứa một phương thức duy nhất để executing lệnh.
-- **Concrete Command**: Thực hiện các yêu cầu khác nhau. Một Concrete Command không phải tự mình thực hiện công việc, thường sẽ chuyển đến lớp logic chuyên nghiệp.
-- **Client**: Tiếp nhận request từ phía người dùng, đống gói request thành ConcreteCommand thích hợp.
-- **Invoker**: Tiếp nhận Concrete Command từ Client và gọi execute()
-- **Receiver**: Đây là thành phần thực thi logic chuyên nghiệp.
+```mermaid
+classDiagram
+    class Command {
+        <<interface>>
+        +execute()
+    }
+
+    class ConcreteCommand {
+        +execute()
+    }
+
+    class Invoker {
+        -command: Command
+        +setCommand(Command)
+        +executeCommand()
+    }
+
+    class Receiver {
+        +action()
+    }
+
+    class Client {
+    }
+
+    Command <|.. ConcreteCommand : implements
+    Client ..> ConcreteCommand : creates
+    ConcreteCommand --> Receiver : sets
+    Invoker o-- Command : has
+```
+
+1. **Command (Interface):**
+    - Đây là một interface hoặc abstract class định nghĩa phương thức `execute()`.
+    - Mục đích là để tạo một giao diện chung cho tất cả các lệnh cụ thể.
+
+2. **ConcreteCommand:**
+    - Là một lớp cụ thể thực hiện interface `Command`.
+    - Trong phương thức `execute()`, nó gọi phương thức tương ứng của Receiver.
+
+3. **Invoker:**
+    - Lưu trữ một tham chiếu đến một đối tượng `Command`.
+    - Gọi phương thức `execute()` trên đối tượng `Command` để thực hiện yêu cầu.
+
+4. **Receiver:**
+    - Biết cách thực hiện các hoạt động cần thiết để thực hiện yêu cầu.
+    - Mỗi `ConcreteCommand` sẽ liên kết với một `Receiver`.
+
+5. **Client:**
+    - Tạo ra một đối tượng `ConcreteCommand` và thiết lập receiver của nó.
+    - Có thể giao `Command` cho `Invoker` để thực hiện.
+
 
 ## Ví dụ áp dụng Command Pattern
 
