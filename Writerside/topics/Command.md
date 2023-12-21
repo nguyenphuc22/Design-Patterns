@@ -143,6 +143,84 @@ classDiagram
     - Có thể giao `Command` cho `Invoker` để thực hiện.
 
 
+## Cách triển khai
+
+### 1. Command Interface
+
+Đầu tiên, chúng ta cần định nghĩa interface `Command` với phương thức `execute()`.
+
+```java
+public interface Command {
+    void execute();
+}
+```
+
+### 2. ConcreteCommand
+
+Tiếp theo, tạo các lớp `ConcreteCommand` thực thi interface `Command`. Mỗi `ConcreteCommand` sẽ chứa một tham chiếu đến `Receiver` và gọi phương thức của `Receiver` trong `execute()`.
+
+```java
+public class ConcreteCommand implements Command {
+    private Receiver receiver;
+
+    public ConcreteCommand(Receiver receiver){
+        this.receiver = receiver;
+    }
+
+    @Override
+    public void execute() {
+        receiver.action();
+    }
+}
+```
+
+### 3. Receiver
+
+Lớp `Receiver` biết cách thực hiện các hoạt động thực sự.
+
+```java
+public class Receiver {
+    public void action() {
+        System.out.println("Action performed by Receiver");
+    }
+}
+```
+
+### 4. Invoker
+
+`Invoker` lưu trữ một tham chiếu đến `Command` và gọi `execute()` trên nó.
+
+```java
+public class Invoker {
+    private Command command;
+
+    public void setCommand(Command command){
+        this.command = command;
+    }
+
+    public void executeCommand(){
+        command.execute();
+    }
+}
+```
+
+### 5. Client
+
+Cuối cùng, `Client` tạo `ConcreteCommand` và thiết lập `Receiver` của nó. Nó cũng có thể giao `Command` cho `Invoker`.
+
+```java
+public class Client {
+    public static void main(String[] args) {
+        Receiver receiver = new Receiver();
+        Command command = new ConcreteCommand(receiver);
+        Invoker invoker = new Invoker();
+
+        invoker.setCommand(command);
+        invoker.executeCommand();
+    }
+}
+```
+
 ## Ví dụ áp dụng Command Pattern
 
 Account.kt
