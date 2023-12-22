@@ -223,6 +223,58 @@ public class Client {
 
 ## Ví dụ áp dụng Command Pattern
 
+Trong ví dụ này, mẫu Command Pattern được triển khai để mô phỏng hoạt động của một ứng dụng ngân hàng quản lý các thao tác liên quan đến tài khoản như mở và đóng tài khoản. Mẫu này tách biệt đối tượng gọi thao tác (lớp `BankApp`) với đối tượng biết cách thực hiện nó (lớp `Account`). Dưới đây là phần phân tích các thành phần:
+
+```mermaid
+classDiagram
+    class Account {
+        +String name
+        +open()
+        +close()
+    }
+
+    class Command {
+        <<interface>>
+        +execute()
+    }
+
+    class OpenAccount {
+        -Account account
+        +execute()
+    }
+
+    class CloseAccount {
+        -Account account
+        +execute()
+    }
+
+    class BankApp {
+        -Command openAccount
+        -Command closeAccount
+        +clickOpenAccount()
+        +clickCloseAccount()
+    }
+
+    Command <|.. OpenAccount
+    Command <|.. CloseAccount
+    OpenAccount --> Account
+    CloseAccount --> Account
+    BankApp "1" --> "1" Command : has >
+```
+
+1. **Tài khoản (Account.kt):** Lớp này đại diện cho một tài khoản ngân hàng với các chức năng cơ bản để mở và đóng tài khoản. Các phương thức `open()` và `close()` in ra các thông báo chỉ ra trạng thái của tài khoản.
+
+2. **Lệnh (Command.kt):** Đây là một giao diện với một phương thức duy nhất `execute()`. Nó là trung tâm của Command Pattern, cho phép các lớp lệnh cụ thể triển khai phương thức này.
+
+3. **Mở Tài Khoản (OpenAccount.kt):** Một lớp lệnh cụ thể triển khai giao diện `Command`. Nó đóng gói hành động `open()` của một `Account`.
+
+4. **Đóng Tài Khoản (CloseAccount.kt):** Một lớp lệnh cụ thể khác triển khai giao diện `Command`. Nó đóng gói hành động `close()` của một `Account`.
+
+5. **Ứng Dụng Ngân Hàng (BankApp.kt):** Lớp này đóng vai trò như một người gọi. Nó có các phương thức (`clickOpenAccount()` và `clickCloseAccount()`) thực thi các lệnh tương ứng.
+
+6. **Chính (main.kt):** Điểm nhập của chương trình, nơi một `Account` được tạo, các đối tượng lệnh để mở và đóng tài khoản được khởi tạo, và `BankApp` được sử dụng để thực thi các lệnh này.
+
+
 Account.kt
 
 ```kotlin
