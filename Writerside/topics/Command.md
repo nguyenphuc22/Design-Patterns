@@ -393,6 +393,14 @@ Process finished with exit code 0
 
 ## Khi nào áp dụng
 
-Khi cần tham số hóa các đối tượng theo một hành động thực hiện.
+1. **Khi bạn muốn chỉ định một hành động cụ thể cho một đối tượng:**
+   Nếu bạn cần mỗi đối tượng có thể thực hiện một hành động đặc biệt nào đó, Command Pattern sẽ giúp bạn làm điều này. Nó cho phép bạn 'đóng gói' một hành động vào một đối tượng, rồi sau đó bạn có thể sử dụng hành động đó mọi lúc mọi nơi.
 
-Khi cần tạo và thực thi các yêu cầu vào các thời điểm khác nhau.
+2. **Khi bạn muốn thực hiện hành động vào lúc khác:**
+   Đôi khi bạn không muốn thực hiện một hành động ngay lập tức. Ví dụ, bạn có thể muốn lên lịch nó cho sau này hoặc chờ đến khi điều kiện nào đó được đáp ứng. Command Pattern giúp bạn lưu trữ hành động đó và thực hiện nó vào thời điểm bạn chọn.
+
+3. **Khi bạn cần tính năng 'hoàn tác':**
+   Trong trường hợp bạn muốn người dùng có thể 'hoàn tác' một hành động nào đó mà họ đã thực hiện, Command Pattern có thể giúp. Nó cho phép bạn lưu lại những gì đã xảy ra, để sau đó bạn có thể quay ngược lại nếu cần.
+
+4. **Khi bạn muốn phân tách người ra lệnh và người thực hiện:**
+   Nếu bạn muốn giữ cho phần của chương trình ra lệnh không phụ thuộc vào phần thực hiện lệnh, Command Pattern là một giải pháp tốt. Điều này giúp cho chương trình của bạn linh hoạt và dễ quản lý hơn.
