@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Command.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Iterator.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Iterator.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +66,20 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Behavioral-Patterns.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Chain-Of-Responsibility.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Iterator.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Strategy.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Template-Method.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Visitor.md"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
