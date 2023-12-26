@@ -14,13 +14,23 @@
 
 ## Đặt vấn đề
 
-`Collections` là một kiểu dữ liệu được sử dụng nhiều nhất trong lập trình. Tuy nhiên, `Collection` chỉ là một mảng nhóm các đối tượng lại với nhau.
+```mermaid
+graph TD
+    A[Collections] -->|Dạng Đơn Giản| B[List]
+    A -->|Dạng Phức Tạp| C[Phức Tạp]
+    C -->|Stacks| D[Stack]
+    C -->|Trees| E[Tree]
+    C -->|Graphs| F[Graph]
+    E -->|Duyệt Chiều Sâu| G[Depth-First]
+```
 
-Hầu hết `collections` sẽ lưu trữ các phần tử của chúng một cách rất đơn giản. Tuy nhiên lại, tồn tại một số `collection` có cách lưu trữ rất phức tạp như stacks, trees, graphs và một số cấu trúc dữ liệu phức tạp khác.
+`Collections` là một kiểu dữ liệu phổ biến nhất trong lập trình. Tuy nhiên, `Collection` chỉ là một cấu trúc dữ liệu nhóm các đối tượng lại với nhau.
 
-Dù thế nào, `collections` phải cung cấp các phương thức để truy vấn đến các phần từ mà chúng lưu trữ. Cần có một cách nào đó để duyệt qua các phần tử mà không cần phải truy cập lại cấc phần tử giống nhau.
+Hầu hết `collections` lưu trữ các phần tử của chúng một cách đơn giản. Tuy nhiên, có một số `collection` có cách lưu trữ phức tạp như stacks, trees, graphs và các cấu trúc dữ liệu khác.
 
-Nghe thì có vẻ dể nếu `collection` đang dùng là dạng list. Việt duyệt qua các phần tử rất dể, chỉ đơn giản dùng một dòng for. Nhưng nếu đó là một `collection` dạng phức tạp hơn thì sao ? Ví dụ như dạng cây chẳng hạn. Ban đầu bạn phải duyệt theo chiều sâu (depth-first) nhưng một ngày đẹp trời khác bạn lại phải duyệt theo chiều rộng (breadth-first). Một tháng sau, bạn truy vấn đến phần tử ngẫu nhiên. Điều này nghe lại không hề dể tí nào.
+Dù thế nào, `collections` cần cung cấp các phương thức để truy vấn đến các phần tử mà chúng lưu trữ. Phải có cách nào đó để duyệt qua các phần tử mà không cần phải truy cập lại các phần tử đã truy cập.
+
+Có vẻ đơn giản nếu `collection` là dạng list. Việc duyệt qua các phần tử dễ dàng, chỉ cần sử dụng một vòng lặp for. Nhưng nếu là `collection` dạng phức tạp hơn thì sao? Chẳng hạn như dạng cây, ban đầu bạn phải duyệt theo chiều sâu (depth-first), nhưng sau đó có thể cần duyệt theo chiều rộng (breadth-first). Và một tháng sau, bạn có thể cần truy vấn đến phần tử ngẫu nhiên. Điều này không hề đơn giản chút nào.
 
 ## Giải pháp
 
