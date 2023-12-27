@@ -34,9 +34,13 @@ Có vẻ đơn giản nếu `collection` là dạng list. Việc duyệt qua cá
 
 ## Giải pháp
 
-Ý tưởng chính của `Iterator` pattern là lấy hành vi duyệt phần tự của `collection` tách no ra thành một object riêng gọi là một iterator.
+Giải pháp cho thách thức này chính là áp dụng mẫu thiết kế `Iterator`. Mẫu thiết kế này giúp tách biệt hoàn toàn hành vi duyệt qua các phần tử của `collection` ra khỏi cấu trúc của `collection` đó. Điều này được thực hiện thông qua việc tạo ra một đối tượng riêng biệt, gọi là `iterator`.
 
-Ngoài việc implementing thuật toán, một đối tượng `iterator` có thể đống gói toàn  bộ những chi tiết về quá trình duyệt như: vị trí hiện tại và còn bao nhiêu phần tử nữa thì kết thúc.
+Một `iterator` không chỉ thực thi thuật toán duyệt qua các phần tử, mà còn đóng gói chi tiết về quá trình duyệt. Điều này bao gồm việc theo dõi vị trí hiện tại trong `collection` và xác định xem còn bao nhiêu phần tử nữa trước khi hoàn thành quá trình duyệt.
+
+Ngoài ra, việc sử dụng `iterator` cung cấp một giao diện thống nhất cho việc duyệt qua các loại `collections` khác nhau, dù đó là list đơn giản hay cấu trúc phức tạp hơn như trees hay graphs. Điều này đồng nghĩa với việc code của chúng ta trở nên linh hoạt hơn, dễ dàng thích ứng với nhu cầu thay đổi của việc duyệt và truy cập các phần tử trong `collections`.
+
+Một lợi ích khác của việc sử dụng mẫu thiết kế `Iterator` là nó giúp giảm thiểu sự phụ thuộc giữa các `collections` và thuật toán sử dụng để duyệt chúng. Điều này không chỉ giúp code trở nên sạch sẽ hơn mà còn dễ dàng bảo trì và mở rộng trong tương lai.
 
 ## Cấu Trúc
 
