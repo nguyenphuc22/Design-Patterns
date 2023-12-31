@@ -65,18 +65,18 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics"
+    "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics",
+    "settings.editor.selected.configurable": "fileTemplates"
   },
   "keyToStringList": {
     "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Behavioral-Patterns.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Chain-Of-Responsibility.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Intro.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Strategy.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Template-Method.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Singleton.md",
       "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Visitor.md"
     ]
   }

@@ -34,6 +34,38 @@ Có vẻ đơn giản nếu `collection` là dạng list. Việc duyệt qua cá
 
 ## Giải pháp
 
+```mermaid
+classDiagram
+    class Iterator {
+        <<interface>>
+        +next() item
+        +hasNext() bool
+        +currentItem() item
+    }
+
+    class Collection {
+        <<interface>>
+        +createIterator() Iterator
+    }
+
+    class ConcreteCollection {
+        -items[]
+        +createIterator() Iterator
+    }
+
+    class ConcreteIterator {
+        -collection
+        -currentIndex
+        +next() item
+        +hasNext() bool
+        +currentItem() item
+    }
+
+    Collection <|-- ConcreteCollection
+    Iterator <|-- ConcreteIterator
+    ConcreteIterator "1" -- "*" ConcreteCollection: navigates > 
+```
+
 Giải pháp cho thách thức này chính là áp dụng mẫu thiết kế `Iterator`. Mẫu thiết kế này giúp tách biệt hoàn toàn hành vi duyệt qua các phần tử của `collection` ra khỏi cấu trúc của `collection` đó. Điều này được thực hiện thông qua việc tạo ra một đối tượng riêng biệt, gọi là `iterator`.
 
 Một `iterator` không chỉ thực thi thuật toán duyệt qua các phần tử, mà còn đóng gói chi tiết về quá trình duyệt. Điều này bao gồm việc theo dõi vị trí hiện tại trong `collection` và xác định xem còn bao nhiêu phần tử nữa trước khi hoàn thành quá trình duyệt.
