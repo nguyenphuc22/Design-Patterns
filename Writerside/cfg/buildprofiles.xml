@@ -1,3 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rules SYSTEM "https://resources.jetbrains.com/writerside/1.0/redirection-rules.dtd">
-<analytics-body-html-file>google-analytics-noscript.html</analytics-body-html-file>
+<buildprofiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:noNamespaceSchemaLocation="https://resources.jetbrains.com/writerside/1.0/build-profiles.xsd">
+    <variables>
+				<analytics-body-html-file>google-analytics-noscript.html</analytics-body-html-file>
+    </variables>
+</buildprofiles>
