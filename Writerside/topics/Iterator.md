@@ -76,6 +76,52 @@ Một lợi ích khác của việc sử dụng mẫu thiết kế `Iterator` l�
 
 ## Cấu Trúc
 
+```mermaid
+classDiagram
+    class Iterator {
+        <<interface>>
+        +next() : Element
+        +hasNext() : boolean
+    }
+
+    class ConcreteIteratorA {
+        -currentIndex : int
+        +next() : Element
+        +hasNext() : boolean
+    }
+    
+    class ConcreteIteratorB {
+        -currentIndex : int
+        +next() : Element
+        +hasNext() : boolean
+    }
+
+    class IterableCollection {
+        <<interface>>
+        +createIterator() : Iterator
+    }
+
+    class ConcreteCollectionA {
+        +createIterator() : Iterator
+    }
+
+    class ConcreteCollectionB {
+        +createIterator() : Iterator
+    }
+
+    class Client {
+        -iterator : Iterator
+    }
+
+    Iterator <|.. ConcreteIteratorA
+    Iterator <|.. ConcreteIteratorB
+    IterableCollection <|.. ConcreteCollectionA
+    IterableCollection <|.. ConcreteCollectionB
+    ConcreteCollectionA ..> ConcreteIteratorA : creates
+    ConcreteCollectionB ..> ConcreteIteratorB : creates
+    Client --> Iterator : uses
+```
+
 - **Iterator** : là một interface hoặc abstract class khai báo các hoạt động cần thiết để duyệt qua các phần tử.
 - **Concrete Iterators** : cài đặt các phương thức của Iterator, giữ index khi duyệt qua các phần tử.
 - **Iterable Collection** : là một interface tạo ra một hoặc nhiều phương thức cho để lấy `interators` tương thích với `Collection`.
