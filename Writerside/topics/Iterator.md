@@ -130,6 +130,63 @@ classDiagram
 
 ## Ví dụ áp dụng Iterator Collection
 
+Ví dụ này minh họa một mô hình thiết kế Iterator được áp dụng trong một bộ sưu tập các đối tượng `Item`. Mô hình này bao gồm các lớp và giao diện sau:
+
+1. **Item**: Lớp này định nghĩa đối tượng `Item` với hai thuộc tính: `name` và `age`. Phương thức `toString()` được ghi đè để trả về thông tin của đối tượng `Item`.
+
+2. **ItemIterator**: Đây là một giao diện định nghĩa hai phương thức cơ bản của iterator: `hasNext()` (kiểm tra xem còn phần tử tiếp theo hay không) và `next()` (trả về phần tử tiếp theo).
+
+3. **IterableCollection**: Đây là một giao diện định nghĩa các phương thức cho một bộ sưu tập có thể duyệt. Nó bao gồm phương thức `addItem()` để thêm một phần tử vào bộ sưu tập và `iterator()` để trả về một iterator cho bộ sưu tập.
+
+4. **MenuCollection**: Lớp này triển khai giao diện `IterableCollection`. Nó sử dụng một `List` để lưu trữ các phần tử và triển khai một lớp nội bộ `MenuItemIterator` để cung cấp chức năng iterator.
+
+5. **demo**: Lớp này chứa phương thức `main`, nơi tạo một thực thể của `MenuCollection`, thêm các phần tử vào nó, và sau đó sử dụng iterator để duyệt qua các phần tử.
+
+### Sơ đồ Mermaid
+
+```mermaid
+classDiagram
+    class Item {
+      -String name
+      -int age
+      +toString() String
+    }
+
+    class ItemIterator~T~ {
+      +hasNext() Boolean
+      +next() T
+    }
+
+    class IterableCollection~T~ {
+      +addItem(T)
+      +iterator() ItemIterator
+    }
+
+    class MenuCollection~T~ {
+      -List menuItem
+      +addItem(Object)
+      +iterator() ItemIterator
+    }
+
+    class MenuItemIterator {
+        -int currentIndex
+        +hasNext() Boolean
+        +next() T
+    }
+
+    class demo {
+      +main(args String[])
+    }
+
+    ItemIterator <|-- MenuItemIterator
+    IterableCollection <|-- MenuCollection
+    ItemIterator <|.. MenuCollection
+    demo -- MenuCollection
+    MenuCollection "1" *-- "many" Item : contains
+```
+
+Trong sơ đồ này, các mũi tên biểu diễn mối quan hệ giữa các lớp và giao diện. Lớp `MenuCollection` triển khai giao diện `IterableCollection` và chứa một lớp nội bộ `MenuItemIterator`, là một triển khai của `ItemIterator`. Lớp `demo` tạo và sử dụng một thực thể của `MenuCollection`.
+
 Item.java
 
 ```java
