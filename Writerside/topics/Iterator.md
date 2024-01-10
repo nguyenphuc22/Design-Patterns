@@ -185,8 +185,6 @@ classDiagram
     MenuCollection "1" *-- "many" Item : contains
 ```
 
-Trong sơ đồ này, các mũi tên biểu diễn mối quan hệ giữa các lớp và giao diện. Lớp `MenuCollection` triển khai giao diện `IterableCollection` và chứa một lớp nội bộ `MenuItemIterator`, là một triển khai của `ItemIterator`. Lớp `demo` tạo và sử dụng một thực thể của `MenuCollection`.
-
 Item.java
 
 ```java
