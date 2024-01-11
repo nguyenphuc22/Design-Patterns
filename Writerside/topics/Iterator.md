@@ -301,8 +301,13 @@ public class demo {
 }
 ```
 
-## Khi nào nên sử dụng
+## Khi nào nên sử dụng Iterator
 
-Sử dụng khi `collection` của bạn có cấu trúc phức tạp và bạn không muốn ẩn nó đi, không muốn cho clients của mình biết đến.
+Iterator là một công cụ hữu ích trong lập trình, đặc biệt là khi bạn đối mặt với các tình huống sau:
 
-Sử dụng để giảm thiểu các mã trung lập khi duyệt phần tử.
+1. **Khi Cấu Trúc Dữ Liệu Phức Tạp:** Sử dụng Iterator khi bạn có một bộ sưu tập (collection) với cấu trúc phức tạp. Iterator giúp bạn duyệt qua các phần tử mà không cần phải lo lắng về cách chúng được tổ chức bên trong.
+
+2. **Bảo Mật Thông Tin Cấu Trúc:** Khi bạn không muốn tiết lộ chi tiết cấu trúc nội bộ của bộ sưu tập đến với người dùng (clients), Iterator là lựa chọn phù hợp. Nó cung cấp một giao diện đơn giản để tương tác với dữ liệu mà không hé lộ chi tiết phức tạp.
+
+3. **Giảm Thiểu Mã Lặp:** Iterator giúp giảm thiểu lượng mã cần thiết để duyệt qua các phần tử. Thay vì viết các vòng lặp phức tạp, bạn có thể sử dụng các hàm của Iterator để làm việc này một cách gọn gàng và hiệu quả hơn.
+
