@@ -12,23 +12,57 @@
 
 - **Ý Tưởng Cốt Lõi:** Trong Mediator Pattern, 'Mediator' đóng vai trò là trung tâm điều phối. Nó giúp các đối tượng tương tác với nhau một cách gián tiếp và giảm thiểu sự phụ thuộc chặt chẽ, từ đó làm cho cấu trúc hệ thống trở nên linh hoạt và dễ quản lý hơn.
 
-## Đặt vấn đề
+### Đặt vấn đề
 
-Giả sử bạn đang phát triển một ứng dụng nhắn tin với các đối tượng User và ChatRoom. Ban đầu, mỗi User giao tiếp trực tiếp với ChatRoom để gửi tin nhắn.
+- **Bối cảnh**: Trong lập trình hướng đối tượng, một vấn đề phổ biến xảy ra khi nhiều lớp tương tác với nhau trực tiếp, tạo ra một mạng lưới phức tạp của các quan hệ. Điều này không chỉ làm cho hệ thống khó hiểu và khó bảo trì, mà còn gây ra sự phụ thuộc lẫn nhau giữa các lớp, làm giảm khả năng tái sử dụng của chúng. Ví dụ, trong một ứng dụng chat, các đối tượng như người dùng, phòng chat, và hệ thống thông báo cần giao tiếp liên tục. Nếu mỗi đối tượng trực tiếp gọi các phương thức của đối tượng khác, mã sẽ nhanh chóng trở nên rối rắm và khó quản lý.
+```mermaid
+graph LR
+    A[Người dùng 1] -->|Giao tiếp trực tiếp| B[Người dùng 2]
+    A -->|Giao tiếp trực tiếp| C[Người dùng 3]
+    B -->|Giao tiếp trực tiếp| C
+    B -->|Giao tiếp trực tiếp| D[Phòng chat]
+    C -->|Giao tiếp trực tiếp| D
+    A -->|Giao tiếp trực tiếp| D
+    D -->|Giao tiếp trực tiếp| E[Hệ thống thông báo]
+```
 
-Sau này, yêu cầu thay đổi là cần kiểm duyệt tin nhắn trước khi gửi đi. Lúc này, mối phụ thuộc trực tiếp giữa các đối tượng dẫn tới khó khăn trong việc thay đổi.
+### Giải pháp
 
-## Giải quyết
+- **Cách tiếp cận**: Mediator Pattern giải quyết vấn đề này bằng cách giới thiệu một đối tượng trung gian, gọi là 'Mediator', để quản lý cách các đối tượng tương tác với nhau. Thay vì giao tiếp trực tiếp, các lớp sẽ gửi và nhận yêu cầu thông qua Mediator. Trong ví dụ ứng dụng chat, Mediator có thể là một đối tượng quản lý các phòng chat, xử lý việc gửi thông điệp giữa người dùng và thông báo tới hệ thống thông báo.
 
-Mediator Pattern được áp dụng như sau:
 
-- Định nghĩa một lớp Mediator đóng vai trò trung gian điều phối giữa các User và ChatRoom.
+```mermaid
+classDiagram
+    class Mediator {
+        <<interface>>
+        +notify(sender, event)
+    }
+    class ConcreteMediator {
+        +notify(sender, event)
+    }
+    class BaseComponent {
+        +mediator
+    }
+    class Component1 {
+        +doA()
+        +doB()
+    }
+    class Component2 {
+        +doC()
+        +doD()
+    }
 
-- Các User và ChatRoom không giao tiếp trực tiếp với nhau nữa mà thông qua Mediator.
+    Mediator <|.. ConcreteMediator
+    BaseComponent o-- Mediator : has
+    Component1 --|> BaseComponent
+    Component2 --|> BaseComponent
+    ConcreteMediator o-- Component1
+    ConcreteMediator o-- Component2
 
-- Khi có yêu cầu thay đổi, ta chỉ cần sửa đổi bên trong Mediator mà không ảnh hưởng các User và ChatRoom.
+```
 
-![](https://refactoring.guru/images/patterns/diagrams/mediator/structure.png)
+- **Lợi ích**: Lợi ích lớn nhất của Mediator Pattern là giảm sự phụ thuộc lẫn nhau giữa các lớp, làm cho mã nguồn dễ đọc và bảo trì hơn. Nó cũng giúp tăng cường khả năng tái sử dụng của các lớp bằng cách giảm sự cố định của chúng vào các lớp khác. Điều này tạo điều kiện cho việc mở rộng và bảo trì hệ thống trở nên dễ dàng hơn.
+- **Sự đánh đổi**: Mặt trái của Mediator Pattern là có thể làm tăng độ phức tạp của hệ thống do thêm một lớp trung gian. Nếu mediator trở nên quá phức tạp, nó có thể trở thành điểm nghẽn trong hệ thống. Do đó, cần cân nhắc kỹ lưỡng khi áp dụng pattern này, đặc biệt trong các hệ thống lớn và phức tạp.
 
 ## Cấu trúc
 
