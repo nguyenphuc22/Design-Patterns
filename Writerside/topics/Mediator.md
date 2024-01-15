@@ -66,7 +66,36 @@ classDiagram
 
 ## Cấu trúc
 
-Các thành phần chính trong Mediator Pattern:
+```mermaid
+classDiagram
+    class Mediator {
+        <<interface>>
+        +registerColleague(Colleague)
+        +sendMessage()
+    }
+    class Colleague {
+        -Mediator mediator
+        +receiveMessage()
+    }
+    class ConcreteMediator {
+        +sendMessage()
+        +addColleague(Colleague)
+    }
+    class ConcreteColleague1 {
+        +receiveMessage()
+    }
+    class ConcreteColleague2 {
+        +receiveMessage()
+    }
+
+    Mediator <|.. ConcreteMediator
+    Colleague <|.. ConcreteColleague1
+    Colleague <|.. ConcreteColleague2
+    Mediator o-- Colleague : communicates
+    ConcreteMediator --|> Mediator
+    ConcreteColleague1 --|> Colleague
+    ConcreteColleague2 --|> Colleague
+```
 
 - Mediator: định nghĩa interface để giao tiếp với các Colleague.
 
