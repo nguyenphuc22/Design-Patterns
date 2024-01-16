@@ -107,13 +107,105 @@ classDiagram
 
 ## Cách triển khai
 
-Để triển khai Mediator Pattern trong Java, chúng ta có thể:
+Trong ví dụ này, `ConcreteMediator` quản lý thông điệp giữa các `Colleague`. Mỗi `ConcreteColleague` sẽ gửi và nhận thông điệp thông qua `Mediator`, giúp giảm sự phụ thuộc trực tiếp giữa các đối tượng `Colleague`.
 
-- Định nghĩa interface Mediator với các phương thức trung gian.
+### Bước 1: Tạo Interface `Mediator`
 
-- Các lớp Colleague sẽ giữ một tham chiếu tới Mediator và gọi các phương thức đó thay vì giao tiếp trực tiếp.
+```java
+public interface Mediator {
+    void registerColleague(Colleague colleague);
+    void sendMessage(String message, Colleague originator);
+}
+```
 
-- Lớp ConcreteMediator sẽ triển khai và điều phối các interation giữa các Colleague.
+### Bước 2: Tạo Class Abstract `Colleague`
+
+```java
+public abstract class Colleague {
+    protected Mediator mediator;
+
+    public Colleague(Mediator mediator) {
+        this.mediator = mediator;
+    }
+
+    public abstract void receiveMessage(String message);
+}
+```
+
+### Bước 3: Tạo Class `ConcreteMediator`
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConcreteMediator implements Mediator {
+    private List<Colleague> colleagues;
+
+    public ConcreteMediator() {
+        this.colleagues = new ArrayList<>();
+    }
+
+    @Override
+    public void registerColleague(Colleague colleague) {
+        colleagues.add(colleague);
+    }
+
+    @Override
+    public void sendMessage(String message, Colleague originator) {
+        for (Colleague colleague : colleagues) {
+            // Don't notify the originator
+            if (colleague != originator) {
+                colleague.receiveMessage(message);
+            }
+        }
+    }
+}
+```
+
+### Bước 4: Tạo Class `ConcreteColleague1` và `ConcreteColleague2`
+
+```java
+public class ConcreteColleague1 extends Colleague {
+    public ConcreteColleague1(Mediator mediator) {
+        super(mediator);
+    }
+
+    @Override
+    public void receiveMessage(String message) {
+        System.out.println("ConcreteColleague1 received: " + message);
+    }
+}
+
+public class ConcreteColleague2 extends Colleague {
+    public ConcreteColleague2(Mediator mediator) {
+        super(mediator);
+    }
+
+    @Override
+    public void receiveMessage(String message) {
+        System.out.println("ConcreteColleague2 received: " + message);
+    }
+}
+```
+
+### Bước 5: Demo Sử Dụng
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        Mediator mediator = new ConcreteMediator();
+
+        Colleague colleague1 = new ConcreteColleague1(mediator);
+        Colleague colleague2 = new ConcreteColleague2(mediator);
+
+        mediator.registerColleague(colleague1);
+        mediator.registerColleague(colleague2);
+
+        colleague1.receiveMessage("Hello from Colleague1");
+        colleague2.receiveMessage("Hello from Colleague2");
+    }
+}
+```
 
 ## Ví dụ
 
