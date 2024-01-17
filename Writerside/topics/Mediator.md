@@ -227,9 +227,6 @@ classDiagram
     }
 
     User "1" <-- "1" Server : mediates
-
-    note right of Server: Mediator
-    note left of User: Colleague
 ```
 
 1. **Mediator Interface và Concrete Mediator**:
