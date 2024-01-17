@@ -209,7 +209,107 @@ public class Main {
 
 ## Ví dụ
 
-// Ví dụ triển khai Mediator Pattern với các lớp ChatRoom, User
+Mediator Pattern là một mẫu thiết kế hành vi giúp giảm sự phức tạp trong giao tiếp giữa các đối tượng hoặc lớp bằng cách cung cấp một lớp trung gian, gọi là "mediator". Mediator này kiểm soát cách thức giao tiếp giữa các đối tượng và hỗ trợ việc loại bỏ sự phụ thuộc lẫn nhau giữa chúng, làm cho mã nguồn dễ quản lý và bảo trì hơn.
+
+Trong ví dụ sau, chúng ta xây dựng một hệ thống chat đơn giản, trong đó các người dùng (User) gửi tin nhắn cho nhau thông qua một Mediator là Server. Mỗi người dùng không trực tiếp giao tiếp với người dùng khác, mà thông qua Server. Điều này giúp dễ dàng thay đổi hoặc mở rộng logic giao tiếp mà không cần thay đổi trong các lớp người dùng.
+
+```mermaid
+classDiagram
+    class User {
+        +String name
+        +sendMessage(String)
+        +receiveMessage(String)
+    }
+
+    class Server {
+        +registerUser(User)
+        +sendMessage(User, String)
+    }
+
+    User "1" <-- "1" Server : mediates
+
+    note right of Server: Mediator
+    note left of User: Colleague
+```
+
+1. **Mediator Interface và Concrete Mediator**:
+   Đầu tiên, ta định nghĩa interface `ChatMediator` và lớp cụ thể `ChatServer` thực thi nó.
+
+    ```java
+    interface ChatMediator {
+        void sendMessage(String msg, User user);
+        void registerUser(User user);
+    }
+
+    class ChatServer implements ChatMediator {
+        private List<User> users;
+
+        public ChatServer() {
+            this.users = new ArrayList<>();
+        }
+
+        @Override
+        public void registerUser(User user) {
+            users.add(user);
+        }
+
+        @Override
+        public void sendMessage(String msg, User user) {
+            for (User u : users) {
+                // message should not be received by the user sending it
+                if (u != user) {
+                    u.receiveMessage(msg);
+                }
+            }
+        }
+    }
+    ```
+
+2. **Colleague Classes**:
+   Tiếp theo, ta tạo lớp `User` mô tả các thành viên tham gia vào hệ thống chat.
+
+    ```java
+    class User {
+        private String name;
+        private ChatMediator mediator;
+
+        public User(String name, ChatMediator med) {
+            this.name = name;
+            this.mediator = med;
+        }
+
+        public void sendMessage(String msg) {
+            System.out.println(this.name + ": Sending Message = " + msg);
+            mediator.sendMessage(msg, this);
+        }
+
+        public void receiveMessage(String msg) {
+            System.out.println(this.name + ": Received Message = " + msg);
+        }
+    }
+    ```
+
+3. **Sử dụng Mediator Pattern**:
+   Cuối cùng, ta tạo các đối tượng User và Server và thử nghiệm giao tiếp giữa chúng.
+
+    ```java
+    public class ChatClient {
+        public static void main(String[] args) {
+            ChatMediator mediator = new ChatServer();
+
+            User user1 = new User("Alice", mediator);
+            User user2 = new User("Bob", mediator);
+
+            mediator.registerUser(user1);
+            mediator.registerUser(user2);
+
+            user1.sendMessage("Hi Bob!");
+            user2.sendMessage("Hey Alice!");
+        }
+    }
+    ```
+
+Trong đoạn code trên, `ChatServer` đóng vai trò là mediator, quản lý việc gửi tin nhắn giữa các `User`. Các `User` không giao tiếp trực tiếp với nhau mà thông qua `ChatServer`.
 
 ## So sánh
 
