@@ -308,10 +308,6 @@ classDiagram
 
 Trong đoạn code trên, `ChatServer` đóng vai trò là mediator, quản lý việc gửi tin nhắn giữa các `User`. Các `User` không giao tiếp trực tiếp với nhau mà thông qua `ChatServer`.
 
-## So sánh
-
-So với Observer, Mediator tập trung vào việc điều phối giao tiếp giữa các đối tượng, còn Observer tập trung vào mối quan hệ một-nhiều giữa các đối tượng.
-
 ## Kết luận
 
 Mediator Pattern hữu ích để giảm sự phụ thuộc trực tiếp giữa các lớp, dễ dàng mở rộng và thay đổi chương trình. Tuy nhiên cũng cần tránh lạm dụng mediator dẫn tới phức tạp hóa code.
