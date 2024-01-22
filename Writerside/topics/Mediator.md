@@ -308,6 +308,14 @@ classDiagram
 
 Trong đoạn code trên, `ChatServer` đóng vai trò là mediator, quản lý việc gửi tin nhắn giữa các `User`. Các `User` không giao tiếp trực tiếp với nhau mà thông qua `ChatServer`.
 
-## Kết luận
+## Khi nào nên sử dụng Mediator Pattern
 
-Mediator Pattern hữu ích để giảm sự phụ thuộc trực tiếp giữa các lớp, dễ dàng mở rộng và thay đổi chương trình. Tuy nhiên cũng cần tránh lạm dụng mediator dẫn tới phức tạp hóa code.
+- **Khi bạn muốn giảm sự phụ thuộc lẫn nhau giữa các lớp hoặc các module**: Mediator Pattern giúp các lớp hoặc module không trực tiếp giao tiếp với nhau, mà thông qua một "trung gian", giảm sự phụ thuộc và tăng khả năng tái sử dụng.
+
+- **Khi hệ thống của bạn có quá nhiều giao tiếp trực tiếp giữa các đối tượng và bạn muốn quản lý hoặc giảm thiểu sự phức tạp này**: Mediator Pattern tập trung giao tiếp giữa các đối tượng vào một điểm duy nhất, làm cho quản lý và hiểu hệ thống trở nên dễ dàng hơn.
+
+- **Trong các ứng dụng muốn cung cấp khả năng mở rộng cao**: Khi sử dụng Mediator, việc thêm hoặc sửa đổi các thành phần của hệ thống trở nên dễ dàng hơn mà không làm ảnh hưởng đến các thành phần khác.
+
+- **Khi cần đảm bảo sự cô lập giữa các thành phần của hệ thống**: Mediator giúp các thành phần giữ được sự độc lập, giảm thiểu rủi ro khi một phần của hệ thống thay đổi hoặc gặp sự cố.
+
+- **Trong việc xây dựng các ứng dụng GUI**: Mediator thường được sử dụng trong các ứng dụng giao diện người dùng để quản lý sự tương tác giữa các thành phần GUI, giúp giảm sự phức tạp trong quản lý sự kiện và trạng thái.
