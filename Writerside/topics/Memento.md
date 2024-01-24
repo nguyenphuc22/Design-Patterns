@@ -12,16 +12,6 @@
 
 - **Ý Tưởng Cốt Lõi:** Trong Memento Pattern, có ba thành phần chính: 'Originator' (tạo ra trạng thái để lưu), 'Memento' (lưu trữ trạng thái của 'Originator'), và 'Caretaker' (quản lý 'Memento' mà không cần biết chi tiết bên trong). 'Caretaker' yêu cầu lưu trạng thái từ 'Originator' và có thể yêu cầu 'Originator' quay lại trạng thái đã lưu trước đó, nhờ vào 'Memento'.
 
-## Định nghĩa
-
-Memento Pattern lưu trữ trạng thái nội bộ của một đối tượng vào một đối tượng riêng biệt được gọi là Memento. Đối tượng ban đầu có thể khôi phục lại trạng thái từ Memento.
-
-## Mục đích
-
-- Lưu lại và khôi phục trạng thái của một đối tượng mà không vi phạm encapsulation.
-
-- Cung cấp khả năng hoàn tác (undo/rollback) trong quá trình thao tác với đối tượng.
-
 ## Đặt vấn đề
 
 Giả sử bạn đang phát triển một trò chơi có đối tượng Player đại diện cho người chơi. Trong quá trình chơi, trạng thái của Player (vị trí, máu, điểm,..) liên tục thay đổi.
