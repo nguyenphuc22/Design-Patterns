@@ -12,23 +12,64 @@
 
 - **Ý Tưởng Cốt Lõi:** Trong Memento Pattern, có ba thành phần chính: 'Originator' (tạo ra trạng thái để lưu), 'Memento' (lưu trữ trạng thái của 'Originator'), và 'Caretaker' (quản lý 'Memento' mà không cần biết chi tiết bên trong). 'Caretaker' yêu cầu lưu trạng thái từ 'Originator' và có thể yêu cầu 'Originator' quay lại trạng thái đã lưu trước đó, nhờ vào 'Memento'.
 
-## Đặt vấn đề
+### Đặt vấn đề
 
-Giả sử bạn đang phát triển một trò chơi có đối tượng Player đại diện cho người chơi. Trong quá trình chơi, trạng thái của Player (vị trí, máu, điểm,..) liên tục thay đổi.
+#### Bối cảnh
+Trong phát triển phần mềm, một vấn đề phổ biến đối với các ứng dụng cần quản lý trạng thái của đối tượng là việc lưu giữ và khôi phục các trạng thái trước đó. Xét tình huống của một trình soạn thảo văn bản: người dùng muốn có khả năng quay lại các phiên bản trước đó của tài liệu sau khi thực hiện một loạt thay đổi. Một cách tiếp cận đơn giản là lưu trữ mỗi trạng thái của tài liệu trong một cấu trúc dữ liệu riêng biệt. Tuy nhiên, cách tiếp cận này không hiệu quả về mặt bộ nhớ và có thể dẫn đến vi phạm nguyên tắc đóng gói, vì nó yêu cầu tiết lộ chi tiết nội bộ của tài liệu.
 
-Để người chơi có thể quay lại trạng thái trước đó khi cần thiết, chúng ta cần lưu lại các trạng thái đó một cách hiệu quả. Đồng thời, không làm ảnh hưởng tới encapsulation của lớp Player.
+```mermaid
+classDiagram
+    class Originator {
+        -state: string
+        +createMemento(): Memento
+        +restore(memento: Memento): void
+    }
+    class Memento {
+        -state: string
+        +getState(): string
+    }
+    class Caretaker {
+        -mementos: list
+        +addMemento(memento: Memento): void
+        +getMemento(index: int): Memento
+    }
 
-## Giải quyết
+    Originator "1" -- "1" Memento: creates >
+    Caretaker "1" -- "*" Memento: stores >
+```
 
-Memento Pattern giải quyết bài toán trên bằng cách:
+### Giải quyết
 
-- Tạo ra một lớp Memento để lưu trữ trạng thái của đối tượng. Memento chỉ lưu trữ dữ liệu, không có hành vi.
+Memento Pattern đưa ra một giải pháp hiệu quả cho vấn đề này. Pattern cho phép lưu giữ trạng thái của một đối tượng (còn gọi là "Originator") mà không vi phạm nguyên tắc đóng gói của nó. Điều này được thực hiện thông qua việc tạo ra một đối tượng "Memento", chứa trạng thái lưu trữ của "Originator". "Caretaker", một đối tượng khác, quản lý và lưu trữ các "Memento" mà không cần biết đến chi tiết bên trong của chúng. Khi cần khôi phục trạng thái cũ, "Originator" sẽ sử dụng đối tượng "Memento" tương ứng.
 
-- Lớp Player tạo ra đối tượng Memento chứa trạng thái của nó, và có thể khôi phục lại trạng thái từ Memento.
+```mermaid
+classDiagram
+    class Originator {
+        -state: string
+        +setState(state: string): void
+        +getState(): string
+        +saveToMemento(): Memento
+        +restoreFromMemento(memento: Memento): void
+    }
 
-- Originator không truy cập trực tiếp vào Memento, mà thông qua Caretaker.
+    class Memento {
+        -state: string
+        +getState(): string
+    }
 
-![](https://refactoring.guru/images/patterns/diagrams/memento/structure.png)
+    class Caretaker {
+        -mementos: list
+        +addMemento(memento: Memento): void
+        +getMemento(index: int): Memento
+    }
+
+    Originator "1" --o "1" Memento : creates >
+    Caretaker "1" -- "*" Memento : stores >
+```
+
+Sử dụng Memento Pattern mang lại nhiều lợi ích. Nó giúp duy trì nguyên tắc đóng gói, vì trạng thái nội bộ của đối tượng được lưu trữ mà không cần tiết lộ thông qua giao diện công khai. Điều này cũng giúp tăng cường tính modular của ứng dụng, vì "Caretaker" có thể lưu trữ và quản lý nhiều "Memento" mà không cần biết đến logic nội bộ của "Originator". Hơn nữa, pattern này cung cấp một cách linh hoạt để lưu trữ lịch sử trạng thái của đối tượng mà không cần sao chép toàn bộ trạng thái mỗi lần.
+
+Tuy nhiên, việc sử dụng Memento Pattern không phải không có nhược điểm. Việc lưu trữ nhiều bản sao của trạng thái đối tượng có thể chiếm dụng một lượng lớn bộ nhớ, đặc biệt là đối với các ứng dụng với trạng thái đối tượng phức tạp và lớn. Ngoài ra, việc quản lý các "Memento" có thể trở nên phức tạp, đặc biệt nếu cần hỗ trợ các hoạt động như undo/redo với nhiều cấp độ.
 
 ## Cấu trúc
 
