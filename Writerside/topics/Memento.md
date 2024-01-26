@@ -14,28 +14,22 @@
 
 ### Đặt vấn đề
 
-#### Bối cảnh
 Trong phát triển phần mềm, một vấn đề phổ biến đối với các ứng dụng cần quản lý trạng thái của đối tượng là việc lưu giữ và khôi phục các trạng thái trước đó. Xét tình huống của một trình soạn thảo văn bản: người dùng muốn có khả năng quay lại các phiên bản trước đó của tài liệu sau khi thực hiện một loạt thay đổi. Một cách tiếp cận đơn giản là lưu trữ mỗi trạng thái của tài liệu trong một cấu trúc dữ liệu riêng biệt. Tuy nhiên, cách tiếp cận này không hiệu quả về mặt bộ nhớ và có thể dẫn đến vi phạm nguyên tắc đóng gói, vì nó yêu cầu tiết lộ chi tiết nội bộ của tài liệu.
 
 ```mermaid
 classDiagram
-    class Originator {
-        -state: string
-        +createMemento(): Memento
-        +restore(memento: Memento): void
+    class TextEditor {
+      -currentDocumentState: DocumentState
+      -previousStates: list
+      +editDocument(newContent: String): void
+      +undoEdit(): void
     }
-    class Memento {
-        -state: string
-        +getState(): string
-    }
-    class Caretaker {
-        -mementos: list
-        +addMemento(memento: Memento): void
-        +getMemento(index: int): Memento
+    class DocumentState {
+      -content: String
     }
 
-    Originator "1" -- "1" Memento: creates >
-    Caretaker "1" -- "*" Memento: stores >
+    TextEditor "1" --o DocumentState : current state >
+    TextEditor "1" -- "*" DocumentState : stores previous states >
 ```
 
 ### Giải quyết
@@ -44,27 +38,25 @@ Memento Pattern đưa ra một giải pháp hiệu quả cho vấn đề này. P
 
 ```mermaid
 classDiagram
-    class Originator {
-        -state: string
-        +setState(state: string): void
-        +getState(): string
-        +saveToMemento(): Memento
-        +restoreFromMemento(memento: Memento): void
+    class TextEditor {
+      -documentState: String
+      +setDocumentState(state: String): void
+      +getDocumentState(): String
+      +saveToMemento(): DocumentMemento
+      +restoreFromMemento(memento: DocumentMemento): void
+    }
+    class DocumentMemento {
+      -documentState: String
+      +getDocumentState(): String
+    }
+    class History {
+      -mementos: list
+      +addMemento(memento: DocumentMemento): void
+      +getMemento(index: int): DocumentMemento
     }
 
-    class Memento {
-        -state: string
-        +getState(): string
-    }
-
-    class Caretaker {
-        -mementos: list
-        +addMemento(memento: Memento): void
-        +getMemento(index: int): Memento
-    }
-
-    Originator "1" --o "1" Memento : creates >
-    Caretaker "1" -- "*" Memento : stores >
+    TextEditor --o DocumentMemento : creates >
+    History "1" -- "*" DocumentMemento : stores
 ```
 
 Sử dụng Memento Pattern mang lại nhiều lợi ích. Nó giúp duy trì nguyên tắc đóng gói, vì trạng thái nội bộ của đối tượng được lưu trữ mà không cần tiết lộ thông qua giao diện công khai. Điều này cũng giúp tăng cường tính modular của ứng dụng, vì "Caretaker" có thể lưu trữ và quản lý nhiều "Memento" mà không cần biết đến logic nội bộ của "Originator". Hơn nữa, pattern này cung cấp một cách linh hoạt để lưu trữ lịch sử trạng thái của đối tượng mà không cần sao chép toàn bộ trạng thái mỗi lần.
@@ -73,13 +65,36 @@ Tuy nhiên, việc sử dụng Memento Pattern không phải không có nhược
 
 ## Cấu trúc
 
-Các thành phần trong Memento Pattern:
+```mermaid
+classDiagram
+    class Originator {
+      -state: String
+      +setState(state: String): void
+      +getState(): String
+      +saveToMemento(): Memento
+      +restoreFromMemento(memento: Memento): void
+    }
+    class Memento {
+      -state: String
+      +getState(): String
+    }
+    class Caretaker {
+      -mementos: list
+      +addMemento(memento: Memento): void
+      +getMemento(index: int): Memento
+    }
 
-- Originator: đối tượng cần lưu trữ trạng thái.
+    Originator --o Memento : creates >
+    Caretaker "1" -- "*" Memento : stores
+```
 
-- Memento: đối tượng lưu trữ trạng thái của Originator.
 
-- Caretaker: quản lý các đối tượng Memento.
+1. **Originator**: Lớp này chứa trạng thái cần được lưu trữ. Nó tạo ra một memento chứa một bản sao của trạng thái hiện tại và cũng có thể sử dụng memento để khôi phục trạng thái trước đó.
+
+2. **Memento**: Lớp này chứa trạng thái của Originator. Nó bảo vệ thông tin trạng thái khỏi sự truy cập từ các đối tượng khác ngoại trừ Originator.
+
+3. **Caretaker**: Lớp này quản lý memento nhưng không sửa đổi hoặc kiểm tra nội dung của memento.
+
 
 ## Cách triển khai
 
