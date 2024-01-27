@@ -98,13 +98,93 @@ classDiagram
 
 ## Cách triển khai
 
-Để triển khai Memento Pattern trong Java, chúng ta có thể:
+1. **Tạo Memento Class:** Đây là class sẽ chứa trạng thái của đối tượng.
 
-- Tạo lớp Memento với các trường dữ liệu cần lưu trữ.
+```java
+public class Memento {
+    private String state;
 
-- Lớp Originator sẽ tạo ra đối tượng Memento và lưu/khôi phục trạng thái từ nó.
+    public Memento(String state) {
+        this.state = state;
+    }
 
-- Caretaker sẽ quản lý các Memento.
+    public String getState() {
+        return state;
+    }
+}
+```
+
+2. **Tạo Originator Class:** Đây là class mà trạng thái của nó sẽ được lưu và khôi phục.
+
+```java
+public class Originator {
+    private String state;
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public Memento saveStateToMemento() {
+        return new Memento(state);
+    }
+
+    public void getStateFromMemento(Memento memento) {
+        state = memento.getState();
+    }
+}
+```
+
+3. **Tạo Caretaker Class:** Đây là class sẽ chứa và quản lý Memento, nhưng không thay đổi hoặc truy cập trực tiếp vào trạng thái lưu trữ.
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class Caretaker {
+    private List<Memento> mementoList = new ArrayList<Memento>();
+
+    public void add(Memento state){
+        mementoList.add(state);
+    }
+
+    public Memento get(int index){
+        return mementoList.get(index);
+    }
+}
+```
+
+4. **Sử dụng Pattern:** Tạo các đối tượng và sử dụng Memento Pattern để lưu và khôi phục trạng thái.
+
+```java
+public class MementoPatternDemo {
+    public static void main(String[] args) {
+      
+        Originator originator = new Originator();
+        Caretaker caretaker = new Caretaker();
+        
+        originator.setState("State #1");
+        originator.setState("State #2");
+        caretaker.add(originator.saveStateToMemento());
+        
+        originator.setState("State #3");
+        caretaker.add(originator.saveStateToMemento());
+        
+        originator.setState("State #4");
+        System.out.println("Current State: " + originator.getState());        
+        
+        originator.getStateFromMemento(caretaker.get(0));
+        System.out.println("First saved State: " + originator.getState());
+        originator.getStateFromMemento(caretaker.get(1));
+        System.out.println("Second saved State: " + originator.getState());
+    }
+}
+```
+
+Trong đoạn code trên, bạn có thể thấy cách Memento Pattern được sử dụng để lưu và phục hồi trạng thái của `Originator`. `Caretaker` quản lý các trạng thái này thông qua một danh sách các `Memento`, nhưng không bao giờ tương tác trực tiếp với nội dung bên trong của chúng.
 
 ## Ví dụ
 
