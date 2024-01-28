@@ -188,7 +188,139 @@ Trong đoạn code trên, bạn có thể thấy cách Memento Pattern được 
 
 ## Ví dụ
 
-// Ví dụ triển khai Memento Pattern để lưu trạng thái đối tượng Player trong game.
+Chúng ta sẽ xem xét một ví dụ cụ thể hơn với Memento Pattern: một ứng dụng chơi game đơn giản, nơi người chơi có thể lưu và tải lại trạng thái của trò chơi.
+
+Trong trò chơi này, người chơi có thể thám hiểm một thế giới ảo, tương tác với các đối tượng và thay đổi trạng thái của trò chơi (ví dụ: điểm số, vị trí người chơi, vật phẩm sở hữu). Người chơi có thể lưu trạng thái trò chơi vào bất kỳ thời điểm nào và sau đó tải lại trạng thái đó nếu họ muốn.
+
+1. **Game**: Lớp đại diện cho trò chơi, lưu trữ trạng thái hiện tại như điểm số, vị trí, v.v.
+2. **GameMemento**: Lưu trữ trạng thái của trò chơi. Nó không cho phép truy cập trực tiếp vào trạng thái lưu trữ.
+3. **GameCaretaker**: Quản lý lịch sử các GameMemento.
+
+```mermaid
+classDiagram
+    class Game {
+        +String position
+        +int score
+        +List items
+        +save() GameMemento
+        +restore(memento GameMemento)
+    }
+    class GameMemento {
+        -String position
+        -int score
+        -List items
+        +getState() String
+    }
+    class GameCaretaker {
+        -List history
+        +add(memento GameMemento)
+        +get(index int) GameMemento
+    }
+
+    Game "1" -- "1" GameMemento : creates >
+    GameCaretaker "1" -- "*" GameMemento : manages >
+```
+
+#### Implement bằng Java:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// GameMemento
+class GameMemento {
+    private final String position;
+    private final int score;
+    private final List<String> items;
+
+    public GameMemento(String position, int score, List<String> items) {
+        this.position = position;
+        this.score = score;
+        this.items = new ArrayList<>(items);
+    }
+
+    // Getters
+    public String getPosition() {
+        return position;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public List<String> getItems() {
+        return new ArrayList<>(items);
+    }
+}
+
+// Game
+class Game {
+    private String position;
+    private int score;
+    private List<String> items;
+
+    public Game() {
+        items = new ArrayList<>();
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public void addItem(String item) {
+        items.add(item);
+    }
+
+    public GameMemento save() {
+        return new GameMemento(position, score, items);
+    }
+
+    public void restore(GameMemento memento) {
+        position = memento.getPosition();
+        score = memento.getScore();
+        items = memento.getItems();
+    }
+}
+
+// GameCaretaker
+class GameCaretaker {
+    private List<GameMemento> history = new ArrayList<>();
+
+    public void add(GameMemento memento) {
+        history.add(memento);
+    }
+
+    public GameMemento get(int index) {
+        return history.get(index);
+    }
+}
+
+// Main class to demonstrate Memento Pattern
+public class Main {
+    public static void main(String[] args) {
+        Game game = new Game();
+        GameCaretaker caretaker = new GameCaretaker();
+
+        game.setPosition("Start");
+        game.setScore(10);
+        game.addItem("Sword");
+        caretaker.add(game.save());
+
+        game.setPosition("Castle");
+        game.setScore(50);
+        game.addItem("Shield");
+
+        // Restore to previous saved state
+        game.restore(caretaker.get(0));
+        System.out.println("Current Position: " + game.save().getPosition());
+        System.out.println("Current Score: " + game.save().getScore());
+    }
+}
+```
 
 ## So sánh với các Pattern khác
 
