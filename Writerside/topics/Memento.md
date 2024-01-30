@@ -322,10 +322,20 @@ public class Main {
 }
 ```
 
-## So sánh với các Pattern khác
+## Khi nào nên sử dụng
 
-So với Iterator, Memento tập trung vào việc lưu trữ trạng thái nội bộ của một đối tượng, còn Iterator tập trung vào việc truy cập tuần tự các phần tử trong bộ sưu tập.
+1. **Khôi phục Trạng thái Trước Đó**: Khi bạn cần lưu trữ trạng thái của một đối tượng để có thể khôi phục lại trạng thái đó sau này, mà không làm lộ chi tiết triển khai bên trong của đối tượng đó.
 
-## Kết luận
+2. **Ghi Nhật ký Thay đổi**: Trong các ứng dụng cần theo dõi lịch sử thay đổi, Memento Pattern cho phép lưu trữ trạng thái của đối tượng tại các thời điểm khác nhau.
 
-Memento Pattern rất hữu ích khi muốn lưu lại và khôi phục trạng thái của đối tượng mà không vi phạm encapsulation. Tuy nhiên cũng cần xem xét chi phí về bộ nhớ khi lưu trữ nhiều snapshot.
+3. **Hoàn tác/Redo Thao tác**: Được sử dụng trong các ứng dụng chỉnh sửa như trình soạn thảo văn bản, phần mềm đồ họa, nơi người dùng có thể muốn hoàn tác hoặc thực hiện lại thao tác trước đó.
+
+4. **Snapshot của Trạng thái**: Khi cần lưu trữ bản snapshot của trạng thái hiện tại của đối tượng để so sánh hoặc phục hồi sau này mà không cần lưu trữ toàn bộ dữ liệu.
+
+5. **Transaction-like Behavior**: Trong các hệ thống cần transaction, nơi bạn muốn thực hiện một loạt thay đổi và sau đó có khả năng commit hoặc rollback (ví dụ: cơ sở dữ liệu).
+
+6. **Giảm Thiểu Sự Phụ thuộc**: Giúp giảm thiểu sự phụ thuộc giữa các lớp bằng cách cách ly trạng thái nội bộ của đối tượng khỏi các đối tượng khác.
+
+7. **Tối ưu Hóa Hiệu suất**: Khi việc tính toán lại trạng thái của đối tượng là tốn kém, việc lưu các trạng thái trước đó có thể giúp tối ưu hóa hiệu suất bằng cách tái sử dụng dữ liệu đã tính toán.
+
+8. **Bảo mật Dữ liệu**: Memento Pattern cũng có thể giúp bảo mật dữ liệu bằng cách giữ cho trạng thái nội bộ của đối tượng không bị tiếp xúc trực tiếp với các đối tượng khác.
