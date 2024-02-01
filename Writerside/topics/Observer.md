@@ -13,27 +13,37 @@
 - **Ý Tưởng Cốt Lõi:** Trong Observer Pattern, 'Subject' đóng vai trò là nhà xuất bản (publisher), trong khi 'Observers' đóng vai trò như các người đăng ký (subscribers). Mỗi khi 'Subject' có một thay đổi trạng thái, nó sẽ thông báo cho tất cả 'Observers' của mình. Điều này cho phép tách biệt giữa 'Subject' và 'Observers', tăng cường tính mô-đun và dễ dàng mở rộng hệ thống. 'Observers' có thể đăng ký hoặc hủy đăng ký với 'Subject' một cách linh hoạt mà không ảnh hưởng tới 'Subject' hoặc các 'Observers' khác.
 
 
-## Đặt vấn đề
+### Đặt vấn đề
 
-Giả sử bạn đang phát triển một website thương mại điện tử với các chức năng sau:
+Trong một hệ thống phần mềm, việc theo dõi và phản ứng với các thay đổi trạng thái là một thách thức phổ biến. Xét tình huống của một ứng dụng thương mại điện tử, nơi thông tin sản phẩm cần được cập nhật thường xuyên trên nhiều giao diện như trang chủ, trang chi tiết sản phẩm, và trang quản lý hàng tồn kho. Khi không sử dụng một pattern như Observer Pattern, việc cập nhật trạng thái này trở nên phức tạp và không hiệu quả. Mỗi lần thông tin sản phẩm thay đổi, phải thực hiện nhiều lần gọi và cập nhật trên các giao diện khác nhau, dễ dẫn đến lỗi và khó khăn trong việc bảo trì mã nguồn.
 
-- Người dùng có thể đăng ký nhận thông báo khi một sản phẩm nào đó có giá giảm.
+```mermaid
+graph LR
+    A[Ứng dụng Thương mại điện tử] -->|Cập nhật thông tin| B[Trang chủ]
+    A -->|Cập nhật thông tin| C[Trang chi tiết sản phẩm]
+    A -->|Cập nhật thông tin| D[Trang quản lý hàng tồn kho]
+```
 
-- Khi giá sản phẩm thay đổi, tất cả người dùng đã đăng ký sẽ nhận được thông báo.
+### Giải pháp
 
-Làm thế nào để triển khai khi có hàng triệu người dùng cùng theo dõi hàng triệu sản phẩm khác nhau?
+Observer Pattern giải quyết vấn đề trên bằng cách tạo ra một cơ chế "đăng ký - thông báo". Trong hệ thống, các thành phần có thể "đăng ký" để theo dõi trạng thái của một đối tượng. Khi có thay đổi trạng thái, đối tượng này sẽ tự động "thông báo" cho tất cả các thành phần đã đăng ký. Trở lại ví dụ về ứng dụng thương mại điện tử, thông tin sản phẩm sẽ là đối tượng "quan sát", và các giao diện như trang chủ, trang chi tiết sản phẩm sẽ là các "quản sát viên". Khi thông tin sản phẩm thay đổi, chỉ cần cập nhật một lần tại nguồn, và tất cả các giao diện liên quan sẽ được tự động cập nhật.
 
-## Giải quyết
+Việc sử dụng Observer Pattern mang lại nhiều lợi ích: giảm sự phụ thuộc lẫn nhau giữa các thành phần của hệ thống, tăng khả năng tái sử dụng và bảo trì mã nguồn. Hơn nữa, pattern này cũng cải thiện hiệu suất bằng cách giảm bớt số lượng cập nhật không cần thiết và chỉ tập trung vào những thay đổi có ý nghĩa.
 
-Observer Pattern được áp dụng như sau:
+Tuy nhiên, việc sử dụng Observer Pattern cũng đòi hỏi sự cân nhắc. Khi số lượng quan sát viên tăng lên, việc quản lý và debug có thể trở nên phức tạp. Ngoài ra, nếu không được thiết kế cẩn thận, pattern này có thể dẫn đến các vấn đề về hiệu suất do việc thông báo quá nhiều lần.
 
-- Định nghĩa một Subject (đối tượng chủ đề) đại diện cho sản phẩm.
+#### Sơ đồ minh họa
+```mermaid
+graph LR
+    A[Thông tin sản phẩm] -->|Thông báo thay đổi| B[Trang chủ]
+    A -->|Thông báo thay đổi| C[Trang chi tiết sản phẩm]
+    A -->|Thông báo thay đổi| D[Trang quản lý hàng tồn]
 
-- Người dùng (Observer) có thể đăng ký theo dõi Subject.
-
-- Khi trạng thái của Subject thay đổi (giá sản phẩm) thì sẽ thông báo tới tất cả Observer đã đăng ký.
-
-![](https://refactoring.guru/images/patterns/diagrams/observer/structure.png)
+ kho]
+    B -->|Đăng ký quan sát| A
+    C -->|Đăng ký quan sát| A
+    D -->|Đăng ký quan sát| A
+```
 
 ## Cấu trúc
 

@@ -15,6 +15,7 @@
 - **Cách tiếp cận**: Pattern giải quyết những vấn đề đã nêu trong phần "Vấn đề" như thế nào.
 - **Lợi ích**: Những ưu điểm khi sử dụng pattern.
 - **Sự đánh đổi**: Bất kỳ sự thỏa hiệp hoặc chi phí nào liên quan trong việc thực hiện pattern.
+- **Sơ đồ minh hoạ**: Cho sơ đồng minh hoạ đươc vẻ bằng mermaid.
 
 ### Cấu trúc (1-2 đoạn, 1 sơ đồ)
 
