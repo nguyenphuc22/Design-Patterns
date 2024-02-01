@@ -32,14 +32,12 @@ Việc sử dụng Observer Pattern mang lại nhiều lợi ích: giảm sự p
 
 Tuy nhiên, việc sử dụng Observer Pattern cũng đòi hỏi sự cân nhắc. Khi số lượng quan sát viên tăng lên, việc quản lý và debug có thể trở nên phức tạp. Ngoài ra, nếu không được thiết kế cẩn thận, pattern này có thể dẫn đến các vấn đề về hiệu suất do việc thông báo quá nhiều lần.
 
-#### Sơ đồ minh họa
 ```mermaid
 graph LR
     A[Thông tin sản phẩm] -->|Thông báo thay đổi| B[Trang chủ]
     A -->|Thông báo thay đổi| C[Trang chi tiết sản phẩm]
     A -->|Thông báo thay đổi| D[Trang quản lý hàng tồn]
 
- kho]
     B -->|Đăng ký quan sát| A
     C -->|Đăng ký quan sát| A
     D -->|Đăng ký quan sát| A
