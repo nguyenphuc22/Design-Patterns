@@ -45,6 +45,34 @@ graph LR
 
 ## Cấu trúc
 
+```mermaid
+classDiagram
+    class Subject {
+      -observers : Observer[]
+      +attach(observer : Observer) : void
+      +detach(observer : Observer) : void
+      +notify() : void
+    }
+
+    class Observer {
+      +update() : void
+    }
+    
+    class ConcreteSubject {
+      +state : String
+      +getState() : String
+      +setState(state : String) : void
+    }
+    
+    class ConcreteObserver {
+      +update() : void
+    }
+    
+    Subject <|-- ConcreteSubject
+    Observer <|-- ConcreteObserver
+    ConcreteSubject "1" --> "*" ConcreteObserver : notifies
+```
+
 Các thành phần trong Observer Pattern:
 
 - Subject: đối tượng chủ thể cần theo dõi. Nó duy trì danh sách các Observer và thông báo cho chúng khi trạng thái thay đổi.
