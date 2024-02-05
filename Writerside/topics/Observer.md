@@ -83,10 +83,104 @@ Các thành phần trong Observer Pattern:
 
 ## Cách triển khai
 
-Để triển khai Observer Pattern trong Java, có thể:
+Để triển khai Observer Pattern, chúng ta sẽ cần các thành phần sau:
 
-- Sử dụng interface java.util.Observable và java.util.Observer.
-- Tự định nghĩa Subject, Observer interface và các cài đặt tương ứng.
+### 1. Subject Interface
+
+```java
+public interface Subject {
+    void attach(Observer o);
+    void detach(Observer o);
+    void notifyUpdate(Message m);
+}
+```
+
+### 2. Observer Interface
+
+```java
+public interface Observer {
+    void update(Message m);
+}
+```
+
+### 3. Concrete Subject
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+public class ConcreteSubject implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+
+    @Override
+    public void attach(Observer o) {
+        observers.add(o);
+    }
+
+    @Override
+    public void detach(Observer o) {
+        observers.remove(o);
+    }
+
+    @Override
+    public void notifyUpdate(Message m) {
+        for(Observer o: observers) {
+            o.update(m);
+        }
+    }
+}
+```
+
+### 4. Concrete Observer
+
+```java
+public class ConcreteObserver implements Observer {
+    private String name;
+
+    public ConcreteObserver(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(Message m) {
+        System.out.println(name + " received message: " + m.getMessageContent());
+    }
+}
+```
+
+### 5. Message Class
+
+```java
+public class Message {
+    private String messageContent;
+
+    public Message(String m) {
+        this.messageContent = m;
+    }
+
+    public String getMessageContent() {
+        return messageContent;
+    }
+}
+```
+
+### 6. Sử dụng Pattern
+
+```java
+public class ObserverPatternDemo {
+    public static void main(String[] args) {
+        ConcreteSubject subject = new ConcreteSubject();
+
+        Observer observer1 = new ConcreteObserver("Observer 1");
+        Observer observer2 = new ConcreteObserver("Observer 2");
+
+        subject.attach(observer1);
+        subject.attach(observer2);
+
+        subject.notifyUpdate(new Message("First Message")); // Cả hai observer sẽ nhận được thông báo
+    }
+}
+```
 
 ## Ví dụ
 
