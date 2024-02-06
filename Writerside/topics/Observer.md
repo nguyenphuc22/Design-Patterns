@@ -184,7 +184,147 @@ public class ObserverPatternDemo {
 
 ## Ví dụ
 
-// Ví dụ đăng ký nhận thông báo khi giá sản phẩm thay đổi
+Observer pattern là một mẫu thiết kế hành vi (behavioral design pattern) cho phép bạn định nghĩa một cơ chế đăng ký để nhiều đối tượng có thể lắng nghe và phản ứng với các sự kiện xảy ra trong một đối tượng khác. Mẫu thiết kế này thường được sử dụng để tạo ra các ứng dụng dễ mở rộng và linh hoạt, giảm sự phụ thuộc giữa các lớp.
+
+Ví dụ, xem xét một hệ thống quản lý đơn hàng trong đó `Order` là một đối tượng quan trọng. Khi trạng thái của một `Order` thay đổi (ví dụ: từ "mới" sang "đã giao"), nó cần thông báo cho các hệ thống khác như quản lý kho, hệ thống giao hàng và hệ thống hóa đơn để họ có thể thực hiện các hành động phù hợp.
+
+Dưới đây là sơ đồ mermaid minh họa cho ví dụ trên:
+
+```mermaid
+classDiagram
+    class Subject {
+        +registerObserver(o: Observer)
+        +unregisterObserver(o: Observer)
+        +notifyObservers()
+    }
+    class Observer {
+        +update(subject: Subject)
+    }
+    class Order {
+        +status: string
+        +changeStatus(status: string)
+    }
+    class InventorySystem {
+        +update(subject: Subject)
+    }
+    class ShippingSystem {
+        +update(subject: Subject)
+    }
+    class BillingSystem {
+        +update(subject: Subject)
+    }
+
+    Subject <|-- "Extend" Order
+    Observer <|.. "Implement" InventorySystem
+    Observer <|.. "Implement" ShippingSystem
+    Observer <|.. "Implement" BillingSystem
+```
+
+### Ví dụ Code
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// Subject interface
+interface Subject {
+    void registerObserver(Observer observer);
+    void unregisterObserver(Observer observer);
+    void notifyObservers();
+}
+
+// Observer interface
+interface Observer {
+    void update(Subject subject);
+}
+
+class Order implements Subject {
+    private List<Observer> observers = new ArrayList<>();
+    private String status;
+
+    public Order(String status) {
+        this.status = status;
+    }
+
+    @Override
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void unregisterObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+        notifyObservers();
+    }
+}
+
+// Inventory System
+class InventorySystem implements Observer {
+    @Override
+    public void update(Subject subject) {
+        if (subject instanceof Order && ((Order) subject).getStatus().equals("shipped")) {
+            System.out.println("Inventory System: Order shipped, updating inventory.");
+        }
+    }
+}
+
+// Shipping System
+class ShippingSystem implements Observer {
+    @Override
+    public void update(Subject subject) {
+        if (subject instanceof Order && ((Order) subject).getStatus().equals("new")) {
+            System.out.println("Shipping System: New order received, preparing for shipment.");
+        }
+    }
+}
+
+// Billing System
+class BillingSystem implements Observer {
+    @Override
+    public void update(Subject subject) {
+        if (subject instanceof Order && ((Order) subject).getStatus().equals("completed")) {
+            System.out.println("Billing System: Order completed, generating invoice.");
+        }
+    }
+}
+
+
+public class ObserverPatternDemo {
+    public static void main(String[] args) {
+        Order order = new Order("new");
+
+        InventorySystem inventorySystem = new InventorySystem();
+        ShippingSystem shippingSystem = new ShippingSystem();
+        BillingSystem billingSystem = new BillingSystem();
+
+        order.registerObserver(inventorySystem);
+        order.registerObserver(shippingSystem);
+        order.registerObserver(billingSystem);
+
+        // Simulate order updates
+        order.setStatus("new");
+        order.setStatus("shipped");
+        order.setStatus("completed");
+    }
+}
+```
+
+Trong ví dụ này, `Order` là lớp `Subject` cụ thể, cho phép đăng ký, hủy đăng ký và thông báo cho các `Observer` về thay đổi trạng thái. `InventorySystem`, `ShippingSystem`, và `BillingSystem` là các lớp `Observer` cụ thể, mỗi lớp cập nhật theo phản ứng với thông báo từ Order. Khi trạng thái của Order thay đổi, nó sẽ tự động thông báo cho tất cả các `Observer` đã đăng ký.
 
 ## So sánh
 
