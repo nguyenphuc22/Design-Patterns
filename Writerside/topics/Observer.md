@@ -326,10 +326,14 @@ public class ObserverPatternDemo {
 
 Trong ví dụ này, `Order` là lớp `Subject` cụ thể, cho phép đăng ký, hủy đăng ký và thông báo cho các `Observer` về thay đổi trạng thái. `InventorySystem`, `ShippingSystem`, và `BillingSystem` là các lớp `Observer` cụ thể, mỗi lớp cập nhật theo phản ứng với thông báo từ Order. Khi trạng thái của Order thay đổi, nó sẽ tự động thông báo cho tất cả các `Observer` đã đăng ký.
 
-## So sánh
+## Khi nào nên sử dụng Observer Pattern
 
-So với PubSub, Observer tập trung vào mối quan hệ giữa các object, còn PubSub tập trung vào việc truyền thông điệp.
+- **Khi bạn muốn một cơ chế thông báo tự động giữa các đối tượng**: Observer Pattern rất hữu ích khi bạn cần một hoặc nhiều đối tượng nhận thông báo tự động khi trạng thái của một đối tượng khác thay đổi. Điều này giúp đảm bảo tính nhất quán giữa các đối tượng liên quan mà không cần chúng trực tiếp gọi lẫn nhau.
 
-## Kết luận
+- **Khi bạn muốn tạo ra các hệ thống linh hoạt có khả năng mở rộng cao**: Với Observer Pattern, bạn có thể dễ dàng thêm hoặc loại bỏ các observer mà không cần sửa đổi đối tượng chủ đề (subject) - đối tượng mà observer đăng ký theo dõi. Điều này giúp hệ thống của bạn dễ dàng mở rộng và thích ứng với nhu cầu thay đổi.
 
-Observer Pattern thích hợp để xây dựng các chức năng thông báo sự kiện trong hệ thống. Tuy nhiên cũng cần tránh lạm dụng và làm phức tạp hóa code.
+- **Trong các ứng dụng cần theo dõi và phản ứng với các sự kiện**: Observer Pattern là lựa chọn tối ưu cho các ứng dụng cần phản ứng nhanh chóng với các thay đổi, ví dụ như các hệ thống giám sát, ứng dụng thời tiết, hoặc bất kỳ ứng dụng nào mà dữ liệu cần được cập nhật theo thời gian thực.
+
+- **Khi cần giảm sự phụ thuộc lẫn nhau giữa các thành phần**: Observer Pattern cho phép các thành phần hoạt động một cách độc lập, giảm bớt sự phụ thuộc trực tiếp. Các đối tượng observer không cần biết về sự tồn tại của các đối tượng khác, chỉ cần biết về đối tượng chủ đề mà chúng quan sát.
+
+- **Trong việc xây dựng các ứng dụng phản ứng với sự kiện**: Các ứng dụng như bảng điều khiển quản lý, hệ thống cảnh báo, hoặc ứng dụng tài chính cần cập nhật giao diện người dùng dựa trên sự thay đổi của dữ liệu nền tảng. Observer Pattern giúp việc này trở nên mượt mà và hiệu quả, bằng cách thông báo cho giao diện người dùng (hoặc bất kỳ hệ thống phụ thuộc nào khác) mỗi khi có sự thay đổi dữ liệu.
