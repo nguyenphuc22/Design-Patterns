@@ -1,20 +1,16 @@
-# State
+# State Pattern
 
-## Giới thiệu
+## Khái Niệm
 
-State Pattern cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ thay đổi. Điều này được thực hiện bằng cách đóng gói trạng thái vào các lớp riêng biệt.
+**State Pattern**, trong lĩnh vực phát triển phần mềm, là một mẫu thiết kế hành vi cho phép một đối tượng thay đổi hành vi của mình khi trạng thái nội bộ thay đổi. Mẫu này coi trạng thái là một đối tượng độc lập và đối tượng chính có thể thay đổi hành vi của mình bằng cách thay đổi trạng thái hiện tại của nó. Điều này được thực hiện mà không cần sửa đổi mã nguồn của đối tượng, giúp cho việc quản lý các thay đổi về trạng thái trở nên dễ dàng và linh hoạt.
 
-## Định nghĩa
+### Tổng quan
 
-State Pattern định nghĩa trạng thái của một đối tượng như một lớp riêng biệt. Khi trạng thái thay đổi, đối tượng sẽ thay đổi lớp hiện tại của nó bằng một lớp mới để thay đổi hành vi.
+- **Định Nghĩa của Pattern:** State Pattern bao gồm đối tượng 'Context' (môi trường hoặc ngữ cảnh sử dụng) và một tập hợp các đối tượng 'State' (trạng thái). 'Context' giữ một tham chiếu tới một 'State' hiện tại và có thể thay đổi tham chiếu này để chuyển đổi giữa các trạng thái khác nhau. Các 'State' biết cách xử lý các yêu cầu từ 'Context', và mỗi 'State' cung cấp hành vi cụ thể phù hợp với trạng thái của 'Context'.
 
-## Mục đích
+- **Mục Đích:** Mục đích của State Pattern là giúp quản lý và cơ cấu lại mã nguồn liên quan đến các quyết định điều khiển dựa trên trạng thái, bằng cách tách biệt hành vi liên quan đến trạng thái cụ thể ra khỏi 'Context'. Điều này giúp giảm sự phức tạp và tăng tính mô-đun của mã nguồn, cũng như dễ dàng thêm mới hoặc sửa đổi các trạng thái mà không ảnh hưởng đến 'Context'.
 
-- Cho phép một đối tượng thay đổi hành vi khi trạng thái nội bộ thay đổi.
-
-- Đóng gói các trạng thái và hành vi liên quan vào các lớp riêng biệt.
-
-- Tách biệt máy trạng thái khỏi ngữ cảnh sử dụng nó.
+- **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của State Pattern là "đóng gói sự thay đổi". Bằng cách sử dụng các đối tượng 'State' để đại diện cho các trạng thái khác nhau và cho phép 'Context' thay đổi trạng thái của mình, hệ thống có thể thay đổi hành vi một cách linh hoạt theo trạng thái mà không cần phải viết các câu lệnh điều kiện phức tạp. Điều này giúp mã nguồn trở nên dễ hiểu, dễ bảo trì và mở rộng hơn.
 
 ## Đặt vấn đề
 
