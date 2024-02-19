@@ -30,8 +30,6 @@ State Pattern được áp dụng như sau:
 
 - Khi trạng thái thay đổi, NhânVật sẽ chuyển sang trạng thái mới.
 
-![](https://refactoring.guru/images/patterns/diagrams/state/structure.png)
-
 ## Cấu trúc
 
 Các thành phần chính trong State Pattern:
