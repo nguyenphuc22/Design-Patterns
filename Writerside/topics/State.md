@@ -47,7 +47,7 @@ stateDiagram-v2
     StateB: DoActionB()
     Context: -currentState
     Context: Request()
-˙```
+```
 
 ## Cấu trúc
 
