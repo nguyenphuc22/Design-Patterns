@@ -14,21 +14,40 @@
 
 ## Đặt vấn đề
 
-Giả sử bạn đang phát triển một trò chơi, có lớp NhânVật có các trạng thái: đi bộ, chạy, nhảy. Mỗi trạng thái sẽ có các hành vi riêng.
+Trong phát triển phần mềm, chúng ta thường gặp phải các hệ thống có các đối tượng cần thay đổi hành vi dựa trên trạng thái của nó. Ví dụ, một máy ATM có thể có các trạng thái như: Chờ, Kiểm tra, Sẵn sàng rút tiền, và Đang xử lý giao dịch. Khi không sử dụng State Pattern, việc quản lý các trạng thái và chuyển đổi giữa chúng có thể trở nên phức tạp và dễ gây ra lỗi, đặc biệt là khi số lượng trạng thái tăng lên. Mã nguồn có thể trở nên khó quản lý với một lượng lớn câu lệnh điều kiện và chuyển đổi trạng thái rải rác khắp nơi.
 
-Ban đầu, mọi logic xử lý được đặt trong lớp NhânVật dẫn đến lớp này phình to, khó bảo trì.
-
-Làm thế nào để tổ chức code cho dễ quản lý hơn?
+```mermaid
+stateDiagram-v2
+    [*] --> Chờ
+    Chờ --> Kiểm_tra: Thẻ được nhập
+    Kiểm_tra --> Chờ: Thẻ không hợp lệ
+    Kiểm_tra --> Sẵn_sàng_rút_tiền: Thẻ hợp lệ
+    Sẵn_sàng_rút_tiền --> Đang_xử_lý_giao_dịch: Nhập số tiền
+    Đang_xử_lý_giao_dịch --> Chờ: Hoàn thành giao dịch
+    Đang_xử_lý_giao_dịch --> Chờ: Hủy giao dịch
+    Chờ --> [*]: Máy tắt
+```
 
 ## Giải quyết
 
-State Pattern được áp dụng như sau:
+State Pattern cho phép một đối tượng thay đổi hành vi của nó khi trạng thái nội bộ của nó thay đổi. Pattern này giải quyết vấn đề bằng cách tách biệt trạng thái và hành vi liên quan thành các lớp trạng thái riêng biệt. Mỗi lớp trạng thái sẽ thực thi một phần của hành vi đối tượng, tương ứng với một trạng thái cụ thể. Điều này giúp giảm thiểu sự phức tạp và tăng cường khả năng mở rộng và bảo trì của mã nguồn.
 
-- Mỗi trạng thái được đóng gói thành một lớp riêng biệt, triển khai từ một interface chung.
+Sử dụng State Pattern giúp tách biệt các hành vi cụ thể liên quan đến trạng thái và đóng gói chúng trong các đối tượng riêng lẻ. Điều này làm cho mã nguồn dễ hiểu và dễ bảo trì hơn, đồng thời giúp giảm lỗi do việc quản lý trạng thái không đúng cách. Nó cũng tăng cường tính mô-đun, cho phép thêm các trạng thái mới mà không cần sửa đổi mã nguồn hiện có.
 
-- Lớp NhânVật sẽ lưu trữ trạng thái hiện tại và delegate mọi hành vi cho trạng thái đó.
+Mặc dù State Pattern mang lại nhiều lợi ích, nhưng nó cũng có thể dẫn đến một số sự thỏa hiệp. Việc triển khai có thể yêu cầu nhiều lớp và đối tượng hơn so với việc không sử dụng pattern, điều này có thể làm tăng độ phức tạp của mã và yêu cầu nhiều bộ nhớ hơn. Tuy nhiên, những bất lợi này thường được bù đắp bởi sự linh hoạt và khả năng bảo trì cao hơn.
 
-- Khi trạng thái thay đổi, NhânVật sẽ chuyển sang trạng thái mới.
+```mermaid
+stateDiagram-v2
+    [*] --> Context
+    Context --> StateA: ChangeState
+    Context --> StateB: ChangeState
+    StateA --> StateB: NextState
+    StateB --> StateA: PrevState
+    StateA: DoActionA()
+    StateB: DoActionB()
+    Context: -currentState
+    Context: Request()
+˙```
 
 ## Cấu trúc
 
