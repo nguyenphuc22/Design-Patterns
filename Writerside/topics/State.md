@@ -51,13 +51,32 @@ stateDiagram-v2
 
 ## Cấu trúc
 
-Các thành phần chính trong State Pattern:
+```mermaid
+classDiagram
+      class Context {
+        -State state
+        +setState(State state)
+        +request()
+      }
+      class State {
+        +handle()
+      }
+      class ConcreteStateA {
+        +handle()
+      }
+      class ConcreteStateB {
+        +handle()
+      }
+      
+      Context --> State : has
+      State <|-- ConcreteStateA : implements
+      State <|-- ConcreteStateB : implements
+```
 
-- Context: lớp chứa tham chiếu đến trạng thái hiện tại.
-
-- State: interface chung cho các trạng thái.
-
-- ConcreteState: các lớp triển khai cụ thể cho mỗi trạng thái.
+Trong sơ đồ này:
+- `Context` là lớp môi trường chứa một thể hiện của các trạng thái khác nhau (`State`).
+- `State` là lớp trừu tượng hoặc interface định nghĩa phương thức `handle()` mà mỗi trạng thái cụ thể (`ConcreteStateA`, `ConcreteStateB`) sẽ triển khai.
+- `ConcreteStateA` và `ConcreteStateB` là các lớp cụ thể triển khai các hành vi khác nhau tương ứng với từng trạng thái của `Context`.
 
 ## Cách triển khai
 

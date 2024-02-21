@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/State.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/State.md" afterDir="false" />
-    </list>
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -97,18 +95,6 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
     "settings.editor.selected.configurable": "fileTemplates"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Mediator.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Memento.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Observer.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/State.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
