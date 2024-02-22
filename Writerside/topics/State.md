@@ -78,15 +78,84 @@ Trong sơ đồ này:
 - `State` là lớp trừu tượng hoặc interface định nghĩa phương thức `handle()` mà mỗi trạng thái cụ thể (`ConcreteStateA`, `ConcreteStateB`) sẽ triển khai.
 - `ConcreteStateA` và `ConcreteStateB` là các lớp cụ thể triển khai các hành vi khác nhau tương ứng với từng trạng thái của `Context`.
 
-## Cách triển khai
+Dường như có một sự nhầm lẫn ở đây. Bạn đã cung cấp cấu trúc và mã nguồn cho Observer Pattern nhưng bạn muốn biết về State Pattern. Dưới đây là cách triển khai State Pattern bằng Java:
 
-Để triển khai State Pattern trong Java, chúng ta có thể:
+## Cách triển khai State Pattern
 
-- Định nghĩa một interface chung cho State.
+Để triển khai State Pattern, chúng ta sẽ cần các thành phần sau:
 
-- Tạo các lớp Concrete State triển khai interface đó.
+### 1. State Interface
 
-- Lớp Context sẽ lưu trữ instance của State hiện tại.
+Đây là interface cho các trạng thái khác nhau trong context. Mỗi trạng thái sẽ cài đặt các hành động cụ thể.
+
+```java
+public interface State {
+    void handleRequest();
+}
+```
+
+### 2. Concrete State Classes
+
+Các lớp này cài đặt các hành động cụ thể cho một trạng thái cụ thể của Context.
+
+```java
+public class ConcreteStateA implements State {
+    @Override
+    public void handleRequest() {
+        System.out.println("Handling request by ConcreteStateA");
+    }
+}
+
+public class ConcreteStateB implements State {
+    @Override
+    public void handleRequest() {
+        System.out.println("Handling request by ConcreteStateB");
+    }
+}
+```
+
+### 3. Context
+
+Lớp này duy trì một tham chiếu đến một đối tượng State và cho phép Client thay đổi trạng thái.
+
+```java
+public class Context {
+    private State state;
+
+    public Context(State state) {
+        this.state = state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
+    public void request() {
+        state.handleRequest();
+    }
+}
+```
+
+### 4. Sử dụng Pattern
+
+Đây là cách chúng ta có thể sử dụng State Pattern trong một ứng dụng.
+
+```java
+public class StatePatternDemo {
+    public static void main(String[] args) {
+        Context context = new Context(new ConcreteStateA());
+
+        // The context is in ConcreteStateA.
+        context.request(); // Handling request by ConcreteStateA
+
+        // Change state to ConcreteStateB
+        context.setState(new ConcreteStateB());
+
+        // Now the context is in ConcreteStateB.
+        context.request(); // Handling request by ConcreteStateB
+    }
+}
+```
 
 ## Ví dụ
 
