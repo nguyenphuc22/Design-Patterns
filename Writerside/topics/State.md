@@ -159,7 +159,132 @@ public class StatePatternDemo {
 
 ## Ví dụ
 
-// Ví dụ State Pattern áp dụng cho trạng thái của nhân vật trong game
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// State interface
+interface OrderState {
+    void proceed(Order order);
+}
+
+// Concrete States
+class NewState implements OrderState {
+    @Override
+    public void proceed(Order order) {
+        System.out.println("Order is in new state, preparing for shipment.");
+        order.setState(new ShippedState());
+    }
+}
+
+class ShippedState implements OrderState {
+    @Override
+    public void proceed(Order order) {
+        System.out.println("Order is shipped, updating inventory.");
+        order.setState(new CompletedState());
+    }
+}
+
+class CompletedState implements OrderState {
+    @Override
+    public void proceed(Order order) {
+        System.out.println("Order is completed, generating invoice.");
+        // Order completion logic here
+    }
+}
+
+// Context class
+class Order {
+    private OrderState state;
+    private List<Observer> observers = new ArrayList<>();
+
+    public Order(OrderState state) {
+        this.state = state;
+    }
+
+    public void setState(OrderState state) {
+        this.state = state;
+        notifyObservers();
+    }
+
+    public OrderState getState() {
+        return state;
+    }
+
+    public void proceed() {
+        state.proceed(this);
+    }
+
+    public void registerObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void unregisterObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(this);
+        }
+    }
+}
+
+// Observer interface
+interface Observer {
+    void update(Order order);
+}
+
+// Inventory System
+class InventorySystem implements Observer {
+    @Override
+    public void update(Order order) {
+        if (order.getState() instanceof ShippedState) {
+            System.out.println("Inventory System: Order shipped, updating inventory.");
+        }
+    }
+}
+
+// Shipping System
+class ShippingSystem implements Observer {
+    @Override
+    public void update(Order order) {
+        if (order.getState() instanceof NewState) {
+            System.out.println("Shipping System: New order received, preparing for shipment.");
+        }
+    }
+}
+
+// Billing System
+class BillingSystem implements Observer {
+    @Override
+    public void update(Order order) {
+        if (order.getState() instanceof CompletedState) {
+            System.out.println("Billing System: Order completed, generating invoice.");
+        }
+    }
+}
+
+public class StatePatternDemo {
+    public static void main(String[] args) {
+        Order order = new Order(new NewState());
+
+        InventorySystem inventorySystem = new InventorySystem();
+        ShippingSystem shippingSystem = new ShippingSystem();
+        BillingSystem billingSystem = new BillingSystem();
+
+        order.registerObserver(inventorySystem);
+        order.registerObserver(shippingSystem);
+        order.registerObserver(billingSystem);
+
+        // Simulate order updates
+        order.proceed(); // New to Shipped
+        order.proceed(); // Shipped to Completed
+    }
+}
+```
+
+Trong ví dụ này, `Order` chứa một trạng thái (`OrderState`), và các trạng thái cụ thể (`NewState`, `ShippedState`, `CompletedState`) định nghĩa cách thức `Order` chuyển từ trạng thái này sang trạng thái khác. `InventorySystem`, `ShippingSystem`, và `BillingSystem` vẫn là các `Observer`, nhưng bây giờ chúng phản ứng dựa trên trạng thái cụ thể của `Order` thay vì chỉ dựa trên thông báo từ `Order`.
 
 ## So sánh với các Pattern
 
