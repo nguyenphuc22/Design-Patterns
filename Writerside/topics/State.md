@@ -286,10 +286,14 @@ public class StatePatternDemo {
 
 Trong ví dụ này, `Order` chứa một trạng thái (`OrderState`), và các trạng thái cụ thể (`NewState`, `ShippedState`, `CompletedState`) định nghĩa cách thức `Order` chuyển từ trạng thái này sang trạng thái khác. `InventorySystem`, `ShippingSystem`, và `BillingSystem` vẫn là các `Observer`, nhưng bây giờ chúng phản ứng dựa trên trạng thái cụ thể của `Order` thay vì chỉ dựa trên thông báo từ `Order`.
 
-## So sánh với các Pattern
+## Khi nào nên sử dụng State Pattern
 
-So với Strategy, State tập trung vào việc thay đổi hành vi dựa trên trạng thái đối tượng. Strategy tập trung vào việc thay đổi thuật toán riêng lẻ.
+- **Khi hành vi của đối tượng thay đổi tùy thuộc vào trạng thái của nó**: State Pattern là lựa chọn lý tưởng khi bạn muốn hành vi của một đối tượng thay đổi dựa trên trạng thái nội bộ của nó. Điều này giúp mã nguồn dễ đọc và dễ bảo trì hơn bằng cách ngăn chặn các điều kiện rẽ nhánh phức tạp và liên tục.
 
-## Kết luận
+- **Khi bạn muốn tránh mã lệnh rắc rối với nhiều điều kiện**: State Pattern giúp loại bỏ sự phụ thuộc vào các câu lệnh điều kiện dài và phức tạp bằng cách chuyển trạng thái của đối tượng vào các lớp trạng thái riêng biệt. Điều này làm cho mã nguồn trở nên sạch sẽ và dễ quản lý hơn.
 
-State Pattern giúp tổ chức code dựa trên trạng thái của đối tượng, dễ mở rộng và bảo trì hơn. Tuy nhiên cũng cần tránh lạm dụng và làm phức tạp hóa code.
+- **Trong các ứng dụng cần mô phỏng máy trạng thái**: State Pattern là lựa chọn tốt cho các ứng dụng mô phỏng máy trạng thái, như các trò chơi điện tử, các ứng dụng quản lý trạng thái đối tượng, hoặc bất kỳ hệ thống nào mà đối tượng có thể chuyển đổi qua lại giữa nhiều trạng thái khác nhau.
+
+- **Khi bạn muốn mã nguồn dễ mở rộng và bảo trì**: State Pattern giúp việc thêm mới trạng thái hoặc thay đổi hành vi của trạng thái trở nên dễ dàng hơn mà không cần sửa đổi mã nguồn hiện có. Điều này làm cho mã nguồn dễ mở rộng và dễ bảo trì hơn.
+
+- **Khi cần tách rời quá trình thay đổi trạng thái khỏi lớp đối tượng chính**: Sử dụng State Pattern giúp tách biệt quá trình thay đổi trạng thái ra khỏi lớp đối tượng chính, giúp giảm sự phức tạp và tăng tính mô-đun. Điều này cho phép phát triển và thử nghiệm các trạng thái một cách độc lập, giúp cải thiện chất lượng mã nguồn và giảm thiểu lỗi.
