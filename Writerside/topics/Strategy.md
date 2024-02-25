@@ -34,8 +34,6 @@ Strategy Pattern được áp dụng như sau:
 
 - Khi cần thay đổi thuật toán, chỉ cần gán lớp triển khai mới cho tham chiếu đó.
 
-![](https://refactoring.guru/images/patterns/diagrams/strategy/structure.png)
-
 ## Cấu trúc
 
 Các thành phần chính trong Strategy Pattern:
