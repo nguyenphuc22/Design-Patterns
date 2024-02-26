@@ -1,20 +1,16 @@
 # Strategy
 
-## Giới thiệu
+## Khái Niệm
 
-Strategy Pattern định nghĩa một nhóm các thuật toán có thể hoán đổi cho nhau để thay đổi thuật toán bên trong một đối tượng tại runtime.
+**Strategy Pattern**, trong lĩnh vực phát triển phần mềm, là một mẫu thiết kế hành vi cho phép định nghĩa một nhóm các thuật toán, đóng gói từng thuật toán lại, và làm cho chúng có thể hoán đổi cho nhau. Strategy cho phép thuật toán biến đổi độc lập với các khách hàng sử dụng nó. Điều này giúp tăng cường tính mô-đun và tái sử dụng của mã, bởi vì nó tách rời việc triển khai của các thuật toán từ các lớp sử dụng chúng.
 
-## Định nghĩa
+### Tổng quan
 
-Strategy Pattern định nghĩa tập hợp các thuật toán có thể thay thế cho nhau và cung cấp cách để client có thể dễ dàng thay đổi các thuật toán này độc lập với ngữ cảnh sử dụng.
+- **Định Nghĩa của Pattern:** Strategy Pattern bao gồm các lớp 'Context' (ngữ cảnh sử dụng), 'Strategy' (các chiến lược hoặc thuật toán cụ thể), và một giao diện 'Strategy' mà tất cả các chiến lược cụ thể đều thực hiện. 'Context' giữ một tham chiếu đến một 'Strategy' và giao tiếp với đối tượng 'Strategy' này thay vì thực hiện trực tiếp một thuật toán cụ thể.
 
-## Mục đích
+- **Mục Đích:** Mục đích của Strategy Pattern là cung cấp một cách để định cấu hình một lớp với một trong nhiều hành vi, hoặc thay đổi hành vi tại thời điểm chạy. Điều này giúp loại bỏ các câu lệnh điều kiện trong mã và thay thế chúng bằng việc chọn đối tượng chiến lược phù hợp. Cách tiếp cận này giúp mã nguồn dễ dàng mở rộng và bảo trì hơn.
 
-- Tách biệt thuật toán riêng lẻ thành các lớp độc lập.
-
-- Các thuật toán có thể hoán đổi cho nhau dễ dàng.
-
-- Tránh sử dụng các câu lệnh điều kiện phức tạp.
+- **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của Strategy Pattern là "đóng gói thuật toán". Bằng cách sử dụng các đối tượng 'Strategy' để đại diện cho các thuật toán khác nhau và cho phép 'Context' thay đổi chiến lược của mình, ứng dụng có thể thay đổi hành vi một cách linh hoạt mà không ảnh hưởng đến các lớp khách hàng. Điều này giúp mã nguồn trở nên linh hoạt hơn, dễ hiểu và dễ bảo trì.
 
 ## Đặt vấn đề
 
