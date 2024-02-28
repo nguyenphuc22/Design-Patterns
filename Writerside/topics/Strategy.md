@@ -12,23 +12,64 @@
 
 - **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của Strategy Pattern là "đóng gói thuật toán". Bằng cách sử dụng các đối tượng 'Strategy' để đại diện cho các thuật toán khác nhau và cho phép 'Context' thay đổi chiến lược của mình, ứng dụng có thể thay đổi hành vi một cách linh hoạt mà không ảnh hưởng đến các lớp khách hàng. Điều này giúp mã nguồn trở nên linh hoạt hơn, dễ hiểu và dễ bảo trì.
 
-## Đặt vấn đề
+### Đặt vấn đề
 
-Giả sử bạn đang phát triển một game, có lớp NhânVật có phương thức diChuyển(). Ban đầu chỉ có cách di chuyển bằng đi bộ. Sau này có thêm yêu cầu bay và bơi.
+Trong lập trình hướng đối tượng, các ứng dụng thường phải đối mặt với những thách thức liên quan đến việc lựa chọn hành vi thích hợp trong thời gian chạy. Một ví dụ điển hình là việc xử lý các chiến lược thanh toán khác nhau trong một hệ thống thương mại điện tử. Khi không sử dụng Strategy Pattern, việc thêm hoặc thay đổi các phương thức thanh toán có thể yêu cầu sửa đổi lớn trong mã nguồn, dẫn đến việc vi phạm nguyên tắc Mở - Đóng (Open-Closed Principle), làm tăng sự phức tạp và khó khăn trong việc bảo trì.
 
-Nếu đặt tất cả các cách di chuyển vào lớp NhânVật sẽ dẫn đến lớp này bị phình to, khó bảo trì.
+```mermaid
+classDiagram
+    class Client {
+        +void main()
+    }
+    class PaymentMethod {
+        <<interface>>
+        +pay(amount: float)
+    }
+    class CreditCard {
+        +pay(amount: float)
+    }
+    class Paypal {
+        +pay(amount: float)
+    }
+    Client --> PaymentMethod : uses
+    PaymentMethod <|-- CreditCard : implements
+    PaymentMethod <|-- Paypal : implements
+```
 
-Làm thế nào để dễ dàng thêm mới cách di chuyển mà không ảnh hưởng đến lớp NhânVật?
+### Giải pháp
 
-## Giải quyết
+Strategy Pattern cung cấp một giải pháp cho vấn đề trên bằng cách định nghĩa một tập hợp các thuật toán, mỗi thuật toán được đóng gói trong một lớp riêng biệt với một interface chung. Điều này cho phép thuật toán có thể thay đổi độc lập với các client sử dụng nó. Trong ví dụ về hệ thống thanh toán, các chiến lược thanh toán khác nhau như Credit Card, PayPal, hoặc Bitcoin có thể được thực hiện như các lớp riêng biệt, giúp việc thêm hoặc sửa đổi các phương thức thanh toán trở nên dễ dàng và linh hoạt hơn.
+ 
+Việc sử dụng Strategy Pattern giúp tăng cường tính mô đun hóa và tái sử dụng của mã. Nó cũng giúp giảm sự phụ thuộc giữa các lớp và tăng tính linh hoạt cho ứng dụng. Ngoài ra, pattern cũng giúp ứng dụng tuân thủ nguyên tắc Open-Closed, giúp dễ dàng mở rộng mà không cần sửa đổi mã nguồn hiện có.
 
-Strategy Pattern được áp dụng như sau:
+Mặc dù Strategy Pattern mang lại nhiều lợi ích, nhưng việc sử dụng nó cũng có thể dẫn đến một số sự thỏa hiệp. Ví dụ, nó có thể gây ra sự phức tạp ban đầu khi cần phải thiết kế và triển khai các interface và lớp cụ thể. Ngoài ra, nếu có quá nhiều chiến lược, việc quản lý chúng có thể trở nên khó khăn.
 
-- Mỗi thuật toán di chuyển được đóng gói thành một lớp riêng biệt, triển khai từ một interface.
+```mermaid
+classDiagram
+    class PaymentContext {
+        -strategy: PaymentStrategy
+        +PaymentContext(strategy: PaymentStrategy)
+        +executePayment(amount: float): void
+    }
+    class PaymentStrategy {
+        <<interface>>
+        +pay(amount: float): void
+    }
+    class CreditCardPayment {
+        +pay(amount: float): void
+    }
+    class PaypalPayment {
+        +pay(amount: float): void
+    }
+    class BitcoinPayment {
+        +pay(amount: float): void
+    }
+    PaymentContext --> PaymentStrategy : has-a
+    PaymentStrategy <|-- CreditCardPayment : implements
+    PaymentStrategy <|-- PaypalPayment : implements
+    PaymentStrategy <|-- BitcoinPayment : implements
 
-- Lớp NhânVật sẽ lưu trữ một tham chiếu tới interface di chuyển.
-
-- Khi cần thay đổi thuật toán, chỉ cần gán lớp triển khai mới cho tham chiếu đó.
+```
 
 ## Cấu trúc
 
