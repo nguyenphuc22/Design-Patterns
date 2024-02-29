@@ -71,15 +71,41 @@ classDiagram
 
 ```
 
-## Cấu trúc
+## Cấu trúc của Strategy Pattern
 
-Các thành phần chính trong Strategy Pattern:
+```mermaid
+classDiagram
+      class Context {
+        -Strategy strategy
+        +Context(Strategy strategy)
+        +setStrategy(Strategy strategy)
+        +executeStrategy()
+      }
+      class Strategy {
+        <<interface>>
+        +algorithmInterface()
+      }
+      class ConcreteStrategyA {
+        +algorithmInterface()
+      }
+      class ConcreteStrategyB {
+        +algorithmInterface()
+      }
+      class ConcreteStrategyC {
+        +algorithmInterface()
+      }
+      
+      Context --> Strategy : has
+      Strategy <|.. ConcreteStrategyA : implements
+      Strategy <|.. ConcreteStrategyB : implements
+      Strategy <|.. ConcreteStrategyC : implements
+```
 
-- Strategy: interface chung cho các thuật toán.
+- `Context` là lớp môi trường, nó chứa một tham chiếu đến một đối tượng `Strategy`. `Context` có thể thay đổi chiến lược tại thời điểm chạy (runtime).
+- `Strategy` là một interface hoặc lớp trừu tượng định nghĩa một nhóm các thuật toán liên quan hoặc hành vi cụ thể. Trong mô hình chiến lược, các thuật toán này đều được đóng gói và hoán đổi cho nhau một cách linh hoạt.
+- `ConcreteStrategyA`, `ConcreteStrategyB`, và `ConcreteStrategyC` là các lớp triển khai cụ thể của interface `Strategy`. Mỗi một `ConcreteStrategy` triển khai một biến thể của một thuật toán hoặc một hành vi.
 
-- ConcreteStrategy: các lớp triển khai cụ thể các thuật toán.
-
-- Context: lớp sử dụng các thuật toán thông qua Strategy.
+Mục đích của Strategy Pattern là cho phép thuật toán thay đổi độc lập với các client sử dụng thuật toán đó.
 
 ## Cách triển khai
 
