@@ -107,15 +107,82 @@ classDiagram
 
 Mục đích của Strategy Pattern là cho phép thuật toán thay đổi độc lập với các client sử dụng thuật toán đó.
 
-## Cách triển khai
+## Cách triển khai Strategy Pattern
 
-Để triển khai Strategy Pattern trong Java, chúng ta có thể:
+Để triển khai Strategy Pattern, chúng ta sẽ cần các thành phần sau:
 
-- Định nghĩa một interface chung cho Strategy.
+### 1. Strategy Interface
 
-- Các ConcreteStrategy triển khai interface đó.
+Đây là interface cho các chiến lược khác nhau trong context. Mỗi chiến lược sẽ cài đặt các hành động cụ thể.
 
-- Context sẽ có một tham chiếu tới Strategy và sử dụng nó.
+```java
+public interface Strategy {
+    void executeStrategy();
+}
+```
+
+### 2. Concrete Strategy Classes
+
+Các lớp này cài đặt các hành động cụ thể cho một chiến lược cụ thể.
+
+```java
+public class ConcreteStrategyA implements Strategy {
+    @Override
+    public void executeStrategy() {
+        System.out.println("Executing Strategy A");
+    }
+}
+
+public class ConcreteStrategyB implements Strategy {
+    @Override
+    public void executeStrategy() {
+        System.out.println("Executing Strategy B");
+    }
+}
+```
+
+### 3. Context
+
+Lớp này duy trì một tham chiếu đến một đối tượng Strategy và cho phép Client thay đổi strategy.
+
+```java
+public class Context {
+    private Strategy strategy;
+
+    public Context(Strategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void setStrategy(Strategy strategy) {
+        this.strategy = strategy;
+    }
+
+    public void executeStrategy() {
+        strategy.executeStrategy();
+    }
+}
+```
+
+### 4. Sử dụng Pattern
+
+Đây là cách chúng ta có thể sử dụng Strategy Pattern trong một ứng dụng.
+
+```java
+public class StrategyPatternDemo {
+    public static void main(String[] args) {
+        Context context = new Context(new ConcreteStrategyA());
+
+        // The context is using ConcreteStrategyA.
+        context.executeStrategy(); // Executing Strategy A
+
+        // Change strategy to ConcreteStrategyB
+        context.setStrategy(new ConcreteStrategyB());
+
+        // Now the context is using ConcreteStrategyB.
+        context.executeStrategy(); // Executing Strategy B
+    }
+}
+```
 
 ## Ví dụ
 
