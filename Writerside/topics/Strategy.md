@@ -186,7 +186,121 @@ public class StrategyPatternDemo {
 
 ## Ví dụ
 
-// Ví dụ minh họa Strategy Pattern áp dụng cho cách di chuyển của nhân vật
+Dưới đây là một ví dụ minh họa cho việc sử dụng Strategy Pattern trong Java, được cấu trúc theo yêu cầu của bạn:
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+
+// Strategy interface
+interface PaymentStrategy {
+    void pay(int amount);
+}
+
+// Concrete Strategies
+class CreditCardStrategy implements PaymentStrategy {
+    private String name;
+    private String cardNumber;
+
+    public CreditCardStrategy(String nm, String ccNum) {
+        this.name = nm;
+        this.cardNumber = ccNum;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + " paid with credit/debit card.");
+    }
+}
+
+class PaypalStrategy implements PaymentStrategy {
+    private String emailId;
+    private String password;
+
+    public PaypalStrategy(String email, String pwd) {
+        this.emailId = email;
+        this.password = pwd;
+    }
+
+    @Override
+    public void pay(int amount) {
+        System.out.println(amount + " paid using Paypal.");
+    }
+}
+
+// Context class
+class ShoppingCart {
+    List<Item> items;
+    PaymentStrategy paymentStrategy;
+
+    public ShoppingCart() {
+        this.items = new ArrayList<>();
+    }
+
+    public void addItem(Item item) {
+        this.items.add(item);
+    }
+
+    public void removeItem(Item item) {
+        this.items.remove(item);
+    }
+
+    public int calculateTotal() {
+        int sum = 0;
+        for (Item item : items) {
+            sum += item.getPrice();
+        }
+        return sum;
+    }
+
+    public void setPaymentStrategy(PaymentStrategy strategy) {
+        this.paymentStrategy = strategy;
+    }
+
+    public void checkout() {
+        int amount = calculateTotal();
+        paymentStrategy.pay(amount);
+    }
+}
+
+// Item class
+class Item {
+    private String upcCode;
+    private int price;
+
+    public Item(String upc, int cost) {
+        this.upcCode = upc;
+        this.price = cost;
+    }
+
+    public int getPrice() {
+        return this.price;
+    }
+}
+
+// StrategyPatternDemo class
+public class StrategyPatternDemo {
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart();
+
+        Item item1 = new Item("1234", 10);
+        Item item2 = new Item("5678", 40);
+
+        cart.addItem(item1);
+        cart.addItem(item2);
+
+        // Pay by PayPal
+        cart.setPaymentStrategy(new PaypalStrategy("myemail@example.com", "mypwd"));
+        cart.checkout();
+
+        // Pay by Credit Card
+        cart.setPaymentStrategy(new CreditCardStrategy("John Doe", "1234567890123456"));
+        cart.checkout();
+    }
+}
+```
+
+Trong ví dụ này, `ShoppingCart` đại diện cho Context class, nó chứa một Strategy (`PaymentStrategy`), và các Strategies cụ thể (`CreditCardStrategy`, `PaypalStrategy`) định nghĩa cách thức thanh toán khác nhau. `ShoppingCart` có thể thay đổi Strategy của nó tùy ý để sử dụng phương thức thanh toán khác nhau mà không cần sửa đổi mã nguồn của chính nó.
 
 ## So sánh với các Pattern
 
