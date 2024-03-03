@@ -302,10 +302,14 @@ public class StrategyPatternDemo {
 
 Trong ví dụ này, `ShoppingCart` đại diện cho Context class, nó chứa một Strategy (`PaymentStrategy`), và các Strategies cụ thể (`CreditCardStrategy`, `PaypalStrategy`) định nghĩa cách thức thanh toán khác nhau. `ShoppingCart` có thể thay đổi Strategy của nó tùy ý để sử dụng phương thức thanh toán khác nhau mà không cần sửa đổi mã nguồn của chính nó.
 
-## So sánh với các Pattern
+## Khi nào nên sử dụng Strategy Pattern
 
-So với State, Strategy tập trung vào việc thay đổi riêng lẻ một thuật toán cụ thể, còn State tập trung vào việc thay đổi toàn bộ hành vi dựa trên trạng thái.
+- **Khi bạn muốn thay đổi hành vi của một đối tượng tại thời gian chạy**: Strategy Pattern là lựa chọn lý tưởng khi bạn cần thay đổi hành vi của một đối tượng tại thời điểm chạy mà không làm thay đổi cấu trúc của lớp. Việc sử dụng các chiến lược khác nhau giúp bạn dễ dàng chuyển đổi giữa các thuật toán hoặc công việc mà đối tượng cần thực hiện.
 
-## Kết luận
+- **Khi có nhiều biến thể của một hành vi**: Nếu bạn có nhiều phiên bản khác nhau của một hành vi cụ thể, sử dụng Strategy Pattern giúp bạn tách rời chúng thành các lớp riêng biệt, mỗi lớp thực thi một phiên bản của hành vi. Điều này làm cho mã nguồn dễ quản lý và mở rộng hơn.
 
-Strategy Pattern giúp tách biệt các thuật toán riêng lẻ thành các lớp độc lập, dễ dàng thay đổi và mở rộng. Tuy nhiên cũng cần tránh lạm dụng dẫn đến phức tạp code.
+- **Khi bạn muốn tránh việc sử dụng nhiều điều kiện**: Thay vì sử dụng câu lệnh điều kiện để chọn hành vi, Strategy Pattern cho phép bạn loại bỏ cấu trúc điều kiện bằng cách đóng gói hành vi trong các lớp riêng biệt. Điều này giúp mã nguồn dễ đọc và dễ bảo trì hơn.
+
+- **Khi cần mô-đun hóa các thuật toán**: Nếu bạn cần mô-đun hóa các thuật toán hoặc hành vi để chúng có thể dễ dàng thay thế hoặc mở rộng, Strategy Pattern cung cấp một cấu trúc tốt để thực hiện điều này. Bằng cách đóng gói mỗi thuật toán vào một lớp riêng, bạn có thể thay thế hoặc thêm các chiến lược mới mà không ảnh hưởng đến các lớp sử dụng chúng.
+
+- **Khi bạn muốn che giấu sự phức tạp của các thuật toán**: Strategy Pattern cũng hữu ích khi bạn muốn ẩn đi sự phức tạp của các thuật toán khỏi người dùng của chúng. Bằng cách cung cấp một giao diện chung cho các chiến lược khác nhau, bạn có thể làm cho mã nguồn sạch sẽ hơn và dễ hiểu hơn cho người khác sử dụng hoặc mở rộng.
