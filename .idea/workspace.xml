@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/Strategy.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Strategy.md" afterDir="false" />
-    </list>
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -89,28 +87,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Mediator.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Memento.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Observer.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/State.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Strategy.md&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
+    "settings.editor.selected.configurable": "fileTemplates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Writerside/topics" />

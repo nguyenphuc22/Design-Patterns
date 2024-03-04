@@ -1,20 +1,16 @@
 # Template Method
 
-## Giới thiệu
+## Khái Niệm
 
-Template Method Pattern định nghĩa bố cục của một thuật toán trong một phương thức, nhưng để các bước cụ thể của thuật toán được các lớp con cài đặt lại.
+**Template Pattern** là một mẫu thiết kế thuộc loại mẫu thiết kế hành vi (behavioral design pattern) trong phát triển phần mềm. Mẫu này hoạt động bằng cách xác định khung sườn của một thuật toán trong một phương thức, hoãn một số bước cho các lớp con. Template Pattern cho phép lớp con có thể thay đổi hoặc mở rộng các bước cụ thể của thuật toán mà không thay đổi cấu trúc tổng thể của thuật toán.
 
-## Định nghĩa
+### Tổng quan
 
-Template Method Pattern định nghĩa khung của một thuật toán trong một phương thức, nhưng cho phép các lớp con ghi đè lại các bước cụ thể của thuật toán đó mà không thay đổi cấu trúc chung.
+- **Định Nghĩa của Pattern:** Template Pattern bao gồm hai thành phần chính là một lớp trừu tượng chứa phương thức template và một hoặc nhiều lớp con thực thi các bước cụ thể của thuật toán. Phương thức template xác định các bước của một thuật toán và thứ tự chúng nên được thực hiện, trong khi các lớp con thì triển khai chi tiết của các bước đó.
 
-## Mục đích
+- **Mục Đích:** Mục đích của Template Pattern là tạo ra một cấu trúc thuật toán trong một phương thức, hoãn một số bước lại cho các lớp con. Mẫu này giúp tái sử dụng mã nguồn và tránh sự trùng lặp, đồng thời cung cấp một cách để các lớp con có thể mở rộng một số phần cụ thể của thuật toán mà không làm thay đổi cấu trúc thuật toán chính.
 
-- Định nghĩa bố cục chung của một thuật toán.
-
-- Cho phép các lớp con cài đặt lại các bước cụ thể mà không làm thay đổi bố cục.
-
-- Giảm sự lặp lại code giữa các lớp có cùng bố cục thuật toán.
+- **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của Template Pattern là "Inversion of Control", tức là đảo ngược quyền kiểm soát. Thay vì lớp con gọi phương thức từ lớp cơ sở, trong Template Pattern, lớp cơ sở gọi phương thức từ lớp con, điều này được thực hiện qua cách triển khai các phương thức trừu tượng trong lớp cơ sở. Điều này giúp định nghĩa khung của thuật toán trong lớp cơ sở nhưng để các lớp con xác định một số phần cụ thể.
 
 ## Đặt vấn đề
 
