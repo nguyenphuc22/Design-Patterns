@@ -95,6 +95,18 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
     "settings.editor.selected.configurable": "fileTemplates"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Mediator.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Observer.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/State.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Strategy.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Template-Method.md"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
