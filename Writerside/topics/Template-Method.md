@@ -28,7 +28,6 @@ Template Method được áp dụng như sau:
 
 - Các lớp con sẽ cài đặt lại các bước trừu tượng này.
 
-![](https://refactoring.guru/images/patterns/diagrams/template-method/structure.png)
 
 ## Cấu trúc
 
