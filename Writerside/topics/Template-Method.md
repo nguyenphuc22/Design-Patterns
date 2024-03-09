@@ -12,22 +12,41 @@
 
 - **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của Template Pattern là "Inversion of Control", tức là đảo ngược quyền kiểm soát. Thay vì lớp con gọi phương thức từ lớp cơ sở, trong Template Pattern, lớp cơ sở gọi phương thức từ lớp con, điều này được thực hiện qua cách triển khai các phương thức trừu tượng trong lớp cơ sở. Điều này giúp định nghĩa khung của thuật toán trong lớp cơ sở nhưng để các lớp con xác định một số phần cụ thể.
 
-## Đặt vấn đề
+### Đặt vấn đề
 
-Giả sử bạn cần xây dựng một ứng dụng có khả năng xuất dữ liệu ra nhiều định dạng khác nhau (csv, xml, json...).
+Trong nhiều ứng dụng phần mềm, các lớp khác nhau thường có những phần xử lý giống nhau, nhưng cũng có một số bước thực thi cần được tuỳ chỉnh theo từng ngữ cảnh cụ thể. Điều này dẫn đến việc lặp lại mã nguồn, làm tăng độ phức tạp và khó khăn trong việc bảo trì. Ví dụ, trong một ứng dụng về xử lý bản tin, các loại bản tin khác nhau như tin tức, phân tích thị trường, và báo cáo kỹ thuật có thể cần đến một quy trình xử lý tương tự nhưng với một số bước đặc biệt tuỳ chỉnh cho từng loại.
 
-Các bước xuất dữ liệu đều tương tự nhau, nhưng định dạng output thì khác nhau. Việc copy-paste code sẽ dẫn tới khó khăn trong bảo trì sau này.
 
-## Giải quyết
+```mermaid
+graph TD;
+    A[Bản tin tổng quát] --> B[Tin tức]
+    A --> C[Phân tích thị trường]
+    A --> D[Báo cáo kỹ thuật]
+    B --> E{Quy trình xử lý chung}
+    C --> E
+    D --> E
+    E --> F[Tuỳ chỉnh theo loại]
+```
 
-Template Method được áp dụng như sau:
+### Giải pháp
 
-- Định nghĩa một lớp Abstract chứa phương thức template method định nghĩa bố cục chung của thuật toán.
+Template Method Pattern giải quyết vấn đề trên bằng cách xác định khung của một thuật toán trong một phương thức, chừa lại các bước cụ thể để được ghi đè trong các lớp con. Điều này cho phép các lớp con mở rộng các bước cụ thể mà không cần thay đổi cấu trúc của thuật toán. Trong ví dụ về bản tin, có thể tạo một lớp trừu tượng với các phương thức cố định và các phương thức trừu tượng tương ứng với các bước tuỳ chỉnh.
 
-- Cài đặt các bước trừu tượng trong template method.
+Việc áp dụng Template Method Pattern giúp giảm bớt sự trùng lặp mã nguồn và tăng tính tái sử dụng. Nó cũng giúp tập trung quản lý quy trình xử lý, đồng thời cung cấp khuôn mẫu cho các phần tuỳ chỉnh, làm cho mã nguồn dễ hiểu và bảo trì hơn.
 
-- Các lớp con sẽ cài đặt lại các bước trừu tượng này.
+Mặc dù Template Method Pattern giúp giảm sự lặp code và tăng tính mô-đun, nhưng nó cũng có thể dẫn đến một cấu trúc lớp phức tạp hơn và ít linh hoạt hơn do cơ chế kế thừa. Ngoài ra, việc sử dụng quá mức có thể làm giảm sự minh bạch và khả năng hiểu mã nguồn cho những người mới làm quen.
 
+```mermaid
+graph TD;
+    A[AbstractClass] -->|define| B[TemplateMethod()]
+    A -->|implements| C[PrimitiveOperation1()]
+    A -->|implements| D[PrimitiveOperation2()]
+    E[ConcreteClass] -->|extends| A
+    E -->|override| C
+    E -->|override| D
+```
+
+Trong sơ đồ này, `AbstractClass` xác định khung của thuật toán trong `TemplateMethod()`, trong khi `ConcreteClass` mở rộng và tuỳ chỉnh các bước cụ thể thông qua `PrimitiveOperation1()` và `PrimitiveOperation2()`.
 
 ## Cấu trúc
 
