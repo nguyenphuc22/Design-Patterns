@@ -37,24 +37,47 @@ Việc áp dụng Template Method Pattern giúp giảm bớt sự trùng lặp m
 Mặc dù Template Method Pattern giúp giảm sự lặp code và tăng tính mô-đun, nhưng nó cũng có thể dẫn đến một cấu trúc lớp phức tạp hơn và ít linh hoạt hơn do cơ chế kế thừa. Ngoài ra, việc sử dụng quá mức có thể làm giảm sự minh bạch và khả năng hiểu mã nguồn cho những người mới làm quen.
 
 ```mermaid
-graph TD;
-    A[AbstractClass] -->|define| B[TemplateMethod()]
-    A -->|implements| C[PrimitiveOperation1()]
-    A -->|implements| D[PrimitiveOperation2()]
-    E[ConcreteClass] -->|extends| A
-    E -->|override| C
-    E -->|override| D
+classDiagram
+    class NewsletterTemplate {
+        +publishNewsletter()
+        #writeNewsSection()
+        #writeMarketAnalysis()
+        #writeTechnicalReport()
+    }
+    class SpecificNewsletter {
+        #writeNewsSection()
+        #writeMarketAnalysis()
+        #writeTechnicalReport()
+    }
+
+    NewsletterTemplate <|-- SpecificNewsletter : extends
 ```
 
-Trong sơ đồ này, `AbstractClass` xác định khung của thuật toán trong `TemplateMethod()`, trong khi `ConcreteClass` mở rộng và tuỳ chỉnh các bước cụ thể thông qua `PrimitiveOperation1()` và `PrimitiveOperation2()`.
+- `NewsletterTemplate` tương ứng với "Bản tin tổng quát" từ sơ đồ vấn đề. Nó định nghĩa phương thức `publishNewsletter()` (tương ứng với "Quy trình xử lý chung" trong sơ đồ vấn đề), mà bên trong sẽ gọi các phương thức `writeNewsSection()`, `writeMarketAnalysis()`, và `writeTechnicalReport()`. Các phương thức này tương ứng với "Tin tức", "Phân tích thị trường", và "Báo cáo kỹ thuật" trong sơ đồ vấn đề và được định nghĩa là trừu tượng trong lớp này để các lớp con cần phải cung cấp cài đặt cụ thể cho chúng.
 
-## Cấu trúc
+- `SpecificNewsletter` tương ứng với "Tuỳ chỉnh theo loại" trong sơ đồ vấn đề. Lớp này kế thừa từ `NewsletterTemplate` và cung cấp các triển khai cụ thể cho các phương thức `writeNewsSection()`, `writeMarketAnalysis()`, và `writeTechnicalReport()`, tùy chỉnh nội dung cụ thể của các phần này cho loại bản tin cụ thể.
 
-Các thành phần chính trong Template Method Pattern:
+## Cấu trúc của Template Method Pattern
 
-- AbstractClass: định nghĩa template method và các phương thức trừu tượng.
+```mermaid
+classDiagram
+      class AbstractClass {
+        +templateMethod()
+        #primitiveOperation1()
+        #primitiveOperation2()
+      }
+      class ConcreteClass {
+        #primitiveOperation1() 
+        #primitiveOperation2()
+      }
+      
+      AbstractClass <|.. ConcreteClass : Extends
+```
 
-- ConcreteClass: cài đặt lại các phương thức trừu tượng.
+- `AbstractClass` là một lớp trừu tượng chứa phương thức `templateMethod()`. Phương thức này thường được định nghĩa là `final` để ngăn chặn việc ghi đè, và nó gọi các phương thức trừu tượng (hoặc hook methods) khác như `primitiveOperation1()` và `primitiveOperation2()`, mà các lớp con sẽ cung cấp định nghĩa cụ thể.
+- `ConcreteClass` là lớp cụ thể kế thừa từ `AbstractClass` và triển khai các phương thức trừu tượng như `primitiveOperation1()` và `primitiveOperation2()`.
+
+Mục đích của Template Method Pattern là để xác định khung của một thuật toán trong một phương thức, trì hoãn một số bước đến các lớp con. Template Method cho phép lớp con ghi đè và mở rộng cấu trúc mà không thay đổi cấu trúc tổng thể của thuật toán.
 
 ## Cách triển khai
 
