@@ -107,93 +107,82 @@ classDiagram
 
 Mục đích của Strategy Pattern là cho phép thuật toán thay đổi độc lập với các client sử dụng thuật toán đó.
 
-## Cách triển khai Template Method Pattern
+## Cách triển khai Strategy Pattern
 
-Để triển khai Template Method Pattern, chúng ta sẽ cần các thành phần sau:
+Để triển khai Strategy Pattern, chúng ta sẽ cần các thành phần sau:
 
-### 1. Abstract Class
+### 1. Strategy Interface
 
-Đây là lớp trừu tượng định nghĩa phương thức template. Phương thức này chứa một loạt các bước, một số trong đó có thể được triển khai ở lớp này hoặc bị hoãn lại để các lớp con triển khai.
+Đây là interface cho các chiến lược khác nhau trong context. Mỗi chiến lược sẽ cài đặt các hành động cụ thể.
 
 ```java
-public abstract class Game {
-    abstract void initialize();
-    abstract void startPlay();
-    abstract void endPlay();
+public interface Strategy {
+    void executeStrategy();
+}
+```
 
-    // Template method
-    public final void play(){
-        // Initialize the game
-        initialize();
+### 2. Concrete Strategy Classes
 
-        // Start game
-        startPlay();
+Các lớp này cài đặt các hành động cụ thể cho một chiến lược cụ thể.
 
-        // End game
-        endPlay();
+```java
+public class ConcreteStrategyA implements Strategy {
+    @Override
+    public void executeStrategy() {
+        System.out.println("Executing Strategy A");
+    }
+}
+
+public class ConcreteStrategyB implements Strategy {
+    @Override
+    public void executeStrategy() {
+        System.out.println("Executing Strategy B");
     }
 }
 ```
 
-### 2. Concrete Classes
+### 3. Context
 
-Các lớp này triển khai các phần của phương thức template cần được tùy chỉnh.
+Lớp này duy trì một tham chiếu đến một đối tượng Strategy và cho phép Client thay đổi strategy.
 
 ```java
-public class Cricket extends Game {
-    @Override
-    void initialize() {
-        System.out.println("Cricket Game Initialized! Start playing.");
+public class Context {
+    private Strategy strategy;
+
+    public Context(Strategy strategy) {
+        this.strategy = strategy;
     }
 
-    @Override
-    void startPlay() {
-        System.out.println("Cricket Game Started. Enjoy the game!");
+    public void setStrategy(Strategy strategy) {
+        this.strategy = strategy;
     }
 
-    @Override
-    void endPlay() {
-        System.out.println("Cricket Game Finished!");
-    }
-}
-
-public class Football extends Game {
-    @Override
-    void initialize() {
-        System.out.println("Football Game Initialized! Start playing.");
-    }
-
-    @Override
-    void startPlay() {
-        System.out.println("Football Game Started. Enjoy the game!");
-    }
-
-    @Override
-    void endPlay() {
-        System.out.println("Football Game Finished!");
+    public void executeStrategy() {
+        strategy.executeStrategy();
     }
 }
 ```
 
-### 3. Sử dụng Pattern
+### 4. Sử dụng Pattern
 
-Đây là cách chúng ta có thể sử dụng Template Method Pattern trong một ứng dụng.
+Đây là cách chúng ta có thể sử dụng Strategy Pattern trong một ứng dụng.
 
 ```java
-public class TemplatePatternDemo {
+public class StrategyPatternDemo {
     public static void main(String[] args) {
+        Context context = new Context(new ConcreteStrategyA());
 
-        Game game = new Cricket();
-        game.play();
-        System.out.println();
+        // The context is using ConcreteStrategyA.
+        context.executeStrategy(); // Executing Strategy A
 
-        game = new Football();
-        game.play();
+        // Change strategy to ConcreteStrategyB
+        context.setStrategy(new ConcreteStrategyB());
+
+        // Now the context is using ConcreteStrategyB.
+        context.executeStrategy(); // Executing Strategy B
     }
 }
 ```
-
-Trong ví dụ trên, `Cricket` và `Football` là các lớp con của `Game` và chúng triển khai theo phương thức template được định nghĩa trong lớp trừu tượng `Game`. Phương thức `play()` là phương thức template và nó gọi đến ba phương thức khác mà các lớp con phải cung cấp cài đặt.
 
 ## Ví dụ
 
