@@ -79,15 +79,91 @@ classDiagram
 
 Mục đích của Template Method Pattern là để xác định khung của một thuật toán trong một phương thức, trì hoãn một số bước đến các lớp con. Template Method cho phép lớp con ghi đè và mở rộng cấu trúc mà không thay đổi cấu trúc tổng thể của thuật toán.
 
-## Cách triển khai
+## Cách triển khai Template Method Pattern
 
-Để triển khai Template Method trong Java, chúng ta có thể:
+### 1. Abstract Class
 
-- Tạo một abstract class khai báo các phương thức trừu tượng.
+Đây là lớp trừu tượng định nghĩa phương thức template. Phương thức này chứa một loạt các bước, một số trong đó có thể được triển khai ở lớp này hoặc bị hoãn lại để các lớp con triển khai.
 
-- Cài đặt một template method sử dụng các phương thức trừu tượng đó.
+```java
+public abstract class Game {
+    abstract void initialize();
+    abstract void startPlay();
+    abstract void endPlay();
 
-- Các lớp con sẽ cài đặt lại các phương thức trừu tượng.
+    // Template method
+    public final void play(){
+        // Initialize the game
+        initialize();
+
+        // Start game
+        startPlay();
+
+        // End game
+        endPlay();
+    }
+}
+```
+
+### 2. Concrete Classes
+
+Các lớp này triển khai các phần của phương thức template cần được tùy chỉnh.
+
+```java
+public class Cricket extends Game {
+    @Override
+    void initialize() {
+        System.out.println("Cricket Game Initialized! Start playing.");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("Cricket Game Started. Enjoy the game!");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("Cricket Game Finished!");
+    }
+}
+
+public class Football extends Game {
+    @Override
+    void initialize() {
+        System.out.println("Football Game Initialized! Start playing.");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("Football Game Started. Enjoy the game!");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("Football Game Finished!");
+    }
+}
+```
+
+### 3. Sử dụng Pattern
+
+Đây là cách chúng ta có thể sử dụng Template Method Pattern trong một ứng dụng.
+
+```java
+public class TemplatePatternDemo {
+    public static void main(String[] args) {
+
+        Game game = new Cricket();
+        game.play();
+        System.out.println();
+
+        game = new Football();
+        game.play();
+    }
+}
+```
+
+Trong ví dụ trên, `Cricket` và `Football` là các lớp con của `Game` và chúng triển khai theo phương thức template được định nghĩa trong lớp trừu tượng `Game`. Phương thức `play()` là phương thức template và nó gọi đến ba phương thức khác mà các lớp con phải cung cấp cài đặt.
 
 ## Ví dụ
 
