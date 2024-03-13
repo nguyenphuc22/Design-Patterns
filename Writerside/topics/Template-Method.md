@@ -167,7 +167,77 @@ Trong ví dụ trên, `Cricket` và `Football` là các lớp con của `Game` v
 
 ## Ví dụ
 
-// Ví dụ Template Method áp dụng cho export dữ liệu có định dạng khác nhau
+Trong ví dụ này, `Game` đại diện cho AbstractClass, nó chứa một số phương thức abstract (`initialize()`, `startPlay()`, `endPlay()`) và một phương thức Template (`play()`), tự động gọi tất cả các phương thức khác theo đúng trình tự. `Cricket` và `Football` là các ConcreteClass, chúng cung cấp cài đặt cụ thể cho các phương thức trừu tượng của `Game`. Khi `play()` được gọi, nó thực hiện quy trình trò chơi từ đầu đến cuối, từ khởi tạo đến bắt đầu chơi và cuối cùng là kết thúc trò chơi, cho phép các lớp con chỉ định các bước cụ thể mà không thay đổi cấu trúc tổng thể.
+
+```java
+// AbstractClass
+abstract class Game {
+    abstract void initialize();
+    abstract void startPlay();
+    abstract void endPlay();
+
+    // Template method
+    public final void play() {
+        // Initialize the game
+        initialize();
+
+        // Start game
+        startPlay();
+
+        // End game
+        endPlay();
+    }
+}
+
+// ConcreteClass
+class Cricket extends Game {
+    @Override
+    void initialize() {
+        System.out.println("Cricket Game Initialized! Start playing.");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("Cricket Game Started. Enjoy the game!");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("Cricket Game Finished!");
+    }
+}
+
+// ConcreteClass
+class Football extends Game {
+    @Override
+    void initialize() {
+        System.out.println("Football Game Initialized! Start playing.");
+    }
+
+    @Override
+    void startPlay() {
+        System.out.println("Football Game Started. Enjoy the game!");
+    }
+
+    @Override
+    void endPlay() {
+        System.out.println("Football Game Finished!");
+    }
+}
+
+// TemplatePatternDemo class
+public class TemplatePatternDemo {
+    public static void main(String[] args) {
+
+        Game game = new Cricket();
+        game.play();
+        System.out.println();
+
+        game = new Football();
+        game.play();
+    }
+}
+```
 
 ## So sánh với các Pattern
 
