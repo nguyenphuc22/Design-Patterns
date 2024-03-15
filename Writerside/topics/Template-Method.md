@@ -239,10 +239,14 @@ public class TemplatePatternDemo {
 }
 ```
 
-## So sánh với các Pattern
+## Khi nào nên sử dụng Template Method
 
-So với Strategy, Template Method định nghĩa bố cục của thuật toán và gọi các phương thức trừu tượng. Strategy định nghĩa riêng các thuật toán có thể hoán đổi cho nhau.
+- **Khi bạn muốn cố định không gian của một thuật toán**: Template Method là một lựa chọn tốt khi bạn muốn xác định khung sườn của một thuật toán, để lại một số bước cụ thể có thể được ghi đè bởi các lớp con. Điều này giúp đảm bảo rằng cấu trúc tổng thể của thuật toán không thay đổi, trong khi vẫn cho phép sự linh hoạt trong việc thực hiện các bước cụ thể.
 
-## Kết luận
+- **Khi các lớp con chỉ cần mở rộng một số bước nhất định của thuật toán**: Nếu bạn có một loạt các lớp con cần thực hiện cùng một thuật toán với chỉ một vài bước khác nhau, Template Method cho phép bạn đặt thuật toán cơ bản tại lớp cơ sở và để các lớp con triển khai hoặc thay đổi một số bước nhất định.
 
-Template Method giúp tái sử dụng code và tránh lặp lại phần khung của thuật toán giữa các lớp. Tuy nhiên cần cân nhắc khi sử dụng để tránh phức tạp hóa code.
+- **Khi bạn muốn tránh trùng lặp mã**: Sử dụng Template Method giúp giảm bớt việc sao chép mã nguồn giữa các lớp bằng cách chia sẻ mã nguồn chung trong một lớp cơ sở. Điều này giúp dễ dàng cập nhật và bảo trì mã nguồn, vì mọi thay đổi cần thiết chỉ cần thực hiện một lần ở lớp cơ sở.
+
+- **Khi bạn muốn kiểm soát điểm mở rộng của lớp**: Template Method cung cấp một cách tốt để kiểm soát các điểm mở rộng trong lớp của bạn. Bằng cách xác định các phương thức 'hook' hoặc 'template', bạn có thể cho phép lớp con mở rộng chức năng mà không thay đổi cấu trúc thuật toán.
+
+- **Khi bạn muốn áp dụng nguyên tắc Hollywood "Đừng gọi chúng tôi, chúng tôi sẽ gọi bạn"**: Điều này có nghĩa là thay vì cho phép lớp con gọi phương thức từ lớp cơ sở, lớp cơ sở sẽ gọi các phương thức được định nghĩa trong lớp con tại các thời điểm cụ thể. Điều này giúp kiểm soát quy trình xử lý và giảm sự phụ thuộc giữa lớp cơ sở và lớp con.
