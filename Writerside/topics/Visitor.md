@@ -30,8 +30,6 @@ Visitor Pattern được áp dụng như sau:
 
 - Tạo các ConcreteVisitor triển khai các phương thức visit để thực hiện các thao tác cụ thể lên Element.
 
-![](https://refactoring.guru/images/patterns/diagrams/visitor/structure.png)
-
 ## Cấu trúc
 
 Các thành phần chính trong Visitor Pattern:
