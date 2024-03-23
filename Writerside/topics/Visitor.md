@@ -12,21 +12,55 @@
 
 - **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của Visitor Pattern là tách biệt thuật toán từ các đối tượng mà nó hoạt động trên. Điều này cho phép chúng ta thêm các thuật toán mới mà không thay đổi định nghĩa của các đối tượng. Khi cần thực hiện một hoạt động trên một tập hợp các đối tượng, chúng ta có thể định nghĩa một đối tượng Visitor chứa hoạt động đó và sau đó cho phép các đối tượng đó chấp nhận Visitor, từ đó áp dụng hoạt động mà không làm thay đổi mã nguồn của chúng.
 
-## Đặt vấn đề
+### Đặt vấn đề
 
-Giả sử bạn có một cấu trúc cây đối tượng phức tạp đại diện cho một tài liệu. Bây giờ cần thêm chức năng xuất tài liệu ra nhiều định dạng khác nhau (json, xml, pdf...).
+Trong nhiều ứng dụng phần mềm, các lớp khác nhau thường phải thực hiện những nhiệm vụ tương tự nhưng với một số biến thể nhỏ dựa trên đặc điểm cụ thể của đối tượng. Khi một hệ thống được mở rộng để xử lý các loại đối tượng mới, việc thêm code mới vào các lớp hiện có có thể làm tăng sự phức tạp và giảm tính linh hoạt. Đặc biệt, trong các hệ thống xử lý nhiều đối tượng khác nhau, việc cập nhật và bảo trì mã nguồn trở nên khó khăn do sự chồng chéo và lặp lại code. Ví dụ, một ứng dụng phân tích tài liệu cần xử lý các loại tài liệu khác nhau như văn bản, bảng biểu và hình ảnh. Mặc dù các tài liệu này có thể chia sẻ một quy trình xử lý cơ bản, nhưng mỗi loại cần một số thao tác đặc biệt để phân tích hiệu quả.
 
-Làm thế nào để thêm chức năng mới mà không làm ảnh hưởng đến cấu trúc cây đối tượng hiện tại?
+```mermaid
+graph TD;
+    A[Tài liệu tổng quát] --> B[Văn bản]
+    A --> C[Bảng biểu]
+    A --> D[Hình ảnh]
+    B --> E{Quy trình xử lý chung}
+    C --> E
+    D --> E
+    E --> F[Tuỳ chỉnh theo loại]
+```
 
-## Giải quyết
+### Giải pháp
 
-Visitor Pattern được áp dụng như sau:
+Visitor Pattern giải quyết vấn đề này bằng cách cho phép thêm các thao tác mới vào một hệ thống đối tượng mà không cần sửa đổi cấu trúc của các lớp đối tượng. Pattern này sử dụng một lớp visitor mà có thể thực hiện một tập hợp các thao tác trên các đối tượng thuộc các lớp khác nhau mà không cần làm cho mã nguồn trở nên rối bời bởi logic dành riêng cho từng loại đối tượng. Trong ví dụ của ứng dụng phân tích tài liệu, có thể tạo các visitor khác nhau cho các thao tác như in, kiểm tra lỗi và phân tích sâu.
 
-- Định nghĩa một interface Visitor với các phương thức visit tương ứng với từng lớp Element.
+Khi áp dụng Visitor Pattern, cấu trúc của hệ thống trở nên rõ ràng và linh hoạt hơn, cho phép dễ dàng thêm vào hoặc sửa đổi các thao tác mà không làm ảnh hưởng đến các lớp đối tượng. Pattern này tách biệt được logic xử lý khỏi cấu trúc dữ liệu, từ đó làm giảm sự phụ thuộc giữa chúng và tăng khả năng tái sử dụng code.
 
-- Các lớp Element sẽ có phương thức accept nhận vào một Visitor.
+```mermaid
+classDiagram
+    class DocumentElement {
+        <<interface>>
+        +accept(Visitor)
+    }
+    class Text : DocumentElement {
+        +accept(Visitor)
+    }
+    class Table : DocumentElement {
+        +accept(Visitor)
+    }
+    class Image : DocumentElement {
+        +accept(Visitor)
+    }
+    class Visitor {
+        <<interface>>
+        +visitText(Text)
+        +visitTable(Table)
+        +visitImage(Image)
+    }
 
-- Tạo các ConcreteVisitor triển khai các phương thức visit để thực hiện các thao tác cụ thể lên Element.
+    DocumentElement <|-- Text : implements
+    DocumentElement <|-- Table : implements
+    DocumentElement <|-- Image : implements
+```
+
+Trong sơ đồ này, `DocumentElement` là một interface đại diện cho các loại phần tử của tài liệu mà có thể được "thăm" bởi các visitor. `Text`, `Table`, và `Image` là các lớp cụ thể biểu diễn các loại phần tử khác
 
 ## Cấu trúc
 
