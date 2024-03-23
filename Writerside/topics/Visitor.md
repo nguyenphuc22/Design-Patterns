@@ -12,12 +12,6 @@
 
 - **Ý Tưởng Cốt Lõi:** Ý tưởng cốt lõi của Visitor Pattern là tách biệt thuật toán từ các đối tượng mà nó hoạt động trên. Điều này cho phép chúng ta thêm các thuật toán mới mà không thay đổi định nghĩa của các đối tượng. Khi cần thực hiện một hoạt động trên một tập hợp các đối tượng, chúng ta có thể định nghĩa một đối tượng Visitor chứa hoạt động đó và sau đó cho phép các đối tượng đó chấp nhận Visitor, từ đó áp dụng hoạt động mà không làm thay đổi mã nguồn của chúng.
 
-## Mục đích
-
-- Cho phép thêm các thao tác mới lên cấu trúc đối tượng hiện có mà không cần thay đổi code.
-
-- Tách biệt các thao tác khỏi các đối tượng thực hiện chúng.
-
 ## Đặt vấn đề
 
 Giả sử bạn có một cấu trúc cây đối tượng phức tạp đại diện cho một tài liệu. Bây giờ cần thêm chức năng xuất tài liệu ra nhiều định dạng khác nhau (json, xml, pdf...).
