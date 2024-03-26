@@ -39,13 +39,13 @@ classDiagram
         <<interface>>
         +accept(Visitor)
     }
-    class Text : DocumentElement {
+    class Text  {
         +accept(Visitor)
     }
-    class Table : DocumentElement {
+    class Table  {
         +accept(Visitor)
     }
-    class Image : DocumentElement {
+    class Image {
         +accept(Visitor)
     }
     class Visitor {
