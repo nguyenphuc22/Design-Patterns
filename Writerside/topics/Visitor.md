@@ -62,17 +62,44 @@ classDiagram
 
 Trong sơ đồ này, `DocumentElement` là một interface đại diện cho các loại phần tử của tài liệu mà có thể được "thăm" bởi các visitor. `Text`, `Table`, và `Image` là các lớp cụ thể biểu diễn các loại phần tử khác
 
-## Cấu trúc
+## Cấu trúc của Visitor Pattern
 
-Các thành phần chính trong Visitor Pattern:
+```mermaid
+classDiagram
+      class Visitor {
+        +visitConcreteElementA(ConcreteElementA)
+        +visitConcreteElementB(ConcreteElementB)
+      }
+      class ConcreteVisitor1 {
+        +visitConcreteElementA(ConcreteElementA) 
+        +visitConcreteElementB(ConcreteElementB)
+      }
+      class ConcreteVisitor2 {
+        +visitConcreteElementA(ConcreteElementA) 
+        +visitConcreteElementB(ConcreteElementB)
+      }
+      class Element {
+        +accept(Visitor)
+      }
+      class ConcreteElementA {
+        +accept(Visitor)
+      }
+      class ConcreteElementB {
+        +accept(Visitor)
+      }
+      
+      Visitor <|.. ConcreteVisitor1 : Extends
+      Visitor <|.. ConcreteVisitor2 : Extends
+      Element <|.. ConcreteElementA : Extends
+      Element <|.. ConcreteElementB : Extends
+      ConcreteElementA ..> Visitor : Uses
+      ConcreteElementB ..> Visitor : Uses
+```
 
-- Visitor: định nghĩa các phương thức thao tác trên các Element.
-
-- ConcreteVisitor: triển khai các phương thức trên.
-
-- Element: định nghĩa phương thức accept nhận vào một Visitor.
-
-- ConcreteElement: các lớp cụ thể cần áp dụng thao tác.
+- `Visitor` là một interface hoặc abstract class chứa một loạt các phương thức visit(), mỗi phương thức cho một loại element khác nhau.
+- `ConcreteVisitor1` và `ConcreteVisitor2` là các lớp cụ thể triển khai interface `Visitor`, cung cấp cách thực hiện cụ thể cho mỗi phương thức visit().
+- `Element` là một interface hoặc abstract class chứa phương thức accept(), trong đó tham số là một đối tượng Visitor.
+- `ConcreteElementA` và `ConcreteElementB` là các lớp cụ thể triển khai `Element`, mỗi lớp cung cấp triển khai cụ thể cho phương thức accept(), thường là gọi phương thức visit() của Visitor và truyền chính nó như một đối số.
 
 ## Cách triển khai
 
