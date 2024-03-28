@@ -101,15 +101,125 @@ classDiagram
 - `Element` là một interface hoặc abstract class chứa phương thức accept(), trong đó tham số là một đối tượng Visitor.
 - `ConcreteElementA` và `ConcreteElementB` là các lớp cụ thể triển khai `Element`, mỗi lớp cung cấp triển khai cụ thể cho phương thức accept(), thường là gọi phương thức visit() của Visitor và truyền chính nó như một đối số.
 
-## Cách triển khai
+## Cách triển khai Visitor Pattern
 
-Để triển khai Visitor trong Java, ta có thể:
+Hãy tưởng tượng một ứng dụng Zoo, nơi bạn muốn thực hiện các hoạt động khác nhau đối với các loài động vật mà không cần thay đổi các lớp động vật. Ví dụ, bạn muốn thực hiện "Feeding" và "Exercising" cho các loài động vật khác nhau. Đây là một tình huống lý tưởng để sử dụng Visitor Pattern.
 
-- Định nghĩa interface Visitor với các phương thức visit tương ứng với từng Element.
+### 1. Interface Visitor
 
-- Các Element có phương thức accept nhận vào một Visitor.
+Đây là Visitor, định nghĩa các hoạt động (trong trường hợp này là Feeding và Exercising) cho mỗi loại động vật.
 
-- Các ConcreteVisitor triển khai các phương thức visit.
+```java
+public interface AnimalVisitor {
+    void visit(Lion lion);
+    void visit(Tiger tiger);
+    void visit(Elephant elephant);
+}
+```
+
+### 2. Interface Element
+
+Đây là Element, mô tả các loài động vật trong zoo.
+
+```java
+public interface Animal {
+    void accept(AnimalVisitor visitor);
+}
+```
+
+### 3. Concrete Visitor Classes
+
+Các lớp này triển khai `AnimalVisitor` để xác định cách thức thực hiện các hoạt động cho từng loài động vật.
+
+```java
+public class FeedingVisitor implements AnimalVisitor {
+    @Override
+    public void visit(Lion lion) {
+        System.out.println("Feeding the lion with some meat.");
+    }
+
+    @Override
+    public void visit(Tiger tiger) {
+        System.out.println("Feeding the tiger with chicken.");
+    }
+
+    @Override
+    public void visit(Elephant elephant) {
+        System.out.println("Feeding the elephant with fruits and vegetables.");
+    }
+}
+
+public class ExercisingVisitor implements AnimalVisitor {
+    @Override
+    public void visit(Lion lion) {
+        System.out.println("Taking the lion for a run.");
+    }
+
+    @Override
+    public void visit(Tiger tiger) {
+        System.out.println("Making the tiger jump through hoops.");
+    }
+
+    @Override
+    public void visit(Elephant elephant) {
+        System.out.println("Walking the elephant around the zoo.");
+    }
+}
+```
+
+### 4. Concrete Element Classes
+
+Các lớp động vật cụ thể, mỗi loài sẽ có cách tiếp nhận (accept) khách thăm (visitor) riêng.
+
+```java
+public class Lion implements Animal {
+    @Override
+    public void accept(AnimalVisitor visitor) {
+        visitor.visit(this);
+    }
+}
+
+public class Tiger implements Animal {
+    @Override
+    public void accept(AnimalVisitor visitor) {
+        visitor.visit(this);
+    }
+}
+
+public class Elephant implements Animal {
+    @Override
+    public void accept(AnimalVisitor visitor) {
+        visitor.visit(this);
+    }
+}
+```
+
+### 5. Sử dụng Pattern
+
+Đoạn mã sau đây mô tả cách các động vật được thăm bởi các visitor khác nhau để thực hiện các hoạt động như feeding và exercising.
+
+```java
+public class ZooVisitorDemo {
+    public static void main(String[] args) {
+        Animal[] animals = new Animal[]{new Lion(), new Tiger(), new Elephant()};
+
+        AnimalVisitor feedingVisitor = new FeedingVisitor();
+        AnimalVisitor exercisingVisitor = new ExercisingVisitor();
+
+        System.out.println("Zoo Feeding Time:");
+        for (Animal animal : animals) {
+            animal.accept(feedingVisitor);
+        }
+
+        System.out.println("\nZoo Exercise Time:");
+        for (Animal animal : animals) {
+            animal.accept(exercisingVisitor);
+        }
+    }
+}
+```
+
+Trong ví dụ này, `FeedingVisitor` và `ExercisingVisitor` đại diện cho các hoạt động cụ thể được thực hiện trên các loài động vật. Mỗi loài động vật (`Lion`, `Tiger`, `Elephant`) đều triển khai interface `Animal` và định nghĩa phương thức `accept()` để chấp nhận `AnimalVisitor`. Phần demo `ZooVisitorDemo` minh họa cách thức các `Animal` được "thăm" bởi các `AnimalVisitor` để thực hiện feeding và exercising mà không cần sửa đổi code trong các lớp `Animal`.
 
 ## Ví dụ
 
