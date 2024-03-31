@@ -221,14 +221,16 @@ public class ZooVisitorDemo {
 
 Trong ví dụ này, `FeedingVisitor` và `ExercisingVisitor` đại diện cho các hoạt động cụ thể được thực hiện trên các loài động vật. Mỗi loài động vật (`Lion`, `Tiger`, `Elephant`) đều triển khai interface `Animal` và định nghĩa phương thức `accept()` để chấp nhận `AnimalVisitor`. Phần demo `ZooVisitorDemo` minh họa cách thức các `Animal` được "thăm" bởi các `AnimalVisitor` để thực hiện feeding và exercising mà không cần sửa đổi code trong các lớp `Animal`.
 
-## Ví dụ
+## Khi nào nên sử dụng Visitor Pattern
 
-// Ví dụ minh họa Visitor Pattern áp dụng cho việc xuất tài liệu
+- **Khi bạn có cấu trúc đối tượng phức tạp**: Visitor Pattern là một lựa chọn tốt khi bạn đang làm việc với một cấu trúc đối tượng phức tạp, chẳng hạn như một cây đối tượng, và bạn muốn thực hiện các thao tác trên các đối tượng trong cấu trúc mà không làm thay đổi định nghĩa của chúng. Visitor cho phép bạn thêm chức năng mới mà không sửa đổi các lớp đối tượng.
 
-## So sánh với các Pattern
+- **Khi bạn cần thực hiện các thao tác qua nhiều đối tượng thuộc nhiều lớp khác nhau**: Nếu bạn cần thực hiện một loạt các thao tác trên một nhóm đối tượng khác nhau mà không muốn ô nhiễm mã của chúng với logic hoạt động, Visitor Pattern cung cấp một cách để tập trung logic hoạt động trong một đối tượng visitor duy nhất.
 
-So với Strategy, Visitor tách logic ra khỏi các đối tượng, trong khi Strategy nhóm các thuật toán lại với nhau.
+- **Khi bạn muốn tách biệt logic hoạt động khỏi cấu trúc đối tượng**: Visitor Pattern giúp tách biệt logic hoạt động khỏi cấu trúc đối tượng, giúp mã nguồn dễ quản lý và bảo trì hơn. Điều này đặc biệt hữu ích khi logic hoạt động hoặc cấu trúc đối tượng thay đổi thường xuyên.
 
-## Kết luận
+- **Khi bạn muốn cung cấp một bộ các thao tác có thể áp dụng trên đối tượng mà không thay đổi cấu trúc đối tượng**: Visitor Pattern cho phép bạn định nghĩa một bộ các thao tác có thể áp dụng trên các đối tượng khác nhau. Điều này giúp tăng tính mô-đun và tái sử dụng của mã, vì bạn có thể thêm các thao tác mới mà không ảnh hưởng đến định nghĩa của đối tượng.
 
-Visitor Pattern giúp tách rời các thao tác khỏi các đối tượng thực thi, giúp dễ dàng bảo trì và mở rộng. Tuy nhiên cũng cần cân nhắc để tránh lạm dụng dẫn đến phức tạp code.
+- **Khi bạn muốn thu thập thông tin qua nhiều đối tượng khác nhau mà không liên quan đến cấu trúc nội bộ của chúng**: Visitor Pattern cho phép bạn thực hiện các thao tác trên một nhóm đối tượng mà không cần biết đến cấu trúc nội bộ của chúng, điều này giúp giảm sự phụ thuộc và tăng tính bảo mật cho cấu trúc đối tượng.
+
+- **Khi bạn cần đảm bảo rằng các thao tác khác nhau có thể được thực hiện mà không cần sửa đổi các đối tượng**: Visitor Pattern cung cấp một cách để bạn thêm các thao tác mới mà không cần sửa đổi mã nguồn của đối tượng, giúp hệ thống của bạn dễ dàng mở rộng và bảo trì.
