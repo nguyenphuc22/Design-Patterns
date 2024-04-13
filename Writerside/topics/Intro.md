@@ -2,30 +2,31 @@
 
 ## Định nghĩa Design Pattern
 
-Design Pattern là một mô hình thiết kế được sử dụng để giải quyết một vấn đề cụ thể trong lập trình. Nó cung cấp một giải pháp đã được kiểm nghiệm và tối ưu hóa, giúp các lập trình viên tiết kiệm thời gian và công sức khi phát triển phần mềm
+Design Pattern là một kỹ thuật trong thiết kế phần mềm, cung cấp các giải pháp tối ưu và đã được kiểm nghiệm để giải quyết những vấn đề thường gặp. Áp dụng Design Pattern giúp lập trình viên tiết kiệm thời gian, công sức và tạo ra mã nguồn chất lượng, dễ bảo trì.
 
 ## Lịch sử ra đời và phát triển
 
-Design Pattern được khai sinh vào những năm 1970 với sự phát triển của lập trình hướng đối tượng (OOP). Kể từ đó, nó đã trở thành một phần quan trọng trong quá trình phát triển phần mềm.
+Design Pattern được ra đời từ những năm 1970, song song với sự phát triển của lập trình hướng đối tượng (OOP). Khái niệm này trở nên phổ biến vào năm 1994, khi cuốn sách kinh điển "Design Patterns: Elements Of Reusable Object-Oriented Software" của bộ tứ Erich Gamma, Richard Helm, Ralph Johnson và John Vlissides (còn gọi là Gang of Four - GoF) được xuất bản.
 
-Năm 1994, ba lập trình viên Erich Gamma, Richard Helm, Ralph Johnson và John Vlissides đã xuất bản cuốn sách "Design Patterns: Elements Of Resuable Object - Oriented Software". Cuốn sách này đã trở thành một trong những tài liệu tham khảo quan trọng nhất về Design Pattern.
-
-Trong những năm gần đây, Design Pattern tiếp tục được phát triển và mở rộng. Ngày càng có nhiều Design Pattern mới được giới thiệu, phù hợp với các yêu cầu mới của lâp trình.
+Kể từ đó, Design Pattern không ngừng được mở rộng và hoàn thiện để đáp ứng những yêu cầu ngày càng cao trong phát triển phần mềm hiện đại. Nhiều pattern mới ra đời, được ứng dụng rộng rãi trong các dự án thực tế.
 
 ## Ý nghĩa và lợi ích của Design Pattern
 
-Design Pattern mang lại nhiều ý nghĩa và lợi ích cho lập trình, bao gồm:
+Design Pattern mang lại nhiều giá trị trong lập trình:
 
-- **Giúp giải quyết vấn đề một cách hiệu quả và tối ưu:** Design Pattern cung cấp các giải pháp đã được kiểm nghiệm và tối ưu hóa, giúp các lập trình viên giải quyết các vấn đề một cách nhanh chóng và hiêu quả.
-- **Tăng tính tái sử dụng của code:** Design Pattern giúp các lập trình viên tái sử dụng code đã có, từ đó giảm thiểu thời gian và công ức phát triển phần mềm.
-- **Tăng tính bảo trì và bảo dưỡng của phần mềm:** Design Pattern giúp phần mềm dễ dàng bảo trì và bảo dưỡng hơn.
-- **Tăng tính dể hiểu và dễ đọc của code:** Design Pattern giúp code dễ hiểu và dễ đọc hơn, giúp việc công tác giữa các lập trình viên trở nên dễ dàng hơn.
+- **Tối ưu giải pháp:** Pattern cung cấp những phương pháp đã được chứng minh hiệu quả để xử lý vấn đề, giúp tiết kiệm thời gian tìm tòi, thử nghiệm.
+- **Tăng tính tái sử dụng của code:** Áp dụng pattern giúp mã nguồn được cấu trúc tốt hơn, dễ tái sử dụng, giảm thiểu việc viết lại code.
+- **Cải thiện khả năng bảo trì và mở rộng:** Code tuân thủ pattern có tính module hóa cao, dễ hiểu, dễ bảo trì và mở rộng tính năng về sau.
+- **Nâng cao tính ổn định:** Sử dụng các thành phần đã được kiểm nghiệm giúp hạn chế tối đa lỗi tiềm ẩn và nâng cao độ tin cậy của phần mềm.
+- **Tạo tiền đề phát triển Agile:** Các pattern tạo ra module độc lập, giúp team lập trình song song và tích hợp dễ dàng, phù hợp cho phát triển Agile.
 
-Design Pattern là một kỹ thuật nâng cao của OOP, nó cực kì quan trọng trong lập trình. Nó mang lại nhiều ý nghĩa và lợi ích cho lập trình, giúp các lập trình viên phát triển phần mềm hiệu quả hơn.
+Tóm lại, Design Pattern là một phần không thể thiếu với mọi lập trình viên, là nền tảng để xây dựng phần mềm hiệu quả, chất lượng và bền vững.
 
 # 2. Phân loại Design Pattern
 
-## Creational Design Patterns
+Design Pattern thường được chia thành 3 nhóm chính:
+
+## 2.1 Creational Design Patterns
 
 Creational Design Patterns liên quan tới việc khởi tạo đối tượng. Nhóm pattern này cung cấp các cơ chế tạo đối tượng một cách linh hoạt và phù hợp với bối cảnh sử dụng. Một số pattern phổ biến:
 
@@ -40,7 +41,7 @@ Creational Design Patterns liên quan tới việc khởi tạo đối tượng.
 [Prototype](Prototype.md)
 
 Sử dụng Creational Patterns giúp tạo ra các đối tượng một cách linh hoạt, dễ dàng thay đổi và tối ưu hóa bộ nhớ.
-## Structural Design Patterns
+## 2.2 Structural Design Patterns
 
 Structural Patterns liên quan tới cấu trúc và mối quan hệ giữa các lớp, đối tượng. Nhóm này giúp xây dựng cấu trúc phần mềm dễ thay đổi và bảo trì. Một số pattern:
 
@@ -60,7 +61,7 @@ Structural Patterns liên quan tới cấu trúc và mối quan hệ giữa các
 
 Sử dụng Structural Patterns giúp xây dựng hệ thống linh hoạt, dễ mở rộng và tối ưu hóa bộ nhớ.
 
-## Behavioral Design Patterns
+## 2.3 Behavioral Design Patterns
 
 Behavioral Patterns liên quan tới hành vi giao tiếp giữa các đối tượng. Nhóm này giúp định nghĩa rõ ràng mối quan hệ giữa các object. Một số pattern:
 
