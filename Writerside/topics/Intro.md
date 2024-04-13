@@ -26,100 +26,99 @@ Tóm lại, Design Pattern là một phần không thể thiếu với mọi l�
 
 Design Pattern thường được chia thành 3 nhóm chính:
 
-## 2.1 Creational Design Patterns
+## 2.1 Creational Design Patterns (Nhóm khởi tạo)
 
-Creational Design Patterns liên quan tới việc khởi tạo đối tượng. Nhóm pattern này cung cấp các cơ chế tạo đối tượng một cách linh hoạt và phù hợp với bối cảnh sử dụng. Một số pattern phổ biến:
+Creational Pattern cung cấp giải pháp để khởi tạo đối tượng một cách linh hoạt, phù hợp với hoàn cảnh sử dụng. Mục đích là tối ưu quá trình tạo đối tượng, hạn chế sự phụ thuộc và dễ dàng mở rộng code. Một số pattern tiêu biểu:
 
-[Singleton](Singleton.md)
+[Singleton](Singleton.md): Đảm bảo một class chỉ có duy nhất một instance và cung cấp một điểm truy cập toàn cục đến nó.
 
-[Factory Method](Factory-Method.md)
+[Factory Method](Factory-Method.md): Định nghĩa interface để khởi tạo đối tượng nhưng để cho lớp con quyết định class nào được dùng để khởi tạo.
 
-[Abstract Factory](Abstract-Factory.md)
+[Abstract Factory](Abstract-Factory.md): Cung cấp một interface cho việc tạo lập các đối tượng (có liên hệ với nhau) mà không cần qui định các class cụ thể của chúng.
 
-[Builder](Builder.md)
+[Builder](Builder.md): Tách rời việc xây dựng (construction) một đối tượng phức tạp khỏi biểu diễn của nó sao cho cùng một tiến trình xây dựng có thể tạo ra các biểu diễn khác nhau.
 
-[Prototype](Prototype.md)
+[Prototype](Prototype.md): Qui định loại của các đối tượng cần tạo bằng cách dùng một đối tượng mẫu, tạo mới nhờ vào sao chép đối tượng mẫu này.
 
-Sử dụng Creational Patterns giúp tạo ra các đối tượng một cách linh hoạt, dễ dàng thay đổi và tối ưu hóa bộ nhớ.
-## 2.2 Structural Design Patterns
+## 2.2 Structural Design Patterns (Nhóm cấu trúc)
 
-Structural Patterns liên quan tới cấu trúc và mối quan hệ giữa các lớp, đối tượng. Nhóm này giúp xây dựng cấu trúc phần mềm dễ thay đổi và bảo trì. Một số pattern:
+Structural Pattern liên quan đến cách tổ chức cấu trúc của các lớp và đối tượng để tạo thành những cấu trúc lớn hơn. Chúng giúp xây dựng, định hình các mối quan hệ giữa các thực thể, làm cho hệ thống dễ dàng thay đổi, mở rộng mà vẫn đảm bảo tính linh hoạt và hiệu quả. Ví dụ một số pattern nổi bật:
 
-[Adapter](Adapter.md)
+[Adapter](Adapter.md): Cho phép các interface không liên quan tới nhau có thể làm việc cùng nhau.
 
-[Bridge](Bridge.md)
+[Bridge](Bridge.md): Tách rời ngữ nghĩa của một vấn đề khỏi việc cài đặt, mở rộng và tái sử dụng dễ dàng hơn.
 
-[Composite](Composite.md)
+[Composite](Composite.md): Tổ chức các đối tượng theo cấu trúc phân cấp dạng cây, từ đó xử lý các đối tượng riêng lẻ và nhóm đối tượng như nhau.
 
-[Decorator](Decorator.md)
+[Decorator](Decorator.md): Gán thêm trách nhiệm cho đối tượng (mở rộng chức năng) lúc runtime mà không thay đổi cấu trúc ban đầu.
 
-[Facade](Facade.md)
+[Facade](Facade.md): Cung cấp một interface thuần nhất cho một tập hợp các interface trong một "subsystem", giúp đơn giản hóa việc sử dụng.
 
-[Flyweight](Flyweight.md)
+[Flyweight](Flyweight.md): Cho phép tái sử dụng đối tượng tương tự đã tồn tại bằng cách lưu trữ chúng, tiết kiệm bộ nhớ và tăng hiệu năng.
 
-[Proxy](Proxy.md)
+[Proxy](Proxy.md): Cung cấp đối tượng đại diện cho một đối tượng khác, để kiểm soát quá trình truy cập vào đối tượng gốc.
 
-Sử dụng Structural Patterns giúp xây dựng hệ thống linh hoạt, dễ mở rộng và tối ưu hóa bộ nhớ.
+## 2.3 Behavioral Design Patterns (Nhóm hành vi)
 
-## 2.3 Behavioral Design Patterns
+Behavioral Pattern tập trung vào cách giao tiếp, phân công trách nhiệm và điều phối giữa các đối tượng, lớp trong một chương trình. Chúng xác định cách thức và quy tắc để các thực thể hoạt động cùng nhau một cách linh hoạt, có tổ chức. Dưới đây là một số pattern đại diện:
 
-Behavioral Patterns liên quan tới hành vi giao tiếp giữa các đối tượng. Nhóm này giúp định nghĩa rõ ràng mối quan hệ giữa các object. Một số pattern:
+[Chain of Responsibility](Chain-Of-Responsibility.md): Khắc phục việc ghép cặp giữa bộ gởi và bộ nhận thông điệp. Các đối tượng nhận thông điệp được kết nối thành một chuỗi và thông điệp được chuyển dọc theo chuỗi nầy đến khi gặp được đối tượng xử lý nó.
 
-[Chain of Responsibility](Chain-Of-Responsibility.md)
+[Command](Command.md): Mỗi yêu cầu (thực hiện một thao tác nào đó) được bao bọc thành một đối tượng. Các yêu cầu sẽ được lưu trữ và gởi đi như các đối tượng.
 
-[Command](Command.md)
+[Iterator](Iterator.md): Truy xuất các phần tử của đối tượng dạng tập hợp tuần tự (list, array, …) mà không phụ thuộc vào biểu diễn bên trong của các phần tử.
 
-[Iterator](Iterator.md)
+[Mediator](Mediator.md): Định nghĩa một đối tượng để bao bọc sự tương tác (interaction) giữa một số đối tượng với nhau.
 
-[Mediator](Mediator.md)
+[Memento](Memento.md): Hiệu chỉnh và trả lại như cũ trạng thái bên trong của đối tượng mà vẫn không vi phạm việc bao bọc dữ liệu.
 
-[Memento](Memento.md)
+[Observer](Observer.md): Định nghĩa sự phụ thuộc một-nhiều giữa các đối tượng sao cho khi một đối tượng thay đổi trạng thái thì tất cả các đối tượng phụ thuộc nó cũng thay đổi theo.
 
-[Observer](Observer.md)
+[State](State.md): Cho phép một đối tượng thay đổi hành vi khi trạng thái bên trong của nó thay đổi, ta có cảm giác như class của đối tượng bị thay đổi.
 
-[State](State.md)
+[Strategy](Strategy.md): Bao bọc một họ các thuật toán bằng các lớp đối tượng để thuật toán có thể thay đổi độc lập đối với chương trình sử dụng thuật toán.
 
-[Strategy](Strategy.md)
+[Template Method](Template-Method.md): Định nghĩa phần khung của một thuật toán, tức là một thuật toán tổng quát gọi đến một số phương thức chưa được cài đặt trong lớp cơ sở, việc cài đặt các phương thức được ủy nhiệm cho các lớp kế thừa.
 
-[Template Method](Template-Method.md)
-
-[Visitor](Visitor.md)
-
-Sử dụng Behavioral Patterns giúp tạo hệ thống linh hoạt, dễ thay đổi và tối ưu hóa hiệu suất.
+[Visitor](Visitor.md): Cho phép định nghĩa thêm phép toán mới tác động lên các phần tử của một cấu trúc đối tượng mà không cần thay đổi các lớp định nghĩa cấu trúc đó.
 
 # 3. Sử dụng Design Pattern
 
 ## Nguyên tắc và phương pháp áp dụng Design Pattern
 
-### Nguyên Tắc
+Để áp dụng Design Pattern một cách hiệu quả, chúng ta cần nắm vững những nguyên tắc cơ bản sau:
 
-Để áp dụng Design Pattern hiệu quả, các lập trinh viên cần nắm được các nguyên tắc và phương pháp sau đây:
+- **Xác định rõ vấn đề:** Trước tiên cần hiểu rõ bản chất vấn đề cần giải quyết. Chỉ khi thấu hiểu vấn đề thì chúng ta mới đưa ra được giải pháp phù hợp.
 
-- **Nguyên tắc đầu tiên là phải hiểu rõ vấn đề cần giải quyết:** Trước khi áp dụng Design Pattern, các lập trinh viên cần hiểu rõ vấn đề cần giải quyết là gì. Từ đó, họ có thể lựa chọn được Design Pattern phù hợp nhất.
+- **Nắm vững Design Pattern:** Ngoài việc nắm tên gọi, cần hiểu rõ cách thức hoạt động, điều kiện áp dụng và hệ quả của các pattern. Điều này giúp ta lựa chọn pattern đúng đắn cho từng hoàn cảnh.
 
-- **Nguyên tắc thứ hai là phải hiểu rõ Design Pattern:** Các lập trình viên cần hiểu rõ bản chất và cách hoạt động của Design Pattern. Từ đó, họ có thể áp dụng Design Pattern một cách chính xác và hiệu quả.
+- **Linh hoạt ứng dụng:** Design Pattern chỉ là những hướng dẫn tổng quát, đòi hỏi người lập trình phải sáng tạo, linh động khi đưa vào thực tế. Đôi khi cần phải tuỳ biến, kết hợp pattern để phù hợp với yêu cầu.
 
-- **Nguyên tắc thứ ba là phải linh hoạt trong việc áp dụng Design Pattern:** Không phải lúc nào cũng có thể áp dụng Design Pattern một cách cứng nhắc. Các lập trình viên cần linh hoạt trong việc áp dụng Design Pattern để phù hợp với nhu cầu cụ thể của dự án.
+- **Hướng tới mục đích chung:** Khi áp dụng pattern, phải luôn nhớ rằng chúng phục vụ cho việc xây dựng phần mềm tốt hơn. Vì thế đừng coi pattern là cứu cánh, lạm dụng chúng chỉ khiến mã nguồn trở nên cồng kềnh, khó hiểu.
 
-### Phương pháp
+- **Trao dồi kinh nghiệm:** Khả năng vận dụng pattern hiệu quả đến từ kinh nghiệm làm việc thực tế. Hãy tích lũy qua mỗi dự án, rút kinh nghiệm từ những thành công và thất bại để ngày càng sử dụng pattern một cách thuần thục.
 
-- **Phương pháp trực tiếp:** Phương pháp này áp dụng Design Pattern một cách trực tiếp, không cần thay đổi cấu trúc của code.
+Có 2 phương pháp chính để đưa Design Pattern vào ứng dụng:
 
-- **Phương pháp gián tiếp:** Phương pháp này sử dụng các thư viện hoặc framework để áp dụng Design Pattern.
+- **1. Áp dụng trực tiếp:** Dựa trên hiểu biết về pattern, lập trình viên tự cài đặt chúng vào mã nguồn ứng dụng. Đây là phương pháp đòi hỏi kinh nghiệm và tốn nhiều công sức, tuy nhiên nó mang lại sự chủ động và kiểm soát trọn vẹn.
 
+- **2. Thông qua thư viện/framework:**     Nhiều thư viện và framework đã tích hợp sẵn các pattern phổ biến. Chỉ cần biết cách sử dụng, lập trình viên có thể nhanh chóng đưa pattern vào dự án một cách bài bản. Tuy nhiên cần lưu ý, mỗi thư viện/framework sẽ có quy ước và hạn chế riêng, ít nhiều ảnh hưởng đến tính linh động của ứng dụng.
 
-## Lợi ích của việc sử dụng Design Pattern trong phát triển phần mềm
+## Lợi ích của Design Pattern trong phát triển phần mềm
 
-- **Giúp giải quyết vấn đề một cách hiệu quả và tối ưu:** Design Pattern cung cấp các giải pháp đã được kiểm nghiệm và tối ưu hoá, giúp các lập trình viên giải quyết các vấn đề một cách nhanh chóng và hiệu quả hơn.
-- **Tăng tính tái sử dụng của code:** Design Pattern giúp các lập trình viên tái sử dụng code đã có, từ đó giảm thiểu thời gian và công sức phát triển phần mềm.
-- **Tăng tính linh hoạt và mở rộng của phần mềm:** Design Pattern giúp phần mềm linh hoạt và dễ dàng mở rộng khi có nhu cầu thay đổi.
-- **Tăng tính bảo trì và bảo dưỡng của phần mềm:** Design Pattern giúp phền mềm dễ dàng bảo trì và bảo dưỡng hơn.
-- **Tăng tính dễ hiểu và dễ đọc của code:** Design Pattern giúp code dễ hiểu và dễ đọc hơn, giúp việc công tá giữa các lập trình viên trở nên dễ dàng.
+Áp dụng Design Pattern mang lại nhiều lợi ích thiết thực cho quá trình phát triển phần mềm:
+
+- **Nâng cao chất lượng mã nguồn:** Code sử dụng pattern thường có cấu trúc tốt, dễ đọc, dễ bảo trì, giảm thiểu rủi ro tiềm ẩn. Điều này giúp nâng cao năng suất lao động và chất lượng sản phẩm.
+- **Giảm thời gian phát triển:** Pattern cung cấp những giải pháp "tối ưu", "chuẩn mực" để xử lý vấn đề thường gặp. Nhờ đó, lập trình viên không mất công "đặt lại bánh xe", rút ngắn đáng kể thời gian phát triển dự án.
+- **Thúc đẩy tái sử dụng và mở rộng:** Bản thân mỗi pattern đã thể hiện tính tái sử dụng. Bên cạnh đó, chúng còn giúp hình thành các module, component có khả năng tái sử dụng cao và dễ dàng mở rộng.
+- **Tăng khả năng giao tiếp, hợp tác:** Pattern như một ngôn ngữ chung giúp lập trình viên dễ dàng trao đổi ý tưởng, cộng tác trong dự án. Mỗi thành viên đều hiểu rõ nhiệm vụ và vị trí của từng thành phần trong tổng thể hệ thống.
+- **Nâng tầm kiến trúc hệ thống:** Áp dụng đúng mực và hiệu quả các pattern giúp kiến trúc hệ thống trở nên rõ ràng, vững chắc. Chúng tạo một "bộ khung" cho toàn bộ hệ thống, đảm bảo tính nhất quán và hiệu quả trong mọi hoạt động phát triển về sau.
 
 ## Lưu ý khi áp dụng Design Pattern
 
-Khi áp dụng Design Pattern, các lập trình viên cần lưu ý những điểm sau:
+Tuy nhiên, Design Pattern không phải "thần dược", chúng ta cần lưu ý một số điểm sau:
 
-- **Không nên áp dụng Design Pattern một cách cứng nhắc:** Design Pattern là một giải pháp tổng thể, không phải là một giải pháp hoàn hảo. Các lập trình viên cần linh hoạt trong việc áp dụng Design Pattern để phù hợp với nhu cầu cụ thể của dự án.
-- **Không nên làm dụng Design Pattern:** Design pattern không phải là một giải pháp cho mọi vấn đề. Các lập trình viên chỉ nên áp dụng Design Pattern khi nó thực sự cần thiết.
-- **Cần có thời gian để học hỏi và nghiên cứu Design Pattern:** Design Pattern là một kỹ thuật phức tạp, cần có thời gian để học hỏi và nghiên cứu. Các lập trình viên không nên vội vàng áp dụng Design Pattern mà không hiểu rõ bản chất và cách hoạt động của nó.
+- **Không lạm dụng:** Nhiều người có xu hướng sử dụng pattern một cách máy móc, không cần thiết. Điều này chỉ khiến mã nguồn trở nên rối rắm, khó bảo trì. Chỉ sử dụng pattern khi thực sự cần thiết và có lợi cho dự án.
+- **Linh hoạt ứng biến:** Pattern chỉ đưa ra ý tưởng tổng quát, khi triển khai cần tùy biến cho phù hợp với hoàn cảnh và yêu cầu riêng của dự án. Việc áp dụng cứng nhắc sẽ gây ảnh hưởng đến tính linh hoạt và khả năng mở rộng của phần mềm.
+- **Cân nhắc hiệu quả:** Một số pattern đem lại sự linh hoạt nhưng cũng làm tăng độ phức tạp, giảm hiệu năng hệ thống. Do đó, hãy luôn cân nhắc giữa lợi ích và chi phí khi áp dụng chúng.
+- **Học hỏi và rèn luyện**: Sử dụng thành thạo Design Pattern đòi hỏi quá trình học tập bài bản và kinh nghiệm thực tế. Lập trình viên cần chủ động tìm hiểu, nghiên cứu và vận dụng thường xuyên để nâng cao kỹ năng.
