@@ -4,7 +4,34 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="" />
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/1. Intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/1. Intro.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/2. Creational Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2. Creational Patterns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/2.2 Builder.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.2 Builder.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/2.3 Factory Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.3 Factory Method.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/2.4 Abstract Factory.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.4 Abstract Factory.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/2.5 Prototype.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.5 Prototype.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3. Structural Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3. Structural Patterns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.1 Adapter.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.1 Adapter.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.2 Bridge.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.2 Bridge.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.3 Composite.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.3 Composite.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.4 Decorator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.4 Decorator.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.5 Facade.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.5 Facade.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.6 Flyweight.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.6 Flyweight.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/3.7 Proxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.7 Proxy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.10 Visitor.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.10 Visitor.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.2 Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.2 Command.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.7 State.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.7 State.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,31 +114,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;fileTemplates&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;stardust.markdown.MarkdownSplitEditorSuppressor:keyList&quot;: [
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Command.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Proxy.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/State.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Strategy.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Template-Method.md&quot;,
-      &quot;/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Visitor.md&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
+    "settings.editor.selected.configurable": "fileTemplates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Writerside/topics" />
     </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-17.0.10-corretto-17.0.10-3183f394aec4-96c0d24d" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
