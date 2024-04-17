@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/1. Intro.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/1. Intro.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2. Creational Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2. Creational Patterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.2 Builder.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.2 Builder.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.3 Factory Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.3 Factory Method.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.4 Abstract Factory.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.4 Abstract Factory.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.5 Prototype.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/2.5 Prototype.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Book/3. Structural Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3. Structural Patterns.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Book/3.1 Adapter.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.1 Adapter.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Book/3.2 Bridge.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.2 Bridge.md" afterDir="false" />
@@ -20,17 +14,6 @@
       <change beforePath="$PROJECT_DIR$/docs/Book/3.5 Facade.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.5 Facade.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Book/3.6 Flyweight.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.6 Flyweight.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/Book/3.7 Proxy.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/3.7 Proxy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.10 Visitor.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.10 Visitor.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.2 Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.2 Command.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.7 State.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.7 State.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
