@@ -5,34 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="Update .idea/workspace.xml and Intro.md">
-      <change beforePath="$PROJECT_DIR$/docs/Book/1. Intro.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2. Creational Patterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.1 Singleton.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.2 Builder.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.3 Factory Method.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.4 Abstract Factory.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/2.5 Prototype.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3. Structural Patterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.1 Adapter.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.2 Bridge.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.3 Composite.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.4 Decorator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.5 Facade.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.6 Flyweight.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/3.7 Proxy.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.10 Visitor.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.2 Command.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.7 State.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/5. Read World.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/6. Conclusion.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Singleton.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Singleton.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,10 +98,6 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
     "settings.editor.selected.configurable": "fileTemplates"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
