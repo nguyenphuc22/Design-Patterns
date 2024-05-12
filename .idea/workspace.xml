@@ -6,6 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="Update .idea/workspace.xml and Intro.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Builder.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Builder.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Singleton.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Singleton.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,12 +99,6 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
     "settings.editor.selected.configurable": "fileTemplates"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Singleton.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">

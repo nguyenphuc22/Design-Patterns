@@ -96,7 +96,7 @@ public class Singleton {
 Để sử dụng Singleton, chúng ta chỉ cần gọi phương thức getInstance() để lấy thể hiện duy nhất của class:
 
 ```java
-    public static void main(String[] args) {
+public static void main(String[] args) {
    Singleton singleton = Singleton.getInstance();
    singleton.someBusinessLogic();
 }

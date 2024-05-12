@@ -1,61 +1,89 @@
-# Builder
+# Builder : Xây dựng đối tượng phức tạp
 
 ## Giới thiệu
 
-Builder Pattern là một Creational Design Pattern cho phép xây dựng đối tượng phức tạp bằng cách sử dụng các đối tượng riêng biệt đại diện cho từng bộ phận cấu thành.
-
-Builder Pattern tách rời quá trình khởi tạo đối tượng phức tạp khỏi các đại diện của nó. Điều này cho phép cùng một quá trình xây dựng có thể tạo ra nhiều biểu diễn khác nhau của đối tượng.
-
-Mục đích: Builder Pattern được sử dụng để tách rời quá trình khởi tạo đối tượng phức tạp khỏi các đại diện của nó, giúp đạt được những lợi ích sau:
-
-- Tăng tính linh hoạt trong khởi tạo đối tượng phức tạp
-- Dễ dàng thay đổi cách khởi tạo đối tượng.
-- Hỗ trợ tạo nhiều biểu diễn khác nhau của đối tượng.
-- Đơn giản hóa việc test và debug.
-
-Builder Pattern tách rời quá trình xây dựng đối tượng phức tạp thành nhiều bước riêng biệt. Mỗi bước tập trung vào một khía cạnh của đối tượng.
-
-Các đại diện chỉ đơn giản lưu trữ kết quả, không cần quan tâm đến quá trình tạo ra chúng.
+Trong lập trình hướng đối tượng, Builder là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Builder là tách rời quá trình xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép cùng một quá trình xây dựng có thể tạo ra các biểu diễn khác nhau. Builder giúp giải quyết các vấn đề liên quan đến việc khởi tạo đối tượng có nhiều thuộc tính hoặc có quá trình khởi tạo phức tạp.
 
 ### Đặt vấn đề
 
-Trong phát triển phần mềm, ta thường gặp các đối tượng phức tạp với nhiều thuộc tính và thành phần. Ví dụ một đối tượng House có thể bao gồm các thành phần như phòng khách, phòng ngủ, nhà bếp, cửa ra vào, cửa sổ, hệ thống điện, nước, và nhiều thành phần khác.
+Trong quá trình phát triển phần mềm, chúng ta thường gặp phải các đối tượng có nhiều thuộc tính và quá trình khởi tạo phức tạp. Ví dụ, chúng ta có một lớp `Car` đại diện cho một chiếc xe hơi với nhiều thuộc tính như `brand`, `model`, `color`, `engineType`, `transmission`, `numDoors`, `hasNavigationSystem`, `hasSunroof`, `wheelSize`, và `interiorMaterial`.
 
-```mermaid
-classDiagram
+```java
+public class Car {
+    private String brand;
+    private String model;
+    private String color;
+    private String engineType;
+    private String transmission;
+    private int numDoors;
+    private boolean hasNavigationSystem;
+    private boolean hasSunroof;
+    private int wheelSize;
+    private String interiorMaterial;
 
-  House "1" *-- "n" Room
-  Room : -name
-  Room : -size
+    public Car() {
+        // Default constructor
+    }
 
-  House "1" *-- "n" Door
-  Door : -width
-  Door : -height
-  Door : -material
+    public Car(String brand, String model, String color, String engineType, String transmission,
+               int numDoors, boolean hasNavigationSystem, boolean hasSunroof, int wheelSize,
+               String interiorMaterial) {
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+        this.engineType = engineType;
+        this.transmission = transmission;
+        this.numDoors = numDoors;
+        this.hasNavigationSystem = hasNavigationSystem;
+        this.hasSunroof = hasSunroof;
+        this.wheelSize = wheelSize;
+        this.interiorMaterial = interiorMaterial;
+    }
 
-  House "1" *-- "1" Kitchen
-  Kitchen : -layout
-
-  House "1" *-- "n" Window
-  Window : -size
-  Window : -position
-
-  House "1" *-- "1" ElectricalSystem
-  ElectricalSystem : -wiring
-
-  House "1" *-- "1" PlumbingSystem
-  PlumbingSystem : -pipes
-
-  class House{
-    +House(rooms, doors, windows, kitchen, electrical, plumbing)
-  }
+    // Getters and setters
+}
 ```
 
-- Quá trình khởi tạo phức tạp, dễ gây nhầm lẫn với nhiều tham số truyền vào
-- Các thành phần của `House` bị phụ thuộc lẫn nhau, khó thay đổi một phần mà không ảnh hưởng các thành phần khác.
-- Khó tạo các biến thể khác nhau của `House` một cách linh hoạt.
+Nếu chúng ta sử dụng constructor để khởi tạo đối tượng `Car`, chúng ta có hai lựa chọn:
 
-Như vậy, việc xây dựng các đối tượng phức tạp cần được thiết kế cẩn thận để tránh các vấn đề trên.
+1. Sử dụng constructor mặc định không có đối số và sau đó sử dụng các phương thức setter để thiết lập các thuộc tính:
+
+```java
+public static void main(String[] args) {
+  Car car = new Car();
+  car.setBrand("Toyota");
+  car.setModel("Camry");
+  car.setColor("Red");
+  car.setEngineType("2.5L");
+  car.setTransmission("Automatic");
+  car.setNumDoors(4);
+  car.setHasNavigationSystem(true);
+  car.setHasSunroof(false);
+  car.setWheelSize(17);
+  car.setInteriorMaterial("Leather");
+}
+```
+
+Tuy nhiên, việc sử dụng multiple setters như trên làm cho mã nguồn trở nên dài dòng, khó đọc và dễ gây nhầm lẫn.
+
+2. Sử dụng constructor với nhiều tham số để khởi tạo đối tượng `Car` với các giá trị cụ thể:
+
+```java
+Car car = new Car("Toyota", "Camry", "Red", "2.5L", "Automatic", 4, true, false, 17, "Leather");
+```
+
+Trong trường hợp này, constructor trở nên rất phức tạp với nhiều tham số. Điều này làm cho việc khởi tạo đối tượng `Car` trở nên khó đọc và dễ gây nhầm lẫn. Nếu chúng ta muốn tạo nhiều đối tượng `Car` với các cấu hình khác nhau, việc sử dụng constructor này sẽ trở nên rất khó khăn.
+
+```mermaid
+graph LR
+    A["Client Code"] -->|"Complex constructor"| B["Car Object"]
+    A -->|"Multiple setters"| B
+    B -.-> C{"Hard to create, maintain"}
+```
+
+Như minh họa trong sơ đồ trên, khi client code cần khởi tạo một đối tượng `Car` phức tạp, nó phải sử dụng constructor phức tạp với nhiều tham số hoặc gọi nhiều phương thức setter. Điều này làm cho việc khởi tạo và duy trì mã nguồn trở nên khó khăn và dễ gây ra lỗi.
+
+Vấn đề này đòi hỏi một giải pháp để đơn giản hóa quá trình khởi tạo đối tượng phức tạp và cung cấp một cách linh hoạt và dễ đọc để tạo ra các đối tượng với các cấu hình khác nhau.
 
 ### Giải quyết Vấn Đề
 
