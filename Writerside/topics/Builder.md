@@ -85,17 +85,121 @@ Như minh họa trong sơ đồ trên, khi client code cần khởi tạo một 
 
 Vấn đề này đòi hỏi một giải pháp để đơn giản hóa quá trình khởi tạo đối tượng phức tạp và cung cấp một cách linh hoạt và dễ đọc để tạo ra các đối tượng với các cấu hình khác nhau.
 
-### Giải quyết Vấn Đề
+### Giải pháp
 
-Builder Pattern giúp giải quyết vấn đề của việc tạo ra đối tượng phức tạp, như ví dụ sau về việc xây dựng một ngôi nhà. Thay vì tạo ngôi nhà một cách trực tiếp từng phần, chúng ta chia quá trình này thành nhiều bước riêng biệt. Mỗi bước tập trung vào việc xây dựng một khía cạnh cụ thể của ngôi nhà, chẳng hạn như cửa, cửa sổ và nhà bếp.
+Builder Pattern giải quyết vấn đề của việc khởi tạo đối tượng phức tạp bằng cách tách rời quá trình xây dựng của đối tượng thành các bước riêng biệt. Thay vì sử dụng constructor với nhiều tham số hoặc multiple setters, Builder Pattern cung cấp một cách linh hoạt và dễ đọc để xây dựng đối tượng.
 
-#### Cách hoạt động
+Hãy xem xét ví dụ về việc xây dựng một đối tượng `Car` bằng cách sử dụng Builder Pattern:
 
-1. **Director (Quản lý)**: Đầu tiên, chúng ta có một người quản lý, được gọi là Director. Quản lý này có nhiệm vụ chỉ đạo quá trình xây dựng ngôi nhà.
+```java
+public class CarBuilder {
+    private String brand;
+    private String model;
+    private String color;
+    private String engineType;
+    private String transmission;
+    private int numDoors;
+    private boolean hasNavigationSystem;
+    private boolean hasSunroof;
+    private int wheelSize;
+    private String interiorMaterial;
 
-2. **Các Concrete Builder (Xây dựng cụ thể)**: Sau đó, chúng ta có các xây dựng cụ thể, ví dụ: Xây dựng Cửa, Xây dựng Cửa sổ và Xây dựng Nhà bếp. Mỗi Concrete Builder chịu trách nhiệm cho việc xây dựng một phần cụ thể của ngôi nhà.
+    public CarBuilder setBrand(String brand) {
+        this.brand = brand;
+        return this;
+    }
 
-3. **Tạo ngôi nhà**: Chúng ta kết hợp các phần đã xây dựng từ các Concrete Builder để tạo ra ngôi nhà hoàn chỉnh.
+    public CarBuilder setModel(String model) {
+        this.model = model;
+        return this;
+    }
+
+    public CarBuilder setColor(String color) {
+        this.color = color;
+        return this;
+    }
+
+    // Other setter methods...
+
+    public Car build() {
+        return new Car(brand, model, color, engineType, transmission,
+                       numDoors, hasNavigationSystem, hasSunroof, wheelSize,
+                       interiorMaterial);
+    }
+}
+```
+
+Với Builder Pattern, chúng ta tạo một lớp `CarBuilder` riêng biệt để xây dựng đối tượng `Car`. Lớp `CarBuilder` chứa các phương thức setter tương ứng với các thuộc tính của đối tượng `Car`. Mỗi phương thức setter đều trả về chính đối tượng `CarBuilder`, cho phép chúng ta gọi các phương thức setter một cách liên tiếp (method chaining).
+
+Khi sử dụng `CarBuilder`, việc khởi tạo đối tượng `Car` trở nên dễ đọc và linh hoạt hơn:
+
+```java
+Car car = new CarBuilder()
+    .setBrand("Toyota")
+    .setModel("Camry")
+    .setColor("Red")
+    .setEngineType("2.5L")
+    .setTransmission("Automatic")
+    .setNumDoors(4)
+    .setHasNavigationSystem(true)
+    .setHasSunroof(false)
+    .setWheelSize(17)
+    .setInteriorMaterial("Leather")
+    .build();
+```
+
+Với cách tiếp cận này, mã nguồn trở nên rõ ràng và dễ hiểu hơn. Chúng ta có thể dễ dàng xây dựng các đối tượng `Car` với các cấu hình khác nhau bằng cách gọi các phương thức setter tương ứng.
+
+```mermaid
+graph LR
+    A["Client Code"] --> B["CarBuilder"]
+    B -->|"Fluent interface"| C["Car Object"]
+    C --> D{"Easy to create, maintain"}
+```
+
+Như minh họa trong sơ đồ trên, với Builder Pattern, client code tương tác với `CarBuilder` để xây dựng đối tượng `Car`. `CarBuilder` cung cấp một giao diện linh hoạt (fluent interface) cho phép chuỗi các phương thức setter, giúp mã nguồn trở nên dễ đọc và dễ bảo trì. Kết quả là một đối tượng `Car` được xây dựng một cách dễ dàng và rõ ràng.
+
+Builder Pattern còn cho phép chúng ta thêm các phương thức xây dựng đặc biệt để tạo ra các cấu hình phổ biến của đối tượng. Ví dụ:
+
+```java
+public class CarBuilder {
+    // ...
+
+    public Car buildSportsCar() {
+        return new CarBuilder()
+            .setBrand("Porsche")
+            .setModel("911")
+            .setColor("Red")
+            .setEngineType("3.8L")
+            .setTransmission("Manual")
+            .setNumDoors(2)
+            .setHasNavigationSystem(true)
+            .setHasSunroof(true)
+            .setWheelSize(20)
+            .setInteriorMaterial("Alcantara")
+            .build();
+    }
+
+    public Car buildFamilyCar() {
+        return new CarBuilder()
+            .setBrand("Honda")
+            .setModel("Odyssey")
+            .setColor("White")
+            .setEngineType("3.5L")
+            .setTransmission("Automatic")
+            .setNumDoors(4)
+            .setHasNavigationSystem(true)
+            .setHasSunroof(false)
+            .setWheelSize(18)
+            .setInteriorMaterial("Cloth")
+            .build();
+    }
+}
+```
+
+Với các phương thức `buildSportsCar()` và `buildFamilyCar()`, chúng ta có thể dễ dàng tạo ra các đối tượng `Car` với cấu hình phổ biến mà không cần phải thiết lập từng thuộc tính một cách thủ công.
+
+Builder Pattern giúp giải quyết vấn đề của constructor phức tạp và multiple setters bằng cách cung cấp một cách tiếp cận linh hoạt, dễ đọc và dễ bảo trì để xây dựng đối tượng. Nó cho phép chúng ta tạo ra các đối tượng với các cấu hình khác nhau một cách dễ dàng và rõ ràng.
 
 #### Ví dụ minh hoạ
 
