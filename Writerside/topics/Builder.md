@@ -4,7 +4,7 @@
 
 Trong lập trình hướng đối tượng, Builder là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Builder là tách rời quá trình xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép cùng một quá trình xây dựng có thể tạo ra các biểu diễn khác nhau. Builder giúp giải quyết các vấn đề liên quan đến việc khởi tạo đối tượng có nhiều thuộc tính hoặc có quá trình khởi tạo phức tạp.
 
-### Đặt vấn đề
+## Đặt vấn đề
 
 Trong quá trình phát triển phần mềm, chúng ta thường gặp phải các đối tượng có nhiều thuộc tính và quá trình khởi tạo phức tạp. Ví dụ, chúng ta có một lớp `Car` đại diện cho một chiếc xe hơi với nhiều thuộc tính như `brand`, `model`, `color`, `engineType`, `transmission`, `numDoors`, `hasNavigationSystem`, `hasSunroof`, `wheelSize`, và `interiorMaterial`.
 
@@ -85,7 +85,7 @@ Như minh họa trong sơ đồ trên, khi client code cần khởi tạo một 
 
 Vấn đề này đòi hỏi một giải pháp để đơn giản hóa quá trình khởi tạo đối tượng phức tạp và cung cấp một cách linh hoạt và dễ đọc để tạo ra các đối tượng với các cấu hình khác nhau.
 
-### Giải pháp
+## Giải pháp
 
 Builder Pattern giải quyết vấn đề của việc khởi tạo đối tượng phức tạp bằng cách tách rời quá trình xây dựng của đối tượng thành các bước riêng biệt. Thay vì sử dụng constructor với nhiều tham số hoặc multiple setters, Builder Pattern cung cấp một cách linh hoạt và dễ đọc để xây dựng đối tượng.
 
@@ -201,139 +201,155 @@ Với các phương thức `buildSportsCar()` và `buildFamilyCar()`, chúng ta 
 
 Builder Pattern giúp giải quyết vấn đề của constructor phức tạp và multiple setters bằng cách cung cấp một cách tiếp cận linh hoạt, dễ đọc và dễ bảo trì để xây dựng đối tượng. Nó cho phép chúng ta tạo ra các đối tượng với các cấu hình khác nhau một cách dễ dàng và rõ ràng.
 
-#### Ví dụ minh hoạ
+## Cấu trúc
 
-Để hiểu rõ hơn, hãy xem ví dụ sau:
-
-```mermaid
-graph LR
-  A[Director] --> B[Concrete Builder]
-  B --> C[Build Door]
-  B --> D[Build Window]
-  B --> E[Build Kitchen]
-  C --> F[House]
-  D --> F
-  E --> F
-```
-
-- Director (Quản lý) gọi Concrete Builder (Xây dựng cụ thể) để bắt đầu xây dựng ngôi nhà.
-
-- Concrete Builder (Xây dựng cụ thể) thực hiện công việc của mình, ví dụ: xây dựng cửa, cửa sổ và nhà bếp.
-
-- Các phần này được kết hợp lại để tạo thành ngôi nhà hoàn chỉnh.
-
-Kết quả là, người dùng ngôi nhà không cần quan tâm đến chi tiết cụ thể của quá trình xây dựng, mà chỉ cần sử dụng ngôi nhà đã hoàn thành một cách dễ dàng.
-
-### Cấu trúc
-
-Builder Pattern có cấu trúc đơn giản, bao gồm các thành phần sau:
+Để triển khai Builder Pattern, chúng ta cần có các thành phần sau:
 
 ```mermaid
 classDiagram
-Direction TB
+  class Director {
+    + construct(): Product
+  }
+  class Builder {
+    + buildPart1()
+    + buildPart2()
+    + buildPart3()
+    + getResult(): Product
+  }
+  class ConcreteBuilder {
+    - product: Product
+    + buildPart1()
+    + buildPart2()
+    + buildPart3()
+    + getResult(): Product
+  }
+  class Product {
+    + part1
+    + part2
+    + part3
+  }
 
-Builder <|-- ConcreteBuilder
-Director o-- Builder
-Product o-- Director
-
-class Director {
-+Construct()
-}
-
-class Builder {
-+BuildPartA()
-+BuildPartB() 
-}
-
-class ConcreteBuilder {
-+BuildPartA()
-+BuildPartB()
-}
-
-class Product {
--PartA
--PartB
-}
-
+  Director --> Builder : "constructs"
+  ConcreteBuilder ..|> Builder
+  ConcreteBuilder ..> Product : "creates"
 ```
 
-- **Builder**: Định nghĩa phương thức xây dựng chung.
-- **ConcreteBuilder**: Triển khai chi tiết các bước xây dựng cụ thể.
-- **Director**: Sử dụng Builder để xây dựng sản phẩm.
-- **Product**: Là sản phẩm được tạo ra, chứa các phần do Builder tạo.
+1. Product: Đại diện cho đối tượng phức tạp cần được xây dựng. Nó định nghĩa các thành phần và thuộc tính của đối tượng.
 
-Như vậy Builder tách rời quá trình xây dựng phức tạp thành nhiều bước đơn giản, từng bước tập trung vào một khía cạnh riêng lẻ.
+2. Builder: Định nghĩa giao diện chung cho việc xây dựng các thành phần của Product. Nó khai báo các phương thức để xây dựng từng phần của đối tượng.
+
+3. ConcreteBuilder: Triển khai giao diện Builder và cung cấp cách triển khai cụ thể cho việc xây dựng các thành phần của Product. Nó lưu trữ kết quả xây dựng và cung cấp phương thức để truy xuất kết quả cuối cùng.
+
+4. Director: Định nghĩa trình tự và cách thức xây dựng Product bằng cách sử dụng giao diện Builder. Nó chỉ đạo ConcreteBuilder để xây dựng các phần khác nhau của Product.
+
+Với cấu trúc này, Builder Pattern cho phép xây dựng các đối tượng phức tạp từng bước một, đồng thời tách rời quá trình xây dựng khỏi biểu diễn của đối tượng. Client code chỉ cần tương tác với Director và ConcreteBuilder để tạo ra đối tượng mong muốn.
 
 ## Cách triển khai
 
-Builder Pattern có thể được triển khai theo nhiều cách khác nhau. Trong Java, có một số cách triển khai phổ biến như sau:
-
-**Định nghĩa Product**: Chúng ta bắt đầu bằng việc định nghĩa lớp `Product` để lưu trữ thông tin đối tượng cuối cùng:
+Dưới đây là một ví dụ về cách triển khai Builder Pattern trong Java để xây dựng một đối tượng phức tạp:
 
 ```java
-class Product {
-    private String partA;
-    private String partB;
+// Product
+class House {
+    private String foundation;
+    private String walls;
+    private String roof;
 
-    public void setPartA(String partA) {
-        this.partA = partA;
+    public void setFoundation(String foundation) {
+        this.foundation = foundation;
     }
 
-    public void setPartB(String partB) {
-        this.partB = partB;
+    public void setWalls(String walls) {
+        this.walls = walls;
     }
 
-    public void show() {
-        System.out.println("Product Parts: " + partA + " and " + partB);
+    public void setRoof(String roof) {
+        this.roof = roof;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "foundation='" + foundation + '\'' +
+                ", walls='" + walls + '\'' +
+                ", roof='" + roof + '\'' +
+                '}';
     }
 }
 
-```
+// Builder
+interface HouseBuilder {
+    void buildFoundation();
+    void buildWalls();
+    void buildRoof();
+    House getResult();
+}
 
-**Định nghĩa Builder** : Sau đó, chúng ta định nghĩa lớp `Builder` với các phương thức xây dựng, nhưng với Builder, mỗi phương thức xây dựng trả về chính builder, cho phép chúng ta gọi tiếp theo một cách liền mạch:
+// ConcreteBuilder
+class ConcreteHouseBuilder implements HouseBuilder {
+    private House house;
 
-```java
-class Builder {
-    private Product product = new Product();
-
-    public Builder buildPartA(String partA) {
-        product.setPartA(partA);
-        return this;
+    public ConcreteHouseBuilder() {
+        this.house = new House();
     }
 
-    public Builder buildPartB(String partB) {
-        product.setPartB(partB);
-        return this;
+    @Override
+    public void buildFoundation() {
+        house.setFoundation("Concrete");
     }
 
-    public Product getResult() {
-        return product;
+    @Override
+    public void buildWalls() {
+        house.setWalls("Brick");
+    }
+
+    @Override
+    public void buildRoof() {
+        house.setRoof("Tile");
+    }
+
+    @Override
+    public House getResult() {
+        return house;
     }
 }
-```
 
-Bây giờ, chúng ta có thể sử dụng Builder để xây dựng sản phẩm một cách dễ đọc và gần gũi:
+// Director
+class Director {
+    private HouseBuilder builder;
 
-```java
+    public Director(HouseBuilder builder) {
+        this.builder = builder;
+    }
+
+    public House construct() {
+        builder.buildFoundation();
+        builder.buildWalls();
+        builder.buildRoof();
+        return builder.getResult();
+    }
+}
+
+// Client code
 public class Main {
     public static void main(String[] args) {
-        // Sử dụng Builder để xây dựng sản phẩm
-        Product product = new Builder()
-            .buildPartA("Part A")
-            .buildPartB("Part B")
-            .getResult();
-        
-        // Hiển thị sản phẩm
-        product.show();
+        HouseBuilder builder = new ConcreteHouseBuilder();
+        Director director = new Director(builder);
+        House house = director.construct();
+        System.out.println(house);
     }
 }
 ```
 
-Giải thích
+Trong ví dụ trên, chúng ta có:
+- `House`: Đại diện cho đối tượng phức tạp cần xây dựng, bao gồm các thuộc tính như foundation, walls và roof.
+- `HouseBuilder`: Định nghĩa giao diện cho việc xây dựng các thành phần của House.
+- `ConcreteHouseBuilder`: Triển khai cụ thể của HouseBuilder, cung cấp cách triển khai để xây dựng từng thành phần của House.
+- `Director`: Định nghĩa trình tự và cách thức xây dựng House bằng cách sử dụng HouseBuilder.
 
-- Chúng ta đã tạo một lớp `Builder` với các phương thức xây dựng trả về chính builder. Điều này cho phép chúng ta gọi tiếp các phương thức một cách liền mạch, tạo một chuỗi dễ đọc để xây dựng sản phẩm.
-- Khi sử dụng Builder, các phương thức xây dựng có thể được gọi nối tiếp trên một đối tượng builder duy nhất, giúp giảm bớt sự phức tạp trong mã nguồn và làm cho mã trở nên rõ ràng hơn.
-- Cuối cùng, chúng ta gọi `getResult()` để lấy đối tượng Product đã được xây dựng và hiển thị nó.
+Trong phần client code, chúng ta tạo một đối tượng `ConcreteHouseBuilder`, truyền nó vào `Director`, và gọi phương thức `construct()` để xây dựng đối tượng House hoàn chỉnh. Cuối cùng, chúng ta in ra kết quả của đối tượng House đã được xây dựng.
+
+Builder Pattern cho phép xây dựng các đối tượng phức tạp một cách linh hoạt, dễ mở rộng và dễ bảo trì. Nó tách rời quá trình xây dựng khỏi biểu diễn của đối tượng, cho phép tái sử dụng và thay đổi cách xây dựng mà không ảnh hưởng đến đối tượng cuối cùng.
 
 ## Ví dụ minh họa
 
