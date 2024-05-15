@@ -5,16 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4. Behavioral Patterns.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.1 Chain of Responsibility.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.2 Command.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.2 Command.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.3 Iterator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.4 Mediator.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.5 Memento.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.6 Observer.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.7 State.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.7 State.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.8 Strategy.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Book/4.9 Template Method.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +97,12 @@
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
     "settings.editor.selected.configurable": "fileTemplates"
+  },
+  "keyToStringList": {
+    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
+      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Singleton.md"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">

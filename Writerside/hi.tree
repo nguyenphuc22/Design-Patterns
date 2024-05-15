@@ -3,7 +3,7 @@
         SYSTEM "https://resources.jetbrains.com/writerside/1.0/product-profile.dtd">
 
 <instance-profile id="hi"
-                 name="Help Instance"
+                 name="Design Pattern Tiếng Việt"
                  start-page="Intro.md">
 
     <toc-element topic="Intro.md"/>
