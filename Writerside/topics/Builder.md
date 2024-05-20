@@ -351,143 +351,94 @@ Trong phần client code, chúng ta tạo một đối tượng `ConcreteHouseBu
 
 Builder Pattern cho phép xây dựng các đối tượng phức tạp một cách linh hoạt, dễ mở rộng và dễ bảo trì. Nó tách rời quá trình xây dựng khỏi biểu diễn của đối tượng, cho phép tái sử dụng và thay đổi cách xây dựng mà không ảnh hưởng đến đối tượng cuối cùng.
 
-## Ví dụ minh họa
+## Ứng dụng thực tế
 
-Dưới đây là một ví dụ minh họa về Builder Pattern trong Java:
+Builder Pattern được ứng dụng rộng rãi trong nhiều lĩnh vực của phát triển phần mềm. Dưới đây là một số ví dụ điển hình về việc áp dụng Builder trong thực tế.
 
-```java
-// Đối tượng Product: Nhà
-class House {
-  private String foundation;
-  private String walls;
-  private String roof;
-  private String interior;
+### 1. Xây dựng đối tượng cấu hình
 
-  public void setFoundation(String foundation) {
-    this.foundation = foundation;
-  }
+Trong các ứng dụng, thường có các đối tượng cấu hình phức tạp với nhiều thuộc tính và tùy chọn. Việc sử dụng constructor với nhiều tham số hoặc các phương thức setter có thể gây khó khăn cho việc khởi tạo và duy trì mã nguồn. Builder Pattern giúp giải quyết vấn đề này bằng cách cung cấp một cách linh hoạt và dễ đọc để xây dựng đối tượng cấu hình.
 
-  public void setWalls(String walls) {
-    this.walls = walls;
-  }
+```mermaid
+classDiagram
+    class ConfigBuilder {
+        - config: Config
+        + withHost(host: String): ConfigBuilder
+        + withPort(port: int): ConfigBuilder
+        + withUsername(username: String): ConfigBuilder
+        + withPassword(password: String): ConfigBuilder
+        + build(): Config
+    }
 
-  public void setRoof(String roof) {
-    this.roof = roof;
-  }
+    class Config {
+        - host: String
+        - port: int
+        - username: String
+        - password: String
+    }
 
-  public void setInterior(String interior) {
-    this.interior = interior;
-  }
-
-  public void showHouseDetails() {
-    System.out.println("House Details:");
-    System.out.println("Foundation: " + foundation);
-    System.out.println("Walls: " + walls);
-    System.out.println("Roof: " + roof);
-    System.out.println("Interior: " + interior);
-  }
-}
-
-// Builder Interface: Builder
-interface HouseBuilder {
-  void buildFoundation();
-  void buildWalls();
-  void buildRoof();
-  void buildInterior();
-  House getResult();
-}
-
-// Concrete Builder: ConcreteHouseBuilder
-class ConcreteHouseBuilder implements HouseBuilder {
-  private House house = new House();
-
-  public void buildFoundation() {
-    house.setFoundation("Concrete Foundation");
-  }
-
-  public void buildWalls() {
-    house.setWalls("Concrete Walls");
-  }
-
-  public void buildRoof() {
-    house.setRoof("Concrete Roof");
-  }
-
-  public void buildInterior() {
-    house.setInterior("Modern Interior");
-  }
-
-  public House getResult() {
-    return house;
-  }
-}
-
-// Director: HouseDirector
-class HouseDirector {
-  private HouseBuilder builder;
-
-  public HouseDirector(HouseBuilder builder) {
-    this.builder = builder;
-  }
-
-  public void constructHouse() {
-    builder.buildFoundation();
-    builder.buildWalls();
-    builder.buildRoof();
-    builder.buildInterior();
-  }
-}
-
-// Main class
-public class Main {
-  public static void main(String[] args) {
-    // Tạo một đối tượng ConcreteHouseBuilder
-    HouseBuilder builder = new ConcreteHouseBuilder();
-
-    // Tạo một đối tượng HouseDirector và kết nối với builder
-    HouseDirector director = new HouseDirector(builder);
-
-    // Xây dựng nhà
-    director.constructHouse();
-
-    // Lấy kết quả
-    House house = builder.getResult();
-
-    // Hiển thị thông tin về nhà
-    house.showHouseDetails();
-  }
-}
+    ConfigBuilder ..> Config : "creates"
 ```
 
-Trong ví dụ này, chúng ta sử dụng phương pháp Builder để xây dựng một đối tượng `House`, đại diện cho một ngôi nhà. Ví dụ này tách rời quá trình xây dựng ngôi nhà thành nhiều bước riêng biệt, và mỗi bước tập trung vào xây dựng một phần cụ thể của ngôi nhà.
+Trong ví dụ trên, lớp `ConfigBuilder` cung cấp các phương thức để thiết lập từng thuộc tính của đối tượng `Config`. Client code có thể sử dụng `ConfigBuilder` để xây dựng đối tượng cấu hình một cách dễ dàng và linh hoạt.
 
-1. **Đối tượng Product: Nhà (House)**:
-- Trong ví dụ này, `House` là đối tượng mà chúng ta muốn xây dựng.
-- `House` có các thuộc tính như `foundation`, `walls`, `roof`, và `interior`, đại diện cho các phần cấu trúc và nội thất của ngôi nhà.
-- Chúng ta định nghĩa các phương thức `setPart` để thiết lập các phần của ngôi nhà và `showHouseDetails` để hiển thị thông tin chi tiết của ngôi nhà.
+### 2. Xây dựng đối tượng truy vấn
 
-2. **Builder Interface: Builder**:
-- `HouseBuilder` là một giao diện định nghĩa các phương thức để xây dựng một đối tượng `House`.
-- Các phương thức trong `HouseBuilder` bao gồm `buildFoundation`, `buildWalls`, `buildRoof`, và `buildInterior`, mỗi phương thức tương ứng với việc xây dựng một phần cụ thể của ngôi nhà.
-- `getResult` để lấy đối tượng `House` đã hoàn thành.
+Trong các ứng dụng làm việc với cơ sở dữ liệu, việc xây dựng các truy vấn phức tạp với nhiều điều kiện và tham số có thể gây khó khăn và dễ gây ra lỗi. Builder Pattern cho phép xây dựng các đối tượng truy vấn một cách rõ ràng và dễ đọc.
 
-3. **Concrete Builder: ConcreteHouseBuilder**:
-- `ConcreteHouseBuilder` là lớp cụ thể triển khai `HouseBuilder`.
-- Các phương thức của `ConcreteHouseBuilder` được triển khai để xây dựng các phần của ngôi nhà. Ví dụ, `buildFoundation` thiết lập phần nền móng của ngôi nhà là "Concrete Foundation".
-- Mỗi phương thức trả về chính đối tượng `ConcreteHouseBuilder` để cho phép chuỗi gọi phương thức (method chaining).
+```mermaid
+classDiagram
+    class QueryBuilder {
+        - query: Query
+        + withSelect(fields: String[]): QueryBuilder
+        + withFrom(table: String): QueryBuilder
+        + withWhere(condition: String): QueryBuilder
+        + withOrderBy(field: String): QueryBuilder
+        + build(): Query
+    }
 
-4. **Director: HouseDirector**:
-- `HouseDirector` là lớp chịu trách nhiệm hướng dẫn quá trình xây dựng ngôi nhà.
-- Nó chấp nhận một đối tượng `HouseBuilder` (ở đây là `ConcreteHouseBuilder`) thông qua hàm tạo và sẽ sử dụng nó để xây dựng ngôi nhà.
-- `constructHouse` phương thức của `HouseDirector` gọi các phương thức xây dựng trên builder để xây dựng các phần khác nhau của ngôi nhà theo đúng thứ tự.
+    class Query {
+        - select: String[]
+        - from: String
+        - where: String
+        - orderBy: String
+        + execute(): ResultSet
+    }
 
-5. **Main class**:
-- Trong hàm `main`, chúng ta bắt đầu bằng việc tạo một đối tượng `ConcreteHouseBuilder`.
-- Sau đó, chúng ta tạo một đối tượng `HouseDirector` và kết nối nó với `ConcreteHouseBuilder`.
-- Gọi `constructHouse` để bắt đầu quá trình xây dựng ngôi nhà.
-- Cuối cùng, sử dụng `getResult` để nhận đối tượng `House` đã hoàn thành và gọi `showHouseDetails` để hiển thị thông tin chi tiết về ngôi nhà.
+    QueryBuilder ..> Query : "creates"
+```
 
-Kết quả là, chúng ta đã xây dựng một đối tượng ngôi nhà một cách dễ dàng và linh hoạt, trong đó mỗi phần của ngôi nhà được xây dựng bằng cách sử dụng Builder Pattern. Điều này giúp giảm sự phức tạp và làm cho mã nguồn trở nên rõ ràng hơn.
+Trong ví dụ trên, lớp `QueryBuilder` cung cấp các phương thức để xây dựng từng phần của đối tượng `Query`. Client code có thể sử dụng `QueryBuilder` để tạo ra các truy vấn phức tạp một cách dễ dàng và dễ hiểu.
+
+### 3. Xây dựng đối tượng báo cáo
+
+Trong các ứng dụng báo cáo, việc tạo ra các báo cáo phức tạp với nhiều phần và định dạng khác nhau có thể là một thách thức. Builder Pattern cho phép xây dựng các đối tượng báo cáo từng bước một, tách biệt quá trình xây dựng khỏi biểu diễn của báo cáo.
+
+```mermaid
+classDiagram
+    class ReportBuilder {
+        - report: Report
+        + withHeader(header: String): ReportBuilder
+        + withBody(body: String): ReportBuilder
+        + withFooter(footer: String): ReportBuilder
+        + withFormat(format: String): ReportBuilder
+        + build(): Report
+    }
+
+    class Report {
+        - header: String
+        - body: String
+        - footer: String
+        - format: String
+        + generate(): File
+    }
+
+    ReportBuilder ..> Report : "creates"
+```
+
+Trong ví dụ trên, lớp `ReportBuilder` cung cấp các phương thức để xây dựng từng phần của đối tượng `Report`. Client code có thể sử dụng `ReportBuilder` để tạo ra các báo cáo tùy chỉnh với các định dạng khác nhau.
+
+Trên đây là một số ví dụ về việc áp dụng Builder Pattern trong thực tế. Builder giúp xây dựng các đối tượng phức tạp một cách linh hoạt, dễ đọc và dễ bảo trì. Nó tách rời quá trình xây dựng khỏi biểu diễn của đối tượng, cho phép tái sử dụng và thay đổi cách xây dựng mà không ảnh hưởng đến đối tượng cuối cùng.
 
 ## So sánh
 
