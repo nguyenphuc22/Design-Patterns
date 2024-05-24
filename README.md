@@ -29,9 +29,6 @@ Trong repository "Sách - Design Pattern Tiếng Việt", bạn sẽ tìm thấy
 - [Chương 5: Ứng dụng thực tế](docs/Book/5.%20Read%20World.md)
 - [Kết luận](docs/Book/6.%20Conclusion.md)
 
-Xem chi tiết [ở đây](SUMMARY.md).
-
-
 ## Đóng góp
 
 **Tham Gia Xây Dựng Cùng Chúng Tôi**
