@@ -440,13 +440,41 @@ Trong ví dụ trên, lớp `ReportBuilder` cung cấp các phương thức đ�
 
 Trên đây là một số ví dụ về việc áp dụng Builder Pattern trong thực tế. Builder giúp xây dựng các đối tượng phức tạp một cách linh hoạt, dễ đọc và dễ bảo trì. Nó tách rời quá trình xây dựng khỏi biểu diễn của đối tượng, cho phép tái sử dụng và thay đổi cách xây dựng mà không ảnh hưởng đến đối tượng cuối cùng.
 
-## So sánh
+## Lợi ích và hạn chế
 
-Builder Pattern có thể được so sánh với một số Design Pattern tương tự, bao gồm:
+### Lợi ích
 
-- **Factory Pattern**: Builder Pattern tập trung vào xây dựng một đối tượng phức tạp bằng cách tạo và cấu hình từng phần, trong khi Factory Pattern tập trung vào việc tạo đối tượng duy nhất và trả về nó.
-- **Abstract Factory Pattern**: Cả Builder Pattern và Abstract Factory Pattern đều giúp trong việc tạo đối tượng phức tạp, nhưng Abstract Factory tạo ra một tập hợp các đối tượng có liên quan và cung cấp một giao diện chung để tạo chúng, trong khi Builder tập trung vào việc xây dựng một đối tượng duy nhất.
-- **Singleton Pattern**: Singleton Pattern chỉ đảm bảo rằng một lớp chỉ có một đối tượng duy nhất và cung cấp một điểm truy cập đến nó. Builder Pattern không liên quan đến việc tạo đối tượng duy nhất mà tập trung vào việc xây dựng đối tượng phức tạp.
+1. Tách biệt quá trình xây dựng và biểu diễn
+
+Builder Pattern tách rời quá trình xây dựng của một đối tượng phức tạp khỏi biểu diễn của nó. Điều này cho phép linh hoạt trong việc thay đổi cách xây dựng mà không ảnh hưởng đến đối tượng cuối cùng
+
+2. Xây dựng đối tượng từng bước 
+
+Builder Pattern cho phép xây dựng đối tượng phức tạp từng bước một. Thông qua các phương thức của Builder, client code có thể điều khiển quá trình xây dựng và chỉ cung cấp các thông tin cần thiết tại mỗi bước. Điều này giúp đơn giản hóa và làm rõ ràng quá trình khởi tạo đối tượng.
+
+3. Dễ đọc và dễ bảo trì 
+
+Việc sử dụng Builder Pattern giúp làm cho mã nguồn dễ đọc và dễ bảo trì hơn. Thay vì phải truyền nhiều tham số vào constructor hoặc gọi nhiều phương thức setter, client code chỉ cần tương tác với Builder và cung cấp các thông tin cần thiết. Điều này giúp mã nguồn trở nên rõ ràng, súc tích và dễ hiểu.
+
+4. Tái sử dụng mã nguồn
+
+Builder Pattern cho phép tái sử dụng mã nguồn một cách hiệu quả. Các ConcreteBuilder có thể được sử dụng để xây dựng các biểu diễn khác nhau của cùng một đối tượng. Điều này giúp tránh lặp lại mã nguồn và tăng tính tái sử dụng trong hệ thống.
+
+### Hạn chế
+
+1. Tăng độ phức tạp của mã nguồn
+
+Builder Pattern đòi hỏi việc tạo ra nhiều lớp mới, bao gồm Builder interface, ConcreteBuilder và Director. Điều này có thể làm tăng độ phức tạp của mã nguồn và yêu cầu nhiều công sức hơn trong việc triển khai và bảo trì.
+
+2. Không phù hợp với các đối tượng đơn giản
+
+Builder Pattern thường được sử dụng cho các đối tượng phức tạp với nhiều thuộc tính và quá trình xây dựng đa dạng. Đối với các đối tượng đơn giản, việc sử dụng Builder có thể làm cho mã nguồn trở nên rườm rà và không cần thiết.
+
+3. Khó mở rộng khi có sự thay đổi trong đối tượng
+
+Khi có sự thay đổi trong cấu trúc của đối tượng, như thêm hoặc bớt thuộc tính, Builder Pattern có thể yêu cầu sự thay đổi trong Builder interface và các ConcreteBuilder. Điều này có thể gây khó khăn trong việc mở rộng và bảo trì mã nguồn.
+
+Tuy có một số hạn chế, Builder Pattern vẫn là một mẫu thiết kế hữu ích trong việc xây dựng các đối tượng phức tạp một cách linh hoạt và dễ bảo trì. Tuy nhiên, việc áp dụng Builder cần được cân nhắc kỹ lưỡng dựa trên yêu cầu và độ phức tạp của đối tượng cần xây dựng.
 
 ## Kết luận
 
