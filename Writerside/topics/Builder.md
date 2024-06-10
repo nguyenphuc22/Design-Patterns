@@ -476,17 +476,18 @@ Khi có sự thay đổi trong cấu trúc của đối tượng, như thêm ho�
 
 Tuy có một số hạn chế, Builder Pattern vẫn là một mẫu thiết kế hữu ích trong việc xây dựng các đối tượng phức tạp một cách linh hoạt và dễ bảo trì. Tuy nhiên, việc áp dụng Builder cần được cân nhắc kỹ lưỡng dựa trên yêu cầu và độ phức tạp của đối tượng cần xây dựng.
 
+## Khi nào sử dụng Builder Pattern
+Builder Pattern thích hợp sử dụng trong các trường hợp sau:
+- Khi có một đối tượng phức tạp với nhiều thuộc tính và quá trình khởi tạo đa dạng.
+- Khi cần tách biệt quá trình xây dựng của một đối tượng khỏi biểu diễn của nó.
+- Khi muốn xây dựng các biểu diễn khác nhau của cùng một đối tượng.
+- Khi muốn kiểm soát quá trình khởi tạo đối tượng từng bước một.
+- Khi muốn tránh việc sử dụng contructor với nhiều tham số hoặc các phương thức setter.
+
+Tuy nhiên, khi áp dụng Builder Pattern, chúng ta cần cân nhắc về độ phức tạp của đối tượng và sự cần thiết của việc tách biệt quá trình xây dựng. Nếu đối tượng đơn giản và không yêu cầu sự linh hoạt trong quá trình khởi tạo, việc sử dụng Builder có thể không mang lại nhiều lợi ích.
+
 ## Kết luận
 
-Builder Pattern là một Design Pattern hữu ích trong những trường hợp cần xây dựng các đối tượng phức tạp. Builder Pattern giúp việc xây dựng các đối tượng phức tạp trở nên dễ dàng hơn và ít xảy ra lỗi hơn.
+Builder Pattern là một mẫu thiết kế hữu ích trong việc xây dựng các đối tượng phức tạp một cách linh hoạt và dễ bảo trì. Nó tách biệt quá trình xây dựng khỏi biểu diễn của đối tượng, cho phép xây dựng đối tượng từng bước và tái sử dụng mã nguồn. Tuy nhiên, Builder Pattern cũng có những hạn chế nhất định và cần được áp dụng một cách thận trọng dựa trên yêu cầu và độ phức tạp của đối tượng.
 
-- Nên sử dụng Builder Pattern khi:
-    - Đối tượng phức tạp có nhiều thuộc tính hoặc thành phần.
-    - Cần xây dựng nhiều phiên bản khác nhau của đối tượng phức tạp.
-    - Cần dễ dàng kiểm tra đối tượng phức tạp.
-- Không nên sử dụng Builder Pattern khi:
-    - Đối tượng phức tạp không có nhiều thuộc tính hoặc thành phần.
-    - Chỉ cần xây dựng một phiên bản duy nhất của đối tượng phức tạp.
-    - Không cần dễ dàng kiểm tra đối tượng phức tạp.
-
-Tôi hy vọng bài viết này đã giúp bạn hiểu rõ về Builder Pattern.
+Khi quyết định sử dụng Builder Pattern, chúng ta cần cân nhắc các yếu tố như tính linh hoạt, khả năng mở rộng, độ phức tạp của đối tượng và sự cần thiết của việc tách biệt quá trình xây dựng. Với sự hiểu biết và áp dụng đúng cách, Builder Pattern có thể giúp cải thiện chất lượng mã nguồn, tăng tính tái sự dụng và dễ bảo trì trong quá trình phát triển phần mềm.
