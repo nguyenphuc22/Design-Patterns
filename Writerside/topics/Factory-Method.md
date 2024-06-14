@@ -1,4 +1,4 @@
-# Factory Method
+# Factory Method :  Tạo đối tượng mà không chỉ định class cụ thể
 
 ## Giới thiệu
 

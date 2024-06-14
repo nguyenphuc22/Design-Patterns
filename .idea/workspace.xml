@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="Update .idea/workspace.xml and Intro.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Writerside/topics/Builder.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Builder.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Writerside/topics/Factory-Method.md" beforeDir="false" afterPath="$PROJECT_DIR$/Writerside/topics/Factory-Method.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,18 +16,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "nguyenphuc22"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;nguyenphuc22&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/nguyenphuc22/Design-Patterns.git",
-    "accountId": "c2cc1e94-cada-4ac7-96d5-d797cd044225"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/nguyenphuc22/Design-Patterns.git&quot;,
+    &quot;accountId&quot;: &quot;c2cc1e94-cada-4ac7-96d5-d797cd044225&quot;
   }
-}]]></component>
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Writerside/topics/Intro.md" root0="FORCE_HIGHLIGHTING" root1="SKIP_HIGHLIGHTING" />
   </component>
@@ -116,27 +116,12 @@
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "fileTemplates",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "stardust.markdown.MarkdownSplitEditorSuppressor:keyList": [
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Builder.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Creational-Patterns.md",
-      "/Users/phucnguyen/Documents/GitHub/Design-Patterns/Writerside/topics/Singleton.md"
-    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/Writerside/topics" />
     </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.17011.79" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.17011.79" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -146,7 +131,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1700963735312</updated>
-      <workItem from="1717944467348" duration="2871000" />
+      <workItem from="1717944467348" duration="5074000" />
     </task>
     <servers />
   </component>
