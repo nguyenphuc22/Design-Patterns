@@ -6,40 +6,68 @@ Trong lập trình hướng đối tượng, Factory Method là một mẫu thi�
 
 ## Đặt vấn đề
 
-Hãy tưởng tượng bạn đang xây dựng một hệ thống quản lý bán hàng trực tuyến cho thị trường Việt Nam. Ban đầu, hệ thống của bạn chỉ hỗ trợ thanh toán bằng tiền mặt khi nhận hàng (COD - Cash On Delivery), bởi vì đây là phương thức thanh toán phổ biến nhất tại Việt Nam.
+Giả sử chúng ta đang xây dựng một ứng dụng vẽ hình. Ứng dụng này hỗ trợ việc vẽ các hình dạng khác nhau như hình tròn, hình chữ nhật và hình tam giác. Chúng ta có một lớp `Shape` là lớp cha và các lớp con tương ứng cho từng loại hình dạng.
 
-Tuy nhiên, theo thời gian, bạn nhận thấy nhu cầu của khách hàng đang thay đổi. Người dùng muốn có sự linh hoạt hơn trong việc thanh toán, bao gồm thanh toán trực tuyến qua thẻ tín dụng và ví điện tử.
+```java
+public abstract class Shape {
+    public abstract void draw();
+}
 
-```mermaid
-graph TB
+public class Circle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a circle");
+    }
+}
 
-    subgraph Before
-        A[Hệ thống <br>bán hàng trực tuyến]
+public class Rectangle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a rectangle");
+    }
+}
 
-        B(Chỉ có <br> COD)
-
-        A --> B
-    end
-
-    subgraph After
-        A[Hệ thống <br>bán hàng trực tuyến]
-
-        B(COD)
-
-        C(Thanh toán <br>online)
-
-        A --> B
-        A --> C
-    end
+public class Triangle extends Shape {
+    @Override
+    public void draw() {
+        System.out.println("Drawing a triangle");
+    }
+}
 ```
 
-Việc thêm phương thức thanh toán mới vào hệ thống gây ra một vấn đề:
+Bây giờ, chúng ta muốn tạo một đối tượng `Shape` dựa trên loại hình dạng được chỉ định bởi người dùng. Cách tiếp cận thông thường là sử dụng các câu lệnh `if-else` hoặc `switch-case` để xác định loại hình dạng và khởi tạo đối tượng tương ứng.
 
-Thêm một phương thức thanh toán trực tuyến vào hệ thống là một thách thức, vì hầu hết mã nguồn của bạn đã được thiết kế dựa trên phương thức thanh toán COD. Toàn bộ hệ thống có thể liên quan chặt chẽ đến việc xử lý thanh toán bằng tiền mặt và có rất nhiều mã nguồn sử dụng các logic và quy trình liên quan đến COD.
+```java
+public class ShapeGenerator {
+    public Shape createShape(String shapeType) {
+        if (shapeType.equalsIgnoreCase("circle")) {
+            return new Circle();
+        } else if (shapeType.equalsIgnoreCase("rectangle")) {
+            return new Rectangle();
+        } else if (shapeType.equalsIgnoreCase("triangle")) {
+            return new Triangle();
+        }
+        return null;
+    }
+}
+```
 
-Dưới góc độ lập trình, việc thêm thanh toán trực tuyến yêu cầu bạn phải thay đổi toàn bộ hệ thống để tích hợp các API thanh toán trực tuyến, xử lý giao dịch trực tuyến và cập nhật giao diện người dùng để cho phép người dùng chọn phương thức thanh toán mới. Điều này đồng nghĩa với việc sửa đổi và thêm mã nguồn rải rác trong hệ thống, và có thể dẫn đến các vấn đề về tính nhất quán và bảo trì trong tương lai.
+Tuy nhiên, cách tiếp cận này có một số hạn chế:
+- Mã nguồn của `ShapeGenerator` phải được sửa đổi mỗi khi có một loại hình dạng mới được thêm vào.
+- Vi phạm nguyên tắc Open/Closed Principle (OCP) vì lớp `ShapeGenerator` cần phải được sửa đổi khi mở rộng.
+- Khó bảo trì và mở rộng khi số lượng các loại hình dạng tăng lên.
 
-Nếu bạn quyết định mở rộng hệ thống để hỗ trợ thêm các phương thức thanh toán khác như ví điện tử hay chuyển khoản ngân hàng, bạn sẽ phải duyệt qua toàn bộ mã nguồn một lần nữa và thực hiện các sửa đổi lớn. Điều này dẫn đến mã nguồn trở nên phức tạp và khó bảo trì, không tuân theo nguyên tắc thiết kế mở rộng.
+```mermaid
+graph LR
+    A["Client Code"] -->|"Requests shape"| B["ShapeGenerator"]
+    B -->|"if-else/switch-case"| C["Circle"]
+    B -->|"if-else/switch-case"| D["Rectangle"]
+    B -->|"if-else/switch-case"| E["Triangle"]
+```
+
+Như minh họa trong sơ đồ trên, khi client code yêu cầu một hình dạng cụ thể, `ShapeGenerator` sử dụng các câu lệnh `if-else` hoặc `switch-case` để xác định và khởi tạo đối tượng hình dạng tương ứng. Điều này dẫn đến sự phụ thuộc chặt chẽ giữa `ShapeGenerator` và các lớp hình dạng cụ thể, làm cho mã nguồn khó bảo trì và mở rộng.
+
+Vấn đề này đòi hỏi một giải pháp để tách biệt việc khởi tạo đối tượng khỏi lớp `ShapeGenerator` và cho phép dễ dàng mở rộng khi có các loại hình dạng mới.
 
 ## Giải quyết
 
