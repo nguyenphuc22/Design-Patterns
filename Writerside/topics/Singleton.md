@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Trong lập trình hướng đối tượng, Singleton là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Singleton là đảm bảo chỉ duy nhất một thể hiện (instance) của một lớp (class) được tạo ra trong toàn bộ chương trình và cung cấp một điểm truy cập toàn cục đến thể hiện này. Singleton giúp giải quyết các vấn đề như quản lý tài nguyên dùng chung, tránh xung đột khi có nhiều thể hiện truy cập đồng thời, đảm bảo tính nhất quán của dữ liệu và tiết kiệm tài nguyên hệ thống.
+Singleton là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Singleton là đảm bảo chỉ duy nhất một thể hiện (instance) của một lớp (class) được tạo ra trong toàn bộ chương trình và cung cấp một điểm truy cập toàn cục đến thể hiện này. Singleton giúp giải quyết các vấn đề như quản lý tài nguyên dùng chung, tránh xung đột khi có nhiều thể hiện truy cập đồng thời, đảm bảo tính nhất quán của dữ liệu và tiết kiệm tài nguyên hệ thống.
 
 ### Đặt vấn đề
 

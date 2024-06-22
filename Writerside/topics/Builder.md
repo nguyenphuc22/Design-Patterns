@@ -2,7 +2,7 @@
 
 ## Giới thiệu
 
-Trong lập trình hướng đối tượng, Builder là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Builder là tách rời quá trình xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép cùng một quá trình xây dựng có thể tạo ra các biểu diễn khác nhau. Builder giúp giải quyết các vấn đề liên quan đến việc khởi tạo đối tượng có nhiều thuộc tính hoặc có quá trình khởi tạo phức tạp.
+Builder là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Builder là tách rời quá trình xây dựng một đối tượng phức tạp khỏi biểu diễn của nó, cho phép cùng một quá trình xây dựng có thể tạo ra các biểu diễn khác nhau. Builder giúp giải quyết các vấn đề liên quan đến việc khởi tạo đối tượng có nhiều thuộc tính hoặc có quá trình khởi tạo phức tạp.
 
 ## Đặt vấn đề
 
