@@ -148,47 +148,47 @@ Factory Method Pattern giúp giải quyết vấn đề của việc khởi tạ
 
 ## Cấu trúc
 
-Factory Method có cấu trúc đơn giản, bao gồm các thành phần sau:
-
-- Lớp cha: Lớp cha chứa phương thức trừu tượng để tạo các đối tượng của lớp.
-- Lớp con: Các lớp con triển khai phương thức trừu tượng của lớp cha để tạo các đối tượng của lớp theo cách tùy ý.
+Để triển khai Factory Method Pattern, chúng ta cần có các thành phần sau:
 
 ```mermaid
 classDiagram
-    class Creator {
-        +factoryMethod()
-    }
-
-    class ConcreteCreatorA {
-        +factoryMethod()
-    }
-
-    class ConcreteCreatorB {
-        +factoryMethod()
-    }
-
     class Product {
-        <<interface>>
-        doSomeThing()
+        +operation()
     }
-    
-    class ProductA {
-        
+    class ConcreteProduct1 {
+        +operation()
     }
-    
-    class ProductB {
-    
+    class ConcreteProduct2 {
+        +operation()
     }
-    
-    Product <|-- ProductA
-    Product <|-- ProductB
-    
-    Creator <|-- ConcreteCreatorA
-    Creator <|-- ConcreteCreatorB
-    
-    Creator --> Product
-    
+    class Creator {
+        +factoryMethod() : Product
+        +someOperation()
+    }
+    class ConcreteCreator1 {
+        +factoryMethod() : Product
+    }
+    class ConcreteCreator2 {
+        +factoryMethod() : Product
+    }
+
+    Creator <|-- ConcreteCreator1
+    Creator <|-- ConcreteCreator2
+    Product <|-- ConcreteProduct1
+    Product <|-- ConcreteProduct2
+    ConcreteCreator1 ..> ConcreteProduct1 : creates
+    ConcreteCreator2 ..> ConcreteProduct2 : creates
 ```
+
+1. Product: Định nghĩa giao diện chung cho các đối tượng mà factory method tạo ra.
+
+2. ConcreteProduct: Triển khai giao diện Product và đại diện cho các đối tượng cụ thể được tạo ra bởi factory method.
+
+3. Creator: Khai báo phương thức factory method trừu tượng để trả về một đối tượng của kiểu Product. Creator cũng có thể chứa các phương thức khác sử dụng đối tượng được tạo ra bởi factory method.
+
+4. ConcreteCreator: Ghi đè phương thức factory method để trả về một thể hiện của ConcreteProduct tương ứng.
+
+Với cấu trúc này, Factory Method Pattern cho phép tạo ra các đối tượng mà không chỉ định lớp cụ thể của chúng. Client code chỉ tương tác với Creator và ConcreteCreator để tạo ra đối tượng mong muốn.
 
 ## Cách triển khai
 
