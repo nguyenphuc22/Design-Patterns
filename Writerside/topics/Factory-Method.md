@@ -69,59 +69,82 @@ Như minh họa trong sơ đồ trên, khi client code yêu cầu một hình d�
 
 Vấn đề này đòi hỏi một giải pháp để tách biệt việc khởi tạo đối tượng khỏi lớp `ShapeGenerator` và cho phép dễ dàng mở rộng khi có các loại hình dạng mới.
 
-## Giải quyết
+## Giải pháp
 
-Mẫu thiết kế `Factory Method` đề xuất bạn thay thế việc tạo đối tượng trực tiếp bằng cách gọi đến một phương thức factory đặc biệt. Đừng lo lắng: các đối tượng vẫn được tạo ra bằng toán tử new, nhưng điều này được thực hiện từ bên trong phương thức factory. Các đối tượng được trả về bởi một phương thức factory thường được gọi là sản phẩm (products).
+Factory Method Pattern giải quyết vấn đề trên bằng cách định nghĩa một phương thức trừu tượng (factory method) trong lớp cha `ShapeFactory` để tạo ra đối tượng, nhưng để cho các lớp con cụ thể quyết định lớp nào sẽ được khởi tạo. Các lớp con sẽ ghi đè (override) phương thức này để tạo ra đối tượng cụ thể.
 
-Ở cái nhìn đầu tiên, thay đổi này có vẻ không có ý nghĩa: chúng ta chỉ di chuyển cuộc gọi hàm khởi tạo từ một phần của chương trình sang phần khác. Tuy nhiên, hãy xem xét điều này: bây giờ bạn có thể ghi đè phương thức factory trong một lớp con và thay đổi lớp của các sản phẩm được tạo ra bởi phương thức đó.
+```java
+public abstract class ShapeFactory {
+    public abstract Shape createShape();
 
-Tuy nhiên, có một hạn chế nhỏ: các lớp con chỉ có thể trả về các loại sản phẩm khác nhau nếu những sản phẩm này có một Base Class hoặc Interface chung. Ngoài ra, phương thức factory trong Base Class nên có kiểu trả về được khai báo là Interface hoặc Base Class đó.
-
-Ví dụ, trong bài toán thanh toán ở Việt Nam, bạn có thể tạo một giao diện (interface) có tên là `PaymentMethod` với một phương thức chung là `performPayment` (thực hiện thanh toán). Sau đó, bạn tạo hai lớp cụ thể, ví dụ: `CashOnDeliveryPayment` và `OnlinePayment`, và cả hai lớp này đều triển khai giao diện `PaymentMethod`.
-
-```mermaid
-classDiagram
-    class PaymentMethod {
-        + performPayment(): void
+    public void drawShape() {
+        Shape shape = createShape();
+        shape.draw();
     }
+}
 
-    class CashOnDeliveryPayment {
-        + performPayment(): void
+public class CircleFactory extends ShapeFactory {
+    @Override
+    public Shape createShape() {
+        return new Circle();
     }
+}
 
-    class OnlinePayment {
-        + performPayment(): void
+public class RectangleFactory extends ShapeFactory {
+    @Override
+    public Shape createShape() {
+        return new Rectangle();
     }
+}
 
-    PaymentMethod <|-- CashOnDeliveryPayment
-    PaymentMethod <|-- OnlinePayment
+public class TriangleFactory extends ShapeFactory {
+    @Override
+    public Shape createShape() {
+        return new Triangle();
+    }
+}
 ```
 
-Lớp `CashOnDeliveryPayment` có thể triển khai phương thức `performPayment` để xử lý thanh toán bằng tiền mặt khi nhận hàng, trong khi lớp `OnlinePayment` triển khai phương thức đó để xử lý thanh toán trực tuyến.
+Với Factory Method Pattern, chúng ta định nghĩa một lớp trừu tượng `ShapeFactory` với phương thức trừu tượng `createShape()`. Mỗi lớp con cụ thể như `CircleFactory`, `RectangleFactory`, và `TriangleFactory` sẽ ghi đè phương thức này để tạo ra đối tượng hình dạng tương ứng.
 
-Tiếp theo, bạn tạo một lớp `PaymentFactory` với một phương thức `createPaymentMethod`, và các lớp cụ thể `CashOnDeliveryPaymentFactory` và `OnlinePaymentFactory` kế thừa từ lớp này.
+Khi client code muốn tạo một đối tượng hình dạng, nó chỉ cần tương tác với lớp `ShapeFactory` tương ứng và gọi phương thức `createShape()`. Lớp con cụ thể sẽ tạo ra đối tượng hình dạng thích hợp.
 
-```mermaid
-classDiagram
-    class PaymentFactory {
-        + createPaymentMethod(): PaymentMethod
+```java
+public class Client {
+    public static void main(String[] args) {
+        ShapeFactory circleFactory = new CircleFactory();
+        circleFactory.drawShape();
+
+        ShapeFactory rectangleFactory = new RectangleFactory();
+        rectangleFactory.drawShape();
+
+        ShapeFactory triangleFactory = new TriangleFactory();
+        triangleFactory.drawShape();
     }
-
-    class CashOnDeliveryPaymentFactory {
-        + createPaymentMethod(): PaymentMethod
-    }
-
-    class OnlinePaymentFactory {
-        + createPaymentMethod(): PaymentMethod
-    }
-
-    PaymentFactory <|.. CashOnDeliveryPaymentFactory
-    PaymentFactory <|.. OnlinePaymentFactory
+}
 ```
 
-Lớp `CashOnDeliveryPaymentFactory` sẽ triển khai phương thức `createPaymentMethod` để trả về một đối tượng `CashOnDeliveryPayment`, trong khi `OnlinePaymentFactory` sẽ trả về một đối tượng `OnlinePayment`.
+Kết quả:
+```
+Drawing a circle
+Drawing a rectangle
+Drawing a triangle
+```
 
-Với cách làm này, mã nguồn sử dụng phương thức nhà máy (factory method) không phát hiện sự khác biệt giữa các phương thức thanh toán khác nhau. Khách hàng (client) xem xét tất cả các phương thức thanh toán như là đối tượng `PaymentMethod` trừu tượng và biết rằng tất cả các đối tượng này đều có thể thực hiện phương thức `performPayment`, nhưng cụ thể cách mỗi phương thức hoạt động không quan trọng đối với khách hàng.
+```mermaid
+graph LR
+    A["Client Code"] --> B["ShapeFactory"]
+    B -->|"createShape()"| C["CircleFactory"]
+    B -->|"createShape()"| D["RectangleFactory"]
+    B -->|"createShape()"| E["TriangleFactory"]
+    C --> F["Circle"]
+    D --> G["Rectangle"]
+    E --> H["Triangle"]
+```
+
+Như minh họa trong sơ đồ trên, với Factory Method Pattern, client code tương tác với lớp trừu tượng `ShapeFactory` và các lớp con cụ thể như `CircleFactory`, `RectangleFactory`, và `TriangleFactory`. Mỗi lớp con ghi đè phương thức `createShape()` để tạo ra đối tượng hình dạng tương ứng. Điều này giúp tách biệt việc khởi tạo đối tượng khỏi client code và cho phép dễ dàng mở rộng khi có các loại hình dạng mới.
+
+Factory Method Pattern giúp giải quyết vấn đề của việc khởi tạo đối tượng phụ thuộc vào lớp cụ thể bằng cách ủy quyền việc khởi tạo cho các lớp con. Nó tách biệt việc khởi tạo đối tượng khỏi mã nguồn client, làm cho mã nguồn trở nên linh hoạt, dễ bảo trì và mở rộng.
 
 ## Cấu trúc
 
