@@ -192,78 +192,76 @@ Với cấu trúc này, Factory Method Pattern cho phép tạo ra các đối t�
 
 ## Cách triển khai
 
-Để triển khai Factory Method Pattern, ta cần:
-
-- Xác định Interface/ Lớp trừu tượng cho sản phẩm:
+Dưới đây là một ví dụ về cách triển khai Factory Method Pattern trong Java để tạo ra các đối tượng đồ uống khác nhau:
 
 ```java
-// Định nghĩa giao diện Product
-interface Product {
-    void doSomething();
+// Product
+public abstract class Drink {
+    public abstract void prepare();
 }
 
-// Các lớp cụ thể triển khai giao diện Product
-class ProductA implements Product {
+// ConcreteProduct
+public class Coffee extends Drink {
     @Override
-    public void doSomething() {
-        System.out.println("ProductA is doing something.");
+    public void prepare() {
+        System.out.println("Preparing coffee");
     }
 }
 
-class ProductB implements Product {
+public class Tea extends Drink {
     @Override
-    public void doSomething() {
-        System.out.println("ProductB is doing something.");
-    }
-}
-```
-
-- Xác định lớp Creator trừu tượng với phương thức factory method:
-
-```java
-// Định nghĩa lớp Creator và phương thức factoryMethod
-abstract class Creator {
-    public abstract Product factoryMethod();
-
-    public void anOperation() {
-        Product product = factoryMethod();
-        product.doSomething();
+    public void prepare() {
+        System.out.println("Preparing tea");
     }
 }
 
-// Các lớp ConcreteCreator triển khai factoryMethod để tạo Product tương ứng
-class ConcreteCreatorA extends Creator {
+// Creator
+public abstract class DrinkFactory {
+    public abstract Drink createDrink();
+
+    public void serveDrink() {
+        Drink drink = createDrink();
+        drink.prepare();
+        System.out.println("Serving the drink");
+    }
+}
+
+// ConcreteCreator
+public class CoffeeFactory extends DrinkFactory {
     @Override
-    public Product factoryMethod() {
-        return new ProductA();
+    public Drink createDrink() {
+        return new Coffee();
     }
 }
 
-class ConcreteCreatorB extends Creator {
+public class TeaFactory extends DrinkFactory {
     @Override
-    public Product factoryMethod() {
-        return new ProductB();
+    public Drink createDrink() {
+        return new Tea();
     }
 }
-```
 
-- Sử dụng Creator và ConcreteCreator để lấy ra sản phẩm:
-
-```java
-public class Main {
+// Client code
+public class Client {
     public static void main(String[] args) {
-        // Sử dụng ConcreteCreatorA để tạo ProductA
-        Creator creatorA = new ConcreteCreatorA();
-        Product productA = creatorA.factoryMethod();
-        productA.doSomething();
+        DrinkFactory coffeeFactory = new CoffeeFactory();
+        coffeeFactory.serveDrink();
 
-        // Sử dụng ConcreteCreatorB để tạo ProductB
-        Creator creatorB = new ConcreteCreatorB();
-        Product productB = creatorB.factoryMethod();
-        productB.doSomething();
+        DrinkFactory teaFactory = new TeaFactory();
+        teaFactory.serveDrink();
     }
 }
 ```
+
+Trong ví dụ trên, chúng ta có:
+- `Drink`: Đại diện cho giao diện chung cho các đối tượng đồ uống.
+- `Coffee` và `Tea`: Các lớp cụ thể triển khai giao diện `Drink`, đại diện cho các loại đồ uống khác nhau.
+- `DrinkFactory`: Lớp trừu tượng định nghĩa phương thức factory method `createDrink()` để tạo ra đối tượng đồ uống.
+- `CoffeeFactory` và `TeaFactory`: Các lớp cụ thể kế thừa từ `DrinkFactory` và ghi đè phương thức `createDrink()` để tạo ra đối tượng đồ uống tương ứng.
+
+Trong phần client code, chúng ta tạo các đối tượng factory tương ứng với loại đồ uống mong muốn (`CoffeeFactory` hoặc `TeaFactory`), và gọi phương thức `serveDrink()` để chuẩn bị và phục vụ đồ uống.
+
+Factory Method Pattern cho phép tạo ra các đối tượng đồ uống một cách linh hoạt, dễ mở rộng và dễ bảo trì. Khi có một loại đồ uống mới, chúng ta chỉ cần tạo một lớp cụ thể mới kế thừa từ `DrinkFactory` và ghi đè phương thức `createDrink()` để tạo ra đối tượng đồ uống mới, mà không cần sửa đổi mã nguồn hiện có.
 
 ## Ví dụ
 
