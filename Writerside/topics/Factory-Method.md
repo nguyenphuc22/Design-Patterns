@@ -263,78 +263,66 @@ Trong phần client code, chúng ta tạo các đối tượng factory tương �
 
 Factory Method Pattern cho phép tạo ra các đối tượng đồ uống một cách linh hoạt, dễ mở rộng và dễ bảo trì. Khi có một loại đồ uống mới, chúng ta chỉ cần tạo một lớp cụ thể mới kế thừa từ `DrinkFactory` và ghi đè phương thức `createDrink()` để tạo ra đối tượng đồ uống mới, mà không cần sửa đổi mã nguồn hiện có.
 
-## Ví dụ
+## Ứng dụng thực tế
 
-Dưới đây là một ví dụ minh họa về Factory Method trong Java:
+Factory Method Pattern được ứng dụng rộng rãi trong nhiều lĩnh vực của phát triển phần mềm. Dưới đây là một số ví dụ điển hình về việc áp dụng Factory Method trong thực tế.
+
+### 1. Frameworks và thư viện
+
+Nhiều frameworks và thư viện sử dụng Factory Method Pattern để cung cấp một cách linh hoạt và mở rộng để tạo ra các đối tượng. Ví dụ:
+
+- Trong Java Swing, lớp `UIManager` sử dụng Factory Method Pattern để tạo ra các thành phần giao diện người dùng như nút, hộp thoại, vv. Các lớp con cụ thể của `UIManager` ghi đè phương thức factory để tạo ra các thành phần tương ứng với giao diện người dùng cụ thể.
 
 ```java
-// Định nghĩa lớp hình học cơ bản
-interface Shape {
-    void draw();
-}
-
-// Triển khai lớp Circle
-class Circle implements Shape {
-    @Override
-    public void draw() {
-        System.out.println("Drawing a Circle");
-    }
-}
-
-// Triển khai lớp Rectangle
-class Rectangle implements Shape {
-    @Override
-    public void draw() {
-        System.out.println("Drawing a Rectangle");
-    }
-}
-
-// Lớp cơ sở ShapeFactory khai báo một phương thức factory method
-// Mọi lớp con của ShapeFactory cần triển khai phương thức này để tạo đối tượng hình học cụ thể.
-public abstract class ShapeFactory {
-
-    // Factory Method: Một phương thức abstract để tạo đối tượng hình học.
-    public abstract Shape createShape();
-}
-
-// Lớp CircleFactory là một lớp con của ShapeFactory
-public class CircleFactory extends ShapeFactory {
-
-    // Triển khai factory method để tạo đối tượng Circle.
-    @Override
-    public Shape createShape() {
-        return new Circle();
-    }
-}
-
-// Lớp RectangleFactory cũng là một lớp con của ShapeFactory
-public class RectangleFactory extends ShapeFactory {
-
-    // Triển khai factory method để tạo đối tượng Rectangle.
-    @Override
-    public Shape createShape() {
-        return new Rectangle();
-    }
-}
-
-
-
-public class Main {
-
-    public static void main(String[] args) {
-        ShapeFactory circleFactory = new CircleFactory();
-        Shape circle = circleFactory.createShape();
-        circle.draw(); // Output: Drawing a Circle
-
-        ShapeFactory rectangleFactory = new RectangleFactory();
-        Shape rectangle = rectangleFactory.createShape();
-        rectangle.draw(); // Output: Drawing a Rectangle
-    }
-}
-
+UIManager.setLookAndFeel(new MetalLookAndFeel());
+JButton button = (JButton) UIManager.getUI(new JButton());
 ```
 
-Trong ví dụ này, chúng ta đã triển khai các lớp Circle và Rectangle để thực hiện phương thức draw(), và sau đó gọi phương thức này từ đối tượng Shape được tạo bởi các Factory tương ứng. Điều này cho phép bạn tạo các đối tượng hình học mà không cần quan tâm đến việc cụ thể chúng là hình tròn hay hình chữ nhật.
+- Trong .NET Framework, lớp `DbProviderFactory` là một ví dụ của Factory Method Pattern. Nó định nghĩa một giao diện chung cho việc tạo ra các đối tượng truy cập cơ sở dữ liệu, và các lớp con cụ thể như `SqlClientFactory`, `OracleClientFactory` ghi đè phương thức factory để tạo ra các đối tượng tương ứng với từng loại cơ sở
+  dữ liệu.
+
+```csharp
+DbProviderFactory factory = DbProviderFactories.GetFactory("System.Data.SqlClient");
+DbConnection connection = factory.CreateConnection();
+```
+
+### 2. Logging frameworks
+
+Các frameworks ghi log như Log4j, SLF4J sử dụng Factory Method Pattern để tạo ra các đối tượng logger tương ứng với các cấu hình và ngữ cảnh khác nhau. Ví dụ:
+
+```java
+Logger logger = LoggerFactory.getLogger(MyClass.class);
+logger.info("This is a log message");
+```
+
+Trong đoạn mã trên, `LoggerFactory` là một factory class sử dụng Factory Method Pattern để tạo ra đối tượng `Logger` tương ứng với lớp `MyClass`. Điều này cho phép linh hoạt trong việc cấu hình và sử dụng các logger khác nhau trong ứng dụng.
+
+### 3. Mẫu thiết kế khác
+
+Factory Method Pattern cũng được sử dụng làm cơ sở cho nhiều mẫu thiết kế khác như Abstract Factory, Builder, Prototype. Những mẫu thiết kế này sử dụng Factory Method Pattern để tạo ra các đối tượng một cách linh hoạt và có thể mở rộng.
+
+Ví dụ, trong Abstract Factory Pattern, Factory Method được sử dụng để tạo ra các đối tượng sản phẩm cụ thể từ các factory tương ứng:
+
+```java
+public abstract class GUIFactory {
+    public abstract Button createButton();
+    public abstract Checkbox createCheckbox();
+}
+
+public class WindowsFactory extends GUIFactory {
+    @Override
+    public Button createButton() {
+        return new WindowsButton();
+    }
+
+    @Override
+    public Checkbox createCheckbox() {
+        return new WindowsCheckbox();
+    }
+}
+```
+
+Trong ví dụ trên, `GUIFactory` là một abstract factory class sử dụng Factory Method Pattern để định nghĩa các phương thức tạo ra các thành phần giao diện người dùng như `Button` và `Checkbox`. Lớp con cụ thể `WindowsFactory` ghi đè các phương thức này để tạo ra các thành phần tương ứng với giao diện người dùng Windows.
 
 ## So sánh
 
