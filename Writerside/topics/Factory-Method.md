@@ -324,19 +324,52 @@ public class WindowsFactory extends GUIFactory {
 
 Trong ví dụ trên, `GUIFactory` là một abstract factory class sử dụng Factory Method Pattern để định nghĩa các phương thức tạo ra các thành phần giao diện người dùng như `Button` và `Checkbox`. Lớp con cụ thể `WindowsFactory` ghi đè các phương thức này để tạo ra các thành phần tương ứng với giao diện người dùng Windows.
 
-## So sánh
+## Lợi ích và hạn chế
 
-Factory Method có thể được so sánh với một số Design Pattern tương tự như sau:
+### Lợi ích
 
-- Builder Pattern: Cả Builder Pattern và Factory Method đều cung cấp cách tạo ra các đối tượng một cách linh hoạt. Tuy nhiên, Builder Pattern tách biệt quá trình xây dựng đối tượng với biểu diễn của nó, trong khi Factory Method vẫn kết hợp hai khía cạnh này.
+1. Tách biệt việc khởi tạo đối tượng
 
-- Abstract Factory Pattern: Abstract Factory cung cấp interface để tạo ra các họ đối tượng liên quan nhau, trong khi Factory Method chỉ tập trung vào việc tạo một lớp đối tượng cụ thể.
+Factory Method Pattern tách biệt việc khởi tạo đối tượng khỏi lớp sử dụng đối tượng. Điều này giúp giảm sự phụ thuộc giữa các lớp và làm cho mã nguồn dễ bảo trì và mở rộng hơn.
 
-- Prototype Pattern: Prototype tạo ra đối tượng bằng cách clone một đối tượng đã tồn tại, trong khi Factory Method tạo ra đối tượng mới mỗi lần được gọi.
+2. Linh hoạt và dễ mở rộng
 
-- Singleton Pattern: Singleton chỉ cho phép tạo một thể hiện của lớp, còn Factory Method cho phép tạo nhiều thể hiện khác nhau của lớp.
+Factory Method cho phép các lớp con quyết định lớp cụ thể nào sẽ được khởi tạo. Điều này mang lại sự linh hoạt và dễ dàng mở rộng khi có các yêu cầu mới. Khi cần thêm một sản phẩm mới, chúng ta chỉ cần tạo một lớp con mới của Creator và ghi đè phương thức factory mà không cần sửa đổi mã nguồn hiện có.
 
-Như vậy, mặc dù có một số điểm tương đồng, Factory Method vẫn có những đặc điểm riêng biệt so với các Pattern khác.
+3. Tuân thủ nguyên tắc Open/Closed Principle (OCP)
+
+Factory Method Pattern tuân thủ nguyên tắc OCP, cho phép mở rộng mà không cần sửa đổi mã nguồn hiện có. Việc thêm một sản phẩm mới chỉ yêu cầu tạo một lớp con mới của Creator mà không ảnh hưởng đến các lớp hiện có.
+
+4. Đơn giản hóa mã nguồn client
+
+Factory Method giúp đơn giản hóa mã nguồn client bằng cách loại bỏ việc khởi tạo đối tượng cụ thể. Client chỉ cần tương tác với Creator và sử dụng phương thức factory để tạo ra đối tượng mong muốn, mà không cần quan tâm đến chi tiết triển khai của từng sản phẩm cụ thể.
+
+### Hạn chế
+
+1. Tăng số lượng lớp
+
+Factory Method Pattern yêu cầu tạo ra các lớp con tương ứng cho mỗi sản phẩm cụ thể. Điều này có thể dẫn đến việc tăng số lượng lớp trong hệ thống, đặc biệt là khi có nhiều sản phẩm khác nhau.
+
+2. Phức tạp hóa mã nguồn
+
+Việc sử dụng Factory Method có thể làm tăng sự phức tạp của mã nguồn, đặc biệt là khi có nhiều tầng kế thừa và ghi đè phương thức factory. Điều này có thể gây khó khăn trong việc hiểu và bảo trì mã nguồn.
+
+3. Hạn chế trong việc tạo ra các đối tượng khác nhau
+
+Factory Method Pattern thường được sử dụng để tạo ra các đối tượng thuộc cùng một họ hoặc có cùng giao diện. Nếu cần tạo ra các đối tượng không liên quan hoặc có giao diện khác nhau, Factory Method có thể không phù hợp và cần xem xét sử dụng các mẫu thiết kế khác như Abstract Factory.
+
+Tuy có một số hạn chế, Factory Method Pattern vẫn là một mẫu thiết kế hữu ích trong việc tạo ra các đối tượng một cách linh hoạt và dễ mở rộng. Tuy nhiên, việc áp dụng Factory Method cần được cân nhắc kỹ lưỡng dựa trên yêu cầu và độ phức tạp của hệ thống.
+
+## Khi nào sử dụng Factory Method Pattern
+Factory Method Pattern thích hợp sử dụng trong các trường hợp sau:
+
+- Khi một lớp không thể dự đoán trước loại đối tượng cụ thể mà nó cần tạo ra.
+- Khi một lớp muốn các lớp con của nó quyết định loại đối tượng cần tạo ra.
+- Khi việc khởi tạo đối tượng đòi hỏi một số xử lý logic phức tạp hoặc phụ thuộc vào môi trường runtime.
+- Khi có nhiều đối tượng tương tự nhưng khác nhau về một số chi tiết và muốn tách biệt việc khởi tạo đối tượng khỏi lớp sử dụng đối tượng.
+- Khi muốn cung cấp một cách linh hoạt để mở rộng và thêm các sản phẩm mới mà không cần sửa đổi mã nguồn hiện có.
+
+Tuy nhiên, nếu hệ thống chỉ có một vài đối tượng cụ thể và không có nhu cầu mở rộng hoặc thay đổi trong tương lai, việc sử dụng Factory Method có thể là một sự phức tạp không cần thiết. Trong trường hợp đó, việc khởi tạo đối tượng trực tiếp có thể đơn giản và dễ hiểu hơn.
 
 ## Kết Luận
 
