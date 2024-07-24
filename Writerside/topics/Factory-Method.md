@@ -371,16 +371,10 @@ Factory Method Pattern thích hợp sử dụng trong các trường hợp sau:
 
 Tuy nhiên, nếu hệ thống chỉ có một vài đối tượng cụ thể và không có nhu cầu mở rộng hoặc thay đổi trong tương lai, việc sử dụng Factory Method có thể là một sự phức tạp không cần thiết. Trong trường hợp đó, việc khởi tạo đối tượng trực tiếp có thể đơn giản và dễ hiểu hơn.
 
-## Kết Luận
+## Kết luận
 
-Factory Pattern thường được sử dụng trong các trường hợp sau:
+Factory Method Pattern là một mẫu thiết kế hữu ích trong việc tạo ra các đối tượng một cách linh hoạt và dễ mở rộng. Nó tách biệt việc khởi tạo đối tượng khỏi lớp sử dụng đối tượng, cho phép các lớp con quyết định loại đối tượng cụ thể cần tạo ra. Factory Method tuân thủ nguyên tắc Open/Closed Principle và giúp đơn giản hóa mã nguồn client.
 
-- Khi có nhu cầu tạo ra các đối tượng phức tạp với nhiều bước xử lý khác nhau hoặc phụ thuộc vào điều kiện cụ thể nào đó. Factory Method cho phép tách quá trình khởi tạo phức tạp ra khỏi business logic chính.
+Tuy nhiên, Factory Method cũng có một số hạn chế như tăng số lượng lớp và có thể làm phức tạp hóa mã nguồn nếu có nhiều tầng kế thừa và ghi đè phương thức factory. Việc áp dụng Factory Method cần được cân nhắc kỹ lưỡng dựa trên yêu cầu và độ phức tạp của hệ thống.
 
-- Khi muốn mở rộng để thêm các lớp con mới mà không làm ảnh hưởng đến code hiện tại. Factory Method cho phép mở rộng dễ dàng hơn so với khởi tạo trực tiếp.
-
-- Khi muốn đóng gói hoặc che giấu logic khởi tạo của hệ thống.
-
-- Khi muốn tạo ra các đối tượng theo cách chung chung mà không cần chỉ định lớp cụ thể.
-
-Như vậy, Factory Pattern là một pattern hữu ích giúp tăng tính linh hoạt và khả năng mở rộng cho hệ thống bằng cách tách biệt quá trình khởi tạo đối tượng. Pattern này được sử dụng rộng rãi trong thiết kế phần mềm.
+Với sự hiểu biết về Factory Method Pattern, chúng ta có thể áp dụng nó một cách hiệu quả trong quá trình phát triển phần mềm để tạo ra các đối tượng một cách linh hoạt và dễ bảo trì, đồng thời tăng khả năng mở rộng và tái sử dụng mã nguồn.
