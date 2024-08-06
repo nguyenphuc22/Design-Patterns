@@ -1,24 +1,30 @@
-# Abstract Factory
+# Abstract Factory : Tạo họ đối tượng liên quan
 
 ## Giới thiệu
 
-Trong cuốn sách về Design Pattern, chúng ta đã tìm hiểu về nhóm Creational Pattern, bao gồm những Pattern giúp khởi tạo đối tượng một cách linh hoạt và thuận tiện. Factory Method là một Pattern đã được giới thiệu, giúp tạo ra các đối tượng của một lớp. Tuy nhiên, trong nhiều trường hợp, các đối tượng có quan hệ với nhau và được nhóm thành các họ. Lúc này, chúng ta cần Abstract Factory.
-
-Abstract Factory cung cấp một interface để tạo ra các họ đối tượng liên quan với nhau một cách linh hoạt.
+Abstract Factory là một mẫu thiết kế thuộc nhóm Creational Patterns. Mục đích chính của Abstract Factory là cung cấp một interface để tạo ra các họ đối tượng liên quan hoặc phụ thuộc lẫn nhau mà không cần chỉ định các lớp cụ thể của chúng. Abstract Factory cho phép client code tạo ra các đối tượng của nhiều họ sản phẩm khác nhau mà không cần biết chi tiết cụ thể về cách tạo ra chúng.
 
 ## Đặt vấn đề
 
-Giả sử bạn đang phát triển một ứng dụng gọi món ăn cho nhà hàng. Các món ăn được phân thành các nhóm:
+Giả sử bạn đang phát triển một ứng dụng quản lý nhà hàng với các món ăn được phân thành các nhóm:
 
 - Món lẩu: Thịt bò, rau củ, nấm hương
 - Món phở: Bánh phở, thịt bò, giá đỗ
 - Món bún: Bún, nem nuong, chả giò
 
-Khi người dùng gọi món, các nguyên liệu cần được chuẩn bị phù hợp với nhau trong cùng một nhóm món.
+Khi người dùng gọi món, các nguyên liệu cần được chuẩn bị phù hợp với nhau trong cùng một nhóm món. Ngoài ra, nhà hàng thường xuyên thay đổi thực đơn, bổ sung các nhóm món mới.
 
-Ngoài ra, nhà hàng thường xuyên thay đổi thực đơn, bổ sung các nhóm món mới.
+Vấn đề đặt ra là làm thế nào để tạo ra và quản lý các nhóm món ăn này một cách linh hoạt, dễ dàng mở rộng mà không ảnh hưởng đến code hiện tại?
 
-Chúng ta cần một cách để dễ dàng tạo ra và thay đổi các nhóm món mà không ảnh hưởng đến code hiện tại.
+```mermaid
+graph LR
+    A["Client Code"] -->|"Requests dish"| B["DishCreator"]
+    B -->|"if-else/switch-case"| C["Lau Ingredients"]
+    B -->|"if-else/switch-case"| D["Pho Ingredients"]
+    B -->|"if-else/switch-case"| E["Bun Ingredients"]
+```
+
+Như minh họa trong sơ đồ trên, khi client code yêu cầu một món ăn cụ thể, `DishCreator` sử dụng các câu lệnh `if-else` hoặc `switch-case` để xác định và tạo ra các nguyên liệu tương ứng. Điều này dẫn đến sự phụ thuộc chặt chẽ giữa `DishCreator` và các loại nguyên liệu cụ thể, làm cho mã nguồn khó bảo trì và mở rộng.
 
 ## Giải quyết
 
