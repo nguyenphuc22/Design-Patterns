@@ -4,7 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="Update .idea/workspace.xml and Intro.md" />
+    <list default="true" id="3cb5d028-bd6e-41c8-8344-b58383b29cf7" name="Changes" comment="Update .idea/workspace.xml and Intro.md">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -88,6 +90,9 @@
       </map>
     </option>
   </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="QfXVspAZ" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -103,7 +108,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "version__1",
+    "git-widget-placeholder": "Merging version__1",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "/Users/phucnguyen/Documents/GitHub/Design-Patterns",
     "node.js.detected.package.eslint": "true",

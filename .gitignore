@@ -1,0 +1,4 @@
+# Git ignore file for Design Patterns project
+
+# Ignore guidelines.md in .junie directory
+.junie/guidelines.md
