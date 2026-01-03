@@ -29,34 +29,28 @@ Trong repository "Sách - Design Pattern Tiếng Việt", bạn sẽ tìm thấy
 - [Chương 5: Ứng dụng thực tế](docs/Book/5.%20Read%20World.md)
 - [Kết luận](docs/Book/6.%20Conclusion.md)
 
+Xem chi tiết [ở đây](SUMMARY.md).
+
 ## Đóng góp
 
 **Tham Gia Xây Dựng Cùng Chúng Tôi**
 
-Cuốn sách "Design Pattern Tiếng Việt" không chỉ là một dự án cá nhân mà là kết quả của sự cộng tác và đam mê chung của cả cộng đồng. Mỗi trang, mỗi chương, từng dòng code mà bạn đọc đều là minh chứng cho tinh thần hợp tác và chia sẻ kiến thức.
+Dự án "Design Pattern Tiếng Việt" là thành quả của cộng đồng. Chúng tôi cam kết duy trì tài nguyên miễn phí này cho mọi người. Nếu bạn thấy dự án hữu ích, hãy ủng hộ chúng tôi để duy trì và phát triển nó.
 
-Dự án này, từ ngày đầu tiên, đã cam kết là nguồn tài nguyên miễn phí, chất lượng cao cho tất cả mọi người, từ sinh viên đến các chuyên gia lập trình. Để duy trì và phát triển dự án này, chúng tôi kêu gọi sự hỗ trợ từ cộng đồng - không chỉ dưới hình thức đóng góp [nội dung](/README.md), mà còn qua sự hỗ trợ tài chính.
-
-Nếu bạn cảm thấy cuốn sách này mang lại giá trị cho bản thân và cộng đồng, xin hãy xem xét việc đóng góp tài chính qua trang [Buy Me a Coffee](https://www.buymeacoffee.com/phucvr). Mỗi đóng góp, dù nhỏ, đều là nguồn động viên lớn lao giúp chúng tôi tiếp tục công việc này.
+**Ủng hộ tác giả:**
 
 <div align="center">
-  <img src="docs/images/bmc_qr.png"/>
+
+[![Momo](https://img.shields.io/badge/Momo-A50064?style=for-the-badge&logo=momo&logoColor=white)](https://me.momo.vn/MRI1ikuxsesZs4U8fmfGkz)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=for-the-badge&logo=buy-me-a-coffee&logoColor=black)](https://www.buymeacoffee.com/phucvr)
+
 </div>
 
-**Đóng góp của bạn sẽ được sử dụng để:**
-
-- Duy trì và nâng cấp dự án.
-- Hỗ trợ tác giả và người đóng góp.
-
-Tôi biết rằng, không phải ai cũng có khả năng đóng góp tài chính, và sự hỗ trợ về mặt tinh thần cũng rất quan trọng. Do đó, Star và chia sẻ dự án này với bạn bè, đồng nghiệp, và trên các mạng xã hội cũng là một hình thức đóng góp vô cùng quý giá.
-
-Dù là sự hỗ trợ nào, chúng tôi đều trân trọng và biết ơn. Cảm ơn bạn đã là một phần của hành trình này!
+Mọi đóng góp và chia sẻ của bạn đều là động lực quý giá cho chúng tôi!
 
 ## Câu hỏi và Thảo luận
 
-Bạn có thắc mắc, ý kiến, hoặc cần hỗ trợ về các nội dung trong sách, các mẫu thiết kế phần mềm, hoặc cách áp dụng chúng trong thực tiễn lập trình? Hãy mạnh dạn chia sẻ và đặt câu hỏi của bạn trong phần "Issues" trên trang GitHub của dự án. Cùng nhau, tôi và cộng đồng của chúng ta sẽ nỗ lực giải đáp và thảo luận, nhằm mang lại lời giải rõ ràng và hữu ích cho mỗi vấn đề.
-
-Thêm vào đó, những câu hỏi nhận được sự quan tâm rộng rãi và nhiều lượt tương tác sẽ được xem xét để tích hợp trong các bản cập nhật tương lai của sách. Mục tiêu của chúng tôi không chỉ dừng lại ở việc chia sẻ kiến thức; chúng tôi còn muốn khuyến khích sự tương tác, học hỏi lẫn nhau, và cùng nhau đóng góp vào sự phát triển của cộng đồng lập trình Việt Nam.
+Bạn có thắc mắc hay ý kiến? Hãy tạo [Issue](https://github.com/nguyenphuc22/Design-Patterns/issues) để cùng thảo luận. Những câu hỏi hay sẽ được tích hợp vào sách để chia sẻ với cộng đồng.
 
 ## Cảm ơn
 

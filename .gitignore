@@ -1,0 +1,14 @@
+/.junie
+# Gradle
+.gradle/
+build/
+
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Mac
+.DS_Store

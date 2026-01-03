@@ -2,34 +2,30 @@
 
 ## Giới thiệu
 
-Singleton là một Design Pattern thuộc nhóm Creational Pattern. Nó đảm bảo chỉ duy nhất một thể hiện của một lớp được tạo ra trong suốt chương trình.
+**Singleton** là một Design Pattern thuộc nhóm **Creational Patterns** (Mẫu khởi tạo).
+
+Mục đích cốt lõi của Singleton là đảm bảo **một lớp (class) chỉ có duy nhất một thể hiện (instance)** và cung cấp một điểm truy cập toàn cục (global point of access) đến thể hiện đó.
+
+![Singleton Diagram](../images/singleton_pattern_diagram.png)
+
+### Tưởng tượng thực tế
+Hãy nghĩ về **Cái Đồng Hồ treo tường** trong một phòng thi Đại học.
+
+Trong phòng thi, dù có hàng chục sinh viên đang cắm cúi làm bài, nhưng chỉ có **duy nhất một cái đồng hồ** treo trên bảng để tính giờ.
+
+Tất cả sinh viên và giám thị đều phải nhìn vào đúng cái đồng hồ đó để thống nhất thời gian nộp bài. Nếu mỗi sinh viên tự dùng đồng hồ cá nhân (cái nhanh, cái chậm) hoặc trong phòng có tới 2 cái đồng hồ chỉ giờ khác nhau, thì chắc chắn sẽ xảy ra cãi vã và "loạn" ngay.
+
+Trong lập trình, Singleton đóng vai trò y hệt cái đồng hồ đó. Nó là nguồn chân lý duy nhất (Single Source of Truth) mà toàn bộ các phần khác của ứng dụng phải tuân theo để đảm bảo tính nhất quán.
+
 ### Đặt vấn đề
+Trong hệ thống quản lý người dùng, giả sử ta có lớp `UserManager` chịu trách nhiệm quản lý thông tin và trạng thái đăng nhập của user.
 
-Trong nhiều trường hợp, cần đảm bảo chỉ có một thể hiện của một lớp. Ví dụ trong hệ thống quản lý người dùng, chỉ nên có duy nhất một đối tượng UserManager để quản lý người dùng.
+Nếu chúng ta không kiểm soát việc khởi tạo, nhiều đối tượng `UserManager` có thể được tạo ra ở các nơi khác nhau:
 
-Nếu tạo nhiều đối tượng UserManager có thể dẫn đến:
+- **UserManager A**: Lưu user "Tý" đang online.
+- **UserManager B**: Không biết "Tý" là ai cả.
 
-- Dữ liệu bị trùng lặp
-- Xung đột tài nguyên
-- Khó kiểm soát
-
-```mermaid
-graph TD
-    A[User Management System] --> B1[UserManager 1]
-    A --> B2[UserManager 2]
-    A --> B3[UserManager 3]
-
-    B1 --> C[User 1]
-    B2 --> D[User 2]
-    B3 --> E[User 3]
-
-    classDef grey fill:#dddddd,stroke:#333333,stroke-width:2px;
-    classDef pink fill:#ffd6d6,stroke:#333,stroke-width:2px;
-
-    class A grey
-    class B1,B2,B3 grey
-    class C,D,E pink
-```
+-> **Hậu quả**: Dữ liệu không đồng nhất, lãng phí bộ nhớ, và mất kiểm soát trạng thái hệ thống.
 
 ### Giải quyết
 
@@ -181,8 +177,14 @@ Singleton Pattern là một Design Pattern hữu ích trong những trường h�
 
 Dưới đây là một số hướng dẫn sử dụng Singleton Pattern:
 
+
 - Nên sử dụng Singleton Pattern khi cần đảm bảo rằng chỉ có một thể hiện duy nhất của một lớp được tạo ra.
 - Tránh sử dụng Singleton Pattern khi không cần thiết.
 - Hạn chế sử dụng Singleton trong các hệ thống lớn hoặc phức tạp.
+
+## Ví dụ Code
+
+Bạn có thể xem mã nguồn đầy đủ và hướng dẫn chạy thử tại: [Singleton Example README](file:///Users/phucnguyen/Documents/GitHub/Design-Patterns/src/main/java/design/patterns/creational/singleton/README.md)
+
 
 
