@@ -184,7 +184,7 @@ Dưới đây là một số hướng dẫn sử dụng Singleton Pattern:
 
 ## Ví dụ Code
 
-Bạn có thể xem mã nguồn đầy đủ và hướng dẫn chạy thử tại: [Singleton Example README](file:///Users/phucnguyen/Documents/GitHub/Design-Patterns/src/main/java/design/patterns/creational/singleton/README.md)
+Bạn có thể xem mã nguồn đầy đủ và hướng dẫn chạy thử tại: [Singleton Example README](../../src/main/java/design/patterns/creational/singleton/README.md)
 
 
 
