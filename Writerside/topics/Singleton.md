@@ -18,27 +18,40 @@ Tất cả sinh viên và giám thị đều phải nhìn vào đúng cái đồ
 Trong lập trình, Singleton đóng vai trò y hệt cái đồng hồ đó. Nó là nguồn chân lý duy nhất (Single Source of Truth) mà toàn bộ các phần khác của ứng dụng phải tuân theo để đảm bảo tính nhất quán.
 
 ### Đặt vấn đề
-Trong hệ thống quản lý người dùng, giả sử ta có lớp `UserManager` chịu trách nhiệm quản lý thông tin và trạng thái đăng nhập của user.
+Hãy tưởng tượng hệ thống của bạn có một lớp `ApplicationSettings` chịu trách nhiệm nạp cấu hình từ file `config.json`.
 
-Nếu chúng ta không kiểm soát việc khởi tạo, nhiều đối tượng `UserManager` có thể được tạo ra ở các nơi khác nhau:
+Nếu không kiểm soát hành vi khởi tạo, Developer A tạo một `new ApplicationSettings()` ở màn hình Login. Developer B lại `new ApplicationSettings()` ở màn hình Thanh toán.
 
-- **UserManager A**: Lưu user "Tý" đang online.
-- **UserManager B**: Không biết "Tý" là ai cả.
+```mermaid
+graph TD
+    subgraph "Without Singleton (Chaos)"
+        C1[Client A<br/>Login Screen] -- "new ApplicationSettings()" --> S1[Instance 1<br/>Lang: Tiếng Việt]
+        C2[Client B<br/>Payment Screen] -- "new ApplicationSettings()" --> S2[Instance 2<br/>Lang: English]
+    end
+    
+    style S1 fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    style S2 fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+```
 
--> **Hậu quả**: Dữ liệu không đồng nhất, lãng phí bộ nhớ, và mất kiểm soát trạng thái hệ thống.
+**Hậu quả khôn lường:**
+*   **Xung đột dữ liệu:** Dev A thay đổi cài đặt ngôn ngữ sang Tiếng Việt, nhưng instance của Dev B vẫn đang giữ cấu hình Tiếng Anh. Kết quả là App hiển thị "nửa Tây nửa Ta".
+*   **Lãng phí tài nguyên:** Mỗi lần `new` là một lần hệ thống phải đọc file từ ổ cứng và parse JSON, làm chậm ứng dụng một cách vô nghĩa.
+*   **Mất kiểm soát:** Không ai biết đâu là "nguồn sự thật" (Source of Truth) của cấu hình hiện tại.
 
 ### Giải quyết
 
-Singleton giải quyết bằng cách đảm bảo chỉ tạo duy nhất một thể hiện trong toàn bộ chương trình.
+Singleton ra đời với một tôn chỉ duy nhất: **"There can be only one" (Chỉ một mà thôi).**
+
+Nó giải quyết vấn đề bằng cách **tự mình quản lý chính mình**. Nó chặn đứng mọi nỗ lực khởi tạo tràn lan từ bên ngoài (thông qua `private constructor`) và chỉ cung cấp **một lối đi độc đạo** (`static method`) để truy cập vào tài nguyên chung.
 
 ```mermaid
 graph TD
 
-    A[User Management System] --> B[UserManager]
+    A[User Management System] --> B[Singleton Manager]
 
-    B --> C[User 1]
-    B --> D[User 2]
-    B --> E[User 3]
+    B --> C[Module 1]
+    B --> D[Module 2]
+    B --> E[Module 3]
 
     classDef grey fill:#dddddd,stroke:#333333,stroke-width:2px;
     classDef pink fill:#ffd6d6,stroke:#333,stroke-width:2px;
@@ -48,18 +61,14 @@ graph TD
     class C,D,E pink
 ```
 
-Giải thích:
-
-- Lớp UserManager được triển khai Singleton
-- Chỉ có DUY NHẤT một đối tượng UserManager trong hệ thống
-- Quản lý tất cả người dùng một cách tập trung
-- Tránh được các vấn đề như dữ liệu trùng lặp, xung đột tài nguyên, khó kiểm soát
-
-Với cách triển khai này, chỉ có một đối tượng UserManager duy nhất được tạo ra, và đối tượng này có thể được truy cập từ bất kỳ nơi nào trong chương trình.
+**Cơ chế hoạt động:**
+- Lớp Singleton tự mình giữ "chìa khóa" khởi tạo của chính nó.
+- Chỉ có **DUY NHẤT** một đối tượng tồn tại trong suốt vòng đời ứng dụng.
+- Bất kỳ thành phần nào muốn sử dụng đều phải đi qua cổng kiểm soát này, đảm bảo tính nhất quán tuyệt đối.
 
 ### Cấu tạo
 
-Singleton Pattern có cấu trúc đơn giản, bao gồm các thành phần sau:
+Để đạt được quyền năng trên, Singleton cần 3 "bảo bối" cốt lõi:
 
 ```mermaid
 classDiagram
@@ -78,10 +87,9 @@ classDiagram
     Singleton ..> Singleton : return instance
 ```
 
-- Lớp Singleton: Lớp này chứa các phương thức và biến cần thiết để triển khai Singleton Pattern.
-- Phương thức khởi tạo private: Phương thức này chỉ có thể được gọi từ bên trong lớp.
-- Biến static private: Biến này giữ đối tượng của lớp.
-- Phương thức static public để trả về đối tượng của lớp: Phương thức này trả về đối tượng của lớp.
+1.  **`private static instance`**: Hạt nhân duy nhất, nơi lưu trữ thể hiện độc tôn của lớp.
+2.  **`private constructor`**: "Khóa cổng". Ngăn chặn tuyệt đối việc sử dụng từ khóa `new` từ bên ngoài để tạo thêm bản sao.
+3.  **`public static getInstance()`**: "Cánh cổng duy nhất". Ai muốn gặp Singleton, phải đi qua cửa này. Cửa này có nhiệm vụ kiểm tra: *Nếu chưa có thì tạo mới, có rồi thì trả về cái đang tồn tại.*
 
 
 ## Cách triển khai
