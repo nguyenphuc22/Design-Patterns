@@ -61,7 +61,7 @@ graph TD
 
 ### Cấu tạo
 
-Để đạt được quyền năng trên, Singleton cần 3 "bảo bối" cốt lõi:
+Để thực hiện được điều này, Singleton cần 3 **thành phần** cốt lõi:
 
 ```mermaid
 classDiagram
