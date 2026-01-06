@@ -18,48 +18,50 @@ Tất cả sinh viên và giám thị đều phải nhìn vào đúng cái đồ
 Trong lập trình, Singleton đóng vai trò y hệt cái đồng hồ đó. Nó là nguồn chân lý duy nhất (Single Source of Truth) mà toàn bộ các phần khác của ứng dụng phải tuân theo để đảm bảo tính nhất quán.
 
 ### Đặt vấn đề
-Trong hệ thống quản lý người dùng, giả sử ta có lớp `UserManager` chịu trách nhiệm quản lý thông tin và trạng thái đăng nhập của user.
+Hãy tưởng tượng hệ thống của bạn có một lớp `ApplicationSettings` chịu trách nhiệm nạp cấu hình từ file `config.json`.
 
-Nếu chúng ta không kiểm soát việc khởi tạo, nhiều đối tượng `UserManager` có thể được tạo ra ở các nơi khác nhau:
-
-- **UserManager A**: Lưu user "Tý" đang online.
-- **UserManager B**: Không biết "Tý" là ai cả.
-
--> **Hậu quả**: Dữ liệu không đồng nhất, lãng phí bộ nhớ, và mất kiểm soát trạng thái hệ thống.
-
-### Giải quyết
-
-Singleton giải quyết bằng cách đảm bảo chỉ tạo duy nhất một thể hiện trong toàn bộ chương trình.
+Nếu không kiểm soát hành vi khởi tạo, Developer A tạo một `new ApplicationSettings()` ở màn hình Login. Developer B lại `new ApplicationSettings()` ở màn hình Thanh toán.
 
 ```mermaid
 graph TD
-
-    A[User Management System] --> B[UserManager]
-
-    B --> C[User 1]
-    B --> D[User 2]
-    B --> E[User 3]
-
-    classDef grey fill:#dddddd,stroke:#333333,stroke-width:2px;
-    classDef pink fill:#ffd6d6,stroke:#333,stroke-width:2px;
-
-    class A grey
-    class B grey
-    class C,D,E pink
+    subgraph "Without Singleton (Chaos)"
+        C1[Client A<br/>Login Screen] -- "new ApplicationSettings()" --> S1[Instance 1<br/>Lang: Tiếng Việt]
+        C2[Client B<br/>Payment Screen] -- "new ApplicationSettings()" --> S2[Instance 2<br/>Lang: English]
+    end
+    
+    style S1 fill:#ffcccc,stroke:#ff0000,stroke-width:2px
+    style S2 fill:#ffcccc,stroke:#ff0000,stroke-width:2px
 ```
 
-Giải thích:
+**Hậu quả khôn lường:**
+*   **Xung đột dữ liệu:** Dev A thay đổi cài đặt ngôn ngữ sang Tiếng Việt, nhưng instance của Dev B vẫn đang giữ cấu hình Tiếng Anh. Kết quả là App hiển thị "nửa Tây nửa Ta".
+*   **Lãng phí tài nguyên:** Mỗi lần `new` là một lần hệ thống phải đọc file từ ổ cứng và parse JSON, làm chậm ứng dụng một cách vô nghĩa.
+*   **Mất kiểm soát:** Không ai biết đâu là "nguồn sự thật" (Source of Truth) của cấu hình hiện tại.
 
-- Lớp UserManager được triển khai Singleton
-- Chỉ có DUY NHẤT một đối tượng UserManager trong hệ thống
-- Quản lý tất cả người dùng một cách tập trung
-- Tránh được các vấn đề như dữ liệu trùng lặp, xung đột tài nguyên, khó kiểm soát
+### Giải quyết
 
-Với cách triển khai này, chỉ có một đối tượng UserManager duy nhất được tạo ra, và đối tượng này có thể được truy cập từ bất kỳ nơi nào trong chương trình.
+Singleton ra đời với một tôn chỉ duy nhất: **"There can be only one" (Chỉ một mà thôi).**
+
+Nó giải quyết vấn đề bằng cách **tự mình quản lý chính mình**. Nó chặn đứng mọi nỗ lực khởi tạo tràn lan từ bên ngoài (thông qua `private constructor`) và chỉ cung cấp **một cổng truy cập duy nhất** (`static method`) để truy cập vào tài nguyên chung.
+
+```mermaid
+graph TD
+    subgraph "With Singleton (Order)"
+        C1[Client A<br/>Login Screen] -- "getInstance()" --> S[Shared Singleton<br/>Lang: Tiếng Việt]
+        C2[Client B<br/>Payment Screen] -- "getInstance()" --> S
+    end
+    
+    style S fill:#ccffcc,stroke:#00aa00,stroke-width:2px
+```
+
+**Cơ chế hoạt động:**
+- Lớp Singleton tự mình giữ "chìa khóa" khởi tạo của chính nó.
+- Chỉ có **DUY NHẤT** một đối tượng tồn tại trong suốt vòng đời ứng dụng.
+- Bất kỳ thành phần nào muốn sử dụng đều phải đi qua cổng kiểm soát này, đảm bảo tính nhất quán tuyệt đối.
 
 ### Cấu tạo
 
-Singleton Pattern có cấu trúc đơn giản, bao gồm các thành phần sau:
+Để thực hiện được điều này, Singleton cần 3 **thành phần** cốt lõi:
 
 ```mermaid
 classDiagram
@@ -78,15 +80,19 @@ classDiagram
     Singleton ..> Singleton : return instance
 ```
 
-- Lớp Singleton: Lớp này chứa các phương thức và biến cần thiết để triển khai Singleton Pattern.
-- Phương thức khởi tạo private: Phương thức này chỉ có thể được gọi từ bên trong lớp.
-- Biến static private: Biến này giữ đối tượng của lớp.
-- Phương thức static public để trả về đối tượng của lớp: Phương thức này trả về đối tượng của lớp.
+1.  **`private static instance`**: Hạt nhân duy nhất, nơi lưu trữ **thể hiện duy nhất** của lớp.
+2.  **`private constructor`**: "Khóa cổng". Ngăn chặn tuyệt đối việc sử dụng từ khóa `new` từ bên ngoài để tạo thêm bản sao.
+3.  **`public static getInstance()`**: "Cánh cổng duy nhất". Ai muốn gặp Singleton, phải đi qua cửa này. Cửa này có nhiệm vụ kiểm tra: *Nếu chưa có thì tạo mới, có rồi thì trả về cái đang tồn tại.*
 
 
 ## Cách triển khai
 
-Có nhiều cách để triển khai Singleton Pattern trong Java. Một cách phổ biến là sử dụng một biến static private để lưu trữ instance của class.
+Trong Java, có hai chiến lược chính để tạo ra Singleton, mỗi cách giống như một phong cách sống khác nhau:
+
+### 1. Lazy Initialization (Làm khi cần)
+> *"Nước đến chân mới nhảy"*
+
+Đây là phong cách của những người chỉ làm việc khi thực sự cần thiết. Singleton sẽ không được tạo ra ngay lập tức khi chương trình chạy, mà nó sẽ **kiên nhẫn chờ đợi**. Chỉ khi nào có ai đó gọi tên nó (`getInstance()`), nó mới bắt đầu khởi tạo.
 
 ```java
 public class Singleton {
@@ -94,11 +100,12 @@ public class Singleton {
     private static Singleton instance;
 
     private Singleton() {
-        // Constructor is private to prevent direct instantiation
+        // Constructor private: "Ngăn chặn khởi tạo từ bên ngoài"
     }
 
     public static Singleton getInstance() {
         if (instance == null) {
+            // Nếu chưa có thì mới bắt đầu tạo
             instance = new Singleton();
         }
         return instance;
@@ -106,85 +113,99 @@ public class Singleton {
 }
 ```
 
-Cách triển khai này đảm bảo rằng chỉ có một instance của Singleton được tạo ra. Khi một đối tượng Singleton được yêu cầu, phương thức `getInstance()` sẽ kiểm tra xem instance đã tồn tại hay chưa. Nếu chưa, phương thức sẽ tạo ra một instance mới. Nếu đã tồn tại, phương thức sẽ trả về instance hiện tại.
+*   **Ưu điểm:** Tiết kiệm tài nguyên. Nếu cả buổi không ai cần dùng, object sẽ không bao giờ được tạo ra.
+*   **Lưu ý:** Cách viết cơ bản này tuyệt vời cho người mới bắt đầu, nhưng hãy cẩn thận khi dùng trong môi trường đa luồng (Multi-threading).
 
-Một cách triển khai khác của Singleton Pattern là sử dụng một biến static final private.
+### 2. Eager Initialization (Làm sẵn)
+> *"Ăn chắc mặc bền"*
+
+Ngược lại với Lazy, đây là phong cách chuẩn bị trước mọi thứ. Singleton sẽ được tạo ra **ngay khi class được nạp (load)**, bất kể có ai dùng hay không. Giống như một cửa hàng tiện lợi luôn mở cửa bật đèn sẵn sàng, khách vào là phục vụ ngay.
 
 ```java
-public final class Singleton {
+public class Singleton {
 
+    // Tạo sẵn ngay từ đầu
     private static final Singleton instance = new Singleton();
 
     private Singleton() {
-        // Constructor is private to prevent direct instantiation
+        // Constructor private
     }
 
     public static Singleton getInstance() {
+        // Cần là có ngay, không phải chờ đợi
         return instance;
     }
 }
 ```
 
-Cách triển khai này tương tự như cách triển khai đầu tiên, nhưng nó sử dụng một biến static final private thay vì một biến static private. Cách triển khai này có một số ưu điểm như sau:
-
-- Sử dụng biến static final private sẽ ngăn chặn việc thay đổi giá trị của biến instance.
-- Cấu trúc code sẽ gọn gàng hơn.
+*   **Ưu điểm:** Đơn giản, an toàn (Thread-safe) nhờ cơ chế của JVM, không lo xung đột khi nhiều luồng cùng gọi.
+*   **Nhược điểm:** Nếu object quá nặng mà lại không được sử dụng, nó sẽ nằm chiếm chỗ trong bộ nhớ một cách lãng phí.
 
 
-## Ví dụ minh họa
+## Cách sử dụng (Usage)
 
-Dưới đây là một ví dụ minh họa cách sử dụng Singleton Pattern để tạo một đối tượng DatabaseConnection.
+Quay lại với bài toán `ApplicationSettings` ở phần đầu. Làm thế nào để đảm bảo "chỉ có một"?
+
+Đây là cách chúng ta sử dụng Singleton trong thực tế:
 
 ```java
-public class DatabaseConnection {
+public class Client {
+    public static void main(String[] args) {
+        // Developer A gọi ở màn hình Login
+        Singleton s1 = Singleton.getInstance();
+        
+        // Developer B gọi ở màn hình Thanh toán
+        Singleton s2 = Singleton.getInstance();
 
-    private static final DatabaseConnection instance = new DatabaseConnection();
-
-    private DatabaseConnection() {
-        // Connect to database
-    }
-
-    public static DatabaseConnection getInstance() {
-        return instance;
-    }
-
-    public void query(String sql) {
-        // Execute query
+        // KIỂM CHỨNG: Liệu hai người có đang dùng chung một thứ?
+        if (s1 == s2) {
+            System.out.println("Thành công! Cả hai đều là cùng một object duy nhất.");
+        } else {
+            System.out.println("Thất bại! Có hai object khác nhau tồn tại.");
+        }
     }
 }
 ```
 
-Trong ví dụ này, DatabaseConnection là một class singleton. Nó có một phương thức getInstance() để truy cập instance duy nhất của class.
+Kết quả in ra màn hình sẽ luôn là **"Thành công!"**. Dù bạn có gọi `getInstance()` cả nghìn lần ở nghìn nơi khác nhau, bạn vẫn sẽ luôn nhận về đúng một object đó mà thôi.
 
-## So sánh
+## So sánh: Singleton vs Static Class
 
-Singleton Pattern có thể được so sánh với một số Design Pattern tương tự, chẳng hạn như:
+Một thắc mắc phổ biến: *"Tại sao không dùng Static Class thay vì Singleton?"*
 
-- Factory Pattern: Factory Pattern cung cấp một cách để tạo các đối tượng của lớp một cách linh hoạt. Tuy nhiên, Factory Pattern không đảm bảo rằng chỉ có một đối tượng của lớp được tạo ra.
-- Prototype Pattern: Prototype Pattern cung cấp một cách để tạo các bản sao của đối tượng. Prototype Pattern cũng có thể được sử dụng để tạo một đối tượng duy nhất của lớp. Tuy nhiên, Prototype Pattern có thể phức tạp hơn Singleton Pattern.
+| Tiêu chí | Singleton Pattern | Static Class |
+| :--- | :--- | :--- |
+| **Giao diện (Interface)** | ✅ Có thể implement Interface (Tính đa hình) | ❌ Không thể |
+| **Khởi tạo (Init)** | ✅ Có thể Lazy Loading, xử lý logic phức tạp trong Constructor | ❌ Static block thường khó kiểm soát hơn |
+| **Truyền tham số** | ✅ Có thể truyền config vào `getInstance(config)` | ❌ Không hỗ trợ |
+| **Quản lý** | ✅ Được quản lý như một Object bình thường | ❌ Gắn chặt với ClassLoader |
 
-## Lưu ý
+-> Dùng **Static Class** khi chỉ đơn thuần là bộ thư viện tiện ích (Utils) như `Math.abs()`, `StringUtils.isEmpty()`.
+-> Dùng **Singleton** khi cần quản lý tài nguyên (Connection, Config) và cần tính linh hoạt của OOP.
 
-Khi áp dụng Singleton Pattern, cần lưu ý một số điểm sau:
+## Lưu ý (Cần đọc)
 
-- Singleton Pattern có thể làm giảm tính linh hoạt của ứng dụng. Ví dụ, nếu bạn cần tạo ra nhiều instance của một class, bạn sẽ cần phải thay đổi code để xóa phương thức getInstance().
-- Singleton Pattern có thể gây ra vấn đề khi test. Ví dụ, nếu bạn đang test một class sử dụng Singleton Pattern, bạn sẽ cần tạo ra một instance giả của class đó.
+Singleton là con dao hai lưỡi. Đừng lạm dụng nó!
 
+1.  **Kẻ thù của Unit Test:** Singleton giữ trạng thái toàn cục (Global State). Hãy tưởng tượng Test Case A chạy xong nhưng quên "dọn dẹp" (reset) dữ liệu trong Singleton, làm cho Test Case B chạy sau bị lỗi oan ức.
+2.  **Vi phạm Single Responsibility:** Lớp Singleton vừa phải lo nghiệp vụ của nó, vừa phải lo quản lý việc "sinh đẻ" (khởi tạo) của chính nó.
+3.  **Trong thế giới hiện đại (Dependency Injection):** Nếu bạn dùng **Spring Boot** hay các DI Framework, bản thân chúng đã tự quản lý các Bean theo scope Singleton rồi. Bạn **hiếm khi** cần phải tự tay viết code Singleton thủ công như bài học này nữa.
 
 ## Kết luận
 
-Singleton Pattern là một Design Pattern hữu ích trong những trường hợp cần đảm bảo rằng chỉ có một thể hiện duy nhất của một lớp được tạo ra. Tuy nhiên, cần lưu ý những điểm hạn chế của Singleton Pattern khi áp dụng.
+**Quy tắc vàng (Golden Rules):**
 
-Dưới đây là một số hướng dẫn sử dụng Singleton Pattern:
+*   ✅ **NÊN DÙNG:** Cho các tài nguyên cần chia sẻ chung và quản lý tập trung: **Logger, Configuration, Caching, Database Connection Pool.**
+*   ⛔️ **TUYỆT ĐỐI TRÁNH:** Dùng Singleton như một "cái túi thần kỳ" để truyền biến loạn xạ giữa các màn hình. Điều này sẽ tạo ra "Spaghetti Code" không thể bảo trì.
 
+## Ví dụ Code & Nâng cao
 
-- Nên sử dụng Singleton Pattern khi cần đảm bảo rằng chỉ có một thể hiện duy nhất của một lớp được tạo ra.
-- Tránh sử dụng Singleton Pattern khi không cần thiết.
-- Hạn chế sử dụng Singleton trong các hệ thống lớn hoặc phức tạp.
+Phần trên chúng ta đã tìm hiểu về khái niệm và cách triển khai cơ bản. Tuy nhiên, trong môi trường Production thực tế (đặc biệt là Đa luồng), chúng ta cần những kỹ thuật chuyên sâu hơn.
 
-## Ví dụ Code
+Bạn có thể tham khảo **Mã nguồn đầy đủ (Full Source Code)** tại link bên dưới, bao gồm các triển khai nâng cao:
+*  **Thread-Safe Singleton** (Double-Checked Locking)
 
-Bạn có thể xem mã nguồn đầy đủ và hướng dẫn chạy thử tại: [Singleton Example README](../../src/main/java/design/patterns/creational/singleton/README.md)
+👉 [Xem Code chi tiết tại đây](../../src/main/java/design/patterns/creational/singleton/README.md)
 
-
-
+---
+Good luck! Nếu thấy bài viết này hữu ích, hãy ủng hộ project bằng cách bấm **Star** ⭐️ hoặc **Fork** 🔄 nhé! Cảm ơn bạn rất nhiều!
