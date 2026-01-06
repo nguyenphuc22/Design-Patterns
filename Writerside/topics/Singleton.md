@@ -46,19 +46,12 @@ Nó giải quyết vấn đề bằng cách **tự mình quản lý chính mình
 
 ```mermaid
 graph TD
-
-    A[User Management System] --> B[Singleton Manager]
-
-    B --> C[Module 1]
-    B --> D[Module 2]
-    B --> E[Module 3]
-
-    classDef grey fill:#dddddd,stroke:#333333,stroke-width:2px;
-    classDef pink fill:#ffd6d6,stroke:#333,stroke-width:2px;
-
-    class A grey
-    class B grey
-    class C,D,E pink
+    subgraph "With Singleton (Order)"
+        C1[Client A<br/>Login Screen] -- "getInstance()" --> S[Shared Singleton<br/>Lang: Tiếng Việt]
+        C2[Client B<br/>Payment Screen] -- "getInstance()" --> S
+    end
+    
+    style S fill:#ccffcc,stroke:#00aa00,stroke-width:2px
 ```
 
 **Cơ chế hoạt động:**
